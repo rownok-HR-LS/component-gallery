@@ -9,3 +9,4 @@ npm-debug.log*
 
 # Agent logs can mention internal work, so they stay out of the public repo.
 agent-logs/
+notes/
