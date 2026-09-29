@@ -33,7 +33,7 @@ Builds the site and force-pushes `out/` to the `gh-pages` branch, which GitHub P
 
 | Week | Dates | Components |
 |------|-------|------------|
-| 1 | Oct 1 – Oct 7 | |
+| 1 | Oct 1 – Oct 7 | [Loan / EMI Calculator](https://rownok-hr-ls.github.io/component-gallery/components/loan-emi-calculator/), [Unit Converter Dial](https://rownok-hr-ls.github.io/component-gallery/components/unit-converter-dial/) |
 | 2 | Oct 8 – Oct 14 | |
 | 3 | Oct 15 – Oct 21 | |
 | 4 | Oct 22 – Oct 28 | |

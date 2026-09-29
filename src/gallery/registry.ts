@@ -1,5 +1,6 @@
 import type { ComponentType } from "react";
 import LoanEmiCalculator from "./loan-emi-calculator/Demo";
+import UnitConverterDial from "./unit-converter-dial/Demo";
 
 export type GalleryEntry = {
   /** URL segment: /components/<slug>. Must match the folder name in src/gallery/. */
@@ -23,6 +24,15 @@ export const gallery: GalleryEntry[] = [
     week: 1,
     addedOn: "2026-09-30",
     Demo: LoanEmiCalculator,
+  },
+  {
+    slug: "unit-converter-dial",
+    name: "Unit Converter Dial",
+    description:
+      "Spin a rotary knob to switch between distance, temperature and weight, then type in either box to convert live.",
+    week: 1,
+    addedOn: "2026-09-30",
+    Demo: UnitConverterDial,
   },
 ];
 
