@@ -14,6 +14,8 @@ rmSync("out", { recursive: true, force: true });
 run("npm run build");
 
 run("git init -q -b gh-pages", "out");
+// Windows limits paths to 260 characters unless git is told otherwise.
+run("git config core.longpaths true", "out");
 run("git add -A", "out");
 run(`git -c user.name="${name}" -c user.email="${email}" commit -q -m "Deploy ${commit}"`, "out");
 run(`git push -f -q ${remote} gh-pages`, "out");
