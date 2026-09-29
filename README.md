@@ -2,7 +2,8 @@
 
 My entry for the LofiStack 90-day challenge (Oct 1 – Dec 29, 2026): new UI components every week, each on its own page with a live demo and full source.
 
-Built with Next.js (App Router) and TypeScript, deployed on Vercel.
+Built with Next.js (App Router) and TypeScript, exported as static HTML and hosted on GitHub Pages:
+https://rownok-hr-ls.github.io/component-gallery/
 
 ## Run locally
 
@@ -11,14 +12,22 @@ npm install
 npm run dev
 ```
 
-Open http://localhost:3000.
+Open http://localhost:3000/component-gallery.
+
+## Deploy
+
+```bash
+npm run deploy
+```
+
+Builds the site and force-pushes `out/` to the `gh-pages` branch, which GitHub Pages serves.
 
 ## Adding a component
 
 1. Create a folder `src/gallery/<slug>/`, for example `src/gallery/glass-button/`.
 2. Put the component, its styles (`*.module.css`), and a `Demo.tsx` in that folder. Every file in the folder is shown as source on the component's page.
 3. Import the `Demo` in `src/gallery/registry.ts` and add an entry to `gallery`.
-4. Push to `main`. Vercel redeploys, and the component is live at `/components/<slug>`.
+4. Push to `main`, then run `npm run deploy`. The component is live at `/component-gallery/components/<slug>/`.
 
 ## Log
 
