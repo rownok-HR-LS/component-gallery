@@ -2,7 +2,7 @@
 import { execSync } from "node:child_process";
 import { rmSync } from "node:fs";
 
-const run = (cmd, cwd) => execSync(cmd, { stdio: "inherit", cwd });
+const run = (cmd, cwd, env) => execSync(cmd, { stdio: "inherit", cwd, env: { ...process.env, ...env } });
 const read = (cmd) => execSync(cmd).toString().trim();
 
 const remote = read("git remote get-url origin");
@@ -11,7 +11,7 @@ const email = read("git config user.email");
 const commit = read("git rev-parse --short HEAD");
 
 rmSync("out", { recursive: true, force: true });
-run("npm run build");
+run("npm run build", undefined, { NEXT_DIST_DIR: ".next-deploy" });
 
 run("git init -q -b gh-pages", "out");
 // Windows limits paths to 260 characters unless git is told otherwise.
