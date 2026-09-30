@@ -1,6 +1,7 @@
 import type { ComponentType } from "react";
 import LoanEmiCalculator from "./loan-emi-calculator/Demo";
 import UnitConverterDial from "./unit-converter-dial/Demo";
+import PasswordStrengthMeter from "./password-strength-meter/Demo";
 
 export type GalleryEntry = {
   /** URL segment: /components/<slug>. Must match the folder name in src/gallery/. */
@@ -33,6 +34,15 @@ export const gallery: GalleryEntry[] = [
     week: 1,
     addedOn: "2026-09-30",
     Demo: UnitConverterDial,
+  },
+  {
+    slug: "password-strength-meter",
+    name: "Password Strength Meter",
+    description:
+      "Estimates how long a password would take to crack, spots common words and patterns, and gives one specific tip to make it stronger.",
+    week: 2,
+    addedOn: "2026-09-30",
+    Demo: PasswordStrengthMeter,
   },
 ];
 
