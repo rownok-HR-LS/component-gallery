@@ -20,7 +20,7 @@ Open http://localhost:3000/component-gallery.
 npm run deploy
 ```
 
-Builds the site and force-pushes `out/` to the `gh-pages` branch, which GitHub Pages serves.
+Builds the site into `.next-deploy/` (separate from the dev server's `.next/`) and force-pushes it to the `gh-pages` branch, which GitHub Pages serves.
 
 ## Adding a component
 
