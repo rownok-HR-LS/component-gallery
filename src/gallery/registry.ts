@@ -2,6 +2,7 @@ import type { ComponentType } from "react";
 import LoanEmiCalculator from "./loan-emi-calculator/Demo";
 import UnitConverterDial from "./unit-converter-dial/Demo";
 import PasswordStrengthMeter from "./password-strength-meter/Demo";
+import CustomerLifetimeValue from "./customer-lifetime-value/Demo";
 
 export type GalleryEntry = {
   /** URL segment: /components/<slug>. Must match the folder name in src/gallery/. */
@@ -43,6 +44,15 @@ export const gallery: GalleryEntry[] = [
     week: 2,
     addedOn: "2026-09-30",
     Demo: PasswordStrengthMeter,
+  },
+  {
+    slug: "customer-lifetime-value",
+    name: "Customer Lifetime Value Calculator",
+    description:
+      "Compares what a customer earns you over their lifetime with what it costs to win them, charts when they pay back, and tells you which lever gets you to a healthy 3 : 1.",
+    week: 2,
+    addedOn: "2026-09-30",
+    Demo: CustomerLifetimeValue,
   },
 ];
 
