@@ -1,0 +1,79 @@
+.frame {
+  --surface: #fcfcfb;
+  --ink: #0b0b0b;
+  --ink-2: #52514e;
+  --muted: #898781;
+  --border: rgba(11, 11, 11, 0.1);
+  --field: #f2f1ee;
+
+  position: relative;
+  width: 100%;
+  max-width: 640px;
+  min-height: 440px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--surface);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 16px 40px -16px rgba(0, 0, 0, 0.25);
+  color: var(--ink);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  .frame {
+    --surface: #17171a;
+    --ink: #ffffff;
+    --ink-2: #c3c2b7;
+    --border: rgba(255, 255, 255, 0.1);
+    --field: #222226;
+    box-shadow: 0 16px 40px -16px rgba(0, 0, 0, 0.7);
+  }
+}
+
+.chrome {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  height: 40px;
+  padding: 0 14px;
+  border-bottom: 1px solid var(--border);
+  background: var(--field);
+}
+.chrome span { width: 11px; height: 11px; border-radius: 50%; background: #ff5f57; }
+.chrome span:nth-child(2) { background: #febc2e; }
+.chrome span:nth-child(3) { background: #28c840; }
+.chrome strong { margin-left: 10px; color: var(--ink-2); font-size: 12.5px; font-weight: 600; }
+
+/* Bottom padding leaves room for the toast stack so it doesn't cover the buttons. */
+.body { padding: 22px 22px 130px; }
+.heading { margin: 0 0 12px; color: var(--ink-2); font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(150px, 40%), 1fr)); gap: 8px; }
+.trigger {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 11px 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface);
+  color: var(--ink);
+  font: inherit;
+  font-size: 13.5px;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+.trigger:hover { background: var(--field); }
+.trigger:active { transform: scale(0.98); }
+.trigger:focus-visible { outline: 2px solid #2e90fa; outline-offset: 2px; }
+
+.dot { width: 8px; height: 8px; flex: none; border-radius: 50%; background: #2e90fa; }
+.trigger[data-tone="success"] .dot { background: #12b76a; }
+.trigger[data-tone="warning"] .dot { background: #f79009; }
+.trigger[data-tone="error"] .dot { background: #f04438; }
+.trigger[data-tone="loading"] .dot { background: var(--muted); }
+.trigger[data-tone="burst"] .dot { background: conic-gradient(#12b76a 0 25%, #2e90fa 0 50%, #f79009 0 75%, #f04438 0); }
+
+.hint { margin: 14px 0 0; color: var(--muted); font-size: 12px; }

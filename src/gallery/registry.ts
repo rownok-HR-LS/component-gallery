@@ -5,6 +5,8 @@ import PasswordStrengthMeter from "./password-strength-meter/Demo";
 import CustomerLifetimeValue from "./customer-lifetime-value/Demo";
 import PhotoResizer from "./photo-resizer/Demo";
 import MorphingSubmitButton from "./morphing-submit-button/Demo";
+import SpinTheWheel from "./spin-the-wheel/Demo";
+import StackingToasts from "./stacking-toasts/Demo";
 
 export type GalleryEntry = {
   /** URL segment: /components/<slug>. Must match the folder name in src/gallery/. */
@@ -73,6 +75,24 @@ export const gallery: GalleryEntry[] = [
     week: 3,
     addedOn: "2026-10-07",
     Demo: MorphingSubmitButton,
+  },
+  {
+    slug: "spin-the-wheel",
+    name: "Spin-the-Wheel Picker",
+    description:
+      "Paste names and spin a wheel that slows down realistically, with a ticking pointer, blinking rim lights and a fair, cryptographically random winner.",
+    week: 4,
+    addedOn: "2026-10-08",
+    Demo: SpinTheWheel,
+  },
+  {
+    slug: "stacking-toasts",
+    name: "Stacking Toast Notifications",
+    description:
+      "Toasts that stack like cards, fan out on hover, pause their timers, swipe away, and turn loading into success, with Undo and Retry actions.",
+    week: 4,
+    addedOn: "2026-10-08",
+    Demo: StackingToasts,
   },
 ];
 
