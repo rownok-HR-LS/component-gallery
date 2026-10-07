@@ -8,13 +8,29 @@ export type Status = "idle" | "loading" | "success" | "error";
 type Props = Omit<ButtonHTMLAttributes<HTMLButtonElement>, "children"> & {
   status: Status;
   label: string;
+  /** Stretch to the container's width while idle. */
+  block?: boolean;
   /** Read out by screen readers for each state. */
   messages?: Partial<Record<Exclude<Status, "idle">, string>>;
 };
 
-const COLORS = ["#2a78d6", "#eb6834", "#1baf7a", "#eda100", "#e87ba4", "#4a3aa7"];
+const COLORS = ["#8b7dff", "#4cc9f0", "#f72585", "#ffd166", "#06d6a0", "#ffffff"];
+const LIFETIME = 110;
 
-type Particle = { x: number; y: number; vx: number; vy: number; size: number; spin: number; angle: number; color: string; round: boolean };
+type Particle = {
+  x: number;
+  y: number;
+  vx: number;
+  vy: number;
+  w: number;
+  h: number;
+  spin: number;
+  angle: number;
+  flip: number;
+  flipSpeed: number;
+  color: string;
+  round: boolean;
+};
 
 function burst(canvas: HTMLCanvasElement) {
   const ctx = canvas.getContext("2d");
@@ -25,20 +41,24 @@ function burst(canvas: HTMLCanvasElement) {
   canvas.height = height * dpr;
   ctx.scale(dpr, dpr);
 
-  const particles: Particle[] = Array.from({ length: 70 }, () => {
-    // Mostly upwards, fanning out to the sides.
-    const angle = -Math.PI / 2 + (Math.random() - 0.5) * Math.PI * 0.9;
-    const speed = 4 + Math.random() * 6;
+  const particles: Particle[] = Array.from({ length: 110 }, () => {
+    // Two fans, up-left and up-right, so the burst frames the button.
+    const side = Math.random() < 0.5 ? -1 : 1;
+    const angle = -Math.PI / 2 + side * (0.25 + Math.random() * 0.75);
+    const speed = 5 + Math.random() * 7;
     return {
       x: width / 2,
       y: height / 2,
       vx: Math.cos(angle) * speed,
       vy: Math.sin(angle) * speed,
-      size: 4 + Math.random() * 5,
-      spin: (Math.random() - 0.5) * 0.4,
+      w: 5 + Math.random() * 4,
+      h: 8 + Math.random() * 6,
+      spin: (Math.random() - 0.5) * 0.3,
       angle: Math.random() * Math.PI,
+      flip: Math.random() * Math.PI,
+      flipSpeed: 0.15 + Math.random() * 0.2,
       color: COLORS[Math.floor(Math.random() * COLORS.length)],
-      round: Math.random() < 0.3,
+      round: Math.random() < 0.25,
     };
   });
 
@@ -47,34 +67,39 @@ function burst(canvas: HTMLCanvasElement) {
   const tick = () => {
     frame++;
     ctx.clearRect(0, 0, width, height);
-    ctx.globalAlpha = Math.max(0, 1 - frame / 75);
+    // Full strength for most of the flight, then fade out.
+    ctx.globalAlpha = frame < 75 ? 1 : Math.max(0, 1 - (frame - 75) / (LIFETIME - 75));
     for (const p of particles) {
-      p.vy += 0.22;
-      p.vx *= 0.985;
+      p.vy += 0.2;
+      p.vx *= 0.97;
+      p.vy *= 0.985;
       p.x += p.vx;
       p.y += p.vy;
       p.angle += p.spin;
+      p.flip += p.flipSpeed;
       ctx.save();
       ctx.translate(p.x, p.y);
       ctx.rotate(p.angle);
       ctx.fillStyle = p.color;
       if (p.round) {
         ctx.beginPath();
-        ctx.arc(0, 0, p.size / 2, 0, Math.PI * 2);
+        ctx.arc(0, 0, p.w / 2, 0, Math.PI * 2);
         ctx.fill();
       } else {
-        ctx.fillRect(-p.size / 2, -p.size, p.size, p.size * 1.8);
+        // Squashing the height makes the paper look like it's flipping.
+        const h = p.h * Math.abs(Math.cos(p.flip));
+        ctx.fillRect(-p.w / 2, -h / 2, p.w, Math.max(1, h));
       }
       ctx.restore();
     }
-    if (frame < 75) raf = requestAnimationFrame(tick);
+    if (frame < LIFETIME) raf = requestAnimationFrame(tick);
     else ctx.clearRect(0, 0, width, height);
   };
   raf = requestAnimationFrame(tick);
   return () => cancelAnimationFrame(raf);
 }
 
-export default function MorphButton({ status, label, messages, className, ...rest }: Props) {
+export default function MorphButton({ status, label, block = false, messages, className, ...rest }: Props) {
   const confetti = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -87,7 +112,7 @@ export default function MorphButton({ status, label, messages, className, ...res
   const announce = status === "idle" ? "" : messages?.[status] ?? "";
 
   return (
-    <span className={styles.wrap}>
+    <span className={styles.wrap} data-block={block}>
       <canvas ref={confetti} className={styles.confetti} aria-hidden="true" />
       <button
         {...rest}
@@ -96,12 +121,18 @@ export default function MorphButton({ status, label, messages, className, ...res
         aria-disabled={busy}
         onClick={busy ? (e) => e.preventDefault() : rest.onClick}
       >
-        <span className={styles.fill} data-tone="success" />
-        <span className={styles.fill} data-tone="error" />
-        <span className={styles.label}>{label}</span>
-        <svg className={styles.spinner} viewBox="0 0 24 24" aria-hidden="true">
-          <circle cx="12" cy="12" r="9" />
-        </svg>
+        <span className={styles.halo} aria-hidden="true" />
+        <span className={styles.ring} aria-hidden="true" />
+        <span className={styles.surface} aria-hidden="true" />
+        <span className={styles.fill} data-tone="success" aria-hidden="true" />
+        <span className={styles.fill} data-tone="error" aria-hidden="true" />
+        <span className={styles.pulse} aria-hidden="true" />
+        <span className={styles.content}>
+          <span className={styles.label}>{label}</span>
+          <svg className={styles.plane} viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M21 3 10.5 13.5M21 3l-6.5 18-4-7.5L3 9.5 21 3Z" />
+          </svg>
+        </span>
         <svg className={styles.check} viewBox="0 0 24 24" aria-hidden="true">
           <path d="M5 12.5 10 17.5 19 7" />
         </svg>
