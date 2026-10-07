@@ -35,7 +35,7 @@ Builds the site into `.next-deploy/` (separate from the dev server's `.next/`) a
 |------|-------|------------|
 | 1 | Oct 1 – Oct 7 | [Loan / EMI Calculator](https://rownok-hr-ls.github.io/component-gallery/components/loan-emi-calculator/), [Unit Converter Dial](https://rownok-hr-ls.github.io/component-gallery/components/unit-converter-dial/) |
 | 2 | Oct 8 – Oct 14 | [Password Strength Meter](https://rownok-hr-ls.github.io/component-gallery/components/password-strength-meter/), [Customer Lifetime Value Calculator](https://rownok-hr-ls.github.io/component-gallery/components/customer-lifetime-value/) |
-| 3 | Oct 15 – Oct 21 | |
+| 3 | Oct 15 – Oct 21 | [Photo Resizer for Official Forms](https://rownok-hr-ls.github.io/component-gallery/components/photo-resizer/), [Morphing Submit Button](https://rownok-hr-ls.github.io/component-gallery/components/morphing-submit-button/) |
 | 4 | Oct 22 – Oct 28 | |
 | 5 | Oct 29 – Nov 4 | |
 | 6 | Nov 5 – Nov 11 | |

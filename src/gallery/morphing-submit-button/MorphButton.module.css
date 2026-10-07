@@ -1,0 +1,102 @@
+.wrap {
+  --from: #6d5dfc;
+  --to: #a35dfc;
+  --success: #0ca30c;
+  --error: #d03b3b;
+  --ease: cubic-bezier(0.65, 0, 0.35, 1);
+
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+}
+
+.confetti {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 340px;
+  height: 260px;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+}
+
+.button {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 200px;
+  height: 52px;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  border-radius: 26px;
+  background: linear-gradient(135deg, var(--from), var(--to));
+  box-shadow: 0 10px 24px -10px color-mix(in srgb, var(--from) 80%, transparent);
+  color: #fff;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  transition: width 0.5s var(--ease), box-shadow 0.3s ease, transform 0.15s ease;
+}
+.button > * { grid-area: 1 / 1; }
+.button:hover { transform: translateY(-1px); box-shadow: 0 14px 28px -10px color-mix(in srgb, var(--from) 90%, transparent); }
+.button:active { transform: scale(0.97); }
+.button:focus-visible { outline: 2px solid var(--from); outline-offset: 3px; }
+
+/* Shine sweep on hover */
+.button::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 30%, rgba(255, 255, 255, 0.35) 50%, transparent 70%);
+  transform: translateX(-120%);
+  transition: transform 0.7s ease;
+}
+.button[data-status="idle"]:hover::after { transform: translateX(120%); }
+
+.button:not([data-status="idle"]) { width: 52px; cursor: default; }
+.button:not([data-status="idle"]):hover { transform: none; }
+
+.fill { position: absolute; inset: 0; opacity: 0; transition: opacity 0.3s ease; }
+.fill[data-tone="success"] { background: var(--success); }
+.fill[data-tone="error"] { background: var(--error); }
+.button[data-status="success"] .fill[data-tone="success"],
+.button[data-status="error"] .fill[data-tone="error"] { opacity: 1; }
+.button[data-status="success"] { box-shadow: 0 10px 24px -10px color-mix(in srgb, var(--success) 80%, transparent); }
+.button[data-status="error"] {
+  box-shadow: 0 10px 24px -10px color-mix(in srgb, var(--error) 80%, transparent);
+  animation: shake 0.45s 0.25s var(--ease);
+}
+
+.label { position: relative; white-space: nowrap; transition: opacity 0.25s ease 0.2s, transform 0.25s ease 0.2s; }
+.button:not([data-status="idle"]) .label { opacity: 0; transform: scale(0.8); transition-delay: 0s; transition-duration: 0.12s; }
+
+.spinner,
+.check,
+.cross { position: relative; width: 24px; height: 24px; fill: none; stroke: #fff; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+
+.spinner { opacity: 0; transition: opacity 0.2s ease; }
+.spinner circle { stroke-dasharray: 40 100; stroke-opacity: 0.95; }
+.button[data-status="loading"] .spinner { opacity: 1; transition-delay: 0.3s; animation: spin 0.8s linear infinite; }
+
+/* Tick and cross draw themselves in. */
+.check path { stroke-dasharray: 24; stroke-dashoffset: 24; transition: stroke-dashoffset 0.4s var(--ease) 0.15s; }
+.button[data-status="success"] .check path { stroke-dashoffset: 0; }
+.cross path { stroke-dasharray: 30; stroke-dashoffset: 30; transition: stroke-dashoffset 0.35s var(--ease) 0.1s; }
+.button[data-status="error"] .cross path { stroke-dashoffset: 0; }
+
+.srOnly { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes shake {
+  20%, 60% { transform: translateX(-7px); }
+  40%, 80% { transform: translateX(7px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button { transition: none; }
+  .button[data-status="error"] { animation: none; }
+  .button[data-status="loading"] .spinner { animation-duration: 2s; }
+}
