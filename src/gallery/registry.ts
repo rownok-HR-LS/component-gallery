@@ -3,6 +3,8 @@ import LoanEmiCalculator from "./loan-emi-calculator/Demo";
 import UnitConverterDial from "./unit-converter-dial/Demo";
 import PasswordStrengthMeter from "./password-strength-meter/Demo";
 import CustomerLifetimeValue from "./customer-lifetime-value/Demo";
+import PhotoResizer from "./photo-resizer/Demo";
+import MorphingSubmitButton from "./morphing-submit-button/Demo";
 
 export type GalleryEntry = {
   /** URL segment: /components/<slug>. Must match the folder name in src/gallery/. */
@@ -53,6 +55,24 @@ export const gallery: GalleryEntry[] = [
     week: 2,
     addedOn: "2026-09-30",
     Demo: CustomerLifetimeValue,
+  },
+  {
+    slug: "photo-resizer",
+    name: "Photo Resizer for Official Forms",
+    description:
+      "Crop, resize and compress a photo to the exact pixel size and KB limit a job, passport or visa form asks for, without it ever leaving your device.",
+    week: 3,
+    addedOn: "2026-10-07",
+    Demo: PhotoResizer,
+  },
+  {
+    slug: "morphing-submit-button",
+    name: "Morphing Submit Button",
+    description:
+      "A submit button that shrinks into a spinner, then bursts into a self-drawing checkmark with confetti, or shakes red on error.",
+    week: 3,
+    addedOn: "2026-10-07",
+    Demo: MorphingSubmitButton,
   },
 ];
 
