@@ -8,14 +8,18 @@
     "deploy": "node scripts/deploy.mjs"
   },
   "dependencies": {
+    "leaflet": "^1.9.4",
     "next": "^15.5.4",
     "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react-dom": "^19.1.0",
+    "three": "^0.186.1"
   },
   "devDependencies": {
+    "@types/leaflet": "^1.9.22",
     "@types/node": "^22.0.0",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
+    "@types/three": "^0.186.0",
     "typescript": "^5.6.0"
   }
 }
