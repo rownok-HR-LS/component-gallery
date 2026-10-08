@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Demo } from "@/gallery/demos";
 import { gallery } from "@/gallery/registry";
 
 const GOAL = 30;
@@ -34,7 +35,7 @@ export default function Home() {
           {entries.map((entry) => (
             <li key={entry.slug} className="card">
               <div className="card-preview">
-                <entry.Demo />
+                <Demo slug={entry.slug} />
               </div>
               <div className="card-body">
                 <span className="tag">Week {entry.week}</span>

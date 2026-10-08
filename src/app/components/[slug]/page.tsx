@@ -3,6 +3,7 @@ import path from "node:path";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { Demo } from "@/gallery/demos";
 import { gallery, getEntry } from "@/gallery/registry";
 import { CopyButton } from "../../CopyButton";
 
@@ -52,7 +53,7 @@ export default async function ComponentPage({ params }: Props) {
       </header>
 
       <section className="stage" aria-label="Live demo">
-        <entry.Demo />
+        <Demo slug={entry.slug} />
       </section>
 
       <section className="source">
