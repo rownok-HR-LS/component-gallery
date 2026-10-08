@@ -37,7 +37,7 @@ Builds the site into `.next-deploy/` (separate from the dev server's `.next/`) a
 | 2 | Oct 8 – Oct 14 | [Password Strength Meter](https://rownok-hr-ls.github.io/component-gallery/components/password-strength-meter/), [Customer Lifetime Value Calculator](https://rownok-hr-ls.github.io/component-gallery/components/customer-lifetime-value/) |
 | 3 | Oct 15 – Oct 21 | [Photo Resizer for Official Forms](https://rownok-hr-ls.github.io/component-gallery/components/photo-resizer/), [Morphing Submit Button](https://rownok-hr-ls.github.io/component-gallery/components/morphing-submit-button/) |
 | 4 | Oct 22 – Oct 28 | [Spin-the-Wheel Picker](https://rownok-hr-ls.github.io/component-gallery/components/spin-the-wheel/), [Stacking Toast Notifications](https://rownok-hr-ls.github.io/component-gallery/components/stacking-toasts/) |
-| 5 | Oct 29 – Nov 4 | |
+| 5 | Oct 29 – Nov 4 | [Document Scanner](https://rownok-hr-ls.github.io/component-gallery/components/document-scanner/), [Text Diff Checker](https://rownok-hr-ls.github.io/component-gallery/components/text-diff/) |
 | 6 | Nov 5 – Nov 11 | |
 | 7 | Nov 12 – Nov 18 | |
 | 8 | Nov 19 – Nov 25 | |

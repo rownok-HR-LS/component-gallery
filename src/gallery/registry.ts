@@ -7,6 +7,8 @@ import PhotoResizer from "./photo-resizer/Demo";
 import MorphingSubmitButton from "./morphing-submit-button/Demo";
 import SpinTheWheel from "./spin-the-wheel/Demo";
 import StackingToasts from "./stacking-toasts/Demo";
+import DocumentScanner from "./document-scanner/Demo";
+import TextDiff from "./text-diff/Demo";
 
 export type GalleryEntry = {
   /** URL segment: /components/<slug>. Must match the folder name in src/gallery/. */
@@ -93,6 +95,24 @@ export const gallery: GalleryEntry[] = [
     week: 4,
     addedOn: "2026-10-08",
     Demo: StackingToasts,
+  },
+  {
+    slug: "document-scanner",
+    name: "Document Scanner",
+    description:
+      "Turn a phone photo of a page into a flat, clean scan: auto-detected corners, perspective correction, shadow-removing B&W filter and multi-page PDF export, all in the browser.",
+    week: 5,
+    addedOn: "2026-10-08",
+    Demo: DocumentScanner,
+  },
+  {
+    slug: "text-diff",
+    name: "Text Diff Checker",
+    description:
+      "Compare two versions of a contract, policy or document with the Myers diff algorithm: line and word-level highlights, split or unified view, and jump between changes.",
+    week: 5,
+    addedOn: "2026-10-08",
+    Demo: TextDiff,
   },
 ];
 
