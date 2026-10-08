@@ -26,7 +26,7 @@ Builds the site into `.next-deploy/` (separate from the dev server's `.next/`) a
 
 1. Create a folder `src/gallery/<slug>/`, for example `src/gallery/glass-button/`.
 2. Put the component, its styles (`*.module.css`), and a `Demo.tsx` in that folder. Every file in the folder is shown as source on the component's page.
-3. Import the `Demo` in `src/gallery/registry.ts` and add an entry to `gallery`.
+3. Add an entry to `gallery` in `src/gallery/registry.ts`, and map the slug to its `Demo` in `src/gallery/demos.tsx` (lazy-loaded, so each page only downloads its own component).
 4. Push to `main`, then run `npm run deploy`. The component is live at `/component-gallery/components/<slug>/`.
 
 ## Log
@@ -39,7 +39,7 @@ Builds the site into `.next-deploy/` (separate from the dev server's `.next/`) a
 | 4 | Oct 22 – Oct 28 | [Spin-the-Wheel Picker](https://rownok-hr-ls.github.io/component-gallery/components/spin-the-wheel/), [Stacking Toast Notifications](https://rownok-hr-ls.github.io/component-gallery/components/stacking-toasts/) |
 | 5 | Oct 29 – Nov 4 | [Document Scanner](https://rownok-hr-ls.github.io/component-gallery/components/document-scanner/), [Text Diff Checker](https://rownok-hr-ls.github.io/component-gallery/components/text-diff/) |
 | 6 | Nov 5 – Nov 11 | [Collaborative Whiteboard](https://rownok-hr-ls.github.io/component-gallery/components/collaborative-whiteboard/), [Live Meeting Captions & Action Items](https://rownok-hr-ls.github.io/component-gallery/components/meeting-captions/) |
-| 7 | Nov 12 – Nov 18 | |
+| 7 | Nov 12 – Nov 18 | [Trip Planner with Live Map](https://rownok-hr-ls.github.io/component-gallery/components/trip-planner/), [Room Planner, 2D to 3D](https://rownok-hr-ls.github.io/component-gallery/components/room-planner/) |
 | 8 | Nov 19 – Nov 25 | |
 | 9 | Nov 26 – Dec 2 | |
 | 10 | Dec 3 – Dec 9 | |
