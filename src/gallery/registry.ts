@@ -9,6 +9,8 @@ import SpinTheWheel from "./spin-the-wheel/Demo";
 import StackingToasts from "./stacking-toasts/Demo";
 import DocumentScanner from "./document-scanner/Demo";
 import TextDiff from "./text-diff/Demo";
+import CollaborativeWhiteboard from "./collaborative-whiteboard/Demo";
+import MeetingCaptions from "./meeting-captions/Demo";
 
 export type GalleryEntry = {
   /** URL segment: /components/<slug>. Must match the folder name in src/gallery/. */
@@ -113,6 +115,24 @@ export const gallery: GalleryEntry[] = [
     week: 5,
     addedOn: "2026-10-08",
     Demo: TextDiff,
+  },
+  {
+    slug: "collaborative-whiteboard",
+    name: "Collaborative Whiteboard",
+    description:
+      "A Miro-style infinite whiteboard: sticky notes, shapes, connectors, pen, frames, snapping, undo/redo, mini-map, templates, PNG/JSON export and live cursors across browser tabs.",
+    week: 6,
+    addedOn: "2026-10-08",
+    Demo: CollaborativeWhiteboard,
+  },
+  {
+    slug: "meeting-captions",
+    name: "Live Meeting Captions & Action Items",
+    description:
+      "Live speech-to-text captions with speaker turns, highlighted deadlines and money, and action items (owner + due date), decisions and questions extracted as people talk.",
+    week: 6,
+    addedOn: "2026-10-09",
+    Demo: MeetingCaptions,
   },
 ];
 
