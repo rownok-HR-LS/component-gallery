@@ -21,7 +21,6 @@ const demos: Record<string, ComponentType> = {
   "meeting-captions": dynamic(() => import("./meeting-captions/Demo")),
   "trip-planner": dynamic(() => import("./trip-planner/Demo")),
   "room-planner": dynamic(() => import("./room-planner/Demo")),
-  "brick-blaster": dynamic(() => import("./brick-blaster/Demo")),
 };
 
 export function Demo({ slug }: { slug: string }) {

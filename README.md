@@ -40,9 +40,17 @@ Builds the site into `.next-deploy/` (separate from the dev server's `.next/`) a
 | 5 | Oct 29 – Nov 4 | [Document Scanner](https://rownok-hr-ls.github.io/component-gallery/components/document-scanner/), [Text Diff Checker](https://rownok-hr-ls.github.io/component-gallery/components/text-diff/) |
 | 6 | Nov 5 – Nov 11 | [Collaborative Whiteboard](https://rownok-hr-ls.github.io/component-gallery/components/collaborative-whiteboard/), [Live Meeting Captions & Action Items](https://rownok-hr-ls.github.io/component-gallery/components/meeting-captions/) |
 | 7 | Nov 12 – Nov 18 | [Trip Planner with Live Map](https://rownok-hr-ls.github.io/component-gallery/components/trip-planner/), [Room Planner, 2D to 3D](https://rownok-hr-ls.github.io/component-gallery/components/room-planner/) |
-| 8 | Nov 19 – Nov 25 | [Brick Blaster (DX-Ball tribute)](https://rownok-hr-ls.github.io/component-gallery/components/brick-blaster/) |
+| 8 | Nov 19 – Nov 25 | |
 | 9 | Nov 26 – Dec 2 | |
 | 10 | Dec 3 – Dec 9 | |
 | 11 | Dec 10 – Dec 16 | |
 | 12 | Dec 17 – Dec 23 | |
 | 13 | Dec 24 – Dec 29 | |
+
+## Games
+
+Side projects, kept separate from the weekly components (they don't count toward the 30). Code lives in `src/games/<slug>/`, pages at `/component-gallery/games/<slug>/`.
+
+| Game | Added |
+|------|-------|
+| [Brick Blaster](https://rownok-hr-ls.github.io/component-gallery/games/brick-blaster/) | 2026-10-09 |
