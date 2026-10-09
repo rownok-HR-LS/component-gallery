@@ -1,5 +1,7 @@
 import { COLS, LEVELS } from "./levels";
 import type { Sound } from "./sound";
+import { Backdrop } from "./backdrop";
+import { POWER_ICONS, type Tone } from "./icons";
 
 // Logical playfield; the canvas scales it to fit.
 export const W = 800;
@@ -26,17 +28,17 @@ type Popup = { x: number; y: number; text: string; life: number; color: string }
 export type PowerKind = "expand" | "shrink" | "multi" | "fire" | "laser" | "catch" | "slow" | "fast" | "life" | "shield";
 export type Phase = "title" | "ready" | "playing" | "paused" | "levelClear" | "gameOver" | "won";
 
-export const POWERS: Record<PowerKind, { label: string; letter: string; good: boolean; color: string; duration?: number; weight: number }> = {
-  expand: { label: "Expand", letter: "E", good: true, color: "#3d7be0", duration: 20, weight: 14 },
-  multi: { label: "Multi-ball", letter: "M", good: true, color: "#8b5cf6", weight: 14 },
-  fire: { label: "Fireball", letter: "F", good: true, color: "#f2862f", duration: 10, weight: 8 },
-  laser: { label: "Laser", letter: "L", good: true, color: "#e2508a", duration: 12, weight: 10 },
-  catch: { label: "Catch", letter: "C", good: true, color: "#46b35e", duration: 15, weight: 10 },
-  slow: { label: "Slow", letter: "W", good: true, color: "#2fb7c9", duration: 12, weight: 10 },
-  life: { label: "Extra life", letter: "+", good: true, color: "#e8c43b", weight: 4 },
-  shield: { label: "Shield", letter: "B", good: true, color: "#6da7ec", weight: 8 },
-  shrink: { label: "Shrink", letter: "S", good: false, color: "#d63c3c", duration: 15, weight: 9 },
-  fast: { label: "Fast ball", letter: "Q", good: false, color: "#d63c3c", duration: 10, weight: 9 },
+export const POWERS: Record<PowerKind, { label: string; good: boolean; color: string; duration?: number; weight: number }> = {
+  expand: { label: "Expand", good: true, color: "#3d7be0", duration: 20, weight: 14 },
+  multi: { label: "Multi-ball", good: true, color: "#8b5cf6", weight: 14 },
+  fire: { label: "Fireball", good: true, color: "#f2862f", duration: 10, weight: 8 },
+  laser: { label: "Laser", good: true, color: "#e2508a", duration: 12, weight: 10 },
+  catch: { label: "Catch", good: true, color: "#46b35e", duration: 15, weight: 10 },
+  slow: { label: "Slow", good: true, color: "#2fb7c9", duration: 12, weight: 10 },
+  life: { label: "Extra life", good: true, color: "#e8c43b", weight: 4 },
+  shield: { label: "Shield", good: true, color: "#6da7ec", weight: 8 },
+  shrink: { label: "Shrink", good: false, color: "#d63c3c", duration: 15, weight: 9 },
+  fast: { label: "Fast ball", good: false, color: "#d63c3c", duration: 10, weight: 9 },
 };
 
 const PALETTE: Record<string, string> = { r: "#e5484d", o: "#f2862f", y: "#e8c43b", g: "#46b35e", c: "#2fb7c9", b: "#3d7be0", p: "#a35be0", w: "#d9d9de" };
@@ -102,7 +104,8 @@ export class Game {
   touch = false;
   /** On-screen CSS pixels per logical unit; small screens get a bigger ball and text. */
   viewScale = 1;
-  private stars = Array.from({ length: 260 }, () => ({ x: Math.random() * W, y: Math.random() * MAX_H, s: Math.random() * 1.5 + 0.3, t: Math.random() * 6.28 }));
+  private backdrop = new Backdrop(W);
+  private icons: Partial<Record<PowerKind, { path: Path2D; tone: Tone }[]>> = {};
 
   private sound: Sound;
 
@@ -238,7 +241,7 @@ export class Game {
   // ── Simulation ────────────────────────────────────────────────────────────────────
   update(dt: number) {
     this.time += dt;
-    for (const s of this.stars) s.t += dt;
+    this.backdrop.update(dt, this.h, this.reduced);
     this.banner = Math.max(0, this.banner - dt);
     this.shake = Math.max(0, this.shake - dt * 30);
     this.updateEffects(dt);
@@ -313,7 +316,7 @@ export class Game {
       d.spin += h * 4;
     }
     this.drops = this.drops.filter((d) => {
-      const caught = d.y + 10 >= this.paddleY && d.y - 10 <= this.paddleY + PADDLE_H && Math.abs(d.x - p.x) < p.w / 2 + 16;
+      const caught = d.y + 12 >= this.paddleY && d.y - 12 <= this.paddleY + PADDLE_H && Math.abs(d.x - p.x) < p.w / 2 + 20;
       if (caught) this.applyPower(d.kind, d.x);
       return !caught && d.y < this.h + 20;
     });
@@ -570,18 +573,7 @@ export class Game {
   // ── Rendering ─────────────────────────────────────────────────────────────────────
   render(ctx: CanvasRenderingContext2D, scale: number) {
     ctx.setTransform(scale, 0, 0, scale, 0, 0);
-    const bg = ctx.createLinearGradient(0, 0, 0, this.h);
-    bg.addColorStop(0, "#0b1030");
-    bg.addColorStop(0.6, "#1a0f3a");
-    bg.addColorStop(1, "#2a0f2e");
-    ctx.fillStyle = bg;
-    ctx.fillRect(0, 0, W, this.h);
-    for (const s of this.stars) {
-      ctx.globalAlpha = 0.35 + 0.35 * Math.sin(s.t * (this.reduced ? 0 : 1.2) + s.x);
-      ctx.fillStyle = "#cfd8ff";
-      ctx.fillRect(s.x, s.y, s.s, s.s);
-    }
-    ctx.globalAlpha = 1;
+    this.backdrop.draw(ctx, this.h, scale, this.time, this.reduced);
 
     ctx.save();
     if (this.shake > 0) ctx.translate((Math.random() - 0.5) * this.shake, (Math.random() - 0.5) * this.shake);
@@ -643,12 +635,12 @@ export class Game {
       ctx.globalAlpha = Math.min(1, this.banner);
       ctx.font = `800 ${44 * Math.min(this.boost, 1.5)}px system-ui, sans-serif`;
       ctx.fillStyle = "#ffffff";
-      ctx.shadowColor = "#8b5cf6";
+      ctx.shadowColor = "#ff3b1f";
       ctx.shadowBlur = 20;
       ctx.fillText(`LEVEL ${this.level + 1}`, W / 2, this.h / 2 + 20);
       ctx.shadowBlur = 0;
       ctx.font = `600 ${18 * this.boost}px system-ui, sans-serif`;
-      ctx.fillStyle = "#c9c2ff";
+      ctx.fillStyle = "#ffb199";
       ctx.fillText(LEVELS[this.level].name, W / 2, this.h / 2 + 20 + 30 * this.boost);
       ctx.globalAlpha = 1;
     }
@@ -737,8 +729,8 @@ export class Game {
 
   private drawDrop(ctx: CanvasRenderingContext2D, d: Drop) {
     const info = POWERS[d.kind];
-    const w = 38 * this.boost;
-    const h = 16 * this.boost;
+    const w = 48 * this.boost;
+    const h = 24 * this.boost;
     const g = ctx.createLinearGradient(0, d.y - h / 2, 0, d.y + h / 2);
     g.addColorStop(0, mix(info.color, 255, 0.5));
     g.addColorStop(0.5, info.color);
@@ -750,12 +742,28 @@ export class Game {
     ctx.roundRect(d.x - w / 2, d.y - h / 2, w, h, h / 2);
     ctx.fill();
     ctx.shadowBlur = 0;
-    ctx.fillStyle = "#ffffff";
-    ctx.font = `800 ${11 * this.boost}px system-ui, sans-serif`;
-    ctx.textAlign = "center";
-    ctx.textBaseline = "middle";
-    ctx.fillText(info.letter, d.x, d.y + 1);
-    ctx.textBaseline = "alphabetic";
+    // Glossy capsule: dark rim plus a bright highlight band across the top.
+    ctx.strokeStyle = "rgba(0,0,0,0.4)";
+    ctx.lineWidth = 1.2;
+    ctx.stroke();
+    ctx.fillStyle = "rgba(255,255,255,0.3)";
+    ctx.beginPath();
+    ctx.roundRect(d.x - w / 2 + h * 0.3, d.y - h / 2 + 2, w - h * 0.6, h * 0.28, h * 0.14);
+    ctx.fill();
+
+    // Layered icon (shared 24×24 paths) with a soft drop shadow so it reads on any colour.
+    const layers = (this.icons[d.kind] ??= POWER_ICONS[d.kind].map((l) => ({ path: new Path2D(l.d), tone: l.tone })));
+    const size = 20 * this.boost;
+    ctx.save();
+    ctx.translate(d.x - size / 2, d.y - size / 2);
+    ctx.scale(size / 24, size / 24);
+    for (const l of layers) {
+      ctx.shadowColor = l.tone === "main" ? "rgba(0,0,0,0.55)" : "transparent";
+      ctx.shadowBlur = l.tone === "main" ? 3 : 0;
+      ctx.fillStyle = l.tone === "main" ? "#ffffff" : l.tone === "soft" ? "rgba(255,255,255,0.6)" : mix(info.color, 0, 0.35);
+      ctx.fill(l.path, "evenodd");
+    }
+    ctx.restore();
   }
 
   private drawPaddle(ctx: CanvasRenderingContext2D) {

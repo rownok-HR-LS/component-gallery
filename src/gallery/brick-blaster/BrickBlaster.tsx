@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, type KeyboardEvent, type PointerEvent } from "react";
 import { Game, H, MAX_H, POWERS, W, type Snapshot } from "./engine";
+import { POWER_ICONS } from "./icons";
 import { LEVELS } from "./levels";
 import { Sound } from "./sound";
 import styles from "./BrickBlaster.module.css";
@@ -275,9 +276,13 @@ export default function BrickBlaster() {
           </strong>
         </div>
         <div className={styles.powers}>
-          {hud?.shield && <span className={styles.power} style={{ ["--c" as string]: POWERS.shield.color }}>Shield</span>}
+          {hud?.shield && <span className={styles.power} style={{ ["--c" as string]: POWERS.shield.color }}>
+              <PowerIcon kind="shield" />
+              Shield
+            </span>}
           {hud?.timers.map((t) => (
             <span key={t.kind} className={styles.power} style={{ ["--c" as string]: POWERS[t.kind].color }}>
+              <PowerIcon kind={t.kind} />
               {POWERS[t.kind].label}
               <i style={{ width: `${(t.left / t.total) * 100}%` }} />
             </span>
@@ -350,7 +355,9 @@ export default function BrickBlaster() {
             <div className={styles.legend}>
               {(Object.keys(POWERS) as (keyof typeof POWERS)[]).map((k) => (
                 <span key={k} style={{ ["--c" as string]: POWERS[k].color }} title={POWERS[k].good ? "Good" : "Bad"}>
-                  <b>{POWERS[k].letter}</b>
+                  <b>
+                    <PowerIcon kind={k} size={16} />
+                  </b>
                   {POWERS[k].label}
                 </span>
               ))}
@@ -402,6 +409,19 @@ function Icon({ name }: { name: keyof typeof ICONS }) {
   return (
     <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
       <path d={ICONS[name]} fill="currentColor" />
+    </svg>
+  );
+}
+
+// Dark layers take a deeper shade of the power-up colour (--c on the parent), like the capsules.
+const TONE_FILL = { main: "currentColor", soft: "currentColor", dark: "color-mix(in srgb, var(--c) 65%, black)" };
+
+function PowerIcon({ kind, size = 14 }: { kind: keyof typeof POWER_ICONS; size?: number }) {
+  return (
+    <svg viewBox="0 0 24 24" width={size} height={size} aria-hidden="true">
+      {POWER_ICONS[kind].map((l, i) => (
+        <path key={i} d={l.d} fill={TONE_FILL[l.tone]} fillOpacity={l.tone === "soft" ? 0.6 : 1} fillRule="evenodd" />
+      ))}
     </svg>
   );
 }

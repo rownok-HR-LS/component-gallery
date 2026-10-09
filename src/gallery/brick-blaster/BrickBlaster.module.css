@@ -1,16 +1,16 @@
 .shell {
-  --panel: #12122a;
-  --ink: #f4f4ff;
-  --muted: #a8a6d6;
-  --line: rgba(160, 150, 255, 0.18);
+  --panel: #160a0c;
+  --ink: #fff4ef;
+  --muted: #c9a59b;
+  --line: rgba(255, 90, 60, 0.2);
 
   width: 100%;
   max-width: 860px;
   padding: 12px;
   border: 1px solid var(--line);
   border-radius: 20px;
-  background: linear-gradient(180deg, #17173a, #0d0d22);
-  box-shadow: 0 20px 50px -20px rgba(40, 20, 120, 0.6);
+  background: linear-gradient(180deg, #1f0b0d, #0b0506);
+  box-shadow: 0 20px 50px -20px rgba(160, 20, 10, 0.55);
   color: var(--ink);
   font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
   -webkit-user-select: none;
@@ -29,6 +29,9 @@
 .powers { display: flex; flex: 1; flex-wrap: wrap; gap: 6px; min-height: 24px; }
 .power {
   position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
   overflow: hidden;
   padding: 3px 10px;
   border: 1px solid color-mix(in srgb, var(--c) 70%, transparent);
@@ -58,7 +61,7 @@
 
 /* Playfield */
 .stage { position: relative; overflow: hidden; border-radius: 12px; outline: none; }
-.stage:focus-visible { box-shadow: 0 0 0 3px #8b5cf6; }
+.stage:focus-visible { box-shadow: 0 0 0 3px #ff4a1f; }
 .canvas { display: block; width: 100%; aspect-ratio: 4 / 3; margin: 0 auto; border-radius: 12px; cursor: none; touch-action: none; }
 
 .overlay {
@@ -70,13 +73,13 @@
   justify-content: center;
   gap: 10px;
   padding: 16px;
-  background: radial-gradient(circle at 50% 40%, rgba(40, 20, 90, 0.72), rgba(5, 5, 20, 0.88));
+  background: radial-gradient(circle at 50% 40%, rgba(80, 10, 8, 0.7), rgba(8, 2, 3, 0.9));
   text-align: center;
   animation: fade 0.3s ease;
 }
 .logo {
   margin: 0;
-  background: linear-gradient(180deg, #ffffff, #b9c8ff 55%, #7a5cff);
+  background: linear-gradient(180deg, #ffffff, #d9d1cf 50%, #7d7476);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -84,9 +87,9 @@
   font-weight: 900;
   font-style: italic;
   letter-spacing: 0.04em;
-  filter: drop-shadow(0 4px 18px rgba(139, 92, 246, 0.6));
+  filter: drop-shadow(0 4px 18px rgba(255, 60, 20, 0.65));
 }
-.logo span { background: linear-gradient(180deg, #ffe08a, #ff8a3d); -webkit-background-clip: text; background-clip: text; }
+.logo span { background: linear-gradient(180deg, #ffd36a, #ff5a1f 55%, #c4120a); -webkit-background-clip: text; background-clip: text; }
 .tagline { margin: -6px 0 6px; color: var(--muted); font-size: 13px; }
 .big { margin: 0; font-size: clamp(26px, 6cqi, 42px); font-weight: 900; }
 .final { margin: 0; font-size: 34px; font-weight: 800; font-variant-numeric: tabular-nums; }
@@ -95,8 +98,8 @@
   padding: 12px 34px;
   border: 0;
   border-radius: 99px;
-  background: linear-gradient(135deg, #8b5cf6, #3d7be0);
-  box-shadow: 0 10px 30px -8px rgba(139, 92, 246, 0.9);
+  background: linear-gradient(135deg, #ff6a1f, #b80f0a);
+  box-shadow: 0 10px 30px -8px rgba(255, 70, 20, 0.85);
   color: #fff;
   font: inherit;
   font-size: 16px;
@@ -124,8 +127,9 @@
 .legend b {
   display: grid;
   place-items: center;
-  width: 26px;
-  height: 14px;
+  width: 34px;
+  height: 22px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35), inset 0 -1px 0 rgba(0, 0, 0, 0.3);
   border-radius: 99px;
   background: var(--c);
   color: #fff;
@@ -149,13 +153,13 @@
   margin-top: 10px;
   border: 1px dashed var(--line);
   border-radius: 14px;
-  background: linear-gradient(180deg, rgba(139, 92, 246, 0.12), rgba(61, 123, 224, 0.06));
+  background: linear-gradient(180deg, rgba(255, 80, 30, 0.12), rgba(120, 10, 10, 0.08));
   color: var(--muted);
   font-size: 12.5px;
   font-weight: 600;
   touch-action: none;
 }
-.pad span { color: #b9a4ff; font-size: 16px; }
+.pad span { color: #ff8a5c; font-size: 16px; }
 @media (orientation: landscape) {
   .pad { display: none; }
 }
@@ -172,7 +176,7 @@
   padding: max(8px, env(safe-area-inset-top)) max(8px, env(safe-area-inset-right)) max(8px, env(safe-area-inset-bottom)) max(8px, env(safe-area-inset-left));
   border: 0;
   border-radius: 0;
-  background: #0b0b1e;
+  background: #0b0506;
 }
 .immersive .stage { display: grid; flex: 1; min-height: 0; place-items: center; }
 .immersive { overscroll-behavior: none; touch-action: none; }
