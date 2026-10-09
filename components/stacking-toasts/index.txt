@@ -1,0 +1,1281 @@
+1:"$Sreact.fragment"
+2:I[2619,["619","static/chunks/619-ba102abea3e3d0e4.js","449","static/chunks/app/components/%5Bslug%5D/page-7b18c14fa5ee9ace.js"],""]
+3:I[9766,[],""]
+4:I[8924,[],""]
+6:I[4431,[],"OutletBoundary"]
+8:I[5278,[],"AsyncMetadataOutlet"]
+a:I[4431,[],"ViewportBoundary"]
+c:I[4431,[],"MetadataBoundary"]
+d:"$Sreact.suspense"
+f:I[7150,[],""]
+:HL["/component-gallery/_next/static/css/68cce7808a08b910.css","style"]
+0:{"P":null,"b":"6jA2vIGrO3aOlnYlKgPnQ","p":"/component-gallery","c":["","components","stacking-toasts",""],"i":false,"f":[[["",{"children":["components",{"children":[["slug","stacking-toasts","d"],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/component-gallery/_next/static/css/68cce7808a08b910.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","children":["$","body",null,{"children":[["$","header",null,{"className":"site-header","children":["$","div",null,{"className":"container","children":[["$","$L2",null,{"href":"/","className":"brand","children":"Component Gallery"}],["$","nav",null,{"children":["$","a",null,{"href":"https://github.com/rownok-HR-LS/component-gallery","children":"GitHub"}]}]]}]}],["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","main",null,{"className":"container","children":["$","header",null,{"className":"hero","children":[["$","h1",null,{"children":"Not found"}],["$","p",null,{"className":"lede","children":"That component doesn't exist (yet)."}],["$","$L2",null,{"href":"/","children":"← Back to the gallery"}]]}]}],[]],"forbidden":"$undefined","unauthorized":"$undefined"}],["$","footer",null,{"className":"site-footer","children":["$","div",null,{"className":"container","children":[["$","span",null,{"children":["Built by ","rownok-HR-LS"," · LofiStack 90-day challenge"]}],["$","a",null,{"href":"https://github.com/rownok-HR-LS/component-gallery","children":"Source on GitHub"}]]}]}]]}]}]]}],{"children":["components",["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["slug","stacking-toasts","d"],["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L5",null,["$","$L6",null,{"children":["$L7",["$","$L8",null,{"promise":"$@9"}]]}]]}],{},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,[["$","$La",null,{"children":"$Lb"}],null],["$","$Lc",null,{"children":["$","div",null,{"hidden":true,"children":["$","$d",null,{"fallback":null,"children":"$Le"}]}]}]]}],false]],"m":"$undefined","G":["$f",[]],"s":false,"S":true}
+b:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+7:null
+9:{"metadata":[["$","title","0",{"children":"Stacking Toast Notifications · Component Gallery"}],["$","meta","1",{"name":"description","content":"Toasts that stack like cards, fan out on hover, pause their timers, swipe away, and turn loading into success, with Undo and Retry actions."}]],"error":null,"digest":"$undefined"}
+e:"$9:metadata"
+10:I[2325,["619","static/chunks/619-ba102abea3e3d0e4.js","449","static/chunks/app/components/%5Bslug%5D/page-7b18c14fa5ee9ace.js"],"Demo"]
+11:I[7333,["619","static/chunks/619-ba102abea3e3d0e4.js","449","static/chunks/app/components/%5Bslug%5D/page-7b18c14fa5ee9ace.js"],"CopyButton"]
+12:Ta26,.frame {
+  --surface: #fcfcfb;
+  --ink: #0b0b0b;
+  --ink-2: #52514e;
+  --muted: #898781;
+  --border: rgba(11, 11, 11, 0.1);
+  --field: #f2f1ee;
+
+  position: relative;
+  width: 100%;
+  max-width: 640px;
+  min-height: 440px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--surface);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 16px 40px -16px rgba(0, 0, 0, 0.25);
+  color: var(--ink);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  .frame {
+    --surface: #17171a;
+    --ink: #ffffff;
+    --ink-2: #c3c2b7;
+    --border: rgba(255, 255, 255, 0.1);
+    --field: #222226;
+    box-shadow: 0 16px 40px -16px rgba(0, 0, 0, 0.7);
+  }
+}
+
+.chrome {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  height: 40px;
+  padding: 0 14px;
+  border-bottom: 1px solid var(--border);
+  background: var(--field);
+}
+.chrome span { width: 11px; height: 11px; border-radius: 50%; background: #ff5f57; }
+.chrome span:nth-child(2) { background: #febc2e; }
+.chrome span:nth-child(3) { background: #28c840; }
+.chrome strong { margin-left: 10px; color: var(--ink-2); font-size: 12.5px; font-weight: 600; }
+
+/* Bottom padding leaves room for the toast stack so it doesn't cover the buttons. */
+.body { padding: 22px 22px 130px; }
+.heading { margin: 0 0 12px; color: var(--ink-2); font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(150px, 40%), 1fr)); gap: 8px; }
+.trigger {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 11px 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface);
+  color: var(--ink);
+  font: inherit;
+  font-size: 13.5px;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+.trigger:hover { background: var(--field); }
+.trigger:active { transform: scale(0.98); }
+.trigger:focus-visible { outline: 2px solid #2e90fa; outline-offset: 2px; }
+
+.dot { width: 8px; height: 8px; flex: none; border-radius: 50%; background: #2e90fa; }
+.trigger[data-tone="success"] .dot { background: #12b76a; }
+.trigger[data-tone="warning"] .dot { background: #f79009; }
+.trigger[data-tone="error"] .dot { background: #f04438; }
+.trigger[data-tone="loading"] .dot { background: var(--muted); }
+.trigger[data-tone="burst"] .dot { background: conic-gradient(#12b76a 0 25%, #2e90fa 0 50%, #f79009 0 75%, #f04438 0); }
+
+.hint { margin: 14px 0 0; color: var(--muted); font-size: 12px; }
+5:["$","main",null,{"className":"container","children":[["$","$L2",null,{"href":"/","className":"back","children":"← All components"}],["$","header",null,{"className":"detail-head","children":[["$","span",null,{"className":"tag","children":["Week ",4," · ","2026-10-08"]}],["$","h1",null,{"children":"Stacking Toast Notifications"}],["$","p",null,{"children":"Toasts that stack like cards, fan out on hover, pause their timers, swipe away, and turn loading into success, with Undo and Retry actions."}]]}],["$","section",null,{"className":"stage","aria-label":"Live demo","children":["$","$L10",null,{"slug":"stacking-toasts"}]}],["$","section",null,{"className":"source","children":[["$","h2",null,{"children":"Source"}],[["$","div","Demo.module.css",{"className":"file","children":[["$","div",null,{"className":"file-head","children":[["$","span",null,{"children":"Demo.module.css"}],["$","$L11",null,{"text":"$12"}]]}],"$L13"]}],"$L14","$L15","$L16","$L17"]]}],"$L18"]}]
+19:Ta26,.frame {
+  --surface: #fcfcfb;
+  --ink: #0b0b0b;
+  --ink-2: #52514e;
+  --muted: #898781;
+  --border: rgba(11, 11, 11, 0.1);
+  --field: #f2f1ee;
+
+  position: relative;
+  width: 100%;
+  max-width: 640px;
+  min-height: 440px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--surface);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 16px 40px -16px rgba(0, 0, 0, 0.25);
+  color: var(--ink);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  .frame {
+    --surface: #17171a;
+    --ink: #ffffff;
+    --ink-2: #c3c2b7;
+    --border: rgba(255, 255, 255, 0.1);
+    --field: #222226;
+    box-shadow: 0 16px 40px -16px rgba(0, 0, 0, 0.7);
+  }
+}
+
+.chrome {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  height: 40px;
+  padding: 0 14px;
+  border-bottom: 1px solid var(--border);
+  background: var(--field);
+}
+.chrome span { width: 11px; height: 11px; border-radius: 50%; background: #ff5f57; }
+.chrome span:nth-child(2) { background: #febc2e; }
+.chrome span:nth-child(3) { background: #28c840; }
+.chrome strong { margin-left: 10px; color: var(--ink-2); font-size: 12.5px; font-weight: 600; }
+
+/* Bottom padding leaves room for the toast stack so it doesn't cover the buttons. */
+.body { padding: 22px 22px 130px; }
+.heading { margin: 0 0 12px; color: var(--ink-2); font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(150px, 40%), 1fr)); gap: 8px; }
+.trigger {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 11px 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface);
+  color: var(--ink);
+  font: inherit;
+  font-size: 13.5px;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+.trigger:hover { background: var(--field); }
+.trigger:active { transform: scale(0.98); }
+.trigger:focus-visible { outline: 2px solid #2e90fa; outline-offset: 2px; }
+
+.dot { width: 8px; height: 8px; flex: none; border-radius: 50%; background: #2e90fa; }
+.trigger[data-tone="success"] .dot { background: #12b76a; }
+.trigger[data-tone="warning"] .dot { background: #f79009; }
+.trigger[data-tone="error"] .dot { background: #f04438; }
+.trigger[data-tone="loading"] .dot { background: var(--muted); }
+.trigger[data-tone="burst"] .dot { background: conic-gradient(#12b76a 0 25%, #2e90fa 0 50%, #f79009 0 75%, #f04438 0); }
+
+.hint { margin: 14px 0 0; color: var(--muted); font-size: 12px; }
+13:["$","pre",null,{"children":["$","code",null,{"children":"$19"}]}]
+1a:Tbe6,"use client";
+
+import Toaster from "./Toaster";
+import { useToaster } from "./useToaster";
+import styles from "./Demo.module.css";
+
+const wait = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+
+// A mock mail app whose buttons fire each kind of toast.
+export default function Demo() {
+  const { toasts, show, dismiss, promise } = useToaster();
+
+  const actions = [
+    {
+      label: "Save changes",
+      tone: "success",
+      run: () => show({ type: "success", title: "Changes saved", description: "Your signature was updated." }),
+    },
+    {
+      label: "Upload report.pdf",
+      tone: "loading",
+      run: () =>
+        promise(wait(2200), { loading: "Uploading report.pdf…", success: "report.pdf uploaded", error: "Upload failed" }).catch(() => {}),
+    },
+    {
+      label: "Delete email",
+      tone: "warning",
+      run: () =>
+        show({
+          type: "warning",
+          title: "Email moved to Trash",
+          description: "“Q3 budget review” from Imran",
+          duration: 6000,
+          action: { label: "Undo", onClick: () => show({ type: "success", title: "Email restored" }) },
+        }),
+    },
+    {
+      label: "Go offline",
+      tone: "error",
+      run: () =>
+        show({
+          type: "error",
+          title: "Connection lost",
+          description: "Changes will sync when you're back online.",
+          action: {
+            label: "Retry",
+            onClick: () =>
+              promise(wait(1500), { loading: "Reconnecting…", success: "Back online", error: "Still offline" }).catch(() => {}),
+          },
+        }),
+    },
+    {
+      label: "New message",
+      tone: "info",
+      run: () => show({ type: "info", title: "New message from Ayesha", description: "“Can we move the 3pm meeting to 4?”" }),
+    },
+    {
+      label: "Burst ×4",
+      tone: "burst",
+      run: () => {
+        const items = [
+          { type: "info", title: "Nusrat joined #design" },
+          { type: "success", title: "Invoice #1042 paid" },
+          { type: "info", title: "3 new comments on “Roadmap”" },
+          { type: "warning", title: "Storage 90% full" },
+        ] as const;
+        items.forEach((t, i) => setTimeout(() => show({ ...t }), i * 180));
+      },
+    },
+  ];
+
+  return (
+    <div className={styles.frame}>
+      <div className={styles.chrome}>
+        <span />
+        <span />
+        <span />
+        <strong>Inbox · Acme Mail</strong>
+      </div>
+      <div className={styles.body}>
+        <p className={styles.heading}>Trigger a notification</p>
+        <div className={styles.grid}>
+          {actions.map((a) => (
+            <button key={a.label} type="button" className={styles.trigger} data-tone={a.tone} onClick={a.run}>
+              <span className={styles.dot} />
+              {a.label}
+            </button>
+          ))}
+        </div>
+        <p className={styles.hint}>Hover the stack to expand · swipe a toast sideways to dismiss</p>
+      </div>
+      <Toaster toasts={toasts} onDismiss={dismiss} />
+    </div>
+  );
+}
+1b:Tbe6,"use client";
+
+import Toaster from "./Toaster";
+import { useToaster } from "./useToaster";
+import styles from "./Demo.module.css";
+
+const wait = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+
+// A mock mail app whose buttons fire each kind of toast.
+export default function Demo() {
+  const { toasts, show, dismiss, promise } = useToaster();
+
+  const actions = [
+    {
+      label: "Save changes",
+      tone: "success",
+      run: () => show({ type: "success", title: "Changes saved", description: "Your signature was updated." }),
+    },
+    {
+      label: "Upload report.pdf",
+      tone: "loading",
+      run: () =>
+        promise(wait(2200), { loading: "Uploading report.pdf…", success: "report.pdf uploaded", error: "Upload failed" }).catch(() => {}),
+    },
+    {
+      label: "Delete email",
+      tone: "warning",
+      run: () =>
+        show({
+          type: "warning",
+          title: "Email moved to Trash",
+          description: "“Q3 budget review” from Imran",
+          duration: 6000,
+          action: { label: "Undo", onClick: () => show({ type: "success", title: "Email restored" }) },
+        }),
+    },
+    {
+      label: "Go offline",
+      tone: "error",
+      run: () =>
+        show({
+          type: "error",
+          title: "Connection lost",
+          description: "Changes will sync when you're back online.",
+          action: {
+            label: "Retry",
+            onClick: () =>
+              promise(wait(1500), { loading: "Reconnecting…", success: "Back online", error: "Still offline" }).catch(() => {}),
+          },
+        }),
+    },
+    {
+      label: "New message",
+      tone: "info",
+      run: () => show({ type: "info", title: "New message from Ayesha", description: "“Can we move the 3pm meeting to 4?”" }),
+    },
+    {
+      label: "Burst ×4",
+      tone: "burst",
+      run: () => {
+        const items = [
+          { type: "info", title: "Nusrat joined #design" },
+          { type: "success", title: "Invoice #1042 paid" },
+          { type: "info", title: "3 new comments on “Roadmap”" },
+          { type: "warning", title: "Storage 90% full" },
+        ] as const;
+        items.forEach((t, i) => setTimeout(() => show({ ...t }), i * 180));
+      },
+    },
+  ];
+
+  return (
+    <div className={styles.frame}>
+      <div className={styles.chrome}>
+        <span />
+        <span />
+        <span />
+        <strong>Inbox · Acme Mail</strong>
+      </div>
+      <div className={styles.body}>
+        <p className={styles.heading}>Trigger a notification</p>
+        <div className={styles.grid}>
+          {actions.map((a) => (
+            <button key={a.label} type="button" className={styles.trigger} data-tone={a.tone} onClick={a.run}>
+              <span className={styles.dot} />
+              {a.label}
+            </button>
+          ))}
+        </div>
+        <p className={styles.hint}>Hover the stack to expand · swipe a toast sideways to dismiss</p>
+      </div>
+      <Toaster toasts={toasts} onDismiss={dismiss} />
+    </div>
+  );
+}
+14:["$","div","Demo.tsx",{"className":"file","children":[["$","div",null,{"className":"file-head","children":[["$","span",null,{"children":"Demo.tsx"}],["$","$L11",null,{"text":"$1a"}]]}],["$","pre",null,{"children":["$","code",null,{"children":"$1b"}]}]]}]
+1c:Tf58,.region {
+  --surface: #ffffff;
+  --ink: #0b0b0b;
+  --ink-2: #52514e;
+  --border: rgba(11, 11, 11, 0.09);
+  --success: #12b76a;
+  --error: #f04438;
+  --warning: #f79009;
+  --info: #2e90fa;
+  --ease: cubic-bezier(0.21, 1.02, 0.73, 1);
+
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  z-index: 10;
+  width: min(356px, calc(100% - 32px));
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  .region {
+    --surface: #24242a;
+    --ink: #ffffff;
+    --ink-2: #c3c2b7;
+    --border: rgba(255, 255, 255, 0.1);
+  }
+}
+
+.stack { position: relative; margin: 0; padding: 0; list-style: none; transition: height 0.4s var(--ease); }
+
+.toast {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--surface);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06), 0 12px 28px -10px rgba(0, 0, 0, 0.3);
+  color: var(--ink);
+  touch-action: pan-y;
+  user-select: none;
+  transform-origin: 50% 0;
+  transition:
+    transform 0.4s var(--ease),
+    opacity 0.35s ease,
+    height 0.4s var(--ease);
+  cursor: grab;
+}
+.toast[data-dragging="true"] { transition: opacity 0.1s ease; cursor: grabbing; }
+
+.inner {
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  align-items: start;
+  gap: 10px;
+  padding: 13px 12px 13px 14px;
+}
+
+.icon {
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  margin-top: 1px;
+  border-radius: 50%;
+  color: #fff;
+}
+.icon[data-type="success"] { background: var(--success); }
+.icon[data-type="error"] { background: var(--error); }
+.icon[data-type="warning"] { background: var(--warning); }
+.icon[data-type="info"] { background: var(--info); }
+.icon svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
+
+.spinner {
+  width: 18px;
+  height: 18px;
+  border: 2.4px solid color-mix(in srgb, var(--ink) 15%, transparent);
+  border-top-color: var(--ink-2);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+.text { min-width: 0; }
+.title { margin: 1px 0 0; font-size: 14px; font-weight: 600; line-height: 1.35; }
+.description { margin: 2px 0 0; color: var(--ink-2); font-size: 13px; line-height: 1.4; }
+
+.action {
+  align-self: center;
+  padding: 5px 11px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--ink);
+  color: var(--surface);
+  font: inherit;
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.action:hover { opacity: 0.85; }
+
+.close {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: 0;
+  border-radius: 6px;
+  background: none;
+  color: var(--ink-2);
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.15s ease, background 0.15s ease;
+}
+.toast:hover .close,
+.close:focus-visible { opacity: 1; }
+.close:hover { background: color-mix(in srgb, var(--ink) 8%, transparent); }
+.close svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; }
+.action:focus-visible,
+.close:focus-visible { outline: 2px solid var(--info); outline-offset: 1px; }
+@media (hover: none) {
+  .close { opacity: 1; }
+}
+
+/* Time left before auto-dismiss */
+.progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2.5px;
+  transform-origin: left;
+  animation: shrink linear forwards;
+}
+.toast[data-type="success"] .progress { background: var(--success); }
+.toast[data-type="error"] .progress { background: var(--error); }
+.toast[data-type="warning"] .progress { background: var(--warning); }
+.toast[data-type="info"] .progress { background: var(--info); }
+
+@keyframes shrink { from { transform: scaleX(1); } to { transform: scaleX(0); } }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .toast { transition: opacity 0.2s ease; }
+  .stack { transition: none; }
+}
+15:["$","div","Toaster.module.css",{"className":"file","children":[["$","div",null,{"className":"file-head","children":[["$","span",null,{"children":"Toaster.module.css"}],["$","$L11",null,{"text":"$1c"}]]}],"$L1d"]}]
+1e:T1e82,"use client";
+
+import { useEffect, useLayoutEffect, useRef, useState, type PointerEvent } from "react";
+import { type ToastItem, type ToastType } from "./useToaster";
+import styles from "./Toaster.module.css";
+
+type Props = {
+  toasts: ToastItem[];
+  onDismiss: (id: number, exitX?: number) => void;
+};
+
+const GAP = 10;
+const PEEK = 14; // how much each older toast peeks out above the one in front
+const VISIBLE_WHEN_STACKED = 3;
+const SWIPE_DISMISS = 90;
+
+const ICONS: Record<ToastType, React.ReactNode> = {
+  success: <path d="M7 12.5l3 3 7-7" />,
+  error: <path d="M9 9l6 6m0-6-6 6" />,
+  warning: <path d="M12 8v5m0 3.2v.1" />,
+  info: <path d="M12 11v5m0-8.2v.1" />,
+  loading: null,
+};
+
+export default function Toaster({ toasts, onDismiss }: Props) {
+  const [hovered, setHovered] = useState(false);
+  const [focused, setFocused] = useState(false);
+  const [heights, setHeights] = useState<Record<number, number>>({});
+
+  // Newest toast is at the front (index 0).
+  const ordered = [...toasts].reverse();
+  const live = ordered.filter((t) => !t.removing);
+  const expanded = (hovered || focused) && live.length > 0;
+  const paused = hovered || focused;
+  const frontHeight = heights[live[0]?.id] ?? 64;
+
+  // Collapse once the last toast is gone, so the next one starts stacked.
+  useEffect(() => {
+    if (toasts.length === 0) setFocused(false);
+  }, [toasts.length]);
+
+  let offset = 0;
+  const offsets = new Map<number, number>();
+  live.forEach((t, i) => {
+    offsets.set(t.id, offset);
+    offset += (heights[t.id] ?? 64) + GAP;
+    if (i === live.length - 1) offset -= GAP;
+  });
+
+  const stackHeight = live.length === 0 ? 0 : expanded ? offset : frontHeight + PEEK * Math.min(live.length - 1, VISIBLE_WHEN_STACKED - 1);
+
+  return (
+    <section
+      className={styles.region}
+      aria-label="Notifications"
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      onFocus={() => setFocused(true)}
+      onBlur={(e) => {
+        if (!e.currentTarget.contains(e.relatedTarget as Node)) setFocused(false);
+      }}
+    >
+      <ol className={styles.stack} style={{ height: stackHeight }} data-expanded={expanded}>
+        {ordered.map((toast) => {
+          const index = live.indexOf(toast);
+          return (
+            <Toast
+              key={toast.id}
+              toast={toast}
+              index={index < 0 ? 0 : index}
+              expanded={expanded}
+              offset={offsets.get(toast.id) ?? 0}
+              frontHeight={frontHeight}
+              height={heights[toast.id]}
+              paused={paused}
+              onHeight={(h) => setHeights((prev) => (prev[toast.id] === h ? prev : { ...prev, [toast.id]: h }))}
+              onDismiss={onDismiss}
+            />
+          );
+        })}
+      </ol>
+    </section>
+  );
+}
+
+type ToastProps = {
+  toast: ToastItem;
+  index: number;
+  expanded: boolean;
+  offset: number;
+  frontHeight: number;
+  height: number | undefined;
+  paused: boolean;
+  onHeight: (height: number) => void;
+  onDismiss: (id: number, exitX?: number) => void;
+};
+
+function Toast({ toast, index, expanded, offset, frontHeight, height, paused, onHeight, onDismiss }: ToastProps) {
+  const inner = useRef<HTMLDivElement>(null);
+  const [mounted, setMounted] = useState(false);
+  const [drag, setDrag] = useState<{ startX: number; dx: number } | null>(null);
+  const remaining = useRef(toast.duration);
+  const lastPosition = useRef({ y: 0, scale: 1 });
+
+  useLayoutEffect(() => {
+    // +2 for the top and bottom border of the list item.
+    if (inner.current) onHeight(inner.current.offsetHeight + 2);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [toast.version]);
+
+  useEffect(() => {
+    const raf = requestAnimationFrame(() => setMounted(true));
+    return () => cancelAnimationFrame(raf);
+  }, []);
+
+  // Restart the countdown whenever the toast is updated (e.g. loading → success).
+  useEffect(() => {
+    remaining.current = toast.duration;
+  }, [toast.version, toast.duration]);
+
+  // Auto-dismiss, pausing while the stack is hovered or focused.
+  useEffect(() => {
+    if (paused || toast.removing || drag || !Number.isFinite(toast.duration)) return;
+    const started = Date.now();
+    const timer = setTimeout(() => onDismiss(toast.id), remaining.current);
+    return () => {
+      clearTimeout(timer);
+      remaining.current -= Date.now() - started;
+    };
+  }, [paused, toast.removing, toast.version, toast.duration, toast.id, drag, onDismiss]);
+
+  function onPointerDown(e: PointerEvent<HTMLLIElement>) {
+    if ((e.target as HTMLElement).closest("button")) return;
+    e.currentTarget.setPointerCapture(e.pointerId);
+    setDrag({ startX: e.clientX, dx: 0 });
+  }
+  function onPointerMove(e: PointerEvent<HTMLLIElement>) {
+    if (drag) setDrag({ ...drag, dx: e.clientX - drag.startX });
+  }
+  function onPointerUp() {
+    if (!drag) return;
+    if (Math.abs(drag.dx) > SWIPE_DISMISS) onDismiss(toast.id, Math.sign(drag.dx) * 420);
+    setDrag(null);
+  }
+
+  const stacked = !expanded;
+  const hidden = stacked && index >= VISIBLE_WHEN_STACKED;
+  let x = drag?.dx ?? 0;
+  let y = stacked ? -index * PEEK : -offset;
+  let scale = stacked ? 1 - index * 0.06 : 1;
+  let opacity = hidden ? 0 : 1 - Math.min(Math.abs(x) / 260, 0.7);
+
+  if (!mounted) {
+    y = 80;
+    opacity = 0;
+  }
+  if (toast.removing) {
+    // Leave from where it was, not from the slot it would get after removal.
+    ({ y, scale } = lastPosition.current);
+    if (toast.exitX) x = toast.exitX;
+    else y += 24;
+    opacity = 0;
+    scale *= 0.96;
+  } else if (mounted) {
+    lastPosition.current = { y, scale };
+  }
+
+  const timed = Number.isFinite(toast.duration);
+
+  return (
+    <li
+      className={styles.toast}
+      data-type={toast.type}
+      data-dragging={Boolean(drag)}
+      role={toast.type === "error" ? "alert" : "status"}
+      aria-live={toast.type === "error" ? "assertive" : "polite"}
+      style={{
+        transform: `translate(${x}px, ${y}px) scale(${scale})`,
+        opacity,
+        zIndex: 50 - index,
+        // When stacked, older toasts take the front toast's height so their peeks line up.
+        height: stacked && index > 0 ? frontHeight : height,
+        pointerEvents: hidden || toast.removing ? "none" : undefined,
+      }}
+      onPointerDown={onPointerDown}
+      onPointerMove={onPointerMove}
+      onPointerUp={onPointerUp}
+      onPointerCancel={onPointerUp}
+    >
+      <div ref={inner} className={styles.inner} aria-hidden={hidden || undefined}>
+        <span className={styles.icon} data-type={toast.type} aria-hidden="true">
+          {toast.type === "loading" ? (
+            <span className={styles.spinner} />
+          ) : (
+            <svg viewBox="0 0 24 24">{ICONS[toast.type]}</svg>
+          )}
+        </span>
+        <div className={styles.text}>
+          <p className={styles.title}>{toast.title}</p>
+          {toast.description && <p className={styles.description}>{toast.description}</p>}
+        </div>
+        {toast.action && (
+          <button
+            type="button"
+            className={styles.action}
+            onClick={() => {
+              toast.action!.onClick();
+              onDismiss(toast.id);
+            }}
+          >
+            {toast.action.label}
+          </button>
+        )}
+        <button type="button" className={styles.close} aria-label="Dismiss notification" onClick={() => onDismiss(toast.id)}>
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7 7l10 10M17 7 7 17" />
+          </svg>
+        </button>
+      </div>
+      {timed && (
+        <span
+          key={toast.version}
+          className={styles.progress}
+          style={{ animationDuration: `${toast.duration}ms`, animationPlayState: paused || drag ? "paused" : "running" }}
+        />
+      )}
+    </li>
+  );
+}
+16:["$","div","Toaster.tsx",{"className":"file","children":[["$","div",null,{"className":"file-head","children":[["$","span",null,{"children":"Toaster.tsx"}],["$","$L11",null,{"text":"$1e"}]]}],"$L1f"]}]
+20:T953,"use client";
+
+import { useCallback, useState } from "react";
+
+export type ToastType = "success" | "error" | "warning" | "info" | "loading";
+
+export type ToastInput = {
+  type?: ToastType;
+  title: string;
+  description?: string;
+  action?: { label: string; onClick: () => void };
+  /** Milliseconds before auto-dismiss. Loading toasts stay until updated. */
+  duration?: number;
+};
+
+export type ToastItem = ToastInput & {
+  id: number;
+  type: ToastType;
+  duration: number;
+  /** Bumped on every update so timers and progress bars restart. */
+  version: number;
+  removing?: boolean;
+  /** Horizontal fly-out distance when dismissed by a swipe. */
+  exitX?: number;
+};
+
+const MAX_TOASTS = 5;
+const DEFAULT_DURATION = 4000;
+export const EXIT_MS = 350;
+
+let nextId = 1;
+
+const durationFor = (input: ToastInput) =>
+  input.duration ?? (input.type === "loading" ? Infinity : DEFAULT_DURATION);
+
+export function useToaster() {
+  const [toasts, setToasts] = useState<ToastItem[]>([]);
+
+  const dismiss = useCallback((id: number, exitX = 0) => {
+    setToasts((ts) => ts.map((t) => (t.id === id ? { ...t, removing: true, exitX } : t)));
+    setTimeout(() => setToasts((ts) => ts.filter((t) => t.id !== id)), EXIT_MS);
+  }, []);
+
+  const show = useCallback((input: ToastInput) => {
+    const id = nextId++;
+    const item: ToastItem = { ...input, id, type: input.type ?? "info", duration: durationFor(input), version: 0 };
+    setToasts((ts) => [...ts, item].slice(-MAX_TOASTS));
+    return id;
+  }, []);
+
+  const update = useCallback((id: number, input: ToastInput) => {
+    setToasts((ts) =>
+      ts.map((t) =>
+        t.id === id ? { ...t, ...input, type: input.type ?? t.type, duration: durationFor(input), version: t.version + 1 } : t,
+      ),
+    );
+  }, []);
+
+  /** Shows a loading toast that turns into success or error when the promise settles. */
+  const promise = useCallback(
+    async <T,>(work: Promise<T>, messages: { loading: string; success: string; error: string }) => {
+      const id = show({ type: "loading", title: messages.loading });
+      try {
+        const value = await work;
+        update(id, { type: "success", title: messages.success });
+        return value;
+      } catch (err) {
+        update(id, { type: "error", title: messages.error });
+        throw err;
+      }
+    },
+    [show, update],
+  );
+
+  return { toasts, show, update, dismiss, promise };
+}
+21:T953,"use client";
+
+import { useCallback, useState } from "react";
+
+export type ToastType = "success" | "error" | "warning" | "info" | "loading";
+
+export type ToastInput = {
+  type?: ToastType;
+  title: string;
+  description?: string;
+  action?: { label: string; onClick: () => void };
+  /** Milliseconds before auto-dismiss. Loading toasts stay until updated. */
+  duration?: number;
+};
+
+export type ToastItem = ToastInput & {
+  id: number;
+  type: ToastType;
+  duration: number;
+  /** Bumped on every update so timers and progress bars restart. */
+  version: number;
+  removing?: boolean;
+  /** Horizontal fly-out distance when dismissed by a swipe. */
+  exitX?: number;
+};
+
+const MAX_TOASTS = 5;
+const DEFAULT_DURATION = 4000;
+export const EXIT_MS = 350;
+
+let nextId = 1;
+
+const durationFor = (input: ToastInput) =>
+  input.duration ?? (input.type === "loading" ? Infinity : DEFAULT_DURATION);
+
+export function useToaster() {
+  const [toasts, setToasts] = useState<ToastItem[]>([]);
+
+  const dismiss = useCallback((id: number, exitX = 0) => {
+    setToasts((ts) => ts.map((t) => (t.id === id ? { ...t, removing: true, exitX } : t)));
+    setTimeout(() => setToasts((ts) => ts.filter((t) => t.id !== id)), EXIT_MS);
+  }, []);
+
+  const show = useCallback((input: ToastInput) => {
+    const id = nextId++;
+    const item: ToastItem = { ...input, id, type: input.type ?? "info", duration: durationFor(input), version: 0 };
+    setToasts((ts) => [...ts, item].slice(-MAX_TOASTS));
+    return id;
+  }, []);
+
+  const update = useCallback((id: number, input: ToastInput) => {
+    setToasts((ts) =>
+      ts.map((t) =>
+        t.id === id ? { ...t, ...input, type: input.type ?? t.type, duration: durationFor(input), version: t.version + 1 } : t,
+      ),
+    );
+  }, []);
+
+  /** Shows a loading toast that turns into success or error when the promise settles. */
+  const promise = useCallback(
+    async <T,>(work: Promise<T>, messages: { loading: string; success: string; error: string }) => {
+      const id = show({ type: "loading", title: messages.loading });
+      try {
+        const value = await work;
+        update(id, { type: "success", title: messages.success });
+        return value;
+      } catch (err) {
+        update(id, { type: "error", title: messages.error });
+        throw err;
+      }
+    },
+    [show, update],
+  );
+
+  return { toasts, show, update, dismiss, promise };
+}
+17:["$","div","useToaster.ts",{"className":"file","children":[["$","div",null,{"className":"file-head","children":[["$","span",null,{"children":"useToaster.ts"}],["$","$L11",null,{"text":"$20"}]]}],["$","pre",null,{"children":["$","code",null,{"children":"$21"}]}]]}]
+18:["$","nav",null,{"className":"pager","children":[["$","$L2",null,{"href":"/components/spin-the-wheel","children":["← ","Spin-the-Wheel Picker"]}],["$","$L2",null,{"href":"/components/document-scanner","children":["Document Scanner"," →"]}]]}]
+22:Tf58,.region {
+  --surface: #ffffff;
+  --ink: #0b0b0b;
+  --ink-2: #52514e;
+  --border: rgba(11, 11, 11, 0.09);
+  --success: #12b76a;
+  --error: #f04438;
+  --warning: #f79009;
+  --info: #2e90fa;
+  --ease: cubic-bezier(0.21, 1.02, 0.73, 1);
+
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  z-index: 10;
+  width: min(356px, calc(100% - 32px));
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  .region {
+    --surface: #24242a;
+    --ink: #ffffff;
+    --ink-2: #c3c2b7;
+    --border: rgba(255, 255, 255, 0.1);
+  }
+}
+
+.stack { position: relative; margin: 0; padding: 0; list-style: none; transition: height 0.4s var(--ease); }
+
+.toast {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--surface);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06), 0 12px 28px -10px rgba(0, 0, 0, 0.3);
+  color: var(--ink);
+  touch-action: pan-y;
+  user-select: none;
+  transform-origin: 50% 0;
+  transition:
+    transform 0.4s var(--ease),
+    opacity 0.35s ease,
+    height 0.4s var(--ease);
+  cursor: grab;
+}
+.toast[data-dragging="true"] { transition: opacity 0.1s ease; cursor: grabbing; }
+
+.inner {
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  align-items: start;
+  gap: 10px;
+  padding: 13px 12px 13px 14px;
+}
+
+.icon {
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  margin-top: 1px;
+  border-radius: 50%;
+  color: #fff;
+}
+.icon[data-type="success"] { background: var(--success); }
+.icon[data-type="error"] { background: var(--error); }
+.icon[data-type="warning"] { background: var(--warning); }
+.icon[data-type="info"] { background: var(--info); }
+.icon svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
+
+.spinner {
+  width: 18px;
+  height: 18px;
+  border: 2.4px solid color-mix(in srgb, var(--ink) 15%, transparent);
+  border-top-color: var(--ink-2);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+.text { min-width: 0; }
+.title { margin: 1px 0 0; font-size: 14px; font-weight: 600; line-height: 1.35; }
+.description { margin: 2px 0 0; color: var(--ink-2); font-size: 13px; line-height: 1.4; }
+
+.action {
+  align-self: center;
+  padding: 5px 11px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--ink);
+  color: var(--surface);
+  font: inherit;
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.action:hover { opacity: 0.85; }
+
+.close {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: 0;
+  border-radius: 6px;
+  background: none;
+  color: var(--ink-2);
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.15s ease, background 0.15s ease;
+}
+.toast:hover .close,
+.close:focus-visible { opacity: 1; }
+.close:hover { background: color-mix(in srgb, var(--ink) 8%, transparent); }
+.close svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; }
+.action:focus-visible,
+.close:focus-visible { outline: 2px solid var(--info); outline-offset: 1px; }
+@media (hover: none) {
+  .close { opacity: 1; }
+}
+
+/* Time left before auto-dismiss */
+.progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2.5px;
+  transform-origin: left;
+  animation: shrink linear forwards;
+}
+.toast[data-type="success"] .progress { background: var(--success); }
+.toast[data-type="error"] .progress { background: var(--error); }
+.toast[data-type="warning"] .progress { background: var(--warning); }
+.toast[data-type="info"] .progress { background: var(--info); }
+
+@keyframes shrink { from { transform: scaleX(1); } to { transform: scaleX(0); } }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .toast { transition: opacity 0.2s ease; }
+  .stack { transition: none; }
+}
+1d:["$","pre",null,{"children":["$","code",null,{"children":"$22"}]}]
+23:T1e82,"use client";
+
+import { useEffect, useLayoutEffect, useRef, useState, type PointerEvent } from "react";
+import { type ToastItem, type ToastType } from "./useToaster";
+import styles from "./Toaster.module.css";
+
+type Props = {
+  toasts: ToastItem[];
+  onDismiss: (id: number, exitX?: number) => void;
+};
+
+const GAP = 10;
+const PEEK = 14; // how much each older toast peeks out above the one in front
+const VISIBLE_WHEN_STACKED = 3;
+const SWIPE_DISMISS = 90;
+
+const ICONS: Record<ToastType, React.ReactNode> = {
+  success: <path d="M7 12.5l3 3 7-7" />,
+  error: <path d="M9 9l6 6m0-6-6 6" />,
+  warning: <path d="M12 8v5m0 3.2v.1" />,
+  info: <path d="M12 11v5m0-8.2v.1" />,
+  loading: null,
+};
+
+export default function Toaster({ toasts, onDismiss }: Props) {
+  const [hovered, setHovered] = useState(false);
+  const [focused, setFocused] = useState(false);
+  const [heights, setHeights] = useState<Record<number, number>>({});
+
+  // Newest toast is at the front (index 0).
+  const ordered = [...toasts].reverse();
+  const live = ordered.filter((t) => !t.removing);
+  const expanded = (hovered || focused) && live.length > 0;
+  const paused = hovered || focused;
+  const frontHeight = heights[live[0]?.id] ?? 64;
+
+  // Collapse once the last toast is gone, so the next one starts stacked.
+  useEffect(() => {
+    if (toasts.length === 0) setFocused(false);
+  }, [toasts.length]);
+
+  let offset = 0;
+  const offsets = new Map<number, number>();
+  live.forEach((t, i) => {
+    offsets.set(t.id, offset);
+    offset += (heights[t.id] ?? 64) + GAP;
+    if (i === live.length - 1) offset -= GAP;
+  });
+
+  const stackHeight = live.length === 0 ? 0 : expanded ? offset : frontHeight + PEEK * Math.min(live.length - 1, VISIBLE_WHEN_STACKED - 1);
+
+  return (
+    <section
+      className={styles.region}
+      aria-label="Notifications"
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      onFocus={() => setFocused(true)}
+      onBlur={(e) => {
+        if (!e.currentTarget.contains(e.relatedTarget as Node)) setFocused(false);
+      }}
+    >
+      <ol className={styles.stack} style={{ height: stackHeight }} data-expanded={expanded}>
+        {ordered.map((toast) => {
+          const index = live.indexOf(toast);
+          return (
+            <Toast
+              key={toast.id}
+              toast={toast}
+              index={index < 0 ? 0 : index}
+              expanded={expanded}
+              offset={offsets.get(toast.id) ?? 0}
+              frontHeight={frontHeight}
+              height={heights[toast.id]}
+              paused={paused}
+              onHeight={(h) => setHeights((prev) => (prev[toast.id] === h ? prev : { ...prev, [toast.id]: h }))}
+              onDismiss={onDismiss}
+            />
+          );
+        })}
+      </ol>
+    </section>
+  );
+}
+
+type ToastProps = {
+  toast: ToastItem;
+  index: number;
+  expanded: boolean;
+  offset: number;
+  frontHeight: number;
+  height: number | undefined;
+  paused: boolean;
+  onHeight: (height: number) => void;
+  onDismiss: (id: number, exitX?: number) => void;
+};
+
+function Toast({ toast, index, expanded, offset, frontHeight, height, paused, onHeight, onDismiss }: ToastProps) {
+  const inner = useRef<HTMLDivElement>(null);
+  const [mounted, setMounted] = useState(false);
+  const [drag, setDrag] = useState<{ startX: number; dx: number } | null>(null);
+  const remaining = useRef(toast.duration);
+  const lastPosition = useRef({ y: 0, scale: 1 });
+
+  useLayoutEffect(() => {
+    // +2 for the top and bottom border of the list item.
+    if (inner.current) onHeight(inner.current.offsetHeight + 2);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [toast.version]);
+
+  useEffect(() => {
+    const raf = requestAnimationFrame(() => setMounted(true));
+    return () => cancelAnimationFrame(raf);
+  }, []);
+
+  // Restart the countdown whenever the toast is updated (e.g. loading → success).
+  useEffect(() => {
+    remaining.current = toast.duration;
+  }, [toast.version, toast.duration]);
+
+  // Auto-dismiss, pausing while the stack is hovered or focused.
+  useEffect(() => {
+    if (paused || toast.removing || drag || !Number.isFinite(toast.duration)) return;
+    const started = Date.now();
+    const timer = setTimeout(() => onDismiss(toast.id), remaining.current);
+    return () => {
+      clearTimeout(timer);
+      remaining.current -= Date.now() - started;
+    };
+  }, [paused, toast.removing, toast.version, toast.duration, toast.id, drag, onDismiss]);
+
+  function onPointerDown(e: PointerEvent<HTMLLIElement>) {
+    if ((e.target as HTMLElement).closest("button")) return;
+    e.currentTarget.setPointerCapture(e.pointerId);
+    setDrag({ startX: e.clientX, dx: 0 });
+  }
+  function onPointerMove(e: PointerEvent<HTMLLIElement>) {
+    if (drag) setDrag({ ...drag, dx: e.clientX - drag.startX });
+  }
+  function onPointerUp() {
+    if (!drag) return;
+    if (Math.abs(drag.dx) > SWIPE_DISMISS) onDismiss(toast.id, Math.sign(drag.dx) * 420);
+    setDrag(null);
+  }
+
+  const stacked = !expanded;
+  const hidden = stacked && index >= VISIBLE_WHEN_STACKED;
+  let x = drag?.dx ?? 0;
+  let y = stacked ? -index * PEEK : -offset;
+  let scale = stacked ? 1 - index * 0.06 : 1;
+  let opacity = hidden ? 0 : 1 - Math.min(Math.abs(x) / 260, 0.7);
+
+  if (!mounted) {
+    y = 80;
+    opacity = 0;
+  }
+  if (toast.removing) {
+    // Leave from where it was, not from the slot it would get after removal.
+    ({ y, scale } = lastPosition.current);
+    if (toast.exitX) x = toast.exitX;
+    else y += 24;
+    opacity = 0;
+    scale *= 0.96;
+  } else if (mounted) {
+    lastPosition.current = { y, scale };
+  }
+
+  const timed = Number.isFinite(toast.duration);
+
+  return (
+    <li
+      className={styles.toast}
+      data-type={toast.type}
+      data-dragging={Boolean(drag)}
+      role={toast.type === "error" ? "alert" : "status"}
+      aria-live={toast.type === "error" ? "assertive" : "polite"}
+      style={{
+        transform: `translate(${x}px, ${y}px) scale(${scale})`,
+        opacity,
+        zIndex: 50 - index,
+        // When stacked, older toasts take the front toast's height so their peeks line up.
+        height: stacked && index > 0 ? frontHeight : height,
+        pointerEvents: hidden || toast.removing ? "none" : undefined,
+      }}
+      onPointerDown={onPointerDown}
+      onPointerMove={onPointerMove}
+      onPointerUp={onPointerUp}
+      onPointerCancel={onPointerUp}
+    >
+      <div ref={inner} className={styles.inner} aria-hidden={hidden || undefined}>
+        <span className={styles.icon} data-type={toast.type} aria-hidden="true">
+          {toast.type === "loading" ? (
+            <span className={styles.spinner} />
+          ) : (
+            <svg viewBox="0 0 24 24">{ICONS[toast.type]}</svg>
+          )}
+        </span>
+        <div className={styles.text}>
+          <p className={styles.title}>{toast.title}</p>
+          {toast.description && <p className={styles.description}>{toast.description}</p>}
+        </div>
+        {toast.action && (
+          <button
+            type="button"
+            className={styles.action}
+            onClick={() => {
+              toast.action!.onClick();
+              onDismiss(toast.id);
+            }}
+          >
+            {toast.action.label}
+          </button>
+        )}
+        <button type="button" className={styles.close} aria-label="Dismiss notification" onClick={() => onDismiss(toast.id)}>
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7 7l10 10M17 7 7 17" />
+          </svg>
+        </button>
+      </div>
+      {timed && (
+        <span
+          key={toast.version}
+          className={styles.progress}
+          style={{ animationDuration: `${toast.duration}ms`, animationPlayState: paused || drag ? "paused" : "running" }}
+        />
+      )}
+    </li>
+  );
+}
+1f:["$","pre",null,{"children":["$","code",null,{"children":"$23"}]}]

@@ -1,0 +1,2587 @@
+1:"$Sreact.fragment"
+2:I[2619,["619","static/chunks/619-ba102abea3e3d0e4.js","449","static/chunks/app/components/%5Bslug%5D/page-7b18c14fa5ee9ace.js"],""]
+3:I[9766,[],""]
+4:I[8924,[],""]
+6:I[4431,[],"OutletBoundary"]
+8:I[5278,[],"AsyncMetadataOutlet"]
+a:I[4431,[],"ViewportBoundary"]
+c:I[4431,[],"MetadataBoundary"]
+d:"$Sreact.suspense"
+f:I[7150,[],""]
+:HL["/component-gallery/_next/static/css/68cce7808a08b910.css","style"]
+0:{"P":null,"b":"6jA2vIGrO3aOlnYlKgPnQ","p":"/component-gallery","c":["","components","trip-planner",""],"i":false,"f":[[["",{"children":["components",{"children":[["slug","trip-planner","d"],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/component-gallery/_next/static/css/68cce7808a08b910.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","children":["$","body",null,{"children":[["$","header",null,{"className":"site-header","children":["$","div",null,{"className":"container","children":[["$","$L2",null,{"href":"/","className":"brand","children":"Component Gallery"}],["$","nav",null,{"children":["$","a",null,{"href":"https://github.com/rownok-HR-LS/component-gallery","children":"GitHub"}]}]]}]}],["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","main",null,{"className":"container","children":["$","header",null,{"className":"hero","children":[["$","h1",null,{"children":"Not found"}],["$","p",null,{"className":"lede","children":"That component doesn't exist (yet)."}],["$","$L2",null,{"href":"/","children":"← Back to the gallery"}]]}]}],[]],"forbidden":"$undefined","unauthorized":"$undefined"}],["$","footer",null,{"className":"site-footer","children":["$","div",null,{"className":"container","children":[["$","span",null,{"children":["Built by ","rownok-HR-LS"," · LofiStack 90-day challenge"]}],["$","a",null,{"href":"https://github.com/rownok-HR-LS/component-gallery","children":"Source on GitHub"}]]}]}]]}]}]]}],{"children":["components",["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["slug","trip-planner","d"],["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L5",null,["$","$L6",null,{"children":["$L7",["$","$L8",null,{"promise":"$@9"}]]}]]}],{},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,[["$","$La",null,{"children":"$Lb"}],null],["$","$Lc",null,{"children":["$","div",null,{"hidden":true,"children":["$","$d",null,{"fallback":null,"children":"$Le"}]}]}]]}],false]],"m":"$undefined","G":["$f",[]],"s":false,"S":true}
+b:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+7:null
+9:{"metadata":[["$","title","0",{"children":"Trip Planner with Live Map · Component Gallery"}],["$","meta","1",{"name":"description","content":"Plan a multi-day trip on a real map: search places, organise stops by day, see driving routes with times and distances, split the budget, pack, and share it with a link."}]],"error":null,"digest":"$undefined"}
+e:"$9:metadata"
+10:I[2325,["619","static/chunks/619-ba102abea3e3d0e4.js","449","static/chunks/app/components/%5Bslug%5D/page-7b18c14fa5ee9ace.js"],"Demo"]
+11:I[7333,["619","static/chunks/619-ba102abea3e3d0e4.js","449","static/chunks/app/components/%5Bslug%5D/page-7b18c14fa5ee9ace.js"],"CopyButton"]
+12:T308e,.card {
+  --surface: #fcfcfb;
+  --ink: #0b0b0b;
+  --ink-2: #52514e;
+  --muted: #898781;
+  --border: rgba(11, 11, 11, 0.1);
+  --field: #f4f3f0;
+  --accent: #2a78d6;
+  --danger: #d92d20;
+
+  position: relative;
+  width: 100%;
+  max-width: 1150px;
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: var(--surface);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 12px 32px -12px rgba(0, 0, 0, 0.18);
+  color: var(--ink);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  container-type: inline-size;
+}
+
+@media (prefers-color-scheme: dark) {
+  .card {
+    --surface: #18181b;
+    --ink: #ffffff;
+    --ink-2: #c3c2b7;
+    --border: rgba(255, 255, 255, 0.1);
+    --field: #232327;
+    --accent: #6da7ec;
+    --danger: #f97066;
+    box-shadow: 0 12px 32px -12px rgba(0, 0, 0, 0.6);
+  }
+  /* Dark map tiles without needing a separate dark tile server. */
+  .map :global(.leaflet-tile-pane) { filter: invert(1) hue-rotate(180deg) brightness(0.92) contrast(0.88) saturate(0.6); }
+  .map { background: #1f2023; }
+}
+
+.loading { padding: 80px 0; color: var(--muted); text-align: center; }
+
+/* Header */
+.head { margin-bottom: 14px; }
+.titleRow { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; }
+.tripName {
+  flex: 1;
+  min-width: 200px;
+  padding: 4px 8px;
+  margin-left: -8px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  outline: none;
+  background: none;
+  color: var(--ink);
+  font: inherit;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.tripName:hover { border-color: var(--border); }
+.tripName:focus { border-color: var(--accent); background: var(--field); }
+.headActions { display: flex; flex-wrap: wrap; gap: 6px; }
+.meta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; margin-top: 8px; color: var(--ink-2); font-size: 13px; }
+.meta label { display: inline-flex; align-items: center; gap: 6px; }
+.meta input {
+  height: 30px;
+  padding: 0 8px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--field);
+  color: var(--ink);
+  font: inherit;
+  font-size: 13px;
+  color-scheme: light dark;
+}
+.meta input[type="number"] { width: 64px; }
+.metaStat { color: var(--muted); }
+
+.ghost {
+  height: 32px;
+  padding: 0 12px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: none;
+  color: var(--ink);
+  font: inherit;
+  font-size: 12.5px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.ghost:hover { background: var(--field); }
+.ghost:focus-visible,
+.tabs button:focus-visible,
+.dayStrip button:focus-visible,
+.stopMain:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* Body */
+.body { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(320px, 1fr); gap: 14px; }
+@container (max-width: 760px) {
+  .body { grid-template-columns: 1fr; }
+  .map { height: 340px !important; }
+}
+
+.mapWrap { position: relative; min-width: 0; }
+.map { height: 600px; overflow: hidden; border: 1px solid var(--border); border-radius: 14px; z-index: 0; }
+.dayStrip {
+  position: absolute;
+  top: 10px;
+  left: 56px;
+  right: 10px;
+  z-index: 500;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  pointer-events: none;
+}
+.dayStrip button {
+  padding: 6px 12px;
+  border: 2px solid var(--c);
+  border-radius: 99px;
+  background: color-mix(in srgb, var(--surface) 92%, transparent);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+  color: var(--ink);
+  font: inherit;
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  pointer-events: auto;
+}
+.dayStrip button[aria-selected="true"] { background: var(--c); color: #fff; }
+.mapHint {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  z-index: 500;
+  margin: 0;
+  padding: 4px 10px;
+  border-radius: 99px;
+  background: rgba(0, 0, 0, 0.62);
+  color: #fff;
+  font-size: 11.5px;
+  pointer-events: none;
+}
+
+.pin {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border: 2.5px solid #fff;
+  border-radius: 50% 50% 50% 4px;
+  background: var(--c);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.35);
+  color: #fff;
+  font: 700 12px system-ui, sans-serif;
+  transform: rotate(-45deg);
+  opacity: 0.55;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.pin[data-active="true"] { opacity: 1; }
+.pin[data-open="true"] { transform: rotate(-45deg) scale(1.25); }
+/* The teardrop is rotated; turn the number back upright. */
+.pin b { transform: rotate(45deg); font-weight: 700; line-height: 1; }
+
+.popup { display: flex; flex-direction: column; gap: 8px; min-width: 170px; font-family: system-ui, sans-serif; }
+.popup strong { font-size: 13px; }
+.popup button { padding: 6px 10px; border: 0; border-radius: 8px; color: #fff; font: 600 12.5px system-ui, sans-serif; cursor: pointer; }
+
+/* Panel */
+.panel { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.tabs { display: flex; gap: 2px; padding: 3px; border-radius: 10px; background: var(--field); }
+.tabs button {
+  flex: 1;
+  padding: 7px 6px;
+  border: 0;
+  border-radius: 8px;
+  background: none;
+  color: var(--ink-2);
+  font: inherit;
+  font-size: 12.5px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.tabs button[aria-selected="true"] { background: var(--surface); box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15); color: var(--ink); font-weight: 600; }
+
+.search { display: flex; gap: 6px; }
+.search input,
+.addRow input {
+  flex: 1;
+  min-width: 0;
+  height: 38px;
+  padding: 0 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  outline: none;
+  background: var(--field);
+  color: var(--ink);
+  font: inherit;
+  font-size: 14px;
+}
+.search input:focus,
+.addRow input:focus { border-color: var(--accent); }
+.search button,
+.addRow button {
+  height: 38px;
+  padding: 0 14px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--ink);
+  color: var(--surface);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.results { display: flex; flex-direction: column; gap: 4px; margin: 0; padding: 6px; border: 1px solid var(--border); border-radius: 12px; list-style: none; }
+.results li { display: flex; align-items: center; gap: 6px; }
+.resultPeek {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+  padding: 6px 8px;
+  border: 0;
+  border-radius: 8px;
+  background: none;
+  color: var(--ink);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.resultPeek:hover { background: var(--field); }
+.resultPeek strong { font-size: 13.5px; }
+.resultPeek span { overflow: hidden; color: var(--muted); font-size: 12px; text-overflow: ellipsis; white-space: nowrap; }
+.addBtn { flex: none; padding: 5px 10px; border: 0; border-radius: 8px; color: #fff; font: inherit; font-size: 12px; font-weight: 600; cursor: pointer; }
+.noResults { padding: 8px; color: var(--muted); font-size: 13px; }
+.closeResults { width: 100%; padding: 4px; border: 0; background: none; color: var(--muted); font: inherit; font-size: 12px; cursor: pointer; }
+
+.dayHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 10px 12px;
+  border-left: 4px solid var(--c);
+  border-radius: 6px 12px 12px 6px;
+  background: color-mix(in srgb, var(--c) 10%, transparent);
+}
+.dayHead div { display: flex; align-items: baseline; gap: 8px; }
+.dayHead strong { font-size: 15px; }
+.dayHead div span { color: var(--ink-2); font-size: 13px; }
+.dayStats { color: var(--ink-2); font-size: 12px; font-variant-numeric: tabular-nums; text-align: right; }
+
+.stops { display: flex; flex-direction: column; max-height: 360px; margin: 0; padding: 0 2px 0 0; overflow-y: auto; list-style: none; }
+.emptyDay { padding: 20px 8px; color: var(--muted); font-size: 13px; text-align: center; }
+.leg { display: flex; align-items: center; height: 26px; margin-left: 13px; padding-left: 20px; border-left: 2px dashed var(--border); color: var(--muted); font-size: 11.5px; font-variant-numeric: tabular-nums; }
+.stop { border: 1px solid var(--border); border-radius: 12px; background: var(--surface); transition: box-shadow 0.15s ease; }
+.stop[data-open="true"] { border-color: var(--accent); box-shadow: 0 6px 18px -8px rgba(0, 0, 0, 0.25); }
+.stop:hover { box-shadow: 0 4px 12px -8px rgba(0, 0, 0, 0.3); }
+.stopMain {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 9px 10px;
+  border: 0;
+  border-radius: 12px;
+  background: none;
+  color: var(--ink);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.num { display: grid; flex: none; place-items: center; width: 26px; height: 26px; border-radius: 50%; color: #fff; font-size: 12px; font-weight: 700; }
+.stopText { display: flex; flex: 1; flex-direction: column; min-width: 0; }
+.stopText strong { overflow: hidden; font-size: 13.5px; text-overflow: ellipsis; white-space: nowrap; }
+.stopText span { color: var(--muted); font-size: 12px; }
+.grip { color: var(--muted); font-size: 12px; letter-spacing: -2px; cursor: grab; }
+
+.editor { display: flex; flex-direction: column; gap: 8px; padding: 0 12px 12px; }
+.editor label { display: flex; flex-direction: column; gap: 3px; color: var(--ink-2); font-size: 11.5px; }
+.editor input,
+.editor select {
+  height: 32px;
+  min-width: 0;
+  padding: 0 8px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--field);
+  color: var(--ink);
+  font: inherit;
+  font-size: 13px;
+  color-scheme: light dark;
+}
+.row3 { display: grid; grid-template-columns: 1fr 1.2fr 1fr; gap: 6px; }
+.editorActions { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 8px; }
+.editorActions > span { display: flex; gap: 4px; }
+.inline { flex-direction: row !important; align-items: center; gap: 6px !important; }
+.iconBtn,
+.danger { height: 30px; padding: 0 10px; border: 1px solid var(--border); border-radius: 8px; background: none; color: var(--ink); font: inherit; font-size: 13px; cursor: pointer; }
+.iconBtn:disabled { opacity: 0.35; cursor: default; }
+.danger { color: var(--danger); }
+
+.dayActions { display: flex; gap: 6px; }
+
+/* Budget */
+.budget,
+.packing { display: flex; flex-direction: column; gap: 10px; }
+.bigNumbers { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.bigNumbers div { display: flex; flex-direction: column; padding: 12px; border-radius: 12px; background: var(--field); }
+.bigNumbers strong { font-size: 22px; font-variant-numeric: tabular-nums; }
+.bigNumbers span { color: var(--muted); font-size: 12px; }
+.breakdown,
+.extras,
+.packing ul { display: flex; flex-direction: column; gap: 6px; margin: 0; padding: 0; list-style: none; }
+.breakdown li { display: grid; grid-template-columns: 90px 1fr 80px; align-items: center; gap: 8px; font-size: 13px; }
+.bar { height: 8px; overflow: hidden; border-radius: 99px; background: var(--field); }
+.bar span { display: block; height: 100%; border-radius: inherit; background: var(--accent); }
+.amount { text-align: right; font-variant-numeric: tabular-nums; }
+.subhead { margin: 6px 0 0; color: var(--ink-2); font-size: 12.5px; font-weight: 600; }
+.extras li,
+.packing li { display: flex; align-items: center; gap: 8px; padding: 7px 10px; border: 1px solid var(--border); border-radius: 10px; font-size: 13px; }
+.extras li span:first-child { flex: 1; }
+.extras button,
+.packing li button { padding: 0 4px; border: 0; background: none; color: var(--muted); font-size: 16px; cursor: pointer; }
+.addRow { display: flex; gap: 6px; }
+.addRow input[type="number"] { flex: 0 0 90px; }
+.hint { margin: 0; color: var(--muted); font-size: 12px; }
+
+.progress { height: 8px; overflow: hidden; border-radius: 99px; background: var(--field); }
+.progress span { display: block; height: 100%; border-radius: inherit; background: #1baf7a; transition: width 0.3s ease; }
+.packing li label { display: flex; flex: 1; align-items: center; gap: 10px; cursor: pointer; }
+.packing li input { width: 16px; height: 16px; accent-color: #1baf7a; }
+.packing li[data-done="true"] label { color: var(--muted); text-decoration: line-through; }
+
+.toast {
+  position: absolute;
+  bottom: 54px;
+  left: 50%;
+  z-index: 1000;
+  padding: 8px 16px;
+  border-radius: 99px;
+  background: var(--ink);
+  color: var(--surface);
+  font-size: 13px;
+  font-weight: 500;
+  transform: translateX(-50%);
+  animation: rise 0.25s ease;
+}
+.credit { margin: 12px 0 0; color: var(--muted); font-size: 11.5px; }
+
+@keyframes rise {
+  from { opacity: 0; transform: translate(-50%, 8px); }
+  to { opacity: 1; transform: translate(-50%, 0); }
+}
+5:["$","main",null,{"className":"container","children":[["$","$L2",null,{"href":"/","className":"back","children":"← All components"}],["$","header",null,{"className":"detail-head","children":[["$","span",null,{"className":"tag","children":["Week ",7," · ","2026-10-09"]}],["$","h1",null,{"children":"Trip Planner with Live Map"}],["$","p",null,{"children":"Plan a multi-day trip on a real map: search places, organise stops by day, see driving routes with times and distances, split the budget, pack, and share it with a link."}]]}],["$","section",null,{"className":"stage","aria-label":"Live demo","children":["$","$L10",null,{"slug":"trip-planner"}]}],["$","section",null,{"className":"source","children":[["$","h2",null,{"children":"Source"}],[["$","div","Demo.tsx",{"className":"file","children":[["$","div",null,{"className":"file-head","children":[["$","span",null,{"children":"Demo.tsx"}],["$","$L11",null,{"text":"import TripPlanner from \"./TripPlanner\";\n\nexport default function Demo() {\n  return <TripPlanner />;\n}\n"}]]}],["$","pre",null,{"children":["$","code",null,{"children":"import TripPlanner from \"./TripPlanner\";\n\nexport default function Demo() {\n  return <TripPlanner />;\n}\n"}]}]]}],["$","div","TripPlanner.module.css",{"className":"file","children":[["$","div",null,{"className":"file-head","children":[["$","span",null,{"children":"TripPlanner.module.css"}],["$","$L11",null,{"text":"$12"}]]}],"$L13"]}],"$L14","$L15","$L16"]]}],"$L17"]}]
+18:T308e,.card {
+  --surface: #fcfcfb;
+  --ink: #0b0b0b;
+  --ink-2: #52514e;
+  --muted: #898781;
+  --border: rgba(11, 11, 11, 0.1);
+  --field: #f4f3f0;
+  --accent: #2a78d6;
+  --danger: #d92d20;
+
+  position: relative;
+  width: 100%;
+  max-width: 1150px;
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: var(--surface);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 12px 32px -12px rgba(0, 0, 0, 0.18);
+  color: var(--ink);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  container-type: inline-size;
+}
+
+@media (prefers-color-scheme: dark) {
+  .card {
+    --surface: #18181b;
+    --ink: #ffffff;
+    --ink-2: #c3c2b7;
+    --border: rgba(255, 255, 255, 0.1);
+    --field: #232327;
+    --accent: #6da7ec;
+    --danger: #f97066;
+    box-shadow: 0 12px 32px -12px rgba(0, 0, 0, 0.6);
+  }
+  /* Dark map tiles without needing a separate dark tile server. */
+  .map :global(.leaflet-tile-pane) { filter: invert(1) hue-rotate(180deg) brightness(0.92) contrast(0.88) saturate(0.6); }
+  .map { background: #1f2023; }
+}
+
+.loading { padding: 80px 0; color: var(--muted); text-align: center; }
+
+/* Header */
+.head { margin-bottom: 14px; }
+.titleRow { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; }
+.tripName {
+  flex: 1;
+  min-width: 200px;
+  padding: 4px 8px;
+  margin-left: -8px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  outline: none;
+  background: none;
+  color: var(--ink);
+  font: inherit;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.tripName:hover { border-color: var(--border); }
+.tripName:focus { border-color: var(--accent); background: var(--field); }
+.headActions { display: flex; flex-wrap: wrap; gap: 6px; }
+.meta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; margin-top: 8px; color: var(--ink-2); font-size: 13px; }
+.meta label { display: inline-flex; align-items: center; gap: 6px; }
+.meta input {
+  height: 30px;
+  padding: 0 8px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--field);
+  color: var(--ink);
+  font: inherit;
+  font-size: 13px;
+  color-scheme: light dark;
+}
+.meta input[type="number"] { width: 64px; }
+.metaStat { color: var(--muted); }
+
+.ghost {
+  height: 32px;
+  padding: 0 12px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: none;
+  color: var(--ink);
+  font: inherit;
+  font-size: 12.5px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.ghost:hover { background: var(--field); }
+.ghost:focus-visible,
+.tabs button:focus-visible,
+.dayStrip button:focus-visible,
+.stopMain:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* Body */
+.body { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(320px, 1fr); gap: 14px; }
+@container (max-width: 760px) {
+  .body { grid-template-columns: 1fr; }
+  .map { height: 340px !important; }
+}
+
+.mapWrap { position: relative; min-width: 0; }
+.map { height: 600px; overflow: hidden; border: 1px solid var(--border); border-radius: 14px; z-index: 0; }
+.dayStrip {
+  position: absolute;
+  top: 10px;
+  left: 56px;
+  right: 10px;
+  z-index: 500;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  pointer-events: none;
+}
+.dayStrip button {
+  padding: 6px 12px;
+  border: 2px solid var(--c);
+  border-radius: 99px;
+  background: color-mix(in srgb, var(--surface) 92%, transparent);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+  color: var(--ink);
+  font: inherit;
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  pointer-events: auto;
+}
+.dayStrip button[aria-selected="true"] { background: var(--c); color: #fff; }
+.mapHint {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  z-index: 500;
+  margin: 0;
+  padding: 4px 10px;
+  border-radius: 99px;
+  background: rgba(0, 0, 0, 0.62);
+  color: #fff;
+  font-size: 11.5px;
+  pointer-events: none;
+}
+
+.pin {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border: 2.5px solid #fff;
+  border-radius: 50% 50% 50% 4px;
+  background: var(--c);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.35);
+  color: #fff;
+  font: 700 12px system-ui, sans-serif;
+  transform: rotate(-45deg);
+  opacity: 0.55;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.pin[data-active="true"] { opacity: 1; }
+.pin[data-open="true"] { transform: rotate(-45deg) scale(1.25); }
+/* The teardrop is rotated; turn the number back upright. */
+.pin b { transform: rotate(45deg); font-weight: 700; line-height: 1; }
+
+.popup { display: flex; flex-direction: column; gap: 8px; min-width: 170px; font-family: system-ui, sans-serif; }
+.popup strong { font-size: 13px; }
+.popup button { padding: 6px 10px; border: 0; border-radius: 8px; color: #fff; font: 600 12.5px system-ui, sans-serif; cursor: pointer; }
+
+/* Panel */
+.panel { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.tabs { display: flex; gap: 2px; padding: 3px; border-radius: 10px; background: var(--field); }
+.tabs button {
+  flex: 1;
+  padding: 7px 6px;
+  border: 0;
+  border-radius: 8px;
+  background: none;
+  color: var(--ink-2);
+  font: inherit;
+  font-size: 12.5px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.tabs button[aria-selected="true"] { background: var(--surface); box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15); color: var(--ink); font-weight: 600; }
+
+.search { display: flex; gap: 6px; }
+.search input,
+.addRow input {
+  flex: 1;
+  min-width: 0;
+  height: 38px;
+  padding: 0 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  outline: none;
+  background: var(--field);
+  color: var(--ink);
+  font: inherit;
+  font-size: 14px;
+}
+.search input:focus,
+.addRow input:focus { border-color: var(--accent); }
+.search button,
+.addRow button {
+  height: 38px;
+  padding: 0 14px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--ink);
+  color: var(--surface);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.results { display: flex; flex-direction: column; gap: 4px; margin: 0; padding: 6px; border: 1px solid var(--border); border-radius: 12px; list-style: none; }
+.results li { display: flex; align-items: center; gap: 6px; }
+.resultPeek {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+  padding: 6px 8px;
+  border: 0;
+  border-radius: 8px;
+  background: none;
+  color: var(--ink);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.resultPeek:hover { background: var(--field); }
+.resultPeek strong { font-size: 13.5px; }
+.resultPeek span { overflow: hidden; color: var(--muted); font-size: 12px; text-overflow: ellipsis; white-space: nowrap; }
+.addBtn { flex: none; padding: 5px 10px; border: 0; border-radius: 8px; color: #fff; font: inherit; font-size: 12px; font-weight: 600; cursor: pointer; }
+.noResults { padding: 8px; color: var(--muted); font-size: 13px; }
+.closeResults { width: 100%; padding: 4px; border: 0; background: none; color: var(--muted); font: inherit; font-size: 12px; cursor: pointer; }
+
+.dayHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 10px 12px;
+  border-left: 4px solid var(--c);
+  border-radius: 6px 12px 12px 6px;
+  background: color-mix(in srgb, var(--c) 10%, transparent);
+}
+.dayHead div { display: flex; align-items: baseline; gap: 8px; }
+.dayHead strong { font-size: 15px; }
+.dayHead div span { color: var(--ink-2); font-size: 13px; }
+.dayStats { color: var(--ink-2); font-size: 12px; font-variant-numeric: tabular-nums; text-align: right; }
+
+.stops { display: flex; flex-direction: column; max-height: 360px; margin: 0; padding: 0 2px 0 0; overflow-y: auto; list-style: none; }
+.emptyDay { padding: 20px 8px; color: var(--muted); font-size: 13px; text-align: center; }
+.leg { display: flex; align-items: center; height: 26px; margin-left: 13px; padding-left: 20px; border-left: 2px dashed var(--border); color: var(--muted); font-size: 11.5px; font-variant-numeric: tabular-nums; }
+.stop { border: 1px solid var(--border); border-radius: 12px; background: var(--surface); transition: box-shadow 0.15s ease; }
+.stop[data-open="true"] { border-color: var(--accent); box-shadow: 0 6px 18px -8px rgba(0, 0, 0, 0.25); }
+.stop:hover { box-shadow: 0 4px 12px -8px rgba(0, 0, 0, 0.3); }
+.stopMain {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 9px 10px;
+  border: 0;
+  border-radius: 12px;
+  background: none;
+  color: var(--ink);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.num { display: grid; flex: none; place-items: center; width: 26px; height: 26px; border-radius: 50%; color: #fff; font-size: 12px; font-weight: 700; }
+.stopText { display: flex; flex: 1; flex-direction: column; min-width: 0; }
+.stopText strong { overflow: hidden; font-size: 13.5px; text-overflow: ellipsis; white-space: nowrap; }
+.stopText span { color: var(--muted); font-size: 12px; }
+.grip { color: var(--muted); font-size: 12px; letter-spacing: -2px; cursor: grab; }
+
+.editor { display: flex; flex-direction: column; gap: 8px; padding: 0 12px 12px; }
+.editor label { display: flex; flex-direction: column; gap: 3px; color: var(--ink-2); font-size: 11.5px; }
+.editor input,
+.editor select {
+  height: 32px;
+  min-width: 0;
+  padding: 0 8px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--field);
+  color: var(--ink);
+  font: inherit;
+  font-size: 13px;
+  color-scheme: light dark;
+}
+.row3 { display: grid; grid-template-columns: 1fr 1.2fr 1fr; gap: 6px; }
+.editorActions { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 8px; }
+.editorActions > span { display: flex; gap: 4px; }
+.inline { flex-direction: row !important; align-items: center; gap: 6px !important; }
+.iconBtn,
+.danger { height: 30px; padding: 0 10px; border: 1px solid var(--border); border-radius: 8px; background: none; color: var(--ink); font: inherit; font-size: 13px; cursor: pointer; }
+.iconBtn:disabled { opacity: 0.35; cursor: default; }
+.danger { color: var(--danger); }
+
+.dayActions { display: flex; gap: 6px; }
+
+/* Budget */
+.budget,
+.packing { display: flex; flex-direction: column; gap: 10px; }
+.bigNumbers { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.bigNumbers div { display: flex; flex-direction: column; padding: 12px; border-radius: 12px; background: var(--field); }
+.bigNumbers strong { font-size: 22px; font-variant-numeric: tabular-nums; }
+.bigNumbers span { color: var(--muted); font-size: 12px; }
+.breakdown,
+.extras,
+.packing ul { display: flex; flex-direction: column; gap: 6px; margin: 0; padding: 0; list-style: none; }
+.breakdown li { display: grid; grid-template-columns: 90px 1fr 80px; align-items: center; gap: 8px; font-size: 13px; }
+.bar { height: 8px; overflow: hidden; border-radius: 99px; background: var(--field); }
+.bar span { display: block; height: 100%; border-radius: inherit; background: var(--accent); }
+.amount { text-align: right; font-variant-numeric: tabular-nums; }
+.subhead { margin: 6px 0 0; color: var(--ink-2); font-size: 12.5px; font-weight: 600; }
+.extras li,
+.packing li { display: flex; align-items: center; gap: 8px; padding: 7px 10px; border: 1px solid var(--border); border-radius: 10px; font-size: 13px; }
+.extras li span:first-child { flex: 1; }
+.extras button,
+.packing li button { padding: 0 4px; border: 0; background: none; color: var(--muted); font-size: 16px; cursor: pointer; }
+.addRow { display: flex; gap: 6px; }
+.addRow input[type="number"] { flex: 0 0 90px; }
+.hint { margin: 0; color: var(--muted); font-size: 12px; }
+
+.progress { height: 8px; overflow: hidden; border-radius: 99px; background: var(--field); }
+.progress span { display: block; height: 100%; border-radius: inherit; background: #1baf7a; transition: width 0.3s ease; }
+.packing li label { display: flex; flex: 1; align-items: center; gap: 10px; cursor: pointer; }
+.packing li input { width: 16px; height: 16px; accent-color: #1baf7a; }
+.packing li[data-done="true"] label { color: var(--muted); text-decoration: line-through; }
+
+.toast {
+  position: absolute;
+  bottom: 54px;
+  left: 50%;
+  z-index: 1000;
+  padding: 8px 16px;
+  border-radius: 99px;
+  background: var(--ink);
+  color: var(--surface);
+  font-size: 13px;
+  font-weight: 500;
+  transform: translateX(-50%);
+  animation: rise 0.25s ease;
+}
+.credit { margin: 12px 0 0; color: var(--muted); font-size: 11.5px; }
+
+@keyframes rise {
+  from { opacity: 0; transform: translate(-50%, 8px); }
+  to { opacity: 1; transform: translate(-50%, 0); }
+}
+13:["$","pre",null,{"children":["$","code",null,{"children":"$18"}]}]
+19:T7043,"use client";
+
+import "leaflet/dist/leaflet.css";
+import { useEffect, useMemo, useRef, useState, type DragEvent } from "react";
+import type * as Leaflet from "leaflet";
+import {
+  CATEGORIES,
+  DAY_COLORS,
+  dayDate,
+  decodeTrip,
+  encodeTrip,
+  sampleTrip,
+  toIcs,
+  uid,
+  type Category,
+  type Stop,
+  type Trip,
+} from "./model";
+import { km, mins, reverseGeocode, routeFor, searchPlaces, type Place, type Route } from "./services";
+import styles from "./TripPlanner.module.css";
+
+const STORAGE_KEY = "gallery-trip-v1";
+type Tab = "plan" | "budget" | "packing";
+
+const money = (v: number) => `৳${Math.round(v).toLocaleString("en-IN")}`;
+const colorOf = (i: number) => DAY_COLORS[i % DAY_COLORS.length];
+const fmtDay = (d: Date) => d.toLocaleDateString("en-GB", { weekday: "short", day: "numeric", month: "short" });
+
+function download(text: string, name: string, type: string) {
+  const url = URL.createObjectURL(new Blob([text], { type }));
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = name;
+  a.click();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+
+export default function TripPlanner() {
+  const [trip, setTrip] = useState<Trip | null>(null);
+  const [tab, setTab] = useState<Tab>("plan");
+  const [day, setDay] = useState(0);
+  const [openStop, setOpenStop] = useState<string | null>(null);
+  const [routes, setRoutes] = useState<Record<string, Route>>({});
+  const [query, setQuery] = useState("");
+  const [results, setResults] = useState<Place[] | null>(null);
+  const [searching, setSearching] = useState(false);
+  const [toast, setToast] = useState("");
+  const [packDraft, setPackDraft] = useState("");
+  const [extraDraft, setExtraDraft] = useState({ label: "", cost: "" });
+  const [mapReady, setMapReady] = useState(false);
+
+  const mapEl = useRef<HTMLDivElement>(null);
+  const map = useRef<Leaflet.Map | null>(null);
+  const L = useRef<typeof Leaflet | null>(null);
+  const layer = useRef<Leaflet.LayerGroup | null>(null);
+  const tripRef = useRef(trip);
+  tripRef.current = trip;
+  const dayRef = useRef(day);
+  dayRef.current = day;
+  const dragging = useRef<{ day: number; index: number } | null>(null);
+
+  const notify = (msg: string) => {
+    setToast(msg);
+    setTimeout(() => setToast(""), 2200);
+  };
+
+  // ── Load: a shared link wins, then saved trip, then the sample ──────────────────────
+  useEffect(() => {
+    (async () => {
+      const shared = window.location.hash.match(/trip=([^&]+)/)?.[1];
+      if (shared) {
+        const t = await decodeTrip(shared);
+        if (t) {
+          setTrip(t);
+          notify("Opened a shared trip");
+          return;
+        }
+      }
+      try {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (saved) {
+          setTrip(JSON.parse(saved));
+          return;
+        }
+      } catch {}
+      setTrip(sampleTrip());
+    })();
+  }, []);
+
+  useEffect(() => {
+    if (!trip) return;
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(trip));
+    } catch {}
+  }, [trip]);
+
+  const update = (fn: (t: Trip) => Trip) => setTrip((t) => (t ? fn(structuredClone(t)) : t));
+
+  // ── Map setup (Leaflet touches window, so it is imported on the client only) ────────
+  useEffect(() => {
+    let disposed = false;
+    (async () => {
+      const lib = (await import("leaflet")).default;
+      if (disposed || !mapEl.current) return;
+      L.current = lib;
+      const m = lib.map(mapEl.current, { zoomControl: true, scrollWheelZoom: true }).setView([21.4, 92.0], 11);
+      lib
+        .tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+          maxZoom: 19,
+          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        })
+        .addTo(m);
+      layer.current = lib.layerGroup().addTo(m);
+      m.on("click", (e: Leaflet.LeafletMouseEvent) => showAddPopup(e.latlng.lat, e.latlng.lng));
+      map.current = m;
+      setMapReady(true);
+    })();
+    return () => {
+      disposed = true;
+      map.current?.remove();
+      map.current = null;
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  function showAddPopup(lat: number, lng: number) {
+    const lib = L.current;
+    const m = map.current;
+    if (!lib || !m || !tripRef.current) return;
+    const box = document.createElement("div");
+    box.className = styles.popup;
+    const title = document.createElement("strong");
+    title.textContent = "Looking up this place…";
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.textContent = `Add to Day ${dayRef.current + 1}`;
+    btn.style.background = colorOf(dayRef.current);
+    box.append(title, btn);
+    const popup = lib.popup().setLatLng([lat, lng]).setContent(box).openOn(m);
+    let name = "Pinned place";
+    reverseGeocode(lat, lng).then((n) => {
+      name = n;
+      title.textContent = n;
+    });
+    btn.onclick = () => {
+      addStop({ name, lat, lng, detail: "" }, dayRef.current);
+      m.closePopup(popup);
+    };
+  }
+
+  // ── Routes: re-fetch a day's route when its stops change (debounced, cached) ────────
+  const signature = trip?.days.map((d) => d.id + ":" + d.stops.map((s) => `${s.lat},${s.lng}`).join("|")).join("/") ?? "";
+  useEffect(() => {
+    if (!trip) return;
+    const timer = setTimeout(async () => {
+      const next: Record<string, Route> = {};
+      for (const d of trip.days) next[d.id] = await routeFor(d.stops);
+      setRoutes(next);
+    }, 500);
+    return () => clearTimeout(timer);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [signature]);
+
+  // ── Draw markers and routes ─────────────────────────────────────────────────────────
+  useEffect(() => {
+    const lib = L.current;
+    const group = layer.current;
+    if (!mapReady || !lib || !group || !trip) return;
+    group.clearLayers();
+    trip.days.forEach((d, di) => {
+      const active = di === day;
+      const color = colorOf(di);
+      const route = routes[d.id];
+      const line = route?.coords.length ? route.coords : d.stops.map((s) => [s.lat, s.lng] as [number, number]);
+      if (line.length > 1) {
+        lib
+          .polyline(line, { color, weight: active ? 5 : 3, opacity: active ? 0.9 : 0.35, dashArray: route?.estimated ? "6 8" : undefined })
+          .addTo(group);
+      }
+      d.stops.forEach((s, si) => {
+        const icon = lib.divIcon({
+          className: "",
+          html: `<span class="${styles.pin}" data-active="${active}" data-open="${openStop === s.id}" style="--c:${color}"><b>${si + 1}</b></span>`,
+          iconSize: [28, 28],
+          iconAnchor: [14, 32],
+        });
+        lib
+          .marker([s.lat, s.lng], { icon, zIndexOffset: active ? 1000 : 0, title: s.name })
+          .on("click", () => {
+            setDay(di);
+            setTab("plan");
+            setOpenStop(s.id);
+          })
+          .addTo(group);
+      });
+    });
+  }, [trip, routes, day, openStop, mapReady]);
+
+  // Fit the selected day on screen.
+  useEffect(() => {
+    const lib = L.current;
+    const m = map.current;
+    const stops = trip?.days[day]?.stops ?? [];
+    if (!mapReady || !lib || !m || !stops.length) return;
+    if (stops.length === 1) m.flyTo([stops[0].lat, stops[0].lng], 14, { duration: 0.6 });
+    else m.flyToBounds(lib.latLngBounds(stops.map((s) => [s.lat, s.lng])), { padding: [50, 50], duration: 0.6 });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [day, mapReady, trip?.days.length]);
+
+  // ── Actions ─────────────────────────────────────────────────────────────────────────
+  function addStop(place: Place, dayIndex: number) {
+    const s: Stop = { id: uid(), name: place.name, lat: place.lat, lng: place.lng, category: "sight", time: "", cost: 0, note: "" };
+    update((t) => {
+      t.days[dayIndex].stops.push(s);
+      return t;
+    });
+    setOpenStop(s.id);
+    setResults(null);
+    setQuery("");
+    notify(`Added to Day ${dayIndex + 1}`);
+  }
+
+  function editStop(dayIndex: number, id: string, patch: Partial<Stop>) {
+    update((t) => {
+      const s = t.days[dayIndex].stops.find((x) => x.id === id);
+      if (s) Object.assign(s, patch);
+      return t;
+    });
+  }
+
+  function moveStop(from: { day: number; index: number }, toDay: number, toIndex: number) {
+    update((t) => {
+      const [s] = t.days[from.day].stops.splice(from.index, 1);
+      const target = t.days[toDay].stops;
+      const index = from.day === toDay && toIndex > from.index ? toIndex - 1 : toIndex;
+      target.splice(Math.min(index, target.length), 0, s);
+      return t;
+    });
+  }
+
+  async function search() {
+    const q = query.trim();
+    if (!q) return;
+    setSearching(true);
+    try {
+      const b = map.current?.getBounds();
+      setResults(await searchPlaces(q, b && { west: b.getWest(), south: b.getSouth(), east: b.getEast(), north: b.getNorth() }));
+    } catch {
+      setResults([]);
+      notify("Search is unavailable right now");
+    } finally {
+      setSearching(false);
+    }
+  }
+
+  async function share() {
+    if (!trip) return;
+    const url = `${window.location.origin}${window.location.pathname}#trip=${await encodeTrip(trip)}`;
+    await navigator.clipboard.writeText(url);
+    notify("Share link copied. Anyone with it sees this trip");
+  }
+
+  const onDrop = (e: DragEvent, toDay: number, toIndex: number) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (dragging.current) moveStop(dragging.current, toDay, toIndex);
+    dragging.current = null;
+  };
+
+  // ── Derived numbers ─────────────────────────────────────────────────────────────────
+  const totals = useMemo(() => {
+    if (!trip) return null;
+    const byCat = new Map<string, number>();
+    for (const d of trip.days) for (const s of d.stops) byCat.set(s.category, (byCat.get(s.category) ?? 0) + s.cost);
+    const extras = trip.extras.reduce((a, x) => a + x.cost, 0);
+    if (extras) byCat.set("extras", extras);
+    const total = [...byCat.values()].reduce((a, b) => a + b, 0);
+    return { byCat, total, perPerson: total / Math.max(1, trip.travelers) };
+  }, [trip]);
+
+  if (!trip || !totals) {
+    return (
+      <div className={styles.card}>
+        <div className={styles.loading}>Loading your trip…</div>
+      </div>
+    );
+  }
+
+  const current = trip.days[day] ?? trip.days[0];
+  const route = routes[current?.id];
+  const dayDistance = route?.legs.reduce((a, l) => a + l.distance, 0) ?? 0;
+  const dayDuration = route?.legs.reduce((a, l) => a + l.duration, 0) ?? 0;
+  const packed = trip.packing.filter((p) => p.done).length;
+
+  return (
+    <div className={styles.card}>
+      <header className={styles.head}>
+        <div className={styles.titleRow}>
+          <input className={styles.tripName} value={trip.name} onChange={(e) => update((t) => ({ ...t, name: e.target.value }))} aria-label="Trip name" />
+          <div className={styles.headActions}>
+            <button type="button" className={styles.ghost} onClick={share}>
+              Share link
+            </button>
+            <button type="button" className={styles.ghost} onClick={() => download(toIcs(trip), `${trip.name || "trip"}.ics`, "text/calendar")}>
+              Add to calendar
+            </button>
+            <button
+              type="button"
+              className={styles.ghost}
+              onClick={() => {
+                if (window.confirm("Start over with the sample trip? Your current plan will be replaced.")) {
+                  setTrip(sampleTrip());
+                  setDay(0);
+                  history.replaceState(null, "", window.location.pathname);
+                }
+              }}
+            >
+              Reset
+            </button>
+          </div>
+        </div>
+        <div className={styles.meta}>
+          <label>
+            Starts
+            <input type="date" value={trip.start} onChange={(e) => e.target.value && update((t) => ({ ...t, start: e.target.value }))} />
+          </label>
+          <label>
+            Travellers
+            <input
+              type="number"
+              min={1}
+              max={50}
+              value={trip.travelers}
+              onChange={(e) => update((t) => ({ ...t, travelers: Math.max(1, Math.min(50, Number(e.target.value) || 1)) }))}
+            />
+          </label>
+          <span className={styles.metaStat}>
+            {trip.days.length} days · {trip.days.reduce((a, d) => a + d.stops.length, 0)} stops · {money(totals.total)} total
+          </span>
+        </div>
+      </header>
+
+      <div className={styles.body}>
+        <div className={styles.mapWrap}>
+          <div ref={mapEl} className={styles.map} aria-label="Trip map. Click anywhere to add a place." />
+          <div className={styles.dayStrip} role="tablist" aria-label="Days">
+            {trip.days.map((d, i) => (
+              <button
+                key={d.id}
+                type="button"
+                role="tab"
+                aria-selected={day === i}
+                style={{ ["--c" as string]: colorOf(i) }}
+                onClick={() => setDay(i)}
+                onDragOver={(e) => e.preventDefault()}
+                onDrop={(e) => onDrop(e, i, trip.days[i].stops.length)}
+              >
+                Day {i + 1}
+              </button>
+            ))}
+          </div>
+          <p className={styles.mapHint}>Click the map to add a place</p>
+        </div>
+
+        <section className={styles.panel}>
+          <div className={styles.tabs} role="tablist">
+            {(
+              [
+                ["plan", "Itinerary"],
+                ["budget", `Budget · ${money(totals.perPerson)}/person`],
+                ["packing", `Packing ${packed}/${trip.packing.length}`],
+              ] as const
+            ).map(([k, label]) => (
+              <button key={k} type="button" role="tab" aria-selected={tab === k} onClick={() => setTab(k)}>
+                {label}
+              </button>
+            ))}
+          </div>
+
+          {tab === "plan" && (
+            <>
+              <form
+                className={styles.search}
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  search();
+                }}
+              >
+                <input value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Search a place, e.g. Inani Beach" aria-label="Search places" />
+                <button type="submit" disabled={searching}>
+                  {searching ? "…" : "Search"}
+                </button>
+              </form>
+              {results && (
+                <ul className={styles.results}>
+                  {results.length === 0 && <li className={styles.noResults}>No places found.</li>}
+                  {results.map((r, i) => (
+                    <li key={i}>
+                      <button
+                        type="button"
+                        className={styles.resultPeek}
+                        onClick={() => map.current?.flyTo([r.lat, r.lng], 14, { duration: 0.6 })}
+                      >
+                        <strong>{r.name}</strong>
+                        <span>{r.detail}</span>
+                      </button>
+                      <button type="button" className={styles.addBtn} style={{ background: colorOf(day) }} onClick={() => addStop(r, day)}>
+                        + Day {day + 1}
+                      </button>
+                    </li>
+                  ))}
+                  <li>
+                    <button type="button" className={styles.closeResults} onClick={() => setResults(null)}>
+                      Close results
+                    </button>
+                  </li>
+                </ul>
+              )}
+
+              <div className={styles.dayHead} style={{ ["--c" as string]: colorOf(day) }}>
+                <div>
+                  <strong>Day {day + 1}</strong>
+                  <span>{fmtDay(dayDate(trip, day))}</span>
+                </div>
+                <span className={styles.dayStats}>
+                  {current.stops.length > 1 ? `${km(dayDistance)} · ${mins(dayDuration)}${route?.estimated ? " (est.)" : ""}` : "Add stops to see the route"}
+                </span>
+              </div>
+
+              <ol className={styles.stops} onDragOver={(e) => e.preventDefault()} onDrop={(e) => onDrop(e, day, current.stops.length)}>
+                {current.stops.length === 0 && <li className={styles.emptyDay}>No stops yet. Search above or click the map.</li>}
+                {current.stops.map((s, i) => {
+                  const leg = route?.legs[i - 1];
+                  const open = openStop === s.id;
+                  return (
+                    <li key={s.id} className={styles.stopWrap}>
+                      {i > 0 && leg && (
+                        <div className={styles.leg}>
+                          <span>
+                            {km(leg.distance)} · {mins(leg.duration)}
+                          </span>
+                        </div>
+                      )}
+                      <div
+                        className={styles.stop}
+                        data-open={open}
+                        draggable
+                        onDragStart={() => (dragging.current = { day, index: i })}
+                        onDragOver={(e) => e.preventDefault()}
+                        onDrop={(e) => onDrop(e, day, i)}
+                      >
+                        <button
+                          type="button"
+                          className={styles.stopMain}
+                          onClick={() => {
+                            setOpenStop(open ? null : s.id);
+                            map.current?.flyTo([s.lat, s.lng], Math.max(map.current.getZoom(), 13), { duration: 0.5 });
+                          }}
+                          aria-expanded={open}
+                        >
+                          <span className={styles.num} style={{ background: colorOf(day) }}>
+                            {i + 1}
+                          </span>
+                          <span className={styles.stopText}>
+                            <strong>{s.name}</strong>
+                            <span>
+                              {s.time && `${s.time} · `}
+                              {CATEGORIES.find((c) => c.key === s.category)?.label}
+                              {s.cost > 0 && ` · ${money(s.cost)}`}
+                            </span>
+                          </span>
+                          <span className={styles.grip} aria-hidden="true">
+                            ⋮⋮
+                          </span>
+                        </button>
+                        {open && (
+                          <div className={styles.editor}>
+                            <label>
+                              Name
+                              <input value={s.name} onChange={(e) => editStop(day, s.id, { name: e.target.value })} />
+                            </label>
+                            <div className={styles.row3}>
+                              <label>
+                                Time
+                                <input type="time" value={s.time} onChange={(e) => editStop(day, s.id, { time: e.target.value })} />
+                              </label>
+                              <label>
+                                Type
+                                <select value={s.category} onChange={(e) => editStop(day, s.id, { category: e.target.value as Category })}>
+                                  {CATEGORIES.map((c) => (
+                                    <option key={c.key} value={c.key}>
+                                      {c.label}
+                                    </option>
+                                  ))}
+                                </select>
+                              </label>
+                              <label>
+                                Cost (৳)
+                                <input type="number" min={0} value={s.cost || ""} onChange={(e) => editStop(day, s.id, { cost: Math.max(0, Number(e.target.value) || 0) })} />
+                              </label>
+                            </div>
+                            <label>
+                              Note
+                              <input value={s.note} placeholder="Tickets, booking ref, tips…" onChange={(e) => editStop(day, s.id, { note: e.target.value })} />
+                            </label>
+                            <div className={styles.editorActions}>
+                              <label className={styles.inline}>
+                                Move to
+                                <select value={day} onChange={(e) => moveStop({ day, index: i }, Number(e.target.value), Infinity)}>
+                                  {trip.days.map((_, di) => (
+                                    <option key={di} value={di}>
+                                      Day {di + 1}
+                                    </option>
+                                  ))}
+                                </select>
+                              </label>
+                              <span>
+                                <button type="button" className={styles.iconBtn} disabled={i === 0} onClick={() => moveStop({ day, index: i }, day, i - 1)} aria-label="Move up">
+                                  ↑
+                                </button>
+                                <button
+                                  type="button"
+                                  className={styles.iconBtn}
+                                  disabled={i === current.stops.length - 1}
+                                  onClick={() => moveStop({ day, index: i }, day, i + 2)}
+                                  aria-label="Move down"
+                                >
+                                  ↓
+                                </button>
+                                <button
+                                  type="button"
+                                  className={styles.danger}
+                                  onClick={() =>
+                                    update((t) => {
+                                      t.days[day].stops = t.days[day].stops.filter((x) => x.id !== s.id);
+                                      return t;
+                                    })
+                                  }
+                                >
+                                  Remove
+                                </button>
+                              </span>
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    </li>
+                  );
+                })}
+              </ol>
+
+              <div className={styles.dayActions}>
+                <button
+                  type="button"
+                  className={styles.ghost}
+                  onClick={() => {
+                    update((t) => ({ ...t, days: [...t.days, { id: uid(), stops: [] }] }));
+                    setDay(trip.days.length);
+                  }}
+                >
+                  + Add day
+                </button>
+                {trip.days.length > 1 && (
+                  <button
+                    type="button"
+                    className={styles.ghost}
+                    onClick={() => {
+                      if (current.stops.length && !window.confirm(`Delete Day ${day + 1} and its ${current.stops.length} stops?`)) return;
+                      update((t) => ({ ...t, days: t.days.filter((_, i) => i !== day) }));
+                      setDay(Math.max(0, day - 1));
+                    }}
+                  >
+                    Delete Day {day + 1}
+                  </button>
+                )}
+              </div>
+            </>
+          )}
+
+          {tab === "budget" && (
+            <div className={styles.budget}>
+              <div className={styles.bigNumbers}>
+                <div>
+                  <strong>{money(totals.total)}</strong>
+                  <span>trip total</span>
+                </div>
+                <div>
+                  <strong>{money(totals.perPerson)}</strong>
+                  <span>per person ({trip.travelers})</span>
+                </div>
+              </div>
+              <ul className={styles.breakdown}>
+                {[...totals.byCat.entries()]
+                  .filter(([, v]) => v > 0)
+                  .sort((a, b) => b[1] - a[1])
+                  .map(([k, v]) => (
+                    <li key={k}>
+                      <span>{k === "extras" ? "Extras" : CATEGORIES.find((c) => c.key === k)?.label}</span>
+                      <span className={styles.bar}>
+                        <span style={{ width: `${(v / Math.max(1, totals.total)) * 100}%` }} />
+                      </span>
+                      <span className={styles.amount}>{money(v)}</span>
+                    </li>
+                  ))}
+              </ul>
+              <h4 className={styles.subhead}>Extras (tickets, transport, tips)</h4>
+              <ul className={styles.extras}>
+                {trip.extras.map((x) => (
+                  <li key={x.id}>
+                    <span>{x.label}</span>
+                    <span>{money(x.cost)}</span>
+                    <button type="button" aria-label={`Remove ${x.label}`} onClick={() => update((t) => ({ ...t, extras: t.extras.filter((e) => e.id !== x.id) }))}>
+                      ×
+                    </button>
+                  </li>
+                ))}
+              </ul>
+              <form
+                className={styles.addRow}
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  const cost = Number(extraDraft.cost);
+                  if (!extraDraft.label.trim() || !(cost > 0)) return;
+                  update((t) => ({ ...t, extras: [...t.extras, { id: uid(), label: extraDraft.label.trim(), cost }] }));
+                  setExtraDraft({ label: "", cost: "" });
+                }}
+              >
+                <input placeholder="e.g. Bus tickets" value={extraDraft.label} onChange={(e) => setExtraDraft((d) => ({ ...d, label: e.target.value }))} />
+                <input placeholder="৳" type="number" min={0} value={extraDraft.cost} onChange={(e) => setExtraDraft((d) => ({ ...d, cost: e.target.value }))} />
+                <button type="submit">Add</button>
+              </form>
+              <p className={styles.hint}>Stop costs are set on each stop in the itinerary.</p>
+            </div>
+          )}
+
+          {tab === "packing" && (
+            <div className={styles.packing}>
+              <div className={styles.progress}>
+                <span style={{ width: `${(packed / Math.max(1, trip.packing.length)) * 100}%` }} />
+              </div>
+              <ul>
+                {trip.packing.map((p) => (
+                  <li key={p.id} data-done={p.done}>
+                    <label>
+                      <input
+                        type="checkbox"
+                        checked={p.done}
+                        onChange={() => update((t) => ({ ...t, packing: t.packing.map((x) => (x.id === p.id ? { ...x, done: !x.done } : x)) }))}
+                      />
+                      {p.label}
+                    </label>
+                    <button type="button" aria-label={`Remove ${p.label}`} onClick={() => update((t) => ({ ...t, packing: t.packing.filter((x) => x.id !== p.id) }))}>
+                      ×
+                    </button>
+                  </li>
+                ))}
+              </ul>
+              <form
+                className={styles.addRow}
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  if (!packDraft.trim()) return;
+                  update((t) => ({ ...t, packing: [...t.packing, { id: uid(), label: packDraft.trim(), done: false }] }));
+                  setPackDraft("");
+                }}
+              >
+                <input placeholder="Add an item" value={packDraft} onChange={(e) => setPackDraft(e.target.value)} />
+                <button type="submit">Add</button>
+              </form>
+            </div>
+          )}
+        </section>
+      </div>
+
+      {toast && (
+        <div className={styles.toast} role="status">
+          {toast}
+        </div>
+      )}
+      <p className={styles.credit}>Map data © OpenStreetMap contributors · Routing by OSRM · Search by Nominatim. Your trip is saved in this browser.</p>
+    </div>
+  );
+}
+14:["$","div","TripPlanner.tsx",{"className":"file","children":[["$","div",null,{"className":"file-head","children":[["$","span",null,{"children":"TripPlanner.tsx"}],["$","$L11",null,{"text":"$19"}]]}],"$L1a"]}]
+1b:T1959,export type Category = "sight" | "food" | "hotel" | "transport" | "shop" | "other";
+export type Stop = { id: string; name: string; lat: number; lng: number; category: Category; time: string; cost: number; note: string };
+export type Day = { id: string; stops: Stop[] };
+export type Extra = { id: string; label: string; cost: number };
+export type PackItem = { id: string; label: string; done: boolean };
+export type Trip = { name: string; start: string; travelers: number; days: Day[]; extras: Extra[]; packing: PackItem[] };
+
+export const DAY_COLORS = ["#2a78d6", "#eb6834", "#1baf7a", "#7c4dff", "#e2508a", "#0e9aa7", "#c98500"];
+export const CATEGORIES: { key: Category; label: string }[] = [
+  { key: "sight", label: "Sightseeing" },
+  { key: "food", label: "Food" },
+  { key: "hotel", label: "Stay" },
+  { key: "transport", label: "Transport" },
+  { key: "shop", label: "Shopping" },
+  { key: "other", label: "Other" },
+];
+
+let n = 0;
+export const uid = () => `${Date.now().toString(36)}${(n++).toString(36)}${Math.random().toString(36).slice(2, 5)}`;
+
+const stop = (name: string, lat: number, lng: number, category: Category, time = "", cost = 0, note = ""): Stop => ({
+  id: uid(),
+  name,
+  lat,
+  lng,
+  category,
+  time,
+  cost,
+  note,
+});
+
+export function isoDate(d: Date) {
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+}
+
+export function dayDate(trip: Trip, index: number) {
+  const [y, m, d] = trip.start.split("-").map(Number);
+  return new Date(y, m - 1, d + index);
+}
+
+/** A ready-made 3-day Cox's Bazar trip so the planner is useful on first open. */
+export function sampleTrip(): Trip {
+  const start = new Date();
+  start.setDate(start.getDate() + 14);
+  return {
+    name: "Cox's Bazar weekend",
+    start: isoDate(start),
+    travelers: 4,
+    days: [
+      {
+        id: uid(),
+        stops: [
+          stop("Cox's Bazar Airport", 21.4522, 91.9639, "transport", "10:30", 0, "Flight from Dhaka"),
+          stop("Hotel in Kolatoli", 21.4116, 91.9841, "hotel", "12:00", 14000, "2 rooms × 2 nights"),
+          stop("Laboni Point Beach", 21.4237, 91.9733, "sight", "16:30", 0, "Sunset walk"),
+          stop("Burmese Market", 21.4396, 91.9781, "shop", "19:00", 2500),
+        ],
+      },
+      {
+        id: uid(),
+        stops: [
+          stop("Himchari National Park", 21.3577, 92.0233, "sight", "09:00", 400, "Waterfall + hilltop view"),
+          stop("Inani Beach", 21.2236, 92.0498, "sight", "11:30", 0, "Coral stones at low tide"),
+          stop("Seafood lunch on Marine Drive", 21.2785, 92.0447, "food", "13:30", 3200),
+          stop("Hotel in Kolatoli", 21.4116, 91.9841, "hotel", "17:00", 0),
+        ],
+      },
+      {
+        id: uid(),
+        stops: [
+          stop("Ramu Buddhist Temple", 21.4247, 92.1006, "sight", "09:30", 0),
+          stop("Dried-fish market", 21.4482, 91.9729, "shop", "12:00", 1500),
+          stop("Cox's Bazar Airport", 21.4522, 91.9639, "transport", "15:00", 0, "Flight back"),
+        ],
+      },
+    ],
+    extras: [
+      { id: uid(), label: "Return flights (4)", cost: 26000 },
+      { id: uid(), label: "CNG & tuk-tuk rides", cost: 3000 },
+    ],
+    packing: [
+      "NID / passport",
+      "Phone charger & power bank",
+      "Sunscreen",
+      "Sunglasses & hat",
+      "Swimwear",
+      "Flip-flops",
+      "Light cotton clothes",
+      "Medicines",
+      "Cash for markets",
+    ].map((label, i) => ({ id: uid(), label, done: i < 2 })),
+  };
+}
+
+// ── Share links: the whole trip, gzip-compressed into the URL hash ────────────────────
+const toB64 = (bytes: Uint8Array) => btoa(String.fromCharCode(...bytes)).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+const fromB64 = (s: string) => Uint8Array.from(atob(s.replace(/-/g, "+").replace(/_/g, "/")), (c) => c.charCodeAt(0));
+
+async function pipe(bytes: Uint8Array, stream: CompressionStream | DecompressionStream) {
+  return new Uint8Array(await new Response(new Blob([bytes as BlobPart]).stream().pipeThrough(stream)).arrayBuffer());
+}
+
+export async function encodeTrip(trip: Trip) {
+  const json = new TextEncoder().encode(JSON.stringify(trip));
+  if (typeof CompressionStream === "undefined") return `j.${toB64(json)}`;
+  return `z.${toB64(await pipe(json, new CompressionStream("gzip")))}`;
+}
+
+export async function decodeTrip(code: string): Promise<Trip | null> {
+  try {
+    const [kind, data] = [code.slice(0, 1), code.slice(2)];
+    const bytes = kind === "z" ? await pipe(fromB64(data), new DecompressionStream("gzip")) : fromB64(data);
+    const trip = JSON.parse(new TextDecoder().decode(bytes));
+    return Array.isArray(trip?.days) ? trip : null;
+  } catch {
+    return null;
+  }
+}
+
+/** An .ics calendar: one all-day overview per day plus a 1-hour event for every timed stop. */
+export function toIcs(trip: Trip) {
+  const stamp = new Date().toISOString().replace(/[-:]/g, "").replace(/\.\d+/, "");
+  const esc = (s: string) => s.replace(/([,;\\])/g, "\\$1").replace(/\n/g, "\\n");
+  const ymd = (d: Date) => isoDate(d).replace(/-/g, "");
+  const lines = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Component Gallery//Trip Planner//EN", "CALSCALE:GREGORIAN"];
+  trip.days.forEach((day, i) => {
+    const date = dayDate(trip, i);
+    const next = new Date(date);
+    next.setDate(next.getDate() + 1);
+    lines.push(
+      "BEGIN:VEVENT",
+      `UID:${day.id}@trip`,
+      `DTSTAMP:${stamp}`,
+      `DTSTART;VALUE=DATE:${ymd(date)}`,
+      `DTEND;VALUE=DATE:${ymd(next)}`,
+      `SUMMARY:${esc(`${trip.name}: Day ${i + 1}`)}`,
+      `DESCRIPTION:${esc(day.stops.map((s, j) => `${j + 1}. ${s.time ? `${s.time} ` : ""}${s.name}`).join("\n"))}`,
+      "END:VEVENT",
+    );
+    for (const s of day.stops) {
+      if (!s.time) continue;
+      const [h, m] = s.time.split(":").map(Number);
+      const startAt = `${ymd(date)}T${String(h).padStart(2, "0")}${String(m).padStart(2, "0")}00`;
+      const endAt = `${ymd(date)}T${String((h + 1) % 24).padStart(2, "0")}${String(m).padStart(2, "0")}00`;
+      lines.push(
+        "BEGIN:VEVENT",
+        `UID:${s.id}-${i}@trip`,
+        `DTSTAMP:${stamp}`,
+        `DTSTART:${startAt}`,
+        `DTEND:${endAt}`,
+        `SUMMARY:${esc(s.name)}`,
+        `LOCATION:${esc(`${s.lat.toFixed(5)},${s.lng.toFixed(5)}`)}`,
+        ...(s.note ? [`DESCRIPTION:${esc(s.note)}`] : []),
+        "END:VEVENT",
+      );
+    }
+  });
+  lines.push("END:VCALENDAR");
+  return lines.join("\r\n");
+}
+15:["$","div","model.ts",{"className":"file","children":[["$","div",null,{"className":"file-head","children":[["$","span",null,{"children":"model.ts"}],["$","$L11",null,{"text":"$1b"}]]}],"$L1c"]}]
+1d:Tede,// Free, key-less OpenStreetMap services. Search runs only on Enter (Nominatim asks for ≤1 request/s,
+// no autocomplete), and routes are cached per day so edits don't re-request unchanged legs.
+
+export type Place = { name: string; detail: string; lat: number; lng: number };
+export type Leg = { distance: number; duration: number };
+export type Route = { coords: [number, number][]; legs: Leg[]; estimated: boolean };
+
+const NOMINATIM = "https://nominatim.openstreetmap.org";
+const OSRM = "https://router.project-osrm.org/route/v1/driving";
+
+export async function searchPlaces(query: string, view?: { west: number; south: number; east: number; north: number }) {
+  const params = new URLSearchParams({ q: query, format: "jsonv2", limit: "6", "accept-language": "en" });
+  if (view) params.set("viewbox", `${view.west},${view.north},${view.east},${view.south}`);
+  const res = await fetch(`${NOMINATIM}/search?${params}`);
+  if (!res.ok) throw new Error("Search failed");
+  const data: { name?: string; display_name: string; lat: string; lon: string }[] = await res.json();
+  return data.map<Place>((d) => {
+    const [first, ...rest] = d.display_name.split(", ");
+    return { name: d.name || first, detail: rest.slice(0, 3).join(", "), lat: Number(d.lat), lng: Number(d.lon) };
+  });
+}
+
+export async function reverseGeocode(lat: number, lng: number) {
+  try {
+    const params = new URLSearchParams({ lat: String(lat), lon: String(lng), format: "jsonv2", zoom: "17", "accept-language": "en" });
+    const res = await fetch(`${NOMINATIM}/reverse?${params}`);
+    const d: { name?: string; display_name?: string } = await res.json();
+    return d.name || d.display_name?.split(", ").slice(0, 2).join(", ") || "Pinned place";
+  } catch {
+    return "Pinned place";
+  }
+}
+
+/** Great-circle distance in metres. */
+export function haversine(a: { lat: number; lng: number }, b: { lat: number; lng: number }) {
+  const R = 6371e3;
+  const toRad = (d: number) => (d * Math.PI) / 180;
+  const dLat = toRad(b.lat - a.lat);
+  const dLng = toRad(b.lng - a.lng);
+  const h = Math.sin(dLat / 2) ** 2 + Math.cos(toRad(a.lat)) * Math.cos(toRad(b.lat)) * Math.sin(dLng / 2) ** 2;
+  return 2 * R * Math.asin(Math.sqrt(h));
+}
+
+/** Straight lines with a road-detour factor and ~35 km/h, used when routing is unavailable. */
+export function estimateRoute(points: { lat: number; lng: number }[]): Route {
+  const legs = points.slice(1).map((p, i) => {
+    const distance = haversine(points[i], p) * 1.3;
+    return { distance, duration: distance / (35_000 / 3600) };
+  });
+  return { coords: points.map((p) => [p.lat, p.lng]), legs, estimated: true };
+}
+
+const cache = new Map<string, Route>();
+
+export async function routeFor(points: { lat: number; lng: number }[]): Promise<Route> {
+  if (points.length < 2) return { coords: [], legs: [], estimated: false };
+  const key = points.map((p) => `${p.lng.toFixed(5)},${p.lat.toFixed(5)}`).join(";");
+  const hit = cache.get(key);
+  if (hit) return hit;
+  try {
+    const res = await fetch(`${OSRM}/${key}?overview=full&geometries=geojson`);
+    const data = await res.json();
+    if (data.code !== "Ok") throw new Error(data.code);
+    const r = data.routes[0];
+    const route: Route = {
+      coords: r.geometry.coordinates.map(([lng, lat]: [number, number]) => [lat, lng]),
+      legs: r.legs.map((l: Leg) => ({ distance: l.distance, duration: l.duration })),
+      estimated: false,
+    };
+    cache.set(key, route);
+    return route;
+  } catch {
+    return estimateRoute(points);
+  }
+}
+
+export const km = (m: number) => (m < 1000 ? `${Math.round(m)} m` : `${(m / 1000).toFixed(m < 10_000 ? 1 : 0)} km`);
+export const mins = (s: number) => {
+  const m = Math.round(s / 60);
+  return m < 60 ? `${m} min` : `${Math.floor(m / 60)} h ${String(m % 60).padStart(2, "0")} min`;
+};
+16:["$","div","services.ts",{"className":"file","children":[["$","div",null,{"className":"file-head","children":[["$","span",null,{"children":"services.ts"}],["$","$L11",null,{"text":"$1d"}]]}],"$L1e"]}]
+17:["$","nav",null,{"className":"pager","children":[["$","$L2",null,{"href":"/components/meeting-captions","children":["← ","Live Meeting Captions & Action Items"]}],["$","$L2",null,{"href":"/components/room-planner","children":["Room Planner, 2D to 3D"," →"]}]]}]
+1f:T7043,"use client";
+
+import "leaflet/dist/leaflet.css";
+import { useEffect, useMemo, useRef, useState, type DragEvent } from "react";
+import type * as Leaflet from "leaflet";
+import {
+  CATEGORIES,
+  DAY_COLORS,
+  dayDate,
+  decodeTrip,
+  encodeTrip,
+  sampleTrip,
+  toIcs,
+  uid,
+  type Category,
+  type Stop,
+  type Trip,
+} from "./model";
+import { km, mins, reverseGeocode, routeFor, searchPlaces, type Place, type Route } from "./services";
+import styles from "./TripPlanner.module.css";
+
+const STORAGE_KEY = "gallery-trip-v1";
+type Tab = "plan" | "budget" | "packing";
+
+const money = (v: number) => `৳${Math.round(v).toLocaleString("en-IN")}`;
+const colorOf = (i: number) => DAY_COLORS[i % DAY_COLORS.length];
+const fmtDay = (d: Date) => d.toLocaleDateString("en-GB", { weekday: "short", day: "numeric", month: "short" });
+
+function download(text: string, name: string, type: string) {
+  const url = URL.createObjectURL(new Blob([text], { type }));
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = name;
+  a.click();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+
+export default function TripPlanner() {
+  const [trip, setTrip] = useState<Trip | null>(null);
+  const [tab, setTab] = useState<Tab>("plan");
+  const [day, setDay] = useState(0);
+  const [openStop, setOpenStop] = useState<string | null>(null);
+  const [routes, setRoutes] = useState<Record<string, Route>>({});
+  const [query, setQuery] = useState("");
+  const [results, setResults] = useState<Place[] | null>(null);
+  const [searching, setSearching] = useState(false);
+  const [toast, setToast] = useState("");
+  const [packDraft, setPackDraft] = useState("");
+  const [extraDraft, setExtraDraft] = useState({ label: "", cost: "" });
+  const [mapReady, setMapReady] = useState(false);
+
+  const mapEl = useRef<HTMLDivElement>(null);
+  const map = useRef<Leaflet.Map | null>(null);
+  const L = useRef<typeof Leaflet | null>(null);
+  const layer = useRef<Leaflet.LayerGroup | null>(null);
+  const tripRef = useRef(trip);
+  tripRef.current = trip;
+  const dayRef = useRef(day);
+  dayRef.current = day;
+  const dragging = useRef<{ day: number; index: number } | null>(null);
+
+  const notify = (msg: string) => {
+    setToast(msg);
+    setTimeout(() => setToast(""), 2200);
+  };
+
+  // ── Load: a shared link wins, then saved trip, then the sample ──────────────────────
+  useEffect(() => {
+    (async () => {
+      const shared = window.location.hash.match(/trip=([^&]+)/)?.[1];
+      if (shared) {
+        const t = await decodeTrip(shared);
+        if (t) {
+          setTrip(t);
+          notify("Opened a shared trip");
+          return;
+        }
+      }
+      try {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (saved) {
+          setTrip(JSON.parse(saved));
+          return;
+        }
+      } catch {}
+      setTrip(sampleTrip());
+    })();
+  }, []);
+
+  useEffect(() => {
+    if (!trip) return;
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(trip));
+    } catch {}
+  }, [trip]);
+
+  const update = (fn: (t: Trip) => Trip) => setTrip((t) => (t ? fn(structuredClone(t)) : t));
+
+  // ── Map setup (Leaflet touches window, so it is imported on the client only) ────────
+  useEffect(() => {
+    let disposed = false;
+    (async () => {
+      const lib = (await import("leaflet")).default;
+      if (disposed || !mapEl.current) return;
+      L.current = lib;
+      const m = lib.map(mapEl.current, { zoomControl: true, scrollWheelZoom: true }).setView([21.4, 92.0], 11);
+      lib
+        .tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+          maxZoom: 19,
+          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        })
+        .addTo(m);
+      layer.current = lib.layerGroup().addTo(m);
+      m.on("click", (e: Leaflet.LeafletMouseEvent) => showAddPopup(e.latlng.lat, e.latlng.lng));
+      map.current = m;
+      setMapReady(true);
+    })();
+    return () => {
+      disposed = true;
+      map.current?.remove();
+      map.current = null;
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  function showAddPopup(lat: number, lng: number) {
+    const lib = L.current;
+    const m = map.current;
+    if (!lib || !m || !tripRef.current) return;
+    const box = document.createElement("div");
+    box.className = styles.popup;
+    const title = document.createElement("strong");
+    title.textContent = "Looking up this place…";
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.textContent = `Add to Day ${dayRef.current + 1}`;
+    btn.style.background = colorOf(dayRef.current);
+    box.append(title, btn);
+    const popup = lib.popup().setLatLng([lat, lng]).setContent(box).openOn(m);
+    let name = "Pinned place";
+    reverseGeocode(lat, lng).then((n) => {
+      name = n;
+      title.textContent = n;
+    });
+    btn.onclick = () => {
+      addStop({ name, lat, lng, detail: "" }, dayRef.current);
+      m.closePopup(popup);
+    };
+  }
+
+  // ── Routes: re-fetch a day's route when its stops change (debounced, cached) ────────
+  const signature = trip?.days.map((d) => d.id + ":" + d.stops.map((s) => `${s.lat},${s.lng}`).join("|")).join("/") ?? "";
+  useEffect(() => {
+    if (!trip) return;
+    const timer = setTimeout(async () => {
+      const next: Record<string, Route> = {};
+      for (const d of trip.days) next[d.id] = await routeFor(d.stops);
+      setRoutes(next);
+    }, 500);
+    return () => clearTimeout(timer);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [signature]);
+
+  // ── Draw markers and routes ─────────────────────────────────────────────────────────
+  useEffect(() => {
+    const lib = L.current;
+    const group = layer.current;
+    if (!mapReady || !lib || !group || !trip) return;
+    group.clearLayers();
+    trip.days.forEach((d, di) => {
+      const active = di === day;
+      const color = colorOf(di);
+      const route = routes[d.id];
+      const line = route?.coords.length ? route.coords : d.stops.map((s) => [s.lat, s.lng] as [number, number]);
+      if (line.length > 1) {
+        lib
+          .polyline(line, { color, weight: active ? 5 : 3, opacity: active ? 0.9 : 0.35, dashArray: route?.estimated ? "6 8" : undefined })
+          .addTo(group);
+      }
+      d.stops.forEach((s, si) => {
+        const icon = lib.divIcon({
+          className: "",
+          html: `<span class="${styles.pin}" data-active="${active}" data-open="${openStop === s.id}" style="--c:${color}"><b>${si + 1}</b></span>`,
+          iconSize: [28, 28],
+          iconAnchor: [14, 32],
+        });
+        lib
+          .marker([s.lat, s.lng], { icon, zIndexOffset: active ? 1000 : 0, title: s.name })
+          .on("click", () => {
+            setDay(di);
+            setTab("plan");
+            setOpenStop(s.id);
+          })
+          .addTo(group);
+      });
+    });
+  }, [trip, routes, day, openStop, mapReady]);
+
+  // Fit the selected day on screen.
+  useEffect(() => {
+    const lib = L.current;
+    const m = map.current;
+    const stops = trip?.days[day]?.stops ?? [];
+    if (!mapReady || !lib || !m || !stops.length) return;
+    if (stops.length === 1) m.flyTo([stops[0].lat, stops[0].lng], 14, { duration: 0.6 });
+    else m.flyToBounds(lib.latLngBounds(stops.map((s) => [s.lat, s.lng])), { padding: [50, 50], duration: 0.6 });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [day, mapReady, trip?.days.length]);
+
+  // ── Actions ─────────────────────────────────────────────────────────────────────────
+  function addStop(place: Place, dayIndex: number) {
+    const s: Stop = { id: uid(), name: place.name, lat: place.lat, lng: place.lng, category: "sight", time: "", cost: 0, note: "" };
+    update((t) => {
+      t.days[dayIndex].stops.push(s);
+      return t;
+    });
+    setOpenStop(s.id);
+    setResults(null);
+    setQuery("");
+    notify(`Added to Day ${dayIndex + 1}`);
+  }
+
+  function editStop(dayIndex: number, id: string, patch: Partial<Stop>) {
+    update((t) => {
+      const s = t.days[dayIndex].stops.find((x) => x.id === id);
+      if (s) Object.assign(s, patch);
+      return t;
+    });
+  }
+
+  function moveStop(from: { day: number; index: number }, toDay: number, toIndex: number) {
+    update((t) => {
+      const [s] = t.days[from.day].stops.splice(from.index, 1);
+      const target = t.days[toDay].stops;
+      const index = from.day === toDay && toIndex > from.index ? toIndex - 1 : toIndex;
+      target.splice(Math.min(index, target.length), 0, s);
+      return t;
+    });
+  }
+
+  async function search() {
+    const q = query.trim();
+    if (!q) return;
+    setSearching(true);
+    try {
+      const b = map.current?.getBounds();
+      setResults(await searchPlaces(q, b && { west: b.getWest(), south: b.getSouth(), east: b.getEast(), north: b.getNorth() }));
+    } catch {
+      setResults([]);
+      notify("Search is unavailable right now");
+    } finally {
+      setSearching(false);
+    }
+  }
+
+  async function share() {
+    if (!trip) return;
+    const url = `${window.location.origin}${window.location.pathname}#trip=${await encodeTrip(trip)}`;
+    await navigator.clipboard.writeText(url);
+    notify("Share link copied. Anyone with it sees this trip");
+  }
+
+  const onDrop = (e: DragEvent, toDay: number, toIndex: number) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (dragging.current) moveStop(dragging.current, toDay, toIndex);
+    dragging.current = null;
+  };
+
+  // ── Derived numbers ─────────────────────────────────────────────────────────────────
+  const totals = useMemo(() => {
+    if (!trip) return null;
+    const byCat = new Map<string, number>();
+    for (const d of trip.days) for (const s of d.stops) byCat.set(s.category, (byCat.get(s.category) ?? 0) + s.cost);
+    const extras = trip.extras.reduce((a, x) => a + x.cost, 0);
+    if (extras) byCat.set("extras", extras);
+    const total = [...byCat.values()].reduce((a, b) => a + b, 0);
+    return { byCat, total, perPerson: total / Math.max(1, trip.travelers) };
+  }, [trip]);
+
+  if (!trip || !totals) {
+    return (
+      <div className={styles.card}>
+        <div className={styles.loading}>Loading your trip…</div>
+      </div>
+    );
+  }
+
+  const current = trip.days[day] ?? trip.days[0];
+  const route = routes[current?.id];
+  const dayDistance = route?.legs.reduce((a, l) => a + l.distance, 0) ?? 0;
+  const dayDuration = route?.legs.reduce((a, l) => a + l.duration, 0) ?? 0;
+  const packed = trip.packing.filter((p) => p.done).length;
+
+  return (
+    <div className={styles.card}>
+      <header className={styles.head}>
+        <div className={styles.titleRow}>
+          <input className={styles.tripName} value={trip.name} onChange={(e) => update((t) => ({ ...t, name: e.target.value }))} aria-label="Trip name" />
+          <div className={styles.headActions}>
+            <button type="button" className={styles.ghost} onClick={share}>
+              Share link
+            </button>
+            <button type="button" className={styles.ghost} onClick={() => download(toIcs(trip), `${trip.name || "trip"}.ics`, "text/calendar")}>
+              Add to calendar
+            </button>
+            <button
+              type="button"
+              className={styles.ghost}
+              onClick={() => {
+                if (window.confirm("Start over with the sample trip? Your current plan will be replaced.")) {
+                  setTrip(sampleTrip());
+                  setDay(0);
+                  history.replaceState(null, "", window.location.pathname);
+                }
+              }}
+            >
+              Reset
+            </button>
+          </div>
+        </div>
+        <div className={styles.meta}>
+          <label>
+            Starts
+            <input type="date" value={trip.start} onChange={(e) => e.target.value && update((t) => ({ ...t, start: e.target.value }))} />
+          </label>
+          <label>
+            Travellers
+            <input
+              type="number"
+              min={1}
+              max={50}
+              value={trip.travelers}
+              onChange={(e) => update((t) => ({ ...t, travelers: Math.max(1, Math.min(50, Number(e.target.value) || 1)) }))}
+            />
+          </label>
+          <span className={styles.metaStat}>
+            {trip.days.length} days · {trip.days.reduce((a, d) => a + d.stops.length, 0)} stops · {money(totals.total)} total
+          </span>
+        </div>
+      </header>
+
+      <div className={styles.body}>
+        <div className={styles.mapWrap}>
+          <div ref={mapEl} className={styles.map} aria-label="Trip map. Click anywhere to add a place." />
+          <div className={styles.dayStrip} role="tablist" aria-label="Days">
+            {trip.days.map((d, i) => (
+              <button
+                key={d.id}
+                type="button"
+                role="tab"
+                aria-selected={day === i}
+                style={{ ["--c" as string]: colorOf(i) }}
+                onClick={() => setDay(i)}
+                onDragOver={(e) => e.preventDefault()}
+                onDrop={(e) => onDrop(e, i, trip.days[i].stops.length)}
+              >
+                Day {i + 1}
+              </button>
+            ))}
+          </div>
+          <p className={styles.mapHint}>Click the map to add a place</p>
+        </div>
+
+        <section className={styles.panel}>
+          <div className={styles.tabs} role="tablist">
+            {(
+              [
+                ["plan", "Itinerary"],
+                ["budget", `Budget · ${money(totals.perPerson)}/person`],
+                ["packing", `Packing ${packed}/${trip.packing.length}`],
+              ] as const
+            ).map(([k, label]) => (
+              <button key={k} type="button" role="tab" aria-selected={tab === k} onClick={() => setTab(k)}>
+                {label}
+              </button>
+            ))}
+          </div>
+
+          {tab === "plan" && (
+            <>
+              <form
+                className={styles.search}
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  search();
+                }}
+              >
+                <input value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Search a place, e.g. Inani Beach" aria-label="Search places" />
+                <button type="submit" disabled={searching}>
+                  {searching ? "…" : "Search"}
+                </button>
+              </form>
+              {results && (
+                <ul className={styles.results}>
+                  {results.length === 0 && <li className={styles.noResults}>No places found.</li>}
+                  {results.map((r, i) => (
+                    <li key={i}>
+                      <button
+                        type="button"
+                        className={styles.resultPeek}
+                        onClick={() => map.current?.flyTo([r.lat, r.lng], 14, { duration: 0.6 })}
+                      >
+                        <strong>{r.name}</strong>
+                        <span>{r.detail}</span>
+                      </button>
+                      <button type="button" className={styles.addBtn} style={{ background: colorOf(day) }} onClick={() => addStop(r, day)}>
+                        + Day {day + 1}
+                      </button>
+                    </li>
+                  ))}
+                  <li>
+                    <button type="button" className={styles.closeResults} onClick={() => setResults(null)}>
+                      Close results
+                    </button>
+                  </li>
+                </ul>
+              )}
+
+              <div className={styles.dayHead} style={{ ["--c" as string]: colorOf(day) }}>
+                <div>
+                  <strong>Day {day + 1}</strong>
+                  <span>{fmtDay(dayDate(trip, day))}</span>
+                </div>
+                <span className={styles.dayStats}>
+                  {current.stops.length > 1 ? `${km(dayDistance)} · ${mins(dayDuration)}${route?.estimated ? " (est.)" : ""}` : "Add stops to see the route"}
+                </span>
+              </div>
+
+              <ol className={styles.stops} onDragOver={(e) => e.preventDefault()} onDrop={(e) => onDrop(e, day, current.stops.length)}>
+                {current.stops.length === 0 && <li className={styles.emptyDay}>No stops yet. Search above or click the map.</li>}
+                {current.stops.map((s, i) => {
+                  const leg = route?.legs[i - 1];
+                  const open = openStop === s.id;
+                  return (
+                    <li key={s.id} className={styles.stopWrap}>
+                      {i > 0 && leg && (
+                        <div className={styles.leg}>
+                          <span>
+                            {km(leg.distance)} · {mins(leg.duration)}
+                          </span>
+                        </div>
+                      )}
+                      <div
+                        className={styles.stop}
+                        data-open={open}
+                        draggable
+                        onDragStart={() => (dragging.current = { day, index: i })}
+                        onDragOver={(e) => e.preventDefault()}
+                        onDrop={(e) => onDrop(e, day, i)}
+                      >
+                        <button
+                          type="button"
+                          className={styles.stopMain}
+                          onClick={() => {
+                            setOpenStop(open ? null : s.id);
+                            map.current?.flyTo([s.lat, s.lng], Math.max(map.current.getZoom(), 13), { duration: 0.5 });
+                          }}
+                          aria-expanded={open}
+                        >
+                          <span className={styles.num} style={{ background: colorOf(day) }}>
+                            {i + 1}
+                          </span>
+                          <span className={styles.stopText}>
+                            <strong>{s.name}</strong>
+                            <span>
+                              {s.time && `${s.time} · `}
+                              {CATEGORIES.find((c) => c.key === s.category)?.label}
+                              {s.cost > 0 && ` · ${money(s.cost)}`}
+                            </span>
+                          </span>
+                          <span className={styles.grip} aria-hidden="true">
+                            ⋮⋮
+                          </span>
+                        </button>
+                        {open && (
+                          <div className={styles.editor}>
+                            <label>
+                              Name
+                              <input value={s.name} onChange={(e) => editStop(day, s.id, { name: e.target.value })} />
+                            </label>
+                            <div className={styles.row3}>
+                              <label>
+                                Time
+                                <input type="time" value={s.time} onChange={(e) => editStop(day, s.id, { time: e.target.value })} />
+                              </label>
+                              <label>
+                                Type
+                                <select value={s.category} onChange={(e) => editStop(day, s.id, { category: e.target.value as Category })}>
+                                  {CATEGORIES.map((c) => (
+                                    <option key={c.key} value={c.key}>
+                                      {c.label}
+                                    </option>
+                                  ))}
+                                </select>
+                              </label>
+                              <label>
+                                Cost (৳)
+                                <input type="number" min={0} value={s.cost || ""} onChange={(e) => editStop(day, s.id, { cost: Math.max(0, Number(e.target.value) || 0) })} />
+                              </label>
+                            </div>
+                            <label>
+                              Note
+                              <input value={s.note} placeholder="Tickets, booking ref, tips…" onChange={(e) => editStop(day, s.id, { note: e.target.value })} />
+                            </label>
+                            <div className={styles.editorActions}>
+                              <label className={styles.inline}>
+                                Move to
+                                <select value={day} onChange={(e) => moveStop({ day, index: i }, Number(e.target.value), Infinity)}>
+                                  {trip.days.map((_, di) => (
+                                    <option key={di} value={di}>
+                                      Day {di + 1}
+                                    </option>
+                                  ))}
+                                </select>
+                              </label>
+                              <span>
+                                <button type="button" className={styles.iconBtn} disabled={i === 0} onClick={() => moveStop({ day, index: i }, day, i - 1)} aria-label="Move up">
+                                  ↑
+                                </button>
+                                <button
+                                  type="button"
+                                  className={styles.iconBtn}
+                                  disabled={i === current.stops.length - 1}
+                                  onClick={() => moveStop({ day, index: i }, day, i + 2)}
+                                  aria-label="Move down"
+                                >
+                                  ↓
+                                </button>
+                                <button
+                                  type="button"
+                                  className={styles.danger}
+                                  onClick={() =>
+                                    update((t) => {
+                                      t.days[day].stops = t.days[day].stops.filter((x) => x.id !== s.id);
+                                      return t;
+                                    })
+                                  }
+                                >
+                                  Remove
+                                </button>
+                              </span>
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    </li>
+                  );
+                })}
+              </ol>
+
+              <div className={styles.dayActions}>
+                <button
+                  type="button"
+                  className={styles.ghost}
+                  onClick={() => {
+                    update((t) => ({ ...t, days: [...t.days, { id: uid(), stops: [] }] }));
+                    setDay(trip.days.length);
+                  }}
+                >
+                  + Add day
+                </button>
+                {trip.days.length > 1 && (
+                  <button
+                    type="button"
+                    className={styles.ghost}
+                    onClick={() => {
+                      if (current.stops.length && !window.confirm(`Delete Day ${day + 1} and its ${current.stops.length} stops?`)) return;
+                      update((t) => ({ ...t, days: t.days.filter((_, i) => i !== day) }));
+                      setDay(Math.max(0, day - 1));
+                    }}
+                  >
+                    Delete Day {day + 1}
+                  </button>
+                )}
+              </div>
+            </>
+          )}
+
+          {tab === "budget" && (
+            <div className={styles.budget}>
+              <div className={styles.bigNumbers}>
+                <div>
+                  <strong>{money(totals.total)}</strong>
+                  <span>trip total</span>
+                </div>
+                <div>
+                  <strong>{money(totals.perPerson)}</strong>
+                  <span>per person ({trip.travelers})</span>
+                </div>
+              </div>
+              <ul className={styles.breakdown}>
+                {[...totals.byCat.entries()]
+                  .filter(([, v]) => v > 0)
+                  .sort((a, b) => b[1] - a[1])
+                  .map(([k, v]) => (
+                    <li key={k}>
+                      <span>{k === "extras" ? "Extras" : CATEGORIES.find((c) => c.key === k)?.label}</span>
+                      <span className={styles.bar}>
+                        <span style={{ width: `${(v / Math.max(1, totals.total)) * 100}%` }} />
+                      </span>
+                      <span className={styles.amount}>{money(v)}</span>
+                    </li>
+                  ))}
+              </ul>
+              <h4 className={styles.subhead}>Extras (tickets, transport, tips)</h4>
+              <ul className={styles.extras}>
+                {trip.extras.map((x) => (
+                  <li key={x.id}>
+                    <span>{x.label}</span>
+                    <span>{money(x.cost)}</span>
+                    <button type="button" aria-label={`Remove ${x.label}`} onClick={() => update((t) => ({ ...t, extras: t.extras.filter((e) => e.id !== x.id) }))}>
+                      ×
+                    </button>
+                  </li>
+                ))}
+              </ul>
+              <form
+                className={styles.addRow}
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  const cost = Number(extraDraft.cost);
+                  if (!extraDraft.label.trim() || !(cost > 0)) return;
+                  update((t) => ({ ...t, extras: [...t.extras, { id: uid(), label: extraDraft.label.trim(), cost }] }));
+                  setExtraDraft({ label: "", cost: "" });
+                }}
+              >
+                <input placeholder="e.g. Bus tickets" value={extraDraft.label} onChange={(e) => setExtraDraft((d) => ({ ...d, label: e.target.value }))} />
+                <input placeholder="৳" type="number" min={0} value={extraDraft.cost} onChange={(e) => setExtraDraft((d) => ({ ...d, cost: e.target.value }))} />
+                <button type="submit">Add</button>
+              </form>
+              <p className={styles.hint}>Stop costs are set on each stop in the itinerary.</p>
+            </div>
+          )}
+
+          {tab === "packing" && (
+            <div className={styles.packing}>
+              <div className={styles.progress}>
+                <span style={{ width: `${(packed / Math.max(1, trip.packing.length)) * 100}%` }} />
+              </div>
+              <ul>
+                {trip.packing.map((p) => (
+                  <li key={p.id} data-done={p.done}>
+                    <label>
+                      <input
+                        type="checkbox"
+                        checked={p.done}
+                        onChange={() => update((t) => ({ ...t, packing: t.packing.map((x) => (x.id === p.id ? { ...x, done: !x.done } : x)) }))}
+                      />
+                      {p.label}
+                    </label>
+                    <button type="button" aria-label={`Remove ${p.label}`} onClick={() => update((t) => ({ ...t, packing: t.packing.filter((x) => x.id !== p.id) }))}>
+                      ×
+                    </button>
+                  </li>
+                ))}
+              </ul>
+              <form
+                className={styles.addRow}
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  if (!packDraft.trim()) return;
+                  update((t) => ({ ...t, packing: [...t.packing, { id: uid(), label: packDraft.trim(), done: false }] }));
+                  setPackDraft("");
+                }}
+              >
+                <input placeholder="Add an item" value={packDraft} onChange={(e) => setPackDraft(e.target.value)} />
+                <button type="submit">Add</button>
+              </form>
+            </div>
+          )}
+        </section>
+      </div>
+
+      {toast && (
+        <div className={styles.toast} role="status">
+          {toast}
+        </div>
+      )}
+      <p className={styles.credit}>Map data © OpenStreetMap contributors · Routing by OSRM · Search by Nominatim. Your trip is saved in this browser.</p>
+    </div>
+  );
+}
+1a:["$","pre",null,{"children":["$","code",null,{"children":"$1f"}]}]
+20:T1959,export type Category = "sight" | "food" | "hotel" | "transport" | "shop" | "other";
+export type Stop = { id: string; name: string; lat: number; lng: number; category: Category; time: string; cost: number; note: string };
+export type Day = { id: string; stops: Stop[] };
+export type Extra = { id: string; label: string; cost: number };
+export type PackItem = { id: string; label: string; done: boolean };
+export type Trip = { name: string; start: string; travelers: number; days: Day[]; extras: Extra[]; packing: PackItem[] };
+
+export const DAY_COLORS = ["#2a78d6", "#eb6834", "#1baf7a", "#7c4dff", "#e2508a", "#0e9aa7", "#c98500"];
+export const CATEGORIES: { key: Category; label: string }[] = [
+  { key: "sight", label: "Sightseeing" },
+  { key: "food", label: "Food" },
+  { key: "hotel", label: "Stay" },
+  { key: "transport", label: "Transport" },
+  { key: "shop", label: "Shopping" },
+  { key: "other", label: "Other" },
+];
+
+let n = 0;
+export const uid = () => `${Date.now().toString(36)}${(n++).toString(36)}${Math.random().toString(36).slice(2, 5)}`;
+
+const stop = (name: string, lat: number, lng: number, category: Category, time = "", cost = 0, note = ""): Stop => ({
+  id: uid(),
+  name,
+  lat,
+  lng,
+  category,
+  time,
+  cost,
+  note,
+});
+
+export function isoDate(d: Date) {
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+}
+
+export function dayDate(trip: Trip, index: number) {
+  const [y, m, d] = trip.start.split("-").map(Number);
+  return new Date(y, m - 1, d + index);
+}
+
+/** A ready-made 3-day Cox's Bazar trip so the planner is useful on first open. */
+export function sampleTrip(): Trip {
+  const start = new Date();
+  start.setDate(start.getDate() + 14);
+  return {
+    name: "Cox's Bazar weekend",
+    start: isoDate(start),
+    travelers: 4,
+    days: [
+      {
+        id: uid(),
+        stops: [
+          stop("Cox's Bazar Airport", 21.4522, 91.9639, "transport", "10:30", 0, "Flight from Dhaka"),
+          stop("Hotel in Kolatoli", 21.4116, 91.9841, "hotel", "12:00", 14000, "2 rooms × 2 nights"),
+          stop("Laboni Point Beach", 21.4237, 91.9733, "sight", "16:30", 0, "Sunset walk"),
+          stop("Burmese Market", 21.4396, 91.9781, "shop", "19:00", 2500),
+        ],
+      },
+      {
+        id: uid(),
+        stops: [
+          stop("Himchari National Park", 21.3577, 92.0233, "sight", "09:00", 400, "Waterfall + hilltop view"),
+          stop("Inani Beach", 21.2236, 92.0498, "sight", "11:30", 0, "Coral stones at low tide"),
+          stop("Seafood lunch on Marine Drive", 21.2785, 92.0447, "food", "13:30", 3200),
+          stop("Hotel in Kolatoli", 21.4116, 91.9841, "hotel", "17:00", 0),
+        ],
+      },
+      {
+        id: uid(),
+        stops: [
+          stop("Ramu Buddhist Temple", 21.4247, 92.1006, "sight", "09:30", 0),
+          stop("Dried-fish market", 21.4482, 91.9729, "shop", "12:00", 1500),
+          stop("Cox's Bazar Airport", 21.4522, 91.9639, "transport", "15:00", 0, "Flight back"),
+        ],
+      },
+    ],
+    extras: [
+      { id: uid(), label: "Return flights (4)", cost: 26000 },
+      { id: uid(), label: "CNG & tuk-tuk rides", cost: 3000 },
+    ],
+    packing: [
+      "NID / passport",
+      "Phone charger & power bank",
+      "Sunscreen",
+      "Sunglasses & hat",
+      "Swimwear",
+      "Flip-flops",
+      "Light cotton clothes",
+      "Medicines",
+      "Cash for markets",
+    ].map((label, i) => ({ id: uid(), label, done: i < 2 })),
+  };
+}
+
+// ── Share links: the whole trip, gzip-compressed into the URL hash ────────────────────
+const toB64 = (bytes: Uint8Array) => btoa(String.fromCharCode(...bytes)).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+const fromB64 = (s: string) => Uint8Array.from(atob(s.replace(/-/g, "+").replace(/_/g, "/")), (c) => c.charCodeAt(0));
+
+async function pipe(bytes: Uint8Array, stream: CompressionStream | DecompressionStream) {
+  return new Uint8Array(await new Response(new Blob([bytes as BlobPart]).stream().pipeThrough(stream)).arrayBuffer());
+}
+
+export async function encodeTrip(trip: Trip) {
+  const json = new TextEncoder().encode(JSON.stringify(trip));
+  if (typeof CompressionStream === "undefined") return `j.${toB64(json)}`;
+  return `z.${toB64(await pipe(json, new CompressionStream("gzip")))}`;
+}
+
+export async function decodeTrip(code: string): Promise<Trip | null> {
+  try {
+    const [kind, data] = [code.slice(0, 1), code.slice(2)];
+    const bytes = kind === "z" ? await pipe(fromB64(data), new DecompressionStream("gzip")) : fromB64(data);
+    const trip = JSON.parse(new TextDecoder().decode(bytes));
+    return Array.isArray(trip?.days) ? trip : null;
+  } catch {
+    return null;
+  }
+}
+
+/** An .ics calendar: one all-day overview per day plus a 1-hour event for every timed stop. */
+export function toIcs(trip: Trip) {
+  const stamp = new Date().toISOString().replace(/[-:]/g, "").replace(/\.\d+/, "");
+  const esc = (s: string) => s.replace(/([,;\\])/g, "\\$1").replace(/\n/g, "\\n");
+  const ymd = (d: Date) => isoDate(d).replace(/-/g, "");
+  const lines = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Component Gallery//Trip Planner//EN", "CALSCALE:GREGORIAN"];
+  trip.days.forEach((day, i) => {
+    const date = dayDate(trip, i);
+    const next = new Date(date);
+    next.setDate(next.getDate() + 1);
+    lines.push(
+      "BEGIN:VEVENT",
+      `UID:${day.id}@trip`,
+      `DTSTAMP:${stamp}`,
+      `DTSTART;VALUE=DATE:${ymd(date)}`,
+      `DTEND;VALUE=DATE:${ymd(next)}`,
+      `SUMMARY:${esc(`${trip.name}: Day ${i + 1}`)}`,
+      `DESCRIPTION:${esc(day.stops.map((s, j) => `${j + 1}. ${s.time ? `${s.time} ` : ""}${s.name}`).join("\n"))}`,
+      "END:VEVENT",
+    );
+    for (const s of day.stops) {
+      if (!s.time) continue;
+      const [h, m] = s.time.split(":").map(Number);
+      const startAt = `${ymd(date)}T${String(h).padStart(2, "0")}${String(m).padStart(2, "0")}00`;
+      const endAt = `${ymd(date)}T${String((h + 1) % 24).padStart(2, "0")}${String(m).padStart(2, "0")}00`;
+      lines.push(
+        "BEGIN:VEVENT",
+        `UID:${s.id}-${i}@trip`,
+        `DTSTAMP:${stamp}`,
+        `DTSTART:${startAt}`,
+        `DTEND:${endAt}`,
+        `SUMMARY:${esc(s.name)}`,
+        `LOCATION:${esc(`${s.lat.toFixed(5)},${s.lng.toFixed(5)}`)}`,
+        ...(s.note ? [`DESCRIPTION:${esc(s.note)}`] : []),
+        "END:VEVENT",
+      );
+    }
+  });
+  lines.push("END:VCALENDAR");
+  return lines.join("\r\n");
+}
+1c:["$","pre",null,{"children":["$","code",null,{"children":"$20"}]}]
+21:Tede,// Free, key-less OpenStreetMap services. Search runs only on Enter (Nominatim asks for ≤1 request/s,
+// no autocomplete), and routes are cached per day so edits don't re-request unchanged legs.
+
+export type Place = { name: string; detail: string; lat: number; lng: number };
+export type Leg = { distance: number; duration: number };
+export type Route = { coords: [number, number][]; legs: Leg[]; estimated: boolean };
+
+const NOMINATIM = "https://nominatim.openstreetmap.org";
+const OSRM = "https://router.project-osrm.org/route/v1/driving";
+
+export async function searchPlaces(query: string, view?: { west: number; south: number; east: number; north: number }) {
+  const params = new URLSearchParams({ q: query, format: "jsonv2", limit: "6", "accept-language": "en" });
+  if (view) params.set("viewbox", `${view.west},${view.north},${view.east},${view.south}`);
+  const res = await fetch(`${NOMINATIM}/search?${params}`);
+  if (!res.ok) throw new Error("Search failed");
+  const data: { name?: string; display_name: string; lat: string; lon: string }[] = await res.json();
+  return data.map<Place>((d) => {
+    const [first, ...rest] = d.display_name.split(", ");
+    return { name: d.name || first, detail: rest.slice(0, 3).join(", "), lat: Number(d.lat), lng: Number(d.lon) };
+  });
+}
+
+export async function reverseGeocode(lat: number, lng: number) {
+  try {
+    const params = new URLSearchParams({ lat: String(lat), lon: String(lng), format: "jsonv2", zoom: "17", "accept-language": "en" });
+    const res = await fetch(`${NOMINATIM}/reverse?${params}`);
+    const d: { name?: string; display_name?: string } = await res.json();
+    return d.name || d.display_name?.split(", ").slice(0, 2).join(", ") || "Pinned place";
+  } catch {
+    return "Pinned place";
+  }
+}
+
+/** Great-circle distance in metres. */
+export function haversine(a: { lat: number; lng: number }, b: { lat: number; lng: number }) {
+  const R = 6371e3;
+  const toRad = (d: number) => (d * Math.PI) / 180;
+  const dLat = toRad(b.lat - a.lat);
+  const dLng = toRad(b.lng - a.lng);
+  const h = Math.sin(dLat / 2) ** 2 + Math.cos(toRad(a.lat)) * Math.cos(toRad(b.lat)) * Math.sin(dLng / 2) ** 2;
+  return 2 * R * Math.asin(Math.sqrt(h));
+}
+
+/** Straight lines with a road-detour factor and ~35 km/h, used when routing is unavailable. */
+export function estimateRoute(points: { lat: number; lng: number }[]): Route {
+  const legs = points.slice(1).map((p, i) => {
+    const distance = haversine(points[i], p) * 1.3;
+    return { distance, duration: distance / (35_000 / 3600) };
+  });
+  return { coords: points.map((p) => [p.lat, p.lng]), legs, estimated: true };
+}
+
+const cache = new Map<string, Route>();
+
+export async function routeFor(points: { lat: number; lng: number }[]): Promise<Route> {
+  if (points.length < 2) return { coords: [], legs: [], estimated: false };
+  const key = points.map((p) => `${p.lng.toFixed(5)},${p.lat.toFixed(5)}`).join(";");
+  const hit = cache.get(key);
+  if (hit) return hit;
+  try {
+    const res = await fetch(`${OSRM}/${key}?overview=full&geometries=geojson`);
+    const data = await res.json();
+    if (data.code !== "Ok") throw new Error(data.code);
+    const r = data.routes[0];
+    const route: Route = {
+      coords: r.geometry.coordinates.map(([lng, lat]: [number, number]) => [lat, lng]),
+      legs: r.legs.map((l: Leg) => ({ distance: l.distance, duration: l.duration })),
+      estimated: false,
+    };
+    cache.set(key, route);
+    return route;
+  } catch {
+    return estimateRoute(points);
+  }
+}
+
+export const km = (m: number) => (m < 1000 ? `${Math.round(m)} m` : `${(m / 1000).toFixed(m < 10_000 ? 1 : 0)} km`);
+export const mins = (s: number) => {
+  const m = Math.round(s / 60);
+  return m < 60 ? `${m} min` : `${Math.floor(m / 60)} h ${String(m % 60).padStart(2, "0")} min`;
+};
+1e:["$","pre",null,{"children":["$","code",null,{"children":"$21"}]}]

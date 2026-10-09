@@ -1,0 +1,1562 @@
+1:"$Sreact.fragment"
+2:I[2619,["619","static/chunks/619-ba102abea3e3d0e4.js","449","static/chunks/app/components/%5Bslug%5D/page-7b18c14fa5ee9ace.js"],""]
+3:I[9766,[],""]
+4:I[8924,[],""]
+6:I[4431,[],"OutletBoundary"]
+8:I[5278,[],"AsyncMetadataOutlet"]
+a:I[4431,[],"ViewportBoundary"]
+c:I[4431,[],"MetadataBoundary"]
+d:"$Sreact.suspense"
+f:I[7150,[],""]
+:HL["/component-gallery/_next/static/css/68cce7808a08b910.css","style"]
+0:{"P":null,"b":"6jA2vIGrO3aOlnYlKgPnQ","p":"/component-gallery","c":["","components","text-diff",""],"i":false,"f":[[["",{"children":["components",{"children":[["slug","text-diff","d"],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/component-gallery/_next/static/css/68cce7808a08b910.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","children":["$","body",null,{"children":[["$","header",null,{"className":"site-header","children":["$","div",null,{"className":"container","children":[["$","$L2",null,{"href":"/","className":"brand","children":"Component Gallery"}],["$","nav",null,{"children":["$","a",null,{"href":"https://github.com/rownok-HR-LS/component-gallery","children":"GitHub"}]}]]}]}],["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","main",null,{"className":"container","children":["$","header",null,{"className":"hero","children":[["$","h1",null,{"children":"Not found"}],["$","p",null,{"className":"lede","children":"That component doesn't exist (yet)."}],["$","$L2",null,{"href":"/","children":"← Back to the gallery"}]]}]}],[]],"forbidden":"$undefined","unauthorized":"$undefined"}],["$","footer",null,{"className":"site-footer","children":["$","div",null,{"className":"container","children":[["$","span",null,{"children":["Built by ","rownok-HR-LS"," · LofiStack 90-day challenge"]}],["$","a",null,{"href":"https://github.com/rownok-HR-LS/component-gallery","children":"Source on GitHub"}]]}]}]]}]}]]}],{"children":["components",["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["slug","text-diff","d"],["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L5",null,["$","$L6",null,{"children":["$L7",["$","$L8",null,{"promise":"$@9"}]]}]]}],{},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,[["$","$La",null,{"children":"$Lb"}],null],["$","$Lc",null,{"children":["$","div",null,{"hidden":true,"children":["$","$d",null,{"fallback":null,"children":"$Le"}]}]}]]}],false]],"m":"$undefined","G":["$f",[]],"s":false,"S":true}
+b:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+7:null
+9:{"metadata":[["$","title","0",{"children":"Text Diff Checker · Component Gallery"}],["$","meta","1",{"name":"description","content":"Compare two versions of a contract, policy or document with the Myers diff algorithm: line and word-level highlights, split or unified view, and jump between changes."}]],"error":null,"digest":"$undefined"}
+e:"$9:metadata"
+10:I[2325,["619","static/chunks/619-ba102abea3e3d0e4.js","449","static/chunks/app/components/%5Bslug%5D/page-7b18c14fa5ee9ace.js"],"Demo"]
+11:I[7333,["619","static/chunks/619-ba102abea3e3d0e4.js","449","static/chunks/app/components/%5Bslug%5D/page-7b18c14fa5ee9ace.js"],"CopyButton"]
+12:T1bef,.card {
+  --surface: #fcfcfb;
+  --ink: #0b0b0b;
+  --ink-2: #52514e;
+  --muted: #898781;
+  --border: rgba(11, 11, 11, 0.1);
+  --field: #f4f3f0;
+  --accent: #2a78d6;
+  --add-bg: #e7f6ec;
+  --add-mark: #a6e3b8;
+  --add-ink: #067647;
+  --del-bg: #fdecec;
+  --del-mark: #f7b4ae;
+  --del-ink: #b42318;
+  --mod: #b54708;
+
+  width: 100%;
+  max-width: 980px;
+  padding: 22px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: var(--surface);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 12px 32px -12px rgba(0, 0, 0, 0.18);
+  color: var(--ink);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  container-type: inline-size;
+}
+
+@media (prefers-color-scheme: dark) {
+  .card {
+    --surface: #1a1a19;
+    --ink: #ffffff;
+    --ink-2: #c3c2b7;
+    --border: rgba(255, 255, 255, 0.1);
+    --field: #232321;
+    --accent: #3987e5;
+    --add-bg: rgba(18, 183, 106, 0.12);
+    --add-mark: rgba(18, 183, 106, 0.42);
+    --add-ink: #47cd89;
+    --del-bg: rgba(240, 68, 56, 0.12);
+    --del-mark: rgba(240, 68, 56, 0.45);
+    --del-ink: #f97066;
+    --mod: #fdb022;
+    box-shadow: 0 12px 32px -12px rgba(0, 0, 0, 0.6);
+  }
+}
+
+.head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 14px; }
+.title { margin: 0; font-size: 17px; font-weight: 650; }
+.subtitle { margin: 2px 0 0; color: var(--ink-2); font-size: 13px; }
+
+/* Inputs */
+.inputs { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+@container (max-width: 620px) {
+  .inputs { grid-template-columns: 1fr; }
+}
+.input { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.inputHead { display: flex; justify-content: space-between; align-items: baseline; font-size: 13px; font-weight: 600; }
+.inputTools { display: flex; gap: 10px; }
+.link {
+  position: relative;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--accent);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.link input { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+.link:focus-within,
+.link:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 3px; }
+.input textarea {
+  width: 100%;
+  min-height: 150px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  outline: none;
+  background: var(--field);
+  color: var(--ink);
+  font: 12.5px/1.55 ui-monospace, "Cascadia Code", Menlo, monospace;
+  resize: vertical;
+}
+.input textarea:focus { border-color: var(--accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 18%, transparent); }
+
+/* Toolbar */
+.toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; margin: 16px 0 10px; }
+.segmented { display: inline-flex; gap: 2px; padding: 3px; border-radius: 10px; background: var(--field); }
+.segmented button {
+  padding: 5px 12px;
+  border: 0;
+  border-radius: 8px;
+  background: none;
+  color: var(--ink-2);
+  font: inherit;
+  font-size: 12.5px;
+  cursor: pointer;
+}
+.segmented button[aria-checked="true"] { background: var(--surface); box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15); color: var(--ink); font-weight: 600; }
+.segmented button:disabled { opacity: 0.45; cursor: not-allowed; }
+.toggle { display: flex; align-items: center; gap: 6px; color: var(--ink-2); font-size: 13px; cursor: pointer; }
+.toggle input { width: 15px; height: 15px; accent-color: var(--accent); }
+
+.summary { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 10px; font-size: 12.5px; }
+.stat { padding: 2px 9px; border-radius: 99px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.stat[data-tone="add"] { background: var(--add-bg); color: var(--add-ink); }
+.stat[data-tone="del"] { background: var(--del-bg); color: var(--del-ink); }
+.stat[data-tone="mod"] { background: color-mix(in srgb, var(--mod) 14%, transparent); color: var(--mod); }
+.similarity { color: var(--muted); }
+.spacer { flex: 1; }
+.nav { display: inline-flex; align-items: center; gap: 6px; color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.nav button {
+  width: 26px;
+  height: 26px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: none;
+  color: var(--ink);
+  font: inherit;
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+}
+.nav button:hover,
+.chip:hover { background: var(--field); }
+.chip {
+  padding: 5px 11px;
+  border: 1px solid var(--border);
+  border-radius: 99px;
+  background: none;
+  color: var(--ink-2);
+  font: inherit;
+  font-size: 12.5px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.nav button:focus-visible,
+.chip:focus-visible,
+.segmented button:focus-visible,
+.fold:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* Result */
+.result {
+  position: relative;
+  max-height: 480px;
+  overflow: auto;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  font: 12.5px/1.6 ui-monospace, "Cascadia Code", Menlo, monospace;
+}
+.notice { margin: 0; padding: 28px 16px; color: var(--ink-2); font-family: system-ui, sans-serif; font-size: 13px; text-align: center; }
+
+.num {
+  padding: 1px 8px 1px 0;
+  color: var(--muted);
+  font-size: 11px;
+  text-align: right;
+  user-select: none;
+  font-variant-numeric: tabular-nums;
+}
+.cell { padding: 1px 10px; white-space: pre-wrap; overflow-wrap: anywhere; }
+.mark { border-radius: 3px; color: inherit; }
+
+.splitRow { display: grid; grid-template-columns: 40px minmax(0, 1fr) 40px minmax(0, 1fr); }
+.splitRow .num:nth-of-type(3) { border-left: 1px solid var(--border); }
+.splitRow[data-kind="delete"] .cell[data-side="left"],
+.splitRow[data-kind="modify"] .cell[data-side="left"] { background: var(--del-bg); }
+.splitRow[data-kind="insert"] .cell[data-side="right"],
+.splitRow[data-kind="modify"] .cell[data-side="right"] { background: var(--add-bg); }
+.splitRow .cell[data-side="left"] .mark { background: var(--del-mark); }
+.splitRow .cell[data-side="right"] .mark { background: var(--add-mark); }
+.cell[data-empty="true"] { background: repeating-linear-gradient(-45deg, transparent 0 6px, color-mix(in srgb, var(--ink) 5%, transparent) 6px 7px); }
+
+.unifiedRow { display: grid; grid-template-columns: 36px 36px 18px minmax(0, 1fr); }
+.unifiedRow[data-tone="add"] { background: var(--add-bg); }
+.unifiedRow[data-tone="del"] { background: var(--del-bg); }
+.unifiedRow[data-tone="add"] .mark { background: var(--add-mark); }
+.unifiedRow[data-tone="del"] .mark { background: var(--del-mark); }
+.sign { color: var(--muted); text-align: center; user-select: none; }
+.unifiedRow[data-tone="add"] .sign { color: var(--add-ink); font-weight: 700; }
+.unifiedRow[data-tone="del"] .sign { color: var(--del-ink); font-weight: 700; }
+
+/* Current change gets a marker in the gutter. */
+.splitRow[data-active="true"],
+.unifiedGroup[data-active="true"] { box-shadow: inset 3px 0 0 var(--accent); }
+
+.fold {
+  display: block;
+  width: 100%;
+  padding: 4px 12px;
+  border: 0;
+  border-top: 1px dashed var(--border);
+  border-bottom: 1px dashed var(--border);
+  background: var(--field);
+  color: var(--ink-2);
+  font: 12px system-ui, sans-serif;
+  text-align: left;
+  cursor: pointer;
+}
+.fold:hover { color: var(--ink); }
+5:["$","main",null,{"className":"container","children":[["$","$L2",null,{"href":"/","className":"back","children":"← All components"}],["$","header",null,{"className":"detail-head","children":[["$","span",null,{"className":"tag","children":["Week ",5," · ","2026-10-08"]}],["$","h1",null,{"children":"Text Diff Checker"}],["$","p",null,{"children":"Compare two versions of a contract, policy or document with the Myers diff algorithm: line and word-level highlights, split or unified view, and jump between changes."}]]}],["$","section",null,{"className":"stage","aria-label":"Live demo","children":["$","$L10",null,{"slug":"text-diff"}]}],["$","section",null,{"className":"source","children":[["$","h2",null,{"children":"Source"}],[["$","div","Demo.tsx",{"className":"file","children":[["$","div",null,{"className":"file-head","children":[["$","span",null,{"children":"Demo.tsx"}],["$","$L11",null,{"text":"import DiffChecker from \"./DiffChecker\";\n\nexport default function Demo() {\n  return <DiffChecker />;\n}\n"}]]}],["$","pre",null,{"children":["$","code",null,{"children":"import DiffChecker from \"./DiffChecker\";\n\nexport default function Demo() {\n  return <DiffChecker />;\n}\n"}]}]]}],["$","div","DiffChecker.module.css",{"className":"file","children":[["$","div",null,{"className":"file-head","children":[["$","span",null,{"children":"DiffChecker.module.css"}],["$","$L11",null,{"text":"$12"}]]}],"$L13"]}],"$L14","$L15","$L16"]]}],"$L17"]}]
+18:T1bef,.card {
+  --surface: #fcfcfb;
+  --ink: #0b0b0b;
+  --ink-2: #52514e;
+  --muted: #898781;
+  --border: rgba(11, 11, 11, 0.1);
+  --field: #f4f3f0;
+  --accent: #2a78d6;
+  --add-bg: #e7f6ec;
+  --add-mark: #a6e3b8;
+  --add-ink: #067647;
+  --del-bg: #fdecec;
+  --del-mark: #f7b4ae;
+  --del-ink: #b42318;
+  --mod: #b54708;
+
+  width: 100%;
+  max-width: 980px;
+  padding: 22px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: var(--surface);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 12px 32px -12px rgba(0, 0, 0, 0.18);
+  color: var(--ink);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  container-type: inline-size;
+}
+
+@media (prefers-color-scheme: dark) {
+  .card {
+    --surface: #1a1a19;
+    --ink: #ffffff;
+    --ink-2: #c3c2b7;
+    --border: rgba(255, 255, 255, 0.1);
+    --field: #232321;
+    --accent: #3987e5;
+    --add-bg: rgba(18, 183, 106, 0.12);
+    --add-mark: rgba(18, 183, 106, 0.42);
+    --add-ink: #47cd89;
+    --del-bg: rgba(240, 68, 56, 0.12);
+    --del-mark: rgba(240, 68, 56, 0.45);
+    --del-ink: #f97066;
+    --mod: #fdb022;
+    box-shadow: 0 12px 32px -12px rgba(0, 0, 0, 0.6);
+  }
+}
+
+.head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 14px; }
+.title { margin: 0; font-size: 17px; font-weight: 650; }
+.subtitle { margin: 2px 0 0; color: var(--ink-2); font-size: 13px; }
+
+/* Inputs */
+.inputs { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+@container (max-width: 620px) {
+  .inputs { grid-template-columns: 1fr; }
+}
+.input { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.inputHead { display: flex; justify-content: space-between; align-items: baseline; font-size: 13px; font-weight: 600; }
+.inputTools { display: flex; gap: 10px; }
+.link {
+  position: relative;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--accent);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.link input { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+.link:focus-within,
+.link:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 3px; }
+.input textarea {
+  width: 100%;
+  min-height: 150px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  outline: none;
+  background: var(--field);
+  color: var(--ink);
+  font: 12.5px/1.55 ui-monospace, "Cascadia Code", Menlo, monospace;
+  resize: vertical;
+}
+.input textarea:focus { border-color: var(--accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 18%, transparent); }
+
+/* Toolbar */
+.toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; margin: 16px 0 10px; }
+.segmented { display: inline-flex; gap: 2px; padding: 3px; border-radius: 10px; background: var(--field); }
+.segmented button {
+  padding: 5px 12px;
+  border: 0;
+  border-radius: 8px;
+  background: none;
+  color: var(--ink-2);
+  font: inherit;
+  font-size: 12.5px;
+  cursor: pointer;
+}
+.segmented button[aria-checked="true"] { background: var(--surface); box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15); color: var(--ink); font-weight: 600; }
+.segmented button:disabled { opacity: 0.45; cursor: not-allowed; }
+.toggle { display: flex; align-items: center; gap: 6px; color: var(--ink-2); font-size: 13px; cursor: pointer; }
+.toggle input { width: 15px; height: 15px; accent-color: var(--accent); }
+
+.summary { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 10px; font-size: 12.5px; }
+.stat { padding: 2px 9px; border-radius: 99px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.stat[data-tone="add"] { background: var(--add-bg); color: var(--add-ink); }
+.stat[data-tone="del"] { background: var(--del-bg); color: var(--del-ink); }
+.stat[data-tone="mod"] { background: color-mix(in srgb, var(--mod) 14%, transparent); color: var(--mod); }
+.similarity { color: var(--muted); }
+.spacer { flex: 1; }
+.nav { display: inline-flex; align-items: center; gap: 6px; color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.nav button {
+  width: 26px;
+  height: 26px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: none;
+  color: var(--ink);
+  font: inherit;
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+}
+.nav button:hover,
+.chip:hover { background: var(--field); }
+.chip {
+  padding: 5px 11px;
+  border: 1px solid var(--border);
+  border-radius: 99px;
+  background: none;
+  color: var(--ink-2);
+  font: inherit;
+  font-size: 12.5px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.nav button:focus-visible,
+.chip:focus-visible,
+.segmented button:focus-visible,
+.fold:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* Result */
+.result {
+  position: relative;
+  max-height: 480px;
+  overflow: auto;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  font: 12.5px/1.6 ui-monospace, "Cascadia Code", Menlo, monospace;
+}
+.notice { margin: 0; padding: 28px 16px; color: var(--ink-2); font-family: system-ui, sans-serif; font-size: 13px; text-align: center; }
+
+.num {
+  padding: 1px 8px 1px 0;
+  color: var(--muted);
+  font-size: 11px;
+  text-align: right;
+  user-select: none;
+  font-variant-numeric: tabular-nums;
+}
+.cell { padding: 1px 10px; white-space: pre-wrap; overflow-wrap: anywhere; }
+.mark { border-radius: 3px; color: inherit; }
+
+.splitRow { display: grid; grid-template-columns: 40px minmax(0, 1fr) 40px minmax(0, 1fr); }
+.splitRow .num:nth-of-type(3) { border-left: 1px solid var(--border); }
+.splitRow[data-kind="delete"] .cell[data-side="left"],
+.splitRow[data-kind="modify"] .cell[data-side="left"] { background: var(--del-bg); }
+.splitRow[data-kind="insert"] .cell[data-side="right"],
+.splitRow[data-kind="modify"] .cell[data-side="right"] { background: var(--add-bg); }
+.splitRow .cell[data-side="left"] .mark { background: var(--del-mark); }
+.splitRow .cell[data-side="right"] .mark { background: var(--add-mark); }
+.cell[data-empty="true"] { background: repeating-linear-gradient(-45deg, transparent 0 6px, color-mix(in srgb, var(--ink) 5%, transparent) 6px 7px); }
+
+.unifiedRow { display: grid; grid-template-columns: 36px 36px 18px minmax(0, 1fr); }
+.unifiedRow[data-tone="add"] { background: var(--add-bg); }
+.unifiedRow[data-tone="del"] { background: var(--del-bg); }
+.unifiedRow[data-tone="add"] .mark { background: var(--add-mark); }
+.unifiedRow[data-tone="del"] .mark { background: var(--del-mark); }
+.sign { color: var(--muted); text-align: center; user-select: none; }
+.unifiedRow[data-tone="add"] .sign { color: var(--add-ink); font-weight: 700; }
+.unifiedRow[data-tone="del"] .sign { color: var(--del-ink); font-weight: 700; }
+
+/* Current change gets a marker in the gutter. */
+.splitRow[data-active="true"],
+.unifiedGroup[data-active="true"] { box-shadow: inset 3px 0 0 var(--accent); }
+
+.fold {
+  display: block;
+  width: 100%;
+  padding: 4px 12px;
+  border: 0;
+  border-top: 1px dashed var(--border);
+  border-bottom: 1px dashed var(--border);
+  background: var(--field);
+  color: var(--ink-2);
+  font: 12px system-ui, sans-serif;
+  text-align: left;
+  cursor: pointer;
+}
+.fold:hover { color: var(--ink); }
+13:["$","pre",null,{"children":["$","code",null,{"children":"$18"}]}]
+19:T2f04,"use client";
+
+import { useDeferredValue, useEffect, useMemo, useRef, useState, type ChangeEvent, type DragEvent } from "react";
+import { compare, type Part, type Row, type Side } from "./diff";
+import { CHANGED, ORIGINAL } from "./samples";
+import styles from "./DiffChecker.module.css";
+
+type View = "split" | "unified";
+type Item = { type: "row"; row: Row; index: number } | { type: "fold"; id: number; count: number };
+
+const CONTEXT = 2; // unchanged lines kept around each change when folding
+const MAX_LINES = 5000;
+
+function Text({ side }: { side: Side }) {
+  if (!side.parts) return <>{side.text || " "}</>;
+  return (
+    <>
+      {side.parts.map((p: Part, i) =>
+        p.changed ? (
+          <mark key={i} className={styles.mark}>
+            {p.text}
+          </mark>
+        ) : (
+          <span key={i}>{p.text}</span>
+        ),
+      )}
+    </>
+  );
+}
+
+export default function DiffChecker() {
+  const [original, setOriginal] = useState(ORIGINAL);
+  const [changed, setChanged] = useState(CHANGED);
+  const [view, setView] = useState<View>("split");
+  const [onlyChanges, setOnlyChanges] = useState(true);
+  const [ignoreCase, setIgnoreCase] = useState(false);
+  const [ignoreWhitespace, setIgnoreWhitespace] = useState(false);
+  const [expanded, setExpanded] = useState<Set<number>>(new Set());
+  const [current, setCurrent] = useState(0);
+  const [narrow, setNarrow] = useState(false);
+  const [copied, setCopied] = useState(false);
+
+  const card = useRef<HTMLDivElement>(null);
+  const panel = useRef<HTMLDivElement>(null);
+
+  // Split view needs room; fall back to unified on narrow containers.
+  useEffect(() => {
+    const el = card.current;
+    if (!el) return;
+    setNarrow(el.getBoundingClientRect().width < 620);
+    const observer = new ResizeObserver(([entry]) => setNarrow(entry.contentRect.width < 620));
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+  const mode: View = narrow ? "unified" : view;
+
+  const a = useDeferredValue(original);
+  const b = useDeferredValue(changed);
+  const tooLong = a.split("\n").length > MAX_LINES || b.split("\n").length > MAX_LINES;
+  const result = useMemo(
+    () => (tooLong ? null : compare(a, b, { ignoreCase, ignoreWhitespace })),
+    [a, b, ignoreCase, ignoreWhitespace, tooLong],
+  );
+
+  useEffect(() => {
+    setExpanded(new Set());
+    setCurrent(0);
+  }, [result]);
+
+  // Collapse long runs of unchanged lines into clickable folds.
+  const items = useMemo<Item[]>(() => {
+    if (!result) return [];
+    const { rows } = result;
+    const keep = rows.map(() => !onlyChanges);
+    if (onlyChanges) {
+      rows.forEach((r, i) => {
+        if (r.kind === "equal") return;
+        for (let j = Math.max(0, i - CONTEXT); j <= Math.min(rows.length - 1, i + CONTEXT); j++) keep[j] = true;
+      });
+    }
+    const out: Item[] = [];
+    let i = 0;
+    while (i < rows.length) {
+      if (keep[i]) {
+        out.push({ type: "row", row: rows[i], index: i });
+        i++;
+        continue;
+      }
+      const start = i;
+      while (i < rows.length && !keep[i]) i++;
+      if (expanded.has(start)) for (let j = start; j < i; j++) out.push({ type: "row", row: rows[j], index: j });
+      else out.push({ type: "fold", id: start, count: i - start });
+    }
+    return out;
+  }, [result, onlyChanges, expanded]);
+
+  function goTo(n: number) {
+    if (!result || !result.changes) return;
+    const next = (n + result.changes) % result.changes;
+    setCurrent(next);
+    const target = panel.current?.querySelector<HTMLElement>(`[data-change="${next}"]`);
+    if (target && panel.current) {
+      panel.current.scrollTo({ top: target.offsetTop - panel.current.clientHeight / 3, behavior: "smooth" });
+    }
+  }
+
+  function loadFile(e: ChangeEvent<HTMLInputElement>, set: (v: string) => void) {
+    e.target.files?.[0]?.text().then(set);
+    e.target.value = "";
+  }
+  function dropFile(e: DragEvent, set: (v: string) => void) {
+    const file = e.dataTransfer.files[0];
+    if (!file) return;
+    e.preventDefault();
+    file.text().then(set);
+  }
+
+  async function copyDiff() {
+    if (!result) return;
+    const lines: string[] = [];
+    for (const r of result.rows) {
+      if (r.kind === "equal") lines.push(`  ${r.left!.text}`);
+      if (r.left && r.kind !== "equal") lines.push(`- ${r.left.text}`);
+      if (r.right && r.kind !== "equal") lines.push(`+ ${r.right.text}`);
+    }
+    await navigator.clipboard.writeText(lines.join("\n"));
+    setCopied(true);
+    setTimeout(() => setCopied(false), 1500);
+  }
+
+  const identical = result && result.changes === 0;
+  const firstOfChange = (item: Item, idx: number) =>
+    item.type === "row" &&
+    item.row.change !== undefined &&
+    !items.slice(0, idx).some((it) => it.type === "row" && it.row.change === item.row.change);
+
+  const inputs = [
+    { label: "Original", value: original, set: setOriginal },
+    { label: "Changed", value: changed, set: setChanged },
+  ];
+
+  return (
+    <div ref={card} className={styles.card}>
+      <header className={styles.head}>
+        <div>
+          <h3 className={styles.title}>Text diff checker</h3>
+          <p className={styles.subtitle}>See exactly what changed between two versions of a contract, policy or document.</p>
+        </div>
+        <button
+          type="button"
+          className={styles.chip}
+          onClick={() => {
+            setOriginal(changed);
+            setChanged(original);
+          }}
+        >
+          ⇄ Swap
+        </button>
+      </header>
+
+      <div className={styles.inputs}>
+        {inputs.map((input) => (
+          <div key={input.label} className={styles.input}>
+            <div className={styles.inputHead}>
+              <span>{input.label}</span>
+              <span className={styles.inputTools}>
+                <label className={styles.link}>
+                  Open file
+                  <input type="file" accept=".txt,.md,.csv,.json,.html,.xml,text/*" onChange={(e) => loadFile(e, input.set)} />
+                </label>
+                <button type="button" className={styles.link} onClick={() => input.set("")}>
+                  Clear
+                </button>
+              </span>
+            </div>
+            <textarea
+              value={input.value}
+              spellCheck={false}
+              rows={8}
+              placeholder={`Paste the ${input.label.toLowerCase()} text, or drop a file here`}
+              onChange={(e) => input.set(e.target.value)}
+              onDrop={(e) => dropFile(e, input.set)}
+              aria-label={`${input.label} text`}
+            />
+          </div>
+        ))}
+      </div>
+
+      <div className={styles.toolbar}>
+        <div className={styles.segmented} role="radiogroup" aria-label="View">
+          {(["split", "unified"] as const).map((v) => (
+            <button
+              key={v}
+              type="button"
+              role="radio"
+              aria-checked={mode === v}
+              disabled={v === "split" && narrow}
+              title={v === "split" && narrow ? "Split view needs a wider screen" : undefined}
+              onClick={() => setView(v)}
+            >
+              {v === "split" ? "Split" : "Unified"}
+            </button>
+          ))}
+        </div>
+        <label className={styles.toggle}>
+          <input type="checkbox" checked={onlyChanges} onChange={(e) => setOnlyChanges(e.target.checked)} />
+          Only changes
+        </label>
+        <label className={styles.toggle}>
+          <input type="checkbox" checked={ignoreCase} onChange={(e) => setIgnoreCase(e.target.checked)} />
+          Ignore case
+        </label>
+        <label className={styles.toggle}>
+          <input type="checkbox" checked={ignoreWhitespace} onChange={(e) => setIgnoreWhitespace(e.target.checked)} />
+          Ignore spaces
+        </label>
+      </div>
+
+      {result && (
+        <div className={styles.summary}>
+          <span className={styles.stat} data-tone="add">+{result.stats.added} added</span>
+          <span className={styles.stat} data-tone="del">−{result.stats.removed} removed</span>
+          <span className={styles.stat} data-tone="mod">~{result.stats.modified} changed</span>
+          <span className={styles.similarity}>{Math.round(result.stats.similarity * 100)}% of lines unchanged</span>
+          <span className={styles.spacer} />
+          {result.changes > 0 && (
+            <span className={styles.nav}>
+              <button type="button" onClick={() => goTo(current - 1)} aria-label="Previous change">
+                ‹
+              </button>
+              <span aria-live="polite">
+                Change {current + 1} of {result.changes}
+              </span>
+              <button type="button" onClick={() => goTo(current + 1)} aria-label="Next change">
+                ›
+              </button>
+            </span>
+          )}
+          <button type="button" className={styles.chip} onClick={copyDiff}>
+            {copied ? "Copied ✓" : "Copy diff"}
+          </button>
+        </div>
+      )}
+
+      <div ref={panel} className={styles.result} data-view={mode}>
+        {tooLong && <p className={styles.notice}>Texts over {MAX_LINES.toLocaleString()} lines aren&apos;t compared here.</p>}
+        {!tooLong && !original && !changed && <p className={styles.notice}>Paste two versions above to compare them.</p>}
+        {identical && (original || changed) && <p className={styles.notice}>No differences: the texts are identical.</p>}
+        {!identical &&
+          items.map((item, idx) => {
+            if (item.type === "fold") {
+              return (
+                <button
+                  key={`fold-${item.id}`}
+                  type="button"
+                  className={styles.fold}
+                  onClick={() => setExpanded((s) => new Set(s).add(item.id))}
+                >
+                  ⋯ Show {item.count} unchanged line{item.count === 1 ? "" : "s"}
+                </button>
+              );
+            }
+            const { row } = item;
+            const anchor = firstOfChange(item, idx) ? { "data-change": row.change } : {};
+            const active = row.change === current && row.kind !== "equal";
+
+            if (mode === "split") {
+              return (
+                <div key={item.index} className={styles.splitRow} data-kind={row.kind} data-active={active} {...anchor}>
+                  <span className={styles.num}>{row.left?.num ?? ""}</span>
+                  <span className={styles.cell} data-side="left" data-empty={!row.left}>
+                    {row.left && <Text side={row.left} />}
+                  </span>
+                  <span className={styles.num}>{row.right?.num ?? ""}</span>
+                  <span className={styles.cell} data-side="right" data-empty={!row.right}>
+                    {row.right && <Text side={row.right} />}
+                  </span>
+                </div>
+              );
+            }
+
+            const lines: { sign: string; side: Side; tone: string; a?: number; b?: number }[] = [];
+            if (row.kind === "equal") lines.push({ sign: " ", side: row.left!, tone: "equal", a: row.left!.num, b: row.right!.num });
+            else {
+              if (row.left) lines.push({ sign: "−", side: row.left, tone: "del", a: row.left.num });
+              if (row.right) lines.push({ sign: "+", side: row.right, tone: "add", b: row.right.num });
+            }
+            return (
+              <div key={item.index} className={styles.unifiedGroup} data-active={active} {...anchor}>
+                {lines.map((l, k) => (
+                  <div key={k} className={styles.unifiedRow} data-tone={l.tone}>
+                    <span className={styles.num}>{l.a ?? ""}</span>
+                    <span className={styles.num}>{l.b ?? ""}</span>
+                    <span className={styles.sign}>{l.sign}</span>
+                    <span className={styles.cell}>
+                      <Text side={l.side} />
+                    </span>
+                  </div>
+                ))}
+              </div>
+            );
+          })}
+      </div>
+    </div>
+  );
+}
+14:["$","div","DiffChecker.tsx",{"className":"file","children":[["$","div",null,{"className":"file-head","children":[["$","span",null,{"children":"DiffChecker.tsx"}],["$","$L11",null,{"text":"$19"}]]}],"$L1a"]}]
+1b:T1d3b,export type Op = "equal" | "insert" | "delete";
+export type Edit = { op: Op; ai: number; bi: number };
+
+/**
+ * Myers' O((N+M)·D) shortest-edit-script diff (the algorithm behind `git diff`).
+ * Inputs are compared with ===, so callers map lines or words to keys first.
+ * Common prefix and suffix are trimmed before the search to keep it fast.
+ */
+export function myers<K>(a: K[], b: K[]): Edit[] {
+  let start = 0;
+  while (start < a.length && start < b.length && a[start] === b[start]) start++;
+  let endA = a.length;
+  let endB = b.length;
+  while (endA > start && endB > start && a[endA - 1] === b[endB - 1]) {
+    endA--;
+    endB--;
+  }
+
+  const out: Edit[] = [];
+  for (let i = 0; i < start; i++) out.push({ op: "equal", ai: i, bi: i });
+  for (const e of core(a.slice(start, endA), b.slice(start, endB))) {
+    out.push({ op: e.op, ai: e.ai < 0 ? -1 : e.ai + start, bi: e.bi < 0 ? -1 : e.bi + start });
+  }
+  for (let j = 0; endA + j < a.length; j++) out.push({ op: "equal", ai: endA + j, bi: endB + j });
+  return out;
+}
+
+function core<K>(a: K[], b: K[]): Edit[] {
+  const n = a.length;
+  const m = b.length;
+  const max = n + m;
+  if (max === 0) return [];
+
+  // v[k] = furthest x reached on diagonal k; snapshots (k in -d..d) are kept for backtracking.
+  const off = max + 1;
+  const v = new Int32Array(2 * max + 3);
+  const trace: Int32Array[] = [];
+  let D = 0;
+  search: for (let d = 0; d <= max; d++) {
+    trace.push(v.slice(off - d, off + d + 1));
+    for (let k = -d; k <= d; k += 2) {
+      let x = k === -d || (k !== d && v[off + k - 1] < v[off + k + 1]) ? v[off + k + 1] : v[off + k - 1] + 1;
+      let y = x - k;
+      while (x < n && y < m && a[x] === b[y]) {
+        x++;
+        y++;
+      }
+      v[off + k] = x;
+      if (x >= n && y >= m) {
+        D = d;
+        break search;
+      }
+    }
+  }
+
+  const edits: Edit[] = [];
+  let x = n;
+  let y = m;
+  for (let d = D; d > 0; d--) {
+    const snap = trace[d];
+    const at = (k: number) => snap[k + d];
+    const k = x - y;
+    const prevK = k === -d || (k !== d && at(k - 1) < at(k + 1)) ? k + 1 : k - 1;
+    const prevX = at(prevK);
+    const prevY = prevX - prevK;
+    while (x > prevX && y > prevY) edits.push({ op: "equal", ai: --x, bi: --y });
+    if (x === prevX) edits.push({ op: "insert", ai: -1, bi: --y });
+    else edits.push({ op: "delete", ai: --x, bi: -1 });
+  }
+  while (x > 0 && y > 0) edits.push({ op: "equal", ai: --x, bi: --y });
+  return edits.reverse();
+}
+
+export type Options = { ignoreCase: boolean; ignoreWhitespace: boolean };
+export type Part = { text: string; changed: boolean };
+export type Side = { num: number; text: string; parts?: Part[] };
+export type Row = { kind: "equal" | "delete" | "insert" | "modify"; left?: Side; right?: Side; change?: number };
+export type Result = {
+  rows: Row[];
+  changes: number;
+  stats: { added: number; removed: number; modified: number; similarity: number };
+};
+
+// Words (letters incl. Bangla combining marks, digits), runs of whitespace, or single symbols.
+const TOKEN = /\s+|[\p{L}\p{M}\p{N}_]+|[^\s\p{L}\p{M}\p{N}_]/gu;
+
+function normalise(s: string, o: Options) {
+  let t = o.ignoreWhitespace ? s.trim().replace(/\s+/g, " ") : s;
+  if (o.ignoreCase) t = t.toLowerCase();
+  return t;
+}
+
+function merge(parts: Part[]) {
+  const out: Part[] = [];
+  for (const p of parts) {
+    const last = out[out.length - 1];
+    if (last && last.changed === p.changed) last.text += p.text;
+    else out.push({ ...p });
+  }
+  return out;
+}
+
+/** Word-level diff of two lines, plus how similar they are (0–1, by characters kept). */
+function wordDiff(a: string, b: string, o: Options) {
+  const ta = a.match(TOKEN) ?? [];
+  const tb = b.match(TOKEN) ?? [];
+  const key = (t: string) => (o.ignoreWhitespace && /^\s+$/.test(t) ? " " : o.ignoreCase ? t.toLowerCase() : t);
+  const left: Part[] = [];
+  const right: Part[] = [];
+  let same = 0;
+  for (const e of myers(ta.map(key), tb.map(key))) {
+    if (e.op === "equal") {
+      left.push({ text: ta[e.ai], changed: false });
+      right.push({ text: tb[e.bi], changed: false });
+      if (!/^\s+$/.test(ta[e.ai])) same += ta[e.ai].length;
+    } else if (e.op === "delete") left.push({ text: ta[e.ai], changed: true });
+    else right.push({ text: tb[e.bi], changed: true });
+  }
+  // A lone space between two changes reads better highlighted with them.
+  for (const parts of [left, right]) {
+    for (let i = 1; i < parts.length - 1; i++) {
+      if (!parts[i].changed && /^\s+$/.test(parts[i].text) && parts[i - 1].changed && parts[i + 1].changed) parts[i].changed = true;
+    }
+  }
+  const chars = a.replace(/\s/g, "").length + b.replace(/\s/g, "").length;
+  return { left: merge(left), right: merge(right), similarity: chars ? (2 * same) / chars : 1 };
+}
+
+export function compare(original: string, changed: string, o: Options): Result {
+  const A = original.split(/\r?\n/);
+  const B = changed.split(/\r?\n/);
+  const ids = new Map<string, number>();
+  const id = (s: string) => {
+    const k = normalise(s, o);
+    let v = ids.get(k);
+    if (v === undefined) ids.set(k, (v = ids.size));
+    return v;
+  };
+
+  const rows: Row[] = [];
+  let removed: number[] = [];
+  let added: number[] = [];
+  let modified = 0;
+
+  const insertRow = (i: number) => rows.push({ kind: "insert", right: { num: i + 1, text: B[i] } });
+
+  // Within a block of removed + added lines, pair each removed line with the most similar added
+  // line still ahead of it (so "6. Confidentiality" pairs with "7. Confidentiality", not with a new
+  // clause heading). Paired lines become "modified" rows with word-level highlights.
+  const flush = () => {
+    let next = 0;
+    for (const r of removed) {
+      let best = -1;
+      let bestDiff: ReturnType<typeof wordDiff> | null = null;
+      for (let k = next; k < Math.min(added.length, next + 20); k++) {
+        const w = wordDiff(A[r], B[added[k]], o);
+        if (w.similarity >= 0.5 && (!bestDiff || w.similarity > bestDiff.similarity)) {
+          best = k;
+          bestDiff = w;
+        }
+      }
+      if (best < 0 || !bestDiff) {
+        rows.push({ kind: "delete", left: { num: r + 1, text: A[r] } });
+        continue;
+      }
+      for (; next < best; next++) insertRow(added[next]);
+      rows.push({
+        kind: "modify",
+        left: { num: r + 1, text: A[r], parts: bestDiff.left },
+        right: { num: added[best] + 1, text: B[added[best]], parts: bestDiff.right },
+      });
+      modified++;
+      next = best + 1;
+    }
+    for (; next < added.length; next++) insertRow(added[next]);
+    removed = [];
+    added = [];
+  };
+
+  for (const e of myers(A.map(id), B.map(id))) {
+    if (e.op === "equal") {
+      flush();
+      rows.push({ kind: "equal", left: { num: e.ai + 1, text: A[e.ai] }, right: { num: e.bi + 1, text: B[e.bi] } });
+    } else if (e.op === "delete") removed.push(e.ai);
+    else added.push(e.bi);
+  }
+  flush();
+
+  // Number each block of consecutive changed rows for navigation.
+  let changes = 0;
+  for (let i = 0; i < rows.length; i++) {
+    if (rows[i].kind === "equal") continue;
+    if (i === 0 || rows[i - 1].kind === "equal") changes++;
+    rows[i].change = changes - 1;
+  }
+
+  const equal = rows.filter((r) => r.kind === "equal").length;
+  return {
+    rows,
+    changes,
+    stats: {
+      added: rows.filter((r) => r.kind === "insert").length,
+      removed: rows.filter((r) => r.kind === "delete").length,
+      modified,
+      similarity: A.length + B.length ? (2 * equal) / (A.length + B.length) : 1,
+    },
+  };
+}
+15:["$","div","diff.ts",{"className":"file","children":[["$","div",null,{"className":"file-head","children":[["$","span",null,{"children":"diff.ts"}],["$","$L11",null,{"text":"$1b"}]]}],"$L1c"]}]
+1d:T6df,export const ORIGINAL = `EMPLOYMENT AGREEMENT
+
+This Agreement is made on 1 March 2026 between Acme Ltd. ("the Company") and Nusrat Jahan ("the Employee").
+
+1. Position
+The Employee is appointed as HR Executive, reporting to the Head of People.
+
+2. Salary
+The Employee will receive a gross monthly salary of BDT 45,000, paid on the last working day of each month.
+
+3. Working Hours
+Normal working hours are 9:00 am to 6:00 pm, Sunday to Thursday.
+
+4. Leave
+The Employee is entitled to 14 days of annual leave and 10 days of sick leave per year.
+
+5. Probation
+The first 6 months of employment are a probation period.
+
+6. Confidentiality
+The Employee must not share confidential company information during or after employment.
+
+7. Notice Period
+Either party may end this agreement by giving 30 days' written notice.`;
+
+export const CHANGED = `EMPLOYMENT AGREEMENT
+
+This Agreement is made on 15 March 2026 between Acme Ltd. ("the Company") and Nusrat Jahan ("the Employee").
+
+1. Position
+The Employee is appointed as Senior HR Executive, reporting to the Head of People.
+
+2. Salary
+The Employee will receive a gross monthly salary of BDT 52,000, paid on the last working day of each month.
+
+3. Working Hours
+Normal working hours are 9:30 am to 6:30 pm, Sunday to Thursday, with a one-hour lunch break.
+
+4. Leave
+The Employee is entitled to 18 days of annual leave and 10 days of sick leave per year.
+
+5. Probation
+The first 3 months of employment are a probation period.
+
+6. Remote Work
+The Employee may work remotely up to 2 days per week with manager approval.
+
+7. Confidentiality
+The Employee must not share confidential company information during or after employment.
+
+8. Notice Period
+Either party may end this agreement by giving 60 days' written notice.`;
+1e:T6df,export const ORIGINAL = `EMPLOYMENT AGREEMENT
+
+This Agreement is made on 1 March 2026 between Acme Ltd. ("the Company") and Nusrat Jahan ("the Employee").
+
+1. Position
+The Employee is appointed as HR Executive, reporting to the Head of People.
+
+2. Salary
+The Employee will receive a gross monthly salary of BDT 45,000, paid on the last working day of each month.
+
+3. Working Hours
+Normal working hours are 9:00 am to 6:00 pm, Sunday to Thursday.
+
+4. Leave
+The Employee is entitled to 14 days of annual leave and 10 days of sick leave per year.
+
+5. Probation
+The first 6 months of employment are a probation period.
+
+6. Confidentiality
+The Employee must not share confidential company information during or after employment.
+
+7. Notice Period
+Either party may end this agreement by giving 30 days' written notice.`;
+
+export const CHANGED = `EMPLOYMENT AGREEMENT
+
+This Agreement is made on 15 March 2026 between Acme Ltd. ("the Company") and Nusrat Jahan ("the Employee").
+
+1. Position
+The Employee is appointed as Senior HR Executive, reporting to the Head of People.
+
+2. Salary
+The Employee will receive a gross monthly salary of BDT 52,000, paid on the last working day of each month.
+
+3. Working Hours
+Normal working hours are 9:30 am to 6:30 pm, Sunday to Thursday, with a one-hour lunch break.
+
+4. Leave
+The Employee is entitled to 18 days of annual leave and 10 days of sick leave per year.
+
+5. Probation
+The first 3 months of employment are a probation period.
+
+6. Remote Work
+The Employee may work remotely up to 2 days per week with manager approval.
+
+7. Confidentiality
+The Employee must not share confidential company information during or after employment.
+
+8. Notice Period
+Either party may end this agreement by giving 60 days' written notice.`;
+16:["$","div","samples.ts",{"className":"file","children":[["$","div",null,{"className":"file-head","children":[["$","span",null,{"children":"samples.ts"}],["$","$L11",null,{"text":"$1d"}]]}],["$","pre",null,{"children":["$","code",null,{"children":"$1e"}]}]]}]
+17:["$","nav",null,{"className":"pager","children":[["$","$L2",null,{"href":"/components/document-scanner","children":["← ","Document Scanner"]}],["$","$L2",null,{"href":"/components/collaborative-whiteboard","children":["Collaborative Whiteboard"," →"]}]]}]
+1f:T2f04,"use client";
+
+import { useDeferredValue, useEffect, useMemo, useRef, useState, type ChangeEvent, type DragEvent } from "react";
+import { compare, type Part, type Row, type Side } from "./diff";
+import { CHANGED, ORIGINAL } from "./samples";
+import styles from "./DiffChecker.module.css";
+
+type View = "split" | "unified";
+type Item = { type: "row"; row: Row; index: number } | { type: "fold"; id: number; count: number };
+
+const CONTEXT = 2; // unchanged lines kept around each change when folding
+const MAX_LINES = 5000;
+
+function Text({ side }: { side: Side }) {
+  if (!side.parts) return <>{side.text || " "}</>;
+  return (
+    <>
+      {side.parts.map((p: Part, i) =>
+        p.changed ? (
+          <mark key={i} className={styles.mark}>
+            {p.text}
+          </mark>
+        ) : (
+          <span key={i}>{p.text}</span>
+        ),
+      )}
+    </>
+  );
+}
+
+export default function DiffChecker() {
+  const [original, setOriginal] = useState(ORIGINAL);
+  const [changed, setChanged] = useState(CHANGED);
+  const [view, setView] = useState<View>("split");
+  const [onlyChanges, setOnlyChanges] = useState(true);
+  const [ignoreCase, setIgnoreCase] = useState(false);
+  const [ignoreWhitespace, setIgnoreWhitespace] = useState(false);
+  const [expanded, setExpanded] = useState<Set<number>>(new Set());
+  const [current, setCurrent] = useState(0);
+  const [narrow, setNarrow] = useState(false);
+  const [copied, setCopied] = useState(false);
+
+  const card = useRef<HTMLDivElement>(null);
+  const panel = useRef<HTMLDivElement>(null);
+
+  // Split view needs room; fall back to unified on narrow containers.
+  useEffect(() => {
+    const el = card.current;
+    if (!el) return;
+    setNarrow(el.getBoundingClientRect().width < 620);
+    const observer = new ResizeObserver(([entry]) => setNarrow(entry.contentRect.width < 620));
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+  const mode: View = narrow ? "unified" : view;
+
+  const a = useDeferredValue(original);
+  const b = useDeferredValue(changed);
+  const tooLong = a.split("\n").length > MAX_LINES || b.split("\n").length > MAX_LINES;
+  const result = useMemo(
+    () => (tooLong ? null : compare(a, b, { ignoreCase, ignoreWhitespace })),
+    [a, b, ignoreCase, ignoreWhitespace, tooLong],
+  );
+
+  useEffect(() => {
+    setExpanded(new Set());
+    setCurrent(0);
+  }, [result]);
+
+  // Collapse long runs of unchanged lines into clickable folds.
+  const items = useMemo<Item[]>(() => {
+    if (!result) return [];
+    const { rows } = result;
+    const keep = rows.map(() => !onlyChanges);
+    if (onlyChanges) {
+      rows.forEach((r, i) => {
+        if (r.kind === "equal") return;
+        for (let j = Math.max(0, i - CONTEXT); j <= Math.min(rows.length - 1, i + CONTEXT); j++) keep[j] = true;
+      });
+    }
+    const out: Item[] = [];
+    let i = 0;
+    while (i < rows.length) {
+      if (keep[i]) {
+        out.push({ type: "row", row: rows[i], index: i });
+        i++;
+        continue;
+      }
+      const start = i;
+      while (i < rows.length && !keep[i]) i++;
+      if (expanded.has(start)) for (let j = start; j < i; j++) out.push({ type: "row", row: rows[j], index: j });
+      else out.push({ type: "fold", id: start, count: i - start });
+    }
+    return out;
+  }, [result, onlyChanges, expanded]);
+
+  function goTo(n: number) {
+    if (!result || !result.changes) return;
+    const next = (n + result.changes) % result.changes;
+    setCurrent(next);
+    const target = panel.current?.querySelector<HTMLElement>(`[data-change="${next}"]`);
+    if (target && panel.current) {
+      panel.current.scrollTo({ top: target.offsetTop - panel.current.clientHeight / 3, behavior: "smooth" });
+    }
+  }
+
+  function loadFile(e: ChangeEvent<HTMLInputElement>, set: (v: string) => void) {
+    e.target.files?.[0]?.text().then(set);
+    e.target.value = "";
+  }
+  function dropFile(e: DragEvent, set: (v: string) => void) {
+    const file = e.dataTransfer.files[0];
+    if (!file) return;
+    e.preventDefault();
+    file.text().then(set);
+  }
+
+  async function copyDiff() {
+    if (!result) return;
+    const lines: string[] = [];
+    for (const r of result.rows) {
+      if (r.kind === "equal") lines.push(`  ${r.left!.text}`);
+      if (r.left && r.kind !== "equal") lines.push(`- ${r.left.text}`);
+      if (r.right && r.kind !== "equal") lines.push(`+ ${r.right.text}`);
+    }
+    await navigator.clipboard.writeText(lines.join("\n"));
+    setCopied(true);
+    setTimeout(() => setCopied(false), 1500);
+  }
+
+  const identical = result && result.changes === 0;
+  const firstOfChange = (item: Item, idx: number) =>
+    item.type === "row" &&
+    item.row.change !== undefined &&
+    !items.slice(0, idx).some((it) => it.type === "row" && it.row.change === item.row.change);
+
+  const inputs = [
+    { label: "Original", value: original, set: setOriginal },
+    { label: "Changed", value: changed, set: setChanged },
+  ];
+
+  return (
+    <div ref={card} className={styles.card}>
+      <header className={styles.head}>
+        <div>
+          <h3 className={styles.title}>Text diff checker</h3>
+          <p className={styles.subtitle}>See exactly what changed between two versions of a contract, policy or document.</p>
+        </div>
+        <button
+          type="button"
+          className={styles.chip}
+          onClick={() => {
+            setOriginal(changed);
+            setChanged(original);
+          }}
+        >
+          ⇄ Swap
+        </button>
+      </header>
+
+      <div className={styles.inputs}>
+        {inputs.map((input) => (
+          <div key={input.label} className={styles.input}>
+            <div className={styles.inputHead}>
+              <span>{input.label}</span>
+              <span className={styles.inputTools}>
+                <label className={styles.link}>
+                  Open file
+                  <input type="file" accept=".txt,.md,.csv,.json,.html,.xml,text/*" onChange={(e) => loadFile(e, input.set)} />
+                </label>
+                <button type="button" className={styles.link} onClick={() => input.set("")}>
+                  Clear
+                </button>
+              </span>
+            </div>
+            <textarea
+              value={input.value}
+              spellCheck={false}
+              rows={8}
+              placeholder={`Paste the ${input.label.toLowerCase()} text, or drop a file here`}
+              onChange={(e) => input.set(e.target.value)}
+              onDrop={(e) => dropFile(e, input.set)}
+              aria-label={`${input.label} text`}
+            />
+          </div>
+        ))}
+      </div>
+
+      <div className={styles.toolbar}>
+        <div className={styles.segmented} role="radiogroup" aria-label="View">
+          {(["split", "unified"] as const).map((v) => (
+            <button
+              key={v}
+              type="button"
+              role="radio"
+              aria-checked={mode === v}
+              disabled={v === "split" && narrow}
+              title={v === "split" && narrow ? "Split view needs a wider screen" : undefined}
+              onClick={() => setView(v)}
+            >
+              {v === "split" ? "Split" : "Unified"}
+            </button>
+          ))}
+        </div>
+        <label className={styles.toggle}>
+          <input type="checkbox" checked={onlyChanges} onChange={(e) => setOnlyChanges(e.target.checked)} />
+          Only changes
+        </label>
+        <label className={styles.toggle}>
+          <input type="checkbox" checked={ignoreCase} onChange={(e) => setIgnoreCase(e.target.checked)} />
+          Ignore case
+        </label>
+        <label className={styles.toggle}>
+          <input type="checkbox" checked={ignoreWhitespace} onChange={(e) => setIgnoreWhitespace(e.target.checked)} />
+          Ignore spaces
+        </label>
+      </div>
+
+      {result && (
+        <div className={styles.summary}>
+          <span className={styles.stat} data-tone="add">+{result.stats.added} added</span>
+          <span className={styles.stat} data-tone="del">−{result.stats.removed} removed</span>
+          <span className={styles.stat} data-tone="mod">~{result.stats.modified} changed</span>
+          <span className={styles.similarity}>{Math.round(result.stats.similarity * 100)}% of lines unchanged</span>
+          <span className={styles.spacer} />
+          {result.changes > 0 && (
+            <span className={styles.nav}>
+              <button type="button" onClick={() => goTo(current - 1)} aria-label="Previous change">
+                ‹
+              </button>
+              <span aria-live="polite">
+                Change {current + 1} of {result.changes}
+              </span>
+              <button type="button" onClick={() => goTo(current + 1)} aria-label="Next change">
+                ›
+              </button>
+            </span>
+          )}
+          <button type="button" className={styles.chip} onClick={copyDiff}>
+            {copied ? "Copied ✓" : "Copy diff"}
+          </button>
+        </div>
+      )}
+
+      <div ref={panel} className={styles.result} data-view={mode}>
+        {tooLong && <p className={styles.notice}>Texts over {MAX_LINES.toLocaleString()} lines aren&apos;t compared here.</p>}
+        {!tooLong && !original && !changed && <p className={styles.notice}>Paste two versions above to compare them.</p>}
+        {identical && (original || changed) && <p className={styles.notice}>No differences: the texts are identical.</p>}
+        {!identical &&
+          items.map((item, idx) => {
+            if (item.type === "fold") {
+              return (
+                <button
+                  key={`fold-${item.id}`}
+                  type="button"
+                  className={styles.fold}
+                  onClick={() => setExpanded((s) => new Set(s).add(item.id))}
+                >
+                  ⋯ Show {item.count} unchanged line{item.count === 1 ? "" : "s"}
+                </button>
+              );
+            }
+            const { row } = item;
+            const anchor = firstOfChange(item, idx) ? { "data-change": row.change } : {};
+            const active = row.change === current && row.kind !== "equal";
+
+            if (mode === "split") {
+              return (
+                <div key={item.index} className={styles.splitRow} data-kind={row.kind} data-active={active} {...anchor}>
+                  <span className={styles.num}>{row.left?.num ?? ""}</span>
+                  <span className={styles.cell} data-side="left" data-empty={!row.left}>
+                    {row.left && <Text side={row.left} />}
+                  </span>
+                  <span className={styles.num}>{row.right?.num ?? ""}</span>
+                  <span className={styles.cell} data-side="right" data-empty={!row.right}>
+                    {row.right && <Text side={row.right} />}
+                  </span>
+                </div>
+              );
+            }
+
+            const lines: { sign: string; side: Side; tone: string; a?: number; b?: number }[] = [];
+            if (row.kind === "equal") lines.push({ sign: " ", side: row.left!, tone: "equal", a: row.left!.num, b: row.right!.num });
+            else {
+              if (row.left) lines.push({ sign: "−", side: row.left, tone: "del", a: row.left.num });
+              if (row.right) lines.push({ sign: "+", side: row.right, tone: "add", b: row.right.num });
+            }
+            return (
+              <div key={item.index} className={styles.unifiedGroup} data-active={active} {...anchor}>
+                {lines.map((l, k) => (
+                  <div key={k} className={styles.unifiedRow} data-tone={l.tone}>
+                    <span className={styles.num}>{l.a ?? ""}</span>
+                    <span className={styles.num}>{l.b ?? ""}</span>
+                    <span className={styles.sign}>{l.sign}</span>
+                    <span className={styles.cell}>
+                      <Text side={l.side} />
+                    </span>
+                  </div>
+                ))}
+              </div>
+            );
+          })}
+      </div>
+    </div>
+  );
+}
+1a:["$","pre",null,{"children":["$","code",null,{"children":"$1f"}]}]
+20:T1d3b,export type Op = "equal" | "insert" | "delete";
+export type Edit = { op: Op; ai: number; bi: number };
+
+/**
+ * Myers' O((N+M)·D) shortest-edit-script diff (the algorithm behind `git diff`).
+ * Inputs are compared with ===, so callers map lines or words to keys first.
+ * Common prefix and suffix are trimmed before the search to keep it fast.
+ */
+export function myers<K>(a: K[], b: K[]): Edit[] {
+  let start = 0;
+  while (start < a.length && start < b.length && a[start] === b[start]) start++;
+  let endA = a.length;
+  let endB = b.length;
+  while (endA > start && endB > start && a[endA - 1] === b[endB - 1]) {
+    endA--;
+    endB--;
+  }
+
+  const out: Edit[] = [];
+  for (let i = 0; i < start; i++) out.push({ op: "equal", ai: i, bi: i });
+  for (const e of core(a.slice(start, endA), b.slice(start, endB))) {
+    out.push({ op: e.op, ai: e.ai < 0 ? -1 : e.ai + start, bi: e.bi < 0 ? -1 : e.bi + start });
+  }
+  for (let j = 0; endA + j < a.length; j++) out.push({ op: "equal", ai: endA + j, bi: endB + j });
+  return out;
+}
+
+function core<K>(a: K[], b: K[]): Edit[] {
+  const n = a.length;
+  const m = b.length;
+  const max = n + m;
+  if (max === 0) return [];
+
+  // v[k] = furthest x reached on diagonal k; snapshots (k in -d..d) are kept for backtracking.
+  const off = max + 1;
+  const v = new Int32Array(2 * max + 3);
+  const trace: Int32Array[] = [];
+  let D = 0;
+  search: for (let d = 0; d <= max; d++) {
+    trace.push(v.slice(off - d, off + d + 1));
+    for (let k = -d; k <= d; k += 2) {
+      let x = k === -d || (k !== d && v[off + k - 1] < v[off + k + 1]) ? v[off + k + 1] : v[off + k - 1] + 1;
+      let y = x - k;
+      while (x < n && y < m && a[x] === b[y]) {
+        x++;
+        y++;
+      }
+      v[off + k] = x;
+      if (x >= n && y >= m) {
+        D = d;
+        break search;
+      }
+    }
+  }
+
+  const edits: Edit[] = [];
+  let x = n;
+  let y = m;
+  for (let d = D; d > 0; d--) {
+    const snap = trace[d];
+    const at = (k: number) => snap[k + d];
+    const k = x - y;
+    const prevK = k === -d || (k !== d && at(k - 1) < at(k + 1)) ? k + 1 : k - 1;
+    const prevX = at(prevK);
+    const prevY = prevX - prevK;
+    while (x > prevX && y > prevY) edits.push({ op: "equal", ai: --x, bi: --y });
+    if (x === prevX) edits.push({ op: "insert", ai: -1, bi: --y });
+    else edits.push({ op: "delete", ai: --x, bi: -1 });
+  }
+  while (x > 0 && y > 0) edits.push({ op: "equal", ai: --x, bi: --y });
+  return edits.reverse();
+}
+
+export type Options = { ignoreCase: boolean; ignoreWhitespace: boolean };
+export type Part = { text: string; changed: boolean };
+export type Side = { num: number; text: string; parts?: Part[] };
+export type Row = { kind: "equal" | "delete" | "insert" | "modify"; left?: Side; right?: Side; change?: number };
+export type Result = {
+  rows: Row[];
+  changes: number;
+  stats: { added: number; removed: number; modified: number; similarity: number };
+};
+
+// Words (letters incl. Bangla combining marks, digits), runs of whitespace, or single symbols.
+const TOKEN = /\s+|[\p{L}\p{M}\p{N}_]+|[^\s\p{L}\p{M}\p{N}_]/gu;
+
+function normalise(s: string, o: Options) {
+  let t = o.ignoreWhitespace ? s.trim().replace(/\s+/g, " ") : s;
+  if (o.ignoreCase) t = t.toLowerCase();
+  return t;
+}
+
+function merge(parts: Part[]) {
+  const out: Part[] = [];
+  for (const p of parts) {
+    const last = out[out.length - 1];
+    if (last && last.changed === p.changed) last.text += p.text;
+    else out.push({ ...p });
+  }
+  return out;
+}
+
+/** Word-level diff of two lines, plus how similar they are (0–1, by characters kept). */
+function wordDiff(a: string, b: string, o: Options) {
+  const ta = a.match(TOKEN) ?? [];
+  const tb = b.match(TOKEN) ?? [];
+  const key = (t: string) => (o.ignoreWhitespace && /^\s+$/.test(t) ? " " : o.ignoreCase ? t.toLowerCase() : t);
+  const left: Part[] = [];
+  const right: Part[] = [];
+  let same = 0;
+  for (const e of myers(ta.map(key), tb.map(key))) {
+    if (e.op === "equal") {
+      left.push({ text: ta[e.ai], changed: false });
+      right.push({ text: tb[e.bi], changed: false });
+      if (!/^\s+$/.test(ta[e.ai])) same += ta[e.ai].length;
+    } else if (e.op === "delete") left.push({ text: ta[e.ai], changed: true });
+    else right.push({ text: tb[e.bi], changed: true });
+  }
+  // A lone space between two changes reads better highlighted with them.
+  for (const parts of [left, right]) {
+    for (let i = 1; i < parts.length - 1; i++) {
+      if (!parts[i].changed && /^\s+$/.test(parts[i].text) && parts[i - 1].changed && parts[i + 1].changed) parts[i].changed = true;
+    }
+  }
+  const chars = a.replace(/\s/g, "").length + b.replace(/\s/g, "").length;
+  return { left: merge(left), right: merge(right), similarity: chars ? (2 * same) / chars : 1 };
+}
+
+export function compare(original: string, changed: string, o: Options): Result {
+  const A = original.split(/\r?\n/);
+  const B = changed.split(/\r?\n/);
+  const ids = new Map<string, number>();
+  const id = (s: string) => {
+    const k = normalise(s, o);
+    let v = ids.get(k);
+    if (v === undefined) ids.set(k, (v = ids.size));
+    return v;
+  };
+
+  const rows: Row[] = [];
+  let removed: number[] = [];
+  let added: number[] = [];
+  let modified = 0;
+
+  const insertRow = (i: number) => rows.push({ kind: "insert", right: { num: i + 1, text: B[i] } });
+
+  // Within a block of removed + added lines, pair each removed line with the most similar added
+  // line still ahead of it (so "6. Confidentiality" pairs with "7. Confidentiality", not with a new
+  // clause heading). Paired lines become "modified" rows with word-level highlights.
+  const flush = () => {
+    let next = 0;
+    for (const r of removed) {
+      let best = -1;
+      let bestDiff: ReturnType<typeof wordDiff> | null = null;
+      for (let k = next; k < Math.min(added.length, next + 20); k++) {
+        const w = wordDiff(A[r], B[added[k]], o);
+        if (w.similarity >= 0.5 && (!bestDiff || w.similarity > bestDiff.similarity)) {
+          best = k;
+          bestDiff = w;
+        }
+      }
+      if (best < 0 || !bestDiff) {
+        rows.push({ kind: "delete", left: { num: r + 1, text: A[r] } });
+        continue;
+      }
+      for (; next < best; next++) insertRow(added[next]);
+      rows.push({
+        kind: "modify",
+        left: { num: r + 1, text: A[r], parts: bestDiff.left },
+        right: { num: added[best] + 1, text: B[added[best]], parts: bestDiff.right },
+      });
+      modified++;
+      next = best + 1;
+    }
+    for (; next < added.length; next++) insertRow(added[next]);
+    removed = [];
+    added = [];
+  };
+
+  for (const e of myers(A.map(id), B.map(id))) {
+    if (e.op === "equal") {
+      flush();
+      rows.push({ kind: "equal", left: { num: e.ai + 1, text: A[e.ai] }, right: { num: e.bi + 1, text: B[e.bi] } });
+    } else if (e.op === "delete") removed.push(e.ai);
+    else added.push(e.bi);
+  }
+  flush();
+
+  // Number each block of consecutive changed rows for navigation.
+  let changes = 0;
+  for (let i = 0; i < rows.length; i++) {
+    if (rows[i].kind === "equal") continue;
+    if (i === 0 || rows[i - 1].kind === "equal") changes++;
+    rows[i].change = changes - 1;
+  }
+
+  const equal = rows.filter((r) => r.kind === "equal").length;
+  return {
+    rows,
+    changes,
+    stats: {
+      added: rows.filter((r) => r.kind === "insert").length,
+      removed: rows.filter((r) => r.kind === "delete").length,
+      modified,
+      similarity: A.length + B.length ? (2 * equal) / (A.length + B.length) : 1,
+    },
+  };
+}
+1c:["$","pre",null,{"children":["$","code",null,{"children":"$20"}]}]

@@ -1,0 +1,2035 @@
+1:"$Sreact.fragment"
+2:I[2619,["619","static/chunks/619-ba102abea3e3d0e4.js","449","static/chunks/app/components/%5Bslug%5D/page-7b18c14fa5ee9ace.js"],""]
+3:I[9766,[],""]
+4:I[8924,[],""]
+6:I[4431,[],"OutletBoundary"]
+8:I[5278,[],"AsyncMetadataOutlet"]
+a:I[4431,[],"ViewportBoundary"]
+c:I[4431,[],"MetadataBoundary"]
+d:"$Sreact.suspense"
+f:I[7150,[],""]
+:HL["/component-gallery/_next/static/css/68cce7808a08b910.css","style"]
+0:{"P":null,"b":"6jA2vIGrO3aOlnYlKgPnQ","p":"/component-gallery","c":["","components","meeting-captions",""],"i":false,"f":[[["",{"children":["components",{"children":[["slug","meeting-captions","d"],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/component-gallery/_next/static/css/68cce7808a08b910.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","children":["$","body",null,{"children":[["$","header",null,{"className":"site-header","children":["$","div",null,{"className":"container","children":[["$","$L2",null,{"href":"/","className":"brand","children":"Component Gallery"}],["$","nav",null,{"children":["$","a",null,{"href":"https://github.com/rownok-HR-LS/component-gallery","children":"GitHub"}]}]]}]}],["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","main",null,{"className":"container","children":["$","header",null,{"className":"hero","children":[["$","h1",null,{"children":"Not found"}],["$","p",null,{"className":"lede","children":"That component doesn't exist (yet)."}],["$","$L2",null,{"href":"/","children":"← Back to the gallery"}]]}]}],[]],"forbidden":"$undefined","unauthorized":"$undefined"}],["$","footer",null,{"className":"site-footer","children":["$","div",null,{"className":"container","children":[["$","span",null,{"children":["Built by ","rownok-HR-LS"," · LofiStack 90-day challenge"]}],["$","a",null,{"href":"https://github.com/rownok-HR-LS/component-gallery","children":"Source on GitHub"}]]}]}]]}]}]]}],{"children":["components",["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["slug","meeting-captions","d"],["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L5",null,["$","$L6",null,{"children":["$L7",["$","$L8",null,{"promise":"$@9"}]]}]]}],{},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,[["$","$La",null,{"children":"$Lb"}],null],["$","$Lc",null,{"children":["$","div",null,{"hidden":true,"children":["$","$d",null,{"fallback":null,"children":"$Le"}]}]}]]}],false]],"m":"$undefined","G":["$f",[]],"s":false,"S":true}
+b:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+7:null
+9:{"metadata":[["$","title","0",{"children":"Live Meeting Captions & Action Items · Component Gallery"}],["$","meta","1",{"name":"description","content":"Live speech-to-text captions with speaker turns, highlighted deadlines and money, and action items (owner + due date), decisions and questions extracted as people talk."}]],"error":null,"digest":"$undefined"}
+e:"$9:metadata"
+10:I[2325,["619","static/chunks/619-ba102abea3e3d0e4.js","449","static/chunks/app/components/%5Bslug%5D/page-7b18c14fa5ee9ace.js"],"Demo"]
+11:I[7333,["619","static/chunks/619-ba102abea3e3d0e4.js","449","static/chunks/app/components/%5Bslug%5D/page-7b18c14fa5ee9ace.js"],"CopyButton"]
+12:T2fcb,.card {
+  --surface: #fcfcfb;
+  --ink: #0b0b0b;
+  --ink-2: #52514e;
+  --muted: #898781;
+  --border: rgba(11, 11, 11, 0.1);
+  --field: #f4f3f0;
+  --accent: #4a3aa7;
+  --live: #e5484d;
+  --due: #b54708;
+  --due-bg: #fff4e5;
+  --money: #067647;
+  --money-bg: #e7f6ec;
+  --kw: #4a3aa7;
+  --kw-bg: #efebff;
+
+  width: 100%;
+  max-width: 1000px;
+  padding: 22px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: var(--surface);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 12px 32px -12px rgba(0, 0, 0, 0.18);
+  color: var(--ink);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  container-type: inline-size;
+}
+
+@media (prefers-color-scheme: dark) {
+  .card {
+    --surface: #18181b;
+    --ink: #ffffff;
+    --ink-2: #c3c2b7;
+    --border: rgba(255, 255, 255, 0.1);
+    --field: #232327;
+    --accent: #a99cff;
+    --due: #fdb022;
+    --due-bg: rgba(253, 176, 34, 0.14);
+    --money: #47cd89;
+    --money-bg: rgba(18, 183, 106, 0.15);
+    --kw: #c4b8ff;
+    --kw-bg: rgba(169, 156, 255, 0.18);
+    box-shadow: 0 12px 32px -12px rgba(0, 0, 0, 0.6);
+  }
+}
+
+.head { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 14px; }
+.title { margin: 0; font-size: 17px; font-weight: 650; }
+.subtitle { margin: 2px 0 0; color: var(--ink-2); font-size: 13px; }
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border: 1px solid var(--border);
+  border-radius: 99px;
+  background: var(--field);
+  font-size: 12.5px;
+  font-weight: 600;
+}
+.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--muted); }
+.status[data-mode="live"] .dot { background: var(--live); box-shadow: 0 0 0 0 var(--live); animation: pulse 1.4s infinite; }
+.status[data-mode="demo"] .dot { background: var(--accent); animation: pulse 1.4s infinite; }
+.timer { color: var(--ink-2); font-weight: 500; font-variant-numeric: tabular-nums; }
+.meter { display: inline-flex; align-items: center; gap: 2px; height: 18px; }
+.meter span { width: 3px; height: 18px; border-radius: 2px; background: var(--accent); transform-origin: center; transition: transform 0.08s linear; }
+.status[data-mode="live"] .meter span { background: var(--live); }
+
+/* Controls */
+.controls { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 10px; }
+.primary,
+.secondary,
+.stop,
+.ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 38px;
+  padding: 0 14px;
+  border-radius: 10px;
+  font: inherit;
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.primary { border: 0; background: linear-gradient(135deg, #4a3aa7, #2a78d6); box-shadow: 0 8px 18px -8px rgba(74, 58, 167, 0.8); color: #fff; }
+.primary svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
+.primary:disabled { opacity: 0.45; cursor: not-allowed; box-shadow: none; }
+.secondary,
+.ghost { border: 1px solid var(--border); background: none; color: var(--ink); }
+.ghost { height: 32px; padding: 0 11px; font-size: 12.5px; font-weight: 500; }
+.secondary:hover,
+.ghost:hover:not(:disabled) { background: var(--field); }
+.ghost:disabled { opacity: 0.45; cursor: default; }
+.stop { border: 0; background: var(--live); color: #fff; }
+.select {
+  height: 38px;
+  padding: 0 10px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface);
+  color: var(--ink);
+  font: inherit;
+  font-size: 13px;
+}
+.primary:focus-visible,
+.secondary:focus-visible,
+.stop:focus-visible,
+.ghost:focus-visible,
+.select:focus-visible,
+.speaker:focus-visible,
+.tabs button:focus-visible,
+.at:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.notice,
+.error { margin: 0 0 10px; padding: 8px 12px; border-radius: 10px; font-size: 12.5px; }
+.notice { background: var(--field); color: var(--ink-2); }
+.error { background: rgba(229, 72, 77, 0.12); color: var(--live); }
+
+/* Speakers */
+.speakers { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-bottom: 14px; }
+.label { margin-right: 4px; color: var(--muted); font-size: 11.5px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; }
+.speaker {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 4px 6px 4px 10px;
+  border: 1px solid var(--border);
+  border-radius: 99px;
+  background: none;
+  color: var(--ink);
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+.speaker[aria-pressed="true"] { border-color: var(--c); background: color-mix(in srgb, var(--c) 14%, transparent); font-weight: 600; }
+.swatch { width: 9px; height: 9px; border-radius: 50%; background: var(--c); }
+.speaker kbd {
+  display: grid;
+  place-items: center;
+  min-width: 18px;
+  height: 18px;
+  border-radius: 5px;
+  background: var(--field);
+  color: var(--muted);
+  font: 600 10.5px system-ui, sans-serif;
+}
+.rename { width: 110px; height: 30px; padding: 0 10px; border: 1.5px solid var(--accent); border-radius: 99px; outline: none; background: var(--surface); color: var(--ink); font: inherit; font-size: 13px; }
+.addSpeaker { width: 30px; height: 30px; border: 1px dashed var(--border); border-radius: 50%; background: none; color: var(--ink-2); font-size: 16px; cursor: pointer; }
+
+/* Body */
+.body { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 16px; }
+@container (max-width: 720px) {
+  .body { grid-template-columns: 1fr; }
+}
+
+.transcriptBox { display: flex; flex-direction: column; min-width: 0; overflow: hidden; border: 1px solid var(--border); border-radius: 14px; }
+.transcript { height: 330px; padding: 12px 14px; overflow-y: auto; }
+.empty { margin: 60px auto 0; max-width: 34ch; color: var(--muted); font-size: 13.5px; line-height: 1.5; text-align: center; }
+.line { position: relative; margin-bottom: 12px; padding: 4px 0 4px 12px; border-left: 3px solid var(--c); border-radius: 2px; transition: background 0.4s ease; }
+.line[data-flash="true"] { background: color-mix(in srgb, var(--accent) 14%, transparent); }
+.line p { margin: 2px 0 0; font-size: 14px; line-height: 1.5; }
+.lineHead { display: flex; align-items: center; gap: 8px; font-size: 12px; }
+.who { color: var(--c); font-weight: 700; }
+.time { color: var(--muted); font-variant-numeric: tabular-nums; }
+.badge { padding: 0 7px; border-radius: 99px; background: color-mix(in srgb, var(--accent) 16%, transparent); color: var(--accent); font-size: 10.5px; font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; }
+
+.hl { padding: 0 3px; border-radius: 4px; font-weight: 600; }
+.hl[data-kind="due"] { background: var(--due-bg); color: var(--due); }
+.hl[data-kind="money"] { background: var(--money-bg); color: var(--money); }
+.hl[data-kind="keyword"] { background: var(--kw-bg); color: var(--kw); }
+
+/* Big live caption bar */
+.caption {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  min-height: 62px;
+  padding: 12px 16px;
+  border-top: 1px solid var(--border);
+  background: linear-gradient(90deg, color-mix(in srgb, var(--c) 12%, var(--surface)), var(--surface));
+}
+.captionWho { flex: none; color: var(--c); font-size: 12.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; }
+.captionText { color: var(--muted); font-size: 18px; font-weight: 500; line-height: 1.4; }
+.caption[data-active="true"] .captionText { color: var(--ink); }
+.caption[data-active="true"] .captionText::after { content: "▍"; margin-left: 2px; color: var(--c); animation: blink 1s steps(1) infinite; }
+
+/* Insights */
+.insights { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.tabs { display: flex; gap: 2px; padding: 3px; border-radius: 10px; background: var(--field); }
+.tabs button {
+  display: inline-flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 6px 4px;
+  border: 0;
+  border-radius: 8px;
+  background: none;
+  color: var(--ink-2);
+  font: inherit;
+  font-size: 12.5px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.tabs button[aria-selected="true"] { background: var(--surface); box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15); color: var(--ink); font-weight: 600; }
+.count { min-width: 18px; padding: 0 5px; border-radius: 99px; background: color-mix(in srgb, var(--accent) 16%, transparent); color: var(--accent); font-size: 11px; font-weight: 700; }
+
+.items { display: flex; flex-direction: column; gap: 8px; max-height: 250px; margin: 0; padding: 0; overflow-y: auto; list-style: none; }
+.none { padding: 18px 8px; color: var(--muted); font-size: 13px; text-align: center; }
+.item {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: start;
+  gap: 10px;
+  padding: 10px 10px 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  animation: slideIn 0.35s ease;
+}
+.item input { width: 17px; height: 17px; margin: 2px 0 0; accent-color: var(--accent); }
+.item[data-done="true"] .itemText { color: var(--muted); text-decoration: line-through; }
+.kindIcon {
+  display: grid;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  margin-top: 1px;
+  border-radius: 50%;
+  background: var(--money);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 800;
+}
+.item[data-kind="question"] .kindIcon { background: var(--accent); }
+.itemBody { display: flex; flex-direction: column; gap: 5px; min-width: 0; }
+.itemText { font-size: 13.5px; font-weight: 500; line-height: 1.4; }
+.meta { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-size: 11.5px; }
+.owner { padding: 1px 8px; border-radius: 99px; background: var(--kw-bg); color: var(--kw); font-weight: 600; }
+.owner[data-unassigned="true"] { background: var(--field); color: var(--muted); }
+.due { padding: 1px 8px; border-radius: 99px; background: var(--due-bg); color: var(--due); font-weight: 600; }
+.at { padding: 0; border: 0; background: none; color: var(--muted); font: inherit; font-size: 11.5px; text-decoration: underline; text-underline-offset: 2px; cursor: pointer; }
+.remove { padding: 0 4px; border: 0; background: none; color: var(--muted); font-size: 16px; line-height: 1; cursor: pointer; opacity: 0; }
+.item:hover .remove,
+.remove:focus-visible { opacity: 1; }
+
+.stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+.stats div { display: flex; flex-direction: column; padding: 8px 10px; border-radius: 10px; background: var(--field); }
+.stats strong { font-size: 17px; font-variant-numeric: tabular-nums; }
+.stats span { color: var(--muted); font-size: 11.5px; }
+.talk { display: flex; flex-direction: column; gap: 5px; font-size: 12px; }
+.talkRow { display: grid; grid-template-columns: 70px 1fr 34px; align-items: center; gap: 8px; }
+.talkRow > span:first-child { overflow: hidden; color: var(--ink-2); text-overflow: ellipsis; white-space: nowrap; }
+.talkBar { height: 7px; overflow: hidden; border-radius: 99px; background: var(--field); }
+.talkBar span { display: block; height: 100%; border-radius: inherit; transition: width 0.4s ease; }
+.talkPct { color: var(--muted); text-align: right; font-variant-numeric: tabular-nums; }
+
+/* Footer */
+.footer { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; margin-top: 14px; }
+.keywords { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.keyword { padding: 2px 9px; border: 0; border-radius: 99px; background: var(--kw-bg); color: var(--kw); font: inherit; font-size: 12px; font-weight: 600; cursor: pointer; }
+.keywordInput { width: 90px; height: 26px; padding: 0 9px; border: 1px dashed var(--border); border-radius: 99px; outline: none; background: none; color: var(--ink); font: inherit; font-size: 12px; }
+.keywordInput:focus { border-style: solid; border-color: var(--accent); }
+.exports { display: flex; flex-wrap: wrap; gap: 6px; }
+.privacy { margin: 10px 0 0; color: var(--muted); font-size: 11.5px; }
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 color-mix(in srgb, currentColor 0%, transparent); }
+  50% { opacity: 0.55; }
+}
+@keyframes blink { 50% { opacity: 0; } }
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .item { animation: none; }
+  .status .dot { animation: none !important; }
+}
+5:["$","main",null,{"className":"container","children":[["$","$L2",null,{"href":"/","className":"back","children":"← All components"}],["$","header",null,{"className":"detail-head","children":[["$","span",null,{"className":"tag","children":["Week ",6," · ","2026-10-09"]}],["$","h1",null,{"children":"Live Meeting Captions & Action Items"}],["$","p",null,{"children":"Live speech-to-text captions with speaker turns, highlighted deadlines and money, and action items (owner + due date), decisions and questions extracted as people talk."}]]}],["$","section",null,{"className":"stage","aria-label":"Live demo","children":["$","$L10",null,{"slug":"meeting-captions"}]}],["$","section",null,{"className":"source","children":[["$","h2",null,{"children":"Source"}],[["$","div","Demo.tsx",{"className":"file","children":[["$","div",null,{"className":"file-head","children":[["$","span",null,{"children":"Demo.tsx"}],["$","$L11",null,{"text":"import MeetingCaptions from \"./MeetingCaptions\";\n\nexport default function Demo() {\n  return <MeetingCaptions />;\n}\n"}]]}],["$","pre",null,{"children":["$","code",null,{"children":"import MeetingCaptions from \"./MeetingCaptions\";\n\nexport default function Demo() {\n  return <MeetingCaptions />;\n}\n"}]}]]}],["$","div","MeetingCaptions.module.css",{"className":"file","children":[["$","div",null,{"className":"file-head","children":[["$","span",null,{"children":"MeetingCaptions.module.css"}],["$","$L11",null,{"text":"$12"}]]}],"$L13"]}],"$L14","$L15"]]}],"$L16"]}]
+17:T2fcb,.card {
+  --surface: #fcfcfb;
+  --ink: #0b0b0b;
+  --ink-2: #52514e;
+  --muted: #898781;
+  --border: rgba(11, 11, 11, 0.1);
+  --field: #f4f3f0;
+  --accent: #4a3aa7;
+  --live: #e5484d;
+  --due: #b54708;
+  --due-bg: #fff4e5;
+  --money: #067647;
+  --money-bg: #e7f6ec;
+  --kw: #4a3aa7;
+  --kw-bg: #efebff;
+
+  width: 100%;
+  max-width: 1000px;
+  padding: 22px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: var(--surface);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 12px 32px -12px rgba(0, 0, 0, 0.18);
+  color: var(--ink);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  container-type: inline-size;
+}
+
+@media (prefers-color-scheme: dark) {
+  .card {
+    --surface: #18181b;
+    --ink: #ffffff;
+    --ink-2: #c3c2b7;
+    --border: rgba(255, 255, 255, 0.1);
+    --field: #232327;
+    --accent: #a99cff;
+    --due: #fdb022;
+    --due-bg: rgba(253, 176, 34, 0.14);
+    --money: #47cd89;
+    --money-bg: rgba(18, 183, 106, 0.15);
+    --kw: #c4b8ff;
+    --kw-bg: rgba(169, 156, 255, 0.18);
+    box-shadow: 0 12px 32px -12px rgba(0, 0, 0, 0.6);
+  }
+}
+
+.head { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 14px; }
+.title { margin: 0; font-size: 17px; font-weight: 650; }
+.subtitle { margin: 2px 0 0; color: var(--ink-2); font-size: 13px; }
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border: 1px solid var(--border);
+  border-radius: 99px;
+  background: var(--field);
+  font-size: 12.5px;
+  font-weight: 600;
+}
+.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--muted); }
+.status[data-mode="live"] .dot { background: var(--live); box-shadow: 0 0 0 0 var(--live); animation: pulse 1.4s infinite; }
+.status[data-mode="demo"] .dot { background: var(--accent); animation: pulse 1.4s infinite; }
+.timer { color: var(--ink-2); font-weight: 500; font-variant-numeric: tabular-nums; }
+.meter { display: inline-flex; align-items: center; gap: 2px; height: 18px; }
+.meter span { width: 3px; height: 18px; border-radius: 2px; background: var(--accent); transform-origin: center; transition: transform 0.08s linear; }
+.status[data-mode="live"] .meter span { background: var(--live); }
+
+/* Controls */
+.controls { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 10px; }
+.primary,
+.secondary,
+.stop,
+.ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 38px;
+  padding: 0 14px;
+  border-radius: 10px;
+  font: inherit;
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.primary { border: 0; background: linear-gradient(135deg, #4a3aa7, #2a78d6); box-shadow: 0 8px 18px -8px rgba(74, 58, 167, 0.8); color: #fff; }
+.primary svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
+.primary:disabled { opacity: 0.45; cursor: not-allowed; box-shadow: none; }
+.secondary,
+.ghost { border: 1px solid var(--border); background: none; color: var(--ink); }
+.ghost { height: 32px; padding: 0 11px; font-size: 12.5px; font-weight: 500; }
+.secondary:hover,
+.ghost:hover:not(:disabled) { background: var(--field); }
+.ghost:disabled { opacity: 0.45; cursor: default; }
+.stop { border: 0; background: var(--live); color: #fff; }
+.select {
+  height: 38px;
+  padding: 0 10px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface);
+  color: var(--ink);
+  font: inherit;
+  font-size: 13px;
+}
+.primary:focus-visible,
+.secondary:focus-visible,
+.stop:focus-visible,
+.ghost:focus-visible,
+.select:focus-visible,
+.speaker:focus-visible,
+.tabs button:focus-visible,
+.at:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.notice,
+.error { margin: 0 0 10px; padding: 8px 12px; border-radius: 10px; font-size: 12.5px; }
+.notice { background: var(--field); color: var(--ink-2); }
+.error { background: rgba(229, 72, 77, 0.12); color: var(--live); }
+
+/* Speakers */
+.speakers { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-bottom: 14px; }
+.label { margin-right: 4px; color: var(--muted); font-size: 11.5px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; }
+.speaker {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 4px 6px 4px 10px;
+  border: 1px solid var(--border);
+  border-radius: 99px;
+  background: none;
+  color: var(--ink);
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+.speaker[aria-pressed="true"] { border-color: var(--c); background: color-mix(in srgb, var(--c) 14%, transparent); font-weight: 600; }
+.swatch { width: 9px; height: 9px; border-radius: 50%; background: var(--c); }
+.speaker kbd {
+  display: grid;
+  place-items: center;
+  min-width: 18px;
+  height: 18px;
+  border-radius: 5px;
+  background: var(--field);
+  color: var(--muted);
+  font: 600 10.5px system-ui, sans-serif;
+}
+.rename { width: 110px; height: 30px; padding: 0 10px; border: 1.5px solid var(--accent); border-radius: 99px; outline: none; background: var(--surface); color: var(--ink); font: inherit; font-size: 13px; }
+.addSpeaker { width: 30px; height: 30px; border: 1px dashed var(--border); border-radius: 50%; background: none; color: var(--ink-2); font-size: 16px; cursor: pointer; }
+
+/* Body */
+.body { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 16px; }
+@container (max-width: 720px) {
+  .body { grid-template-columns: 1fr; }
+}
+
+.transcriptBox { display: flex; flex-direction: column; min-width: 0; overflow: hidden; border: 1px solid var(--border); border-radius: 14px; }
+.transcript { height: 330px; padding: 12px 14px; overflow-y: auto; }
+.empty { margin: 60px auto 0; max-width: 34ch; color: var(--muted); font-size: 13.5px; line-height: 1.5; text-align: center; }
+.line { position: relative; margin-bottom: 12px; padding: 4px 0 4px 12px; border-left: 3px solid var(--c); border-radius: 2px; transition: background 0.4s ease; }
+.line[data-flash="true"] { background: color-mix(in srgb, var(--accent) 14%, transparent); }
+.line p { margin: 2px 0 0; font-size: 14px; line-height: 1.5; }
+.lineHead { display: flex; align-items: center; gap: 8px; font-size: 12px; }
+.who { color: var(--c); font-weight: 700; }
+.time { color: var(--muted); font-variant-numeric: tabular-nums; }
+.badge { padding: 0 7px; border-radius: 99px; background: color-mix(in srgb, var(--accent) 16%, transparent); color: var(--accent); font-size: 10.5px; font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; }
+
+.hl { padding: 0 3px; border-radius: 4px; font-weight: 600; }
+.hl[data-kind="due"] { background: var(--due-bg); color: var(--due); }
+.hl[data-kind="money"] { background: var(--money-bg); color: var(--money); }
+.hl[data-kind="keyword"] { background: var(--kw-bg); color: var(--kw); }
+
+/* Big live caption bar */
+.caption {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  min-height: 62px;
+  padding: 12px 16px;
+  border-top: 1px solid var(--border);
+  background: linear-gradient(90deg, color-mix(in srgb, var(--c) 12%, var(--surface)), var(--surface));
+}
+.captionWho { flex: none; color: var(--c); font-size: 12.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; }
+.captionText { color: var(--muted); font-size: 18px; font-weight: 500; line-height: 1.4; }
+.caption[data-active="true"] .captionText { color: var(--ink); }
+.caption[data-active="true"] .captionText::after { content: "▍"; margin-left: 2px; color: var(--c); animation: blink 1s steps(1) infinite; }
+
+/* Insights */
+.insights { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.tabs { display: flex; gap: 2px; padding: 3px; border-radius: 10px; background: var(--field); }
+.tabs button {
+  display: inline-flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 6px 4px;
+  border: 0;
+  border-radius: 8px;
+  background: none;
+  color: var(--ink-2);
+  font: inherit;
+  font-size: 12.5px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.tabs button[aria-selected="true"] { background: var(--surface); box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15); color: var(--ink); font-weight: 600; }
+.count { min-width: 18px; padding: 0 5px; border-radius: 99px; background: color-mix(in srgb, var(--accent) 16%, transparent); color: var(--accent); font-size: 11px; font-weight: 700; }
+
+.items { display: flex; flex-direction: column; gap: 8px; max-height: 250px; margin: 0; padding: 0; overflow-y: auto; list-style: none; }
+.none { padding: 18px 8px; color: var(--muted); font-size: 13px; text-align: center; }
+.item {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: start;
+  gap: 10px;
+  padding: 10px 10px 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  animation: slideIn 0.35s ease;
+}
+.item input { width: 17px; height: 17px; margin: 2px 0 0; accent-color: var(--accent); }
+.item[data-done="true"] .itemText { color: var(--muted); text-decoration: line-through; }
+.kindIcon {
+  display: grid;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  margin-top: 1px;
+  border-radius: 50%;
+  background: var(--money);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 800;
+}
+.item[data-kind="question"] .kindIcon { background: var(--accent); }
+.itemBody { display: flex; flex-direction: column; gap: 5px; min-width: 0; }
+.itemText { font-size: 13.5px; font-weight: 500; line-height: 1.4; }
+.meta { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-size: 11.5px; }
+.owner { padding: 1px 8px; border-radius: 99px; background: var(--kw-bg); color: var(--kw); font-weight: 600; }
+.owner[data-unassigned="true"] { background: var(--field); color: var(--muted); }
+.due { padding: 1px 8px; border-radius: 99px; background: var(--due-bg); color: var(--due); font-weight: 600; }
+.at { padding: 0; border: 0; background: none; color: var(--muted); font: inherit; font-size: 11.5px; text-decoration: underline; text-underline-offset: 2px; cursor: pointer; }
+.remove { padding: 0 4px; border: 0; background: none; color: var(--muted); font-size: 16px; line-height: 1; cursor: pointer; opacity: 0; }
+.item:hover .remove,
+.remove:focus-visible { opacity: 1; }
+
+.stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+.stats div { display: flex; flex-direction: column; padding: 8px 10px; border-radius: 10px; background: var(--field); }
+.stats strong { font-size: 17px; font-variant-numeric: tabular-nums; }
+.stats span { color: var(--muted); font-size: 11.5px; }
+.talk { display: flex; flex-direction: column; gap: 5px; font-size: 12px; }
+.talkRow { display: grid; grid-template-columns: 70px 1fr 34px; align-items: center; gap: 8px; }
+.talkRow > span:first-child { overflow: hidden; color: var(--ink-2); text-overflow: ellipsis; white-space: nowrap; }
+.talkBar { height: 7px; overflow: hidden; border-radius: 99px; background: var(--field); }
+.talkBar span { display: block; height: 100%; border-radius: inherit; transition: width 0.4s ease; }
+.talkPct { color: var(--muted); text-align: right; font-variant-numeric: tabular-nums; }
+
+/* Footer */
+.footer { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; margin-top: 14px; }
+.keywords { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.keyword { padding: 2px 9px; border: 0; border-radius: 99px; background: var(--kw-bg); color: var(--kw); font: inherit; font-size: 12px; font-weight: 600; cursor: pointer; }
+.keywordInput { width: 90px; height: 26px; padding: 0 9px; border: 1px dashed var(--border); border-radius: 99px; outline: none; background: none; color: var(--ink); font: inherit; font-size: 12px; }
+.keywordInput:focus { border-style: solid; border-color: var(--accent); }
+.exports { display: flex; flex-wrap: wrap; gap: 6px; }
+.privacy { margin: 10px 0 0; color: var(--muted); font-size: 11.5px; }
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 color-mix(in srgb, currentColor 0%, transparent); }
+  50% { opacity: 0.55; }
+}
+@keyframes blink { 50% { opacity: 0; } }
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .item { animation: none; }
+  .status .dot { animation: none !important; }
+}
+13:["$","pre",null,{"children":["$","code",null,{"children":"$17"}]}]
+18:T5e73,"use client";
+
+import { useEffect, useMemo, useRef, useState, type KeyboardEvent, type ReactNode } from "react";
+import { analyse, DUE_RE, MONEY_RE, SAMPLE, type Item, type ItemKind, type Segment } from "./extract";
+import styles from "./MeetingCaptions.module.css";
+
+// Minimal typings for the Web Speech API (not in TypeScript's DOM lib).
+type SpeechAlternative = { transcript: string };
+type SpeechResult = { isFinal: boolean; 0: SpeechAlternative };
+type SpeechEvent = { resultIndex: number; results: { length: number; [i: number]: SpeechResult } };
+type Recognizer = {
+  lang: string;
+  continuous: boolean;
+  interimResults: boolean;
+  start(): void;
+  stop(): void;
+  abort(): void;
+  onresult: ((e: SpeechEvent) => void) | null;
+  onerror: ((e: { error: string }) => void) | null;
+  onend: (() => void) | null;
+};
+type RecognizerCtor = new () => Recognizer;
+
+const COLORS = ["#2a78d6", "#eb6834", "#1baf7a", "#7c4dff", "#e2508a", "#0e9aa7"];
+const LANGS = [
+  { code: "en-US", label: "English (US)" },
+  { code: "en-GB", label: "English (UK)" },
+  { code: "en-IN", label: "English (India)" },
+  { code: "bn-BD", label: "বাংলা (Bangla)" },
+];
+const BARS = 18;
+const TABS: { key: ItemKind; label: string }[] = [
+  { key: "action", label: "Action items" },
+  { key: "decision", label: "Decisions" },
+  { key: "question", label: "Questions" },
+];
+
+const getRecognizer = (): RecognizerCtor | undefined => {
+  const w = window as unknown as { SpeechRecognition?: RecognizerCtor; webkitSpeechRecognition?: RecognizerCtor };
+  return w.SpeechRecognition ?? w.webkitSpeechRecognition;
+};
+const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
+const clock = (ms: number) => {
+  const s = Math.floor(ms / 1000);
+  return `${String(Math.floor(s / 60)).padStart(2, "0")}:${String(s % 60).padStart(2, "0")}`;
+};
+const shortDate = (d?: Date) => (d ? d.toLocaleDateString("en-GB", { weekday: "short", day: "numeric", month: "short" }) : "");
+const escapeRe = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+
+function download(text: string, name: string, type: string) {
+  const url = URL.createObjectURL(new Blob([text], { type }));
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = name;
+  a.click();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+
+/** Wraps dates/deadlines, money and the user's keywords in coloured marks. */
+function Highlighted({ text, keywords }: { text: string; keywords: string[] }) {
+  const parts: ReactNode[] = [];
+  const kw = keywords.filter(Boolean).map(escapeRe).join("|");
+  const re = new RegExp(`(${DUE_RE.source})|(${MONEY_RE.source})${kw ? `|\\b(${kw})\\b` : ""}`, "gi");
+  let last = 0;
+  for (const m of text.matchAll(re)) {
+    const i = m.index ?? 0;
+    if (i > last) parts.push(text.slice(last, i));
+    const kind = m[1] ? "due" : m[2] ? "money" : "keyword";
+    parts.push(
+      <mark key={i} className={styles.hl} data-kind={kind}>
+        {m[0]}
+      </mark>,
+    );
+    last = i + m[0].length;
+  }
+  if (last < text.length) parts.push(text.slice(last));
+  return <>{parts}</>;
+}
+
+export default function MeetingCaptions() {
+  const [mode, setMode] = useState<"idle" | "live" | "demo">("idle");
+  const [segments, setSegments] = useState<Segment[]>([]);
+  const [interim, setInterim] = useState("");
+  const [speakers, setSpeakers] = useState(["Speaker 1", "Speaker 2"]);
+  const [current, setCurrent] = useState(0);
+  const [renaming, setRenaming] = useState<number | null>(null);
+  const [lang, setLang] = useState("en-US");
+  const [keywords, setKeywords] = useState(["budget", "hotel"]);
+  const [keywordDraft, setKeywordDraft] = useState("");
+  const [tab, setTab] = useState<ItemKind>("action");
+  const [done, setDone] = useState<Set<string>>(new Set());
+  const [hidden, setHidden] = useState<Set<string>>(new Set());
+  const [elapsed, setElapsed] = useState(0);
+  const [levels, setLevels] = useState<number[]>(() => Array(BARS).fill(0.08));
+  const [supported, setSupported] = useState(true);
+  const [error, setError] = useState("");
+  const [copied, setCopied] = useState(false);
+  const [flash, setFlash] = useState<number | null>(null);
+  const [meetingDate] = useState(() => new Date());
+
+  const modeRef = useRef(mode);
+  modeRef.current = mode;
+  const interimRef = useRef("");
+  interimRef.current = interim;
+  const currentRef = useRef(current);
+  currentRef.current = current;
+  const recognizer = useRef<Recognizer | null>(null);
+  const stream = useRef<{ stop: () => void } | null>(null);
+  const demoRun = useRef(0);
+  const nextId = useRef(1);
+  // The sample plays faster than real speech, so its clock runs faster too (realistic timestamps and WPM).
+  const clockRef = useRef({ base: 0, startedAt: 0, speed: 1 });
+  const utteranceStart = useRef<number | null>(null);
+  const transcript = useRef<HTMLDivElement>(null);
+  const stick = useRef(true);
+
+  const now = () => {
+    const c = clockRef.current;
+    return c.base + (c.startedAt ? (Date.now() - c.startedAt) * c.speed : 0);
+  };
+
+  useEffect(() => setSupported(Boolean(getRecognizer())), []);
+
+  // Session timer.
+  useEffect(() => {
+    if (mode === "idle") return;
+    const t = setInterval(() => setElapsed(now()), 250);
+    return () => clearInterval(t);
+  }, [mode]);
+
+  // Keep the transcript pinned to the newest line unless the reader has scrolled up.
+  useEffect(() => {
+    const el = transcript.current;
+    if (el && stick.current) el.scrollTop = el.scrollHeight;
+  }, [segments, interim]);
+
+  useEffect(
+    () => () => {
+      demoRun.current++;
+      recognizer.current?.abort();
+      stream.current?.stop();
+    },
+    [],
+  );
+
+  function startClock(speed = 1) {
+    clockRef.current = { base: clockRef.current.base, startedAt: Date.now(), speed };
+  }
+  function stopClock() {
+    clockRef.current = { base: now(), startedAt: 0, speed: 1 };
+    setElapsed(clockRef.current.base);
+  }
+
+  function addSegment(text: string, speaker = currentRef.current) {
+    const clean = text.trim();
+    if (!clean) return;
+    const end = now();
+    const start = utteranceStart.current ?? Math.max(0, end - 1500);
+    utteranceStart.current = null;
+    setSegments((s) => [...s, { id: nextId.current++, speaker, text: clean[0].toUpperCase() + clean.slice(1), start, end }]);
+  }
+
+  function reset() {
+    setSegments([]);
+    setInterim("");
+    setDone(new Set());
+    setHidden(new Set());
+    setElapsed(0);
+    clockRef.current = { base: 0, startedAt: 0, speed: 1 };
+    utteranceStart.current = null;
+  }
+
+  // ── Live captions from the microphone ─────────────────────────────────────────────
+  async function startLive() {
+    const Ctor = getRecognizer();
+    if (!Ctor) return;
+    stopAll();
+    setError("");
+    const rec = new Ctor();
+    rec.lang = lang;
+    rec.continuous = true;
+    rec.interimResults = true;
+    rec.onresult = (e) => {
+      let pending = "";
+      for (let i = e.resultIndex; i < e.results.length; i++) {
+        const r = e.results[i];
+        if (r.isFinal) addSegment(r[0].transcript);
+        else pending += r[0].transcript;
+      }
+      if (pending && utteranceStart.current === null) utteranceStart.current = now();
+      setInterim(pending);
+    };
+    rec.onerror = (e) => {
+      if (e.error === "not-allowed" || e.error === "service-not-allowed") {
+        setError("Microphone access was blocked. Allow it in the address bar and try again.");
+        stopAll();
+      } else if (e.error === "network") setError("The speech service couldn't be reached. Check your connection.");
+    };
+    // Chrome ends recognition after a pause; keep it going while live.
+    rec.onend = () => {
+      if (modeRef.current === "live") setTimeout(() => modeRef.current === "live" && rec.start(), 250);
+    };
+    recognizer.current = rec;
+    setMode("live");
+    modeRef.current = "live";
+    startClock();
+    try {
+      rec.start();
+    } catch {}
+    startMeter();
+  }
+
+  async function startMeter() {
+    try {
+      const media = await navigator.mediaDevices.getUserMedia({ audio: true });
+      const ctx = new AudioContext();
+      const analyser = ctx.createAnalyser();
+      analyser.fftSize = 512;
+      ctx.createMediaStreamSource(media).connect(analyser);
+      const data = new Uint8Array(analyser.fftSize);
+      let raf = 0;
+      const tick = () => {
+        analyser.getByteTimeDomainData(data);
+        let sum = 0;
+        for (const v of data) sum += ((v - 128) / 128) ** 2;
+        const rms = Math.min(1, Math.sqrt(sum / data.length) * 4);
+        setLevels((l) => [...l.slice(1), Math.max(0.06, rms)]);
+        raf = requestAnimationFrame(tick);
+      };
+      tick();
+      stream.current = {
+        stop: () => {
+          cancelAnimationFrame(raf);
+          media.getTracks().forEach((t) => t.stop());
+          void ctx.close();
+        },
+      };
+    } catch {
+      // The meter is optional; recognition reports its own permission errors.
+    }
+  }
+
+  // ── Scripted sample meeting ──────────────────────────────────────────────────────
+  async function playSample() {
+    stopAll();
+    reset();
+    setError("");
+    setSpeakers(["Ayesha", "Imran", "Nusrat"]);
+    setMode("demo");
+    modeRef.current = "demo";
+    startClock(2.5);
+    const run = ++demoRun.current;
+    for (const line of SAMPLE) {
+      if (demoRun.current !== run) return;
+      setCurrent(line.speaker);
+      currentRef.current = line.speaker;
+      utteranceStart.current = now();
+      const words = line.text.split(" ");
+      for (let i = 1; i <= words.length; i++) {
+        if (demoRun.current !== run) return;
+        setInterim(words.slice(0, i).join(" "));
+        setLevels((l) => [...l.slice(1), 0.25 + Math.random() * 0.6]);
+        await sleep(95 + Math.random() * 60);
+      }
+      addSegment(line.text, line.speaker);
+      setInterim("");
+      for (let i = 0; i < 6; i++) {
+        setLevels((l) => [...l.slice(1), 0.06 + Math.random() * 0.06]);
+        await sleep(90);
+      }
+    }
+    if (demoRun.current === run) stopAll();
+  }
+
+  // Reads refs, not state: it is also called from the sample's async loop, whose closure is stale.
+  function stopAll() {
+    const was = modeRef.current;
+    demoRun.current++;
+    const rec = recognizer.current;
+    recognizer.current = null;
+    modeRef.current = "idle";
+    rec?.stop();
+    stream.current?.stop();
+    stream.current = null;
+    if (was === "live" && interimRef.current) addSegment(interimRef.current);
+    interimRef.current = "";
+    setInterim("");
+    if (was !== "idle") stopClock();
+    setMode("idle");
+    setLevels(Array(BARS).fill(0.08));
+  }
+
+  // ── Derived notes ────────────────────────────────────────────────────────────────
+  const items = useMemo(() => analyse(segments, speakers, meetingDate).filter((i) => !hidden.has(i.id)), [segments, speakers, meetingDate, hidden]);
+  const byKind = (k: ItemKind) => items.filter((i) => i.kind === k);
+  const actionSegments = new Set(byKind("action").map((i) => i.segmentId));
+  const words = segments.reduce((n, s) => n + s.text.split(/\s+/).length, 0);
+  const minutes = Math.max(elapsed, 1) / 60000;
+  const talk = speakers.map((_, i) => segments.filter((s) => s.speaker === i).reduce((n, s) => n + s.text.split(/\s+/).length, 0));
+  const talkTotal = Math.max(1, talk.reduce((a, b) => a + b, 0));
+
+  function jumpTo(segmentId: number) {
+    const el = transcript.current?.querySelector<HTMLElement>(`[data-seg="${segmentId}"]`);
+    if (!el || !transcript.current) return;
+    stick.current = false;
+    transcript.current.scrollTo({ top: el.offsetTop - 40, behavior: "smooth" });
+    setFlash(segmentId);
+    setTimeout(() => setFlash(null), 1400);
+  }
+
+  function notes() {
+    const date = meetingDate.toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
+    const lines = [`# Meeting notes, ${date}`, "", `Duration ${clock(elapsed)} · ${speakers.length} speakers · ${words} words`, ""];
+    const section = (title: string, list: Item[], fmt: (i: Item) => string) => {
+      if (!list.length) return;
+      lines.push(`## ${title}`, ...list.map(fmt), "");
+    };
+    section("Action items", byKind("action"), (i) => {
+      const meta = [i.owner ?? "Unassigned", i.dueDate ? `due ${shortDate(i.dueDate)}` : ""].filter(Boolean).join(" · ");
+      return `- [${done.has(i.id) ? "x" : " "}] ${i.text} (${meta})`;
+    });
+    section("Decisions", byKind("decision"), (i) => `- ${i.text}`);
+    section("Open questions", byKind("question"), (i) => `- ${i.text}`);
+    return lines.join("\n");
+  }
+
+  const transcriptText = () => segments.map((s) => `[${clock(s.start)}] ${speakers[s.speaker] ?? "Speaker"}: ${s.text}`).join("\n");
+
+  async function copyNotes() {
+    await navigator.clipboard.writeText(notes());
+    setCopied(true);
+    setTimeout(() => setCopied(false), 1500);
+  }
+
+  function onKeyDown(e: KeyboardEvent<HTMLDivElement>) {
+    if ((e.target as HTMLElement).closest("input, textarea, select")) return;
+    const n = Number(e.key);
+    if (n >= 1 && n <= speakers.length) {
+      setCurrent(n - 1);
+      e.preventDefault();
+    }
+  }
+
+  function addKeyword() {
+    const k = keywordDraft.trim().toLowerCase();
+    if (k && !keywords.includes(k)) setKeywords([...keywords, k]);
+    setKeywordDraft("");
+  }
+
+  const status = mode === "live" ? "Live" : mode === "demo" ? "Sample meeting" : segments.length ? "Stopped" : "Ready";
+  const list = byKind(tab);
+
+  return (
+    <div className={styles.card} onKeyDown={onKeyDown}>
+      <header className={styles.head}>
+        <div>
+          <h3 className={styles.title}>Live meeting captions</h3>
+          <p className={styles.subtitle}>Captions as people talk, with action items, decisions and questions pulled out automatically.</p>
+        </div>
+        <div className={styles.status} data-mode={mode}>
+          <span className={styles.dot} />
+          {status}
+          <span className={styles.timer}>{clock(elapsed)}</span>
+          <span className={styles.meter} aria-hidden="true">
+            {levels.map((l, i) => (
+              <span key={i} style={{ transform: `scaleY(${l})` }} />
+            ))}
+          </span>
+        </div>
+      </header>
+
+      <div className={styles.controls}>
+        {mode === "idle" ? (
+          <>
+            <button type="button" className={styles.primary} onClick={startLive} disabled={!supported}>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="9" y="3" width="6" height="11" rx="3" />
+                <path d="M5 11a7 7 0 0 0 14 0M12 18v3" />
+              </svg>
+              Start captions
+            </button>
+            <button type="button" className={styles.secondary} onClick={playSample}>
+              ▶ Play sample meeting
+            </button>
+          </>
+        ) : (
+          <button type="button" className={styles.stop} onClick={stopAll}>
+            ■ Stop
+          </button>
+        )}
+        <select className={styles.select} value={lang} onChange={(e) => setLang(e.target.value)} disabled={mode !== "idle"} aria-label="Spoken language">
+          {LANGS.map((l) => (
+            <option key={l.code} value={l.code}>
+              {l.label}
+            </option>
+          ))}
+        </select>
+        {segments.length > 0 && mode === "idle" && (
+          <button type="button" className={styles.ghost} onClick={reset}>
+            Clear
+          </button>
+        )}
+      </div>
+
+      {!supported && <p className={styles.notice}>Live captions need Chrome or Edge on desktop or Android. You can still play the sample meeting.</p>}
+      {error && <p className={styles.error}>{error}</p>}
+
+      <div className={styles.speakers} aria-label="Speakers (press 1–6 to switch)">
+        <span className={styles.label}>Now speaking</span>
+        {speakers.map((name, i) =>
+          renaming === i ? (
+            <input
+              key={i}
+              autoFocus
+              className={styles.rename}
+              defaultValue={name}
+              onBlur={(e) => {
+                const v = e.target.value.trim();
+                if (v) setSpeakers((s) => s.map((x, j) => (j === i ? v : x)));
+                setRenaming(null);
+              }}
+              onKeyDown={(e) => (e.key === "Enter" || e.key === "Escape") && (e.target as HTMLInputElement).blur()}
+            />
+          ) : (
+            <button
+              key={i}
+              type="button"
+              className={styles.speaker}
+              aria-pressed={current === i}
+              style={{ ["--c" as string]: COLORS[i % COLORS.length] }}
+              onClick={() => setCurrent(i)}
+              onDoubleClick={() => setRenaming(i)}
+              title="Click to set who is speaking · double-click to rename"
+            >
+              <span className={styles.swatch} />
+              {name}
+              <kbd>{i + 1}</kbd>
+            </button>
+          ),
+        )}
+        {speakers.length < COLORS.length && (
+          <button type="button" className={styles.addSpeaker} onClick={() => setSpeakers((s) => [...s, `Speaker ${s.length + 1}`])} aria-label="Add speaker">
+            +
+          </button>
+        )}
+      </div>
+
+      <div className={styles.body}>
+        <section className={styles.transcriptBox} aria-label="Transcript">
+          <div
+            ref={transcript}
+            className={styles.transcript}
+            onScroll={(e) => {
+              const el = e.currentTarget;
+              stick.current = el.scrollHeight - el.scrollTop - el.clientHeight < 60;
+            }}
+          >
+            {segments.length === 0 && !interim && (
+              <p className={styles.empty}>
+                Press <strong>Start captions</strong> and talk, or play the sample meeting to see captions and notes appear.
+              </p>
+            )}
+            {segments.map((s) => (
+              <div key={s.id} data-seg={s.id} className={styles.line} data-flash={flash === s.id} style={{ ["--c" as string]: COLORS[s.speaker % COLORS.length] }}>
+                <div className={styles.lineHead}>
+                  <span className={styles.who}>{speakers[s.speaker] ?? "Speaker"}</span>
+                  <span className={styles.time}>{clock(s.start)}</span>
+                  {actionSegments.has(s.id) && <span className={styles.badge}>Action</span>}
+                </div>
+                <p>
+                  <Highlighted text={s.text} keywords={keywords} />
+                </p>
+              </div>
+            ))}
+          </div>
+          <div className={styles.caption} data-active={Boolean(interim)} style={{ ["--c" as string]: COLORS[current % COLORS.length] }} aria-live="off">
+            <span className={styles.captionWho}>{speakers[current]}</span>
+            <span className={styles.captionText}>{interim || (mode !== "idle" ? "Listening…" : "Captions appear here")}</span>
+          </div>
+        </section>
+
+        <aside className={styles.insights} aria-label="Meeting notes">
+          <div className={styles.tabs} role="tablist">
+            {TABS.map((t) => (
+              <button key={t.key} type="button" role="tab" aria-selected={tab === t.key} onClick={() => setTab(t.key)}>
+                {t.label}
+                <span className={styles.count}>{byKind(t.key).length}</span>
+              </button>
+            ))}
+          </div>
+
+          <ul className={styles.items} aria-live="polite">
+            {list.length === 0 && <li className={styles.none}>Nothing yet. They appear as the meeting goes on.</li>}
+            {list.map((it) => (
+              <li key={it.id} className={styles.item} data-kind={it.kind} data-done={done.has(it.id)}>
+                {it.kind === "action" ? (
+                  <input
+                    type="checkbox"
+                    checked={done.has(it.id)}
+                    aria-label={`Done: ${it.text}`}
+                    onChange={() =>
+                      setDone((d) => {
+                        const n = new Set(d);
+                        if (n.has(it.id)) n.delete(it.id);
+                        else n.add(it.id);
+                        return n;
+                      })
+                    }
+                  />
+                ) : (
+                  <span className={styles.kindIcon} aria-hidden="true">
+                    {it.kind === "decision" ? "✓" : "?"}
+                  </span>
+                )}
+                <div className={styles.itemBody}>
+                  <span className={styles.itemText}>{it.text}</span>
+                  <span className={styles.meta}>
+                    {it.kind === "action" && <span className={styles.owner} data-unassigned={!it.owner}>{it.owner ?? "Unassigned"}</span>}
+                    {it.dueDate && <span className={styles.due}>Due {shortDate(it.dueDate)}</span>}
+                    <button type="button" className={styles.at} onClick={() => jumpTo(it.segmentId)}>
+                      at {clock(it.at)}
+                    </button>
+                  </span>
+                </div>
+                <button type="button" className={styles.remove} aria-label="Dismiss" onClick={() => setHidden((h) => new Set(h).add(it.id))}>
+                  ×
+                </button>
+              </li>
+            ))}
+          </ul>
+
+          <div className={styles.stats}>
+            <div>
+              <strong>{clock(elapsed)}</strong>
+              <span>duration</span>
+            </div>
+            <div>
+              <strong>{words}</strong>
+              <span>words</span>
+            </div>
+            <div>
+              <strong>{segments.length ? Math.round(words / minutes) : 0}</strong>
+              <span>words/min</span>
+            </div>
+          </div>
+          <div className={styles.talk} aria-label="Talk time">
+            {speakers.map((name, i) => (
+              <div key={i} className={styles.talkRow}>
+                <span>{name}</span>
+                <span className={styles.talkBar}>
+                  <span style={{ width: `${(talk[i] / talkTotal) * 100}%`, background: COLORS[i % COLORS.length] }} />
+                </span>
+                <span className={styles.talkPct}>{Math.round((talk[i] / talkTotal) * 100)}%</span>
+              </div>
+            ))}
+          </div>
+        </aside>
+      </div>
+
+      <footer className={styles.footer}>
+        <div className={styles.keywords}>
+          <span className={styles.label}>Highlight</span>
+          {keywords.map((k) => (
+            <button key={k} type="button" className={styles.keyword} onClick={() => setKeywords(keywords.filter((x) => x !== k))} aria-label={`Stop highlighting ${k}`}>
+              {k} ×
+            </button>
+          ))}
+          <input
+            className={styles.keywordInput}
+            value={keywordDraft}
+            placeholder="add word"
+            onChange={(e) => setKeywordDraft(e.target.value)}
+            onKeyDown={(e) => e.key === "Enter" && addKeyword()}
+            onBlur={addKeyword}
+            aria-label="Add a word to highlight"
+          />
+        </div>
+        <div className={styles.exports}>
+          <button type="button" className={styles.ghost} onClick={copyNotes} disabled={!segments.length}>
+            {copied ? "Copied ✓" : "Copy notes"}
+          </button>
+          <button type="button" className={styles.ghost} onClick={() => download(transcriptText(), "transcript.txt", "text/plain")} disabled={!segments.length}>
+            Transcript .txt
+          </button>
+          <button type="button" className={styles.ghost} onClick={() => download(notes(), "meeting-notes.md", "text/markdown")} disabled={!segments.length}>
+            Notes .md
+          </button>
+        </div>
+      </footer>
+      <p className={styles.privacy}>
+        Recognition uses your browser&apos;s speech service (in Chrome, audio is processed by Google). This page stores nothing. Notes are extracted on your device.
+      </p>
+    </div>
+  );
+}
+14:["$","div","MeetingCaptions.tsx",{"className":"file","children":[["$","div",null,{"className":"file-head","children":[["$","span",null,{"children":"MeetingCaptions.tsx"}],["$","$L11",null,{"text":"$18"}]]}],"$L19"]}]
+1a:T1eb2,// Rule-based meeting notes: finds action items (with owner and due date), decisions and
+// questions in transcript segments. No AI service: just patterns over each sentence.
+
+export type Segment = { id: number; speaker: number; text: string; start: number; end: number };
+export type ItemKind = "action" | "decision" | "question";
+export type Item = { id: string; kind: ItemKind; text: string; owner?: string; due?: string; dueDate?: Date; segmentId: number; at: number };
+
+const WEEKDAYS = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
+const MONTHS = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"];
+const MONTH = "(?:jan(?:uary)?|feb(?:ruary)?|mar(?:ch)?|apr(?:il)?|may|june?|july?|aug(?:ust)?|sep(?:t(?:ember)?)?|oct(?:ober)?|nov(?:ember)?|dec(?:ember)?)";
+const DAY = "(?:sun|mon|tues|wednes|thurs|fri|satur)day";
+const RELATIVE = "(?:today|tonight|tomorrow|this week|next week|next month|end of (?:the )?(?:day|week|month)|eod|eow)";
+const DATE = `(?:\\d{1,2}(?:st|nd|rd|th)?\\s+${MONTH}|${MONTH}\\s+\\d{1,2}(?:st|nd|rd|th)?)`;
+
+export const DUE_RE = new RegExp(`\\b(?:(?:by|before|on|until|due|this|next)\\s+)?(?:${DAY}|${DATE}|${RELATIVE})\\b`, "i");
+export const MONEY_RE = /(?:(?:BDT|Tk\.?|৳|\$|USD)\s?\d[\d,.]*(?:\s?(?:lakh|crore|k|m|million))?|\d[\d,.]*\s?(?:lakh|crore|taka|BDT))/gi;
+
+const DECISION_RE = /\b(?:we(?:'ve| have)? (?:decided|agreed)|decided to|(?:the )?decision is|let'?s go with|we'?ll go with|we are going with|approved|signed off)\b/i;
+const ACTION_RE =
+  /\b(?:i'?ll|i will|i am going to|i'm going to|we'?ll|we will|we need to|we should|let'?s|can you|could you|would you|please|make sure|follow up|action item|to-?do|assign(?:ed)? (?:it )?to|(?:will|to) (?:send|share|prepare|review|update|schedule|book|call|email|draft|fix|finish|collect|create|organi[sz]e|confirm|check))\b/i;
+const QUESTION_START = /^(?:what|why|how|when|where|who|which|should|shall|do|does|did|is|are|can|could|will|would)\b/i;
+const FILLER = /^(?:(?:ok(?:ay)?|so|and|also|um+|uh+|well|right|yes|yeah|sure|great|perfect|alright|agreed|then|now)[,.!]?\s+)+/i;
+const NOT_NAMES = new Set(["I", "We", "You", "Let", "Lets", "Can", "Could", "Would", "Please", "Make", "So", "And", "Also", "Okay", "Ok", "Yes", "The", "That", "This", "It", "They", "Sure", "Great", "Perfect", "Agreed", "Around", "What", "Should"]);
+
+/** Splits a caption into sentences (speech engines often skip punctuation, so a whole caption can be one). */
+export function sentences(text: string) {
+  return text
+    .split(/(?<=[.!?])\s+/)
+    .map((s) => s.trim())
+    .filter(Boolean);
+}
+
+/** The next given weekday (0 = Sunday) on or after `from`; same day only when `allowToday`. */
+function nextWeekday(from: Date, day: number, allowToday = false) {
+  const d = new Date(from);
+  let diff = (day - d.getDay() + 7) % 7;
+  if (diff === 0 && !allowToday) diff = 7;
+  d.setDate(d.getDate() + diff);
+  return d;
+}
+
+/** Turns "by Friday", "tomorrow", "20 October" into a concrete date relative to the meeting. */
+export function resolveDue(phrase: string, meeting: Date): Date | undefined {
+  const p = phrase.toLowerCase();
+  const d = new Date(meeting);
+  d.setHours(0, 0, 0, 0);
+  if (/today|tonight|eod|end of (the )?day/.test(p)) return d;
+  if (/tomorrow/.test(p)) return new Date(d.getTime() + 864e5);
+  if (/next week/.test(p)) return nextWeekday(d, 1);
+  if (/eow|end of (the )?week|this week/.test(p)) return nextWeekday(d, 5, true);
+  if (/next month|end of (the )?month/.test(p)) return new Date(d.getFullYear(), d.getMonth() + 1, /next/.test(p) ? 1 : 0);
+  const wd = WEEKDAYS.findIndex((w) => p.includes(w));
+  if (wd >= 0) return nextWeekday(d, wd);
+  const day = p.match(/\d{1,2}/);
+  const month = MONTHS.findIndex((m) => p.includes(m.slice(0, 3)));
+  if (day && month >= 0) {
+    const out = new Date(d.getFullYear(), month, Number(day[0]));
+    if (out < d) out.setFullYear(out.getFullYear() + 1);
+    return out;
+  }
+  return undefined;
+}
+
+function findOwner(sentence: string, speakerName: string, speakers: string[]) {
+  const assigned = sentence.match(/assign(?:ed)? (?:it |this )?to ([A-Z][a-z]+)/);
+  if (assigned) return assigned[1];
+  const named = sentence.match(/\b([A-Z][a-z]+),?\s+(?:can you|could you|would you|please|will|you'?ll|to)\b/);
+  if (named && !NOT_NAMES.has(named[1])) return named[1];
+  if (/\b(?:i'?ll|i will|i am going to|i'm going to)\b/i.test(sentence)) return speakerName;
+  if (/\b(?:we'?ll|we will|we need to|we should|let'?s)\b/i.test(sentence)) return "Team";
+  const mention = speakers.find((s) => s && new RegExp(`\\b${s}\\b`).test(sentence) && s !== speakerName);
+  return mention;
+}
+
+/** "Imran, can you send the final budget to finance by Friday?" → "Send the final budget to finance". */
+function cleanTask(sentence: string, due?: string) {
+  let t = sentence.replace(FILLER, "");
+  t = t.replace(/^[A-Z][a-z]+,\s+/, "");
+  t = t.replace(/^assign(?:ed)? (?:it |this )?to [A-Z][a-z]+ to\s+/i, "");
+  t = t.replace(/^(?:can you|could you|would you|please|i'?ll|i will|i am going to|i'm going to|we'?ll|we will|we need to|we should|let'?s)\s+/i, "");
+  t = t.replace(/^please\s+/i, "");
+  if (due) t = t.replace(new RegExp(`\\s*\\b${due.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\b`, "i"), "");
+  t = t.replace(/[\s,]*[.?!]+$/, "").trim();
+  return t ? t[0].toUpperCase() + t.slice(1) : t;
+}
+
+// Talk about the meeting itself ("let's start", "let's wrap up") isn't a task.
+const MEETING_TALK = /\b(?:let'?s|we'?ll|we will)\s+(?:start|begin|kick off|wrap up|end|finish|move on|get started)\b/i;
+
+const capitalise = (s: string) => (s ? s[0].toUpperCase() + s.slice(1) : s);
+
+export function analyse(segments: Segment[], speakers: string[], meeting = new Date()): Item[] {
+  const items: Item[] = [];
+  for (const seg of segments) {
+    sentences(seg.text).forEach((raw, i) => {
+      const s = capitalise(raw.replace(FILLER, ""));
+      if (s.split(/\s+/).length < 3) return;
+      const id = `${seg.id}-${i}`;
+      const due = s.match(DUE_RE)?.[0];
+      const base = { id, segmentId: seg.id, at: seg.start };
+      if (DECISION_RE.test(s)) {
+        items.push({ ...base, kind: "decision", text: s.replace(/[.!]+$/, "") });
+      } else if (ACTION_RE.test(s) && !MEETING_TALK.test(s)) {
+        const owner = findOwner(s, speakers[seg.speaker] ?? "Speaker", speakers);
+        items.push({ ...base, kind: "action", text: cleanTask(s, due), owner, due, dueDate: due ? resolveDue(due, meeting) : undefined });
+      } else if (s.endsWith("?") || QUESTION_START.test(s)) {
+        items.push({ ...base, kind: "question", text: s });
+      }
+    });
+  }
+  return items;
+}
+
+/** A short scripted planning meeting used by the demo. */
+export const SAMPLE: { speaker: number; text: string }[] = [
+  { speaker: 0, text: "Okay, let's start the planning meeting for the team offsite." },
+  { speaker: 1, text: "The venue quote came in at BDT 2.8 lakh, which is within our budget." },
+  { speaker: 0, text: "Great. So we've decided to go with Cox's Bazar for the offsite." },
+  { speaker: 2, text: "I'll book the hotel rooms by Thursday." },
+  { speaker: 0, text: "Imran, can you send the final budget to finance by Friday?" },
+  { speaker: 1, text: "Sure. Should we include the travel allowance in the same sheet?" },
+  { speaker: 0, text: "Yes, keep everything in one sheet so it's easy to approve." },
+  { speaker: 2, text: "We need to collect dietary preferences from everyone by next week." },
+  { speaker: 0, text: "Agreed. I will draft the announcement email tomorrow." },
+  { speaker: 1, text: "What time does the bus leave on the first day?" },
+  { speaker: 2, text: "Around 7 am. Make sure everyone gets the itinerary by 20 October." },
+  { speaker: 0, text: "Perfect, that's everything for today. Thanks, everyone." },
+];
+15:["$","div","extract.ts",{"className":"file","children":[["$","div",null,{"className":"file-head","children":[["$","span",null,{"children":"extract.ts"}],["$","$L11",null,{"text":"$1a"}]]}],"$L1b"]}]
+16:["$","nav",null,{"className":"pager","children":[["$","$L2",null,{"href":"/components/collaborative-whiteboard","children":["← ","Collaborative Whiteboard"]}],["$","$L2",null,{"href":"/components/trip-planner","children":["Trip Planner with Live Map"," →"]}]]}]
+1c:T5e73,"use client";
+
+import { useEffect, useMemo, useRef, useState, type KeyboardEvent, type ReactNode } from "react";
+import { analyse, DUE_RE, MONEY_RE, SAMPLE, type Item, type ItemKind, type Segment } from "./extract";
+import styles from "./MeetingCaptions.module.css";
+
+// Minimal typings for the Web Speech API (not in TypeScript's DOM lib).
+type SpeechAlternative = { transcript: string };
+type SpeechResult = { isFinal: boolean; 0: SpeechAlternative };
+type SpeechEvent = { resultIndex: number; results: { length: number; [i: number]: SpeechResult } };
+type Recognizer = {
+  lang: string;
+  continuous: boolean;
+  interimResults: boolean;
+  start(): void;
+  stop(): void;
+  abort(): void;
+  onresult: ((e: SpeechEvent) => void) | null;
+  onerror: ((e: { error: string }) => void) | null;
+  onend: (() => void) | null;
+};
+type RecognizerCtor = new () => Recognizer;
+
+const COLORS = ["#2a78d6", "#eb6834", "#1baf7a", "#7c4dff", "#e2508a", "#0e9aa7"];
+const LANGS = [
+  { code: "en-US", label: "English (US)" },
+  { code: "en-GB", label: "English (UK)" },
+  { code: "en-IN", label: "English (India)" },
+  { code: "bn-BD", label: "বাংলা (Bangla)" },
+];
+const BARS = 18;
+const TABS: { key: ItemKind; label: string }[] = [
+  { key: "action", label: "Action items" },
+  { key: "decision", label: "Decisions" },
+  { key: "question", label: "Questions" },
+];
+
+const getRecognizer = (): RecognizerCtor | undefined => {
+  const w = window as unknown as { SpeechRecognition?: RecognizerCtor; webkitSpeechRecognition?: RecognizerCtor };
+  return w.SpeechRecognition ?? w.webkitSpeechRecognition;
+};
+const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
+const clock = (ms: number) => {
+  const s = Math.floor(ms / 1000);
+  return `${String(Math.floor(s / 60)).padStart(2, "0")}:${String(s % 60).padStart(2, "0")}`;
+};
+const shortDate = (d?: Date) => (d ? d.toLocaleDateString("en-GB", { weekday: "short", day: "numeric", month: "short" }) : "");
+const escapeRe = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+
+function download(text: string, name: string, type: string) {
+  const url = URL.createObjectURL(new Blob([text], { type }));
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = name;
+  a.click();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+
+/** Wraps dates/deadlines, money and the user's keywords in coloured marks. */
+function Highlighted({ text, keywords }: { text: string; keywords: string[] }) {
+  const parts: ReactNode[] = [];
+  const kw = keywords.filter(Boolean).map(escapeRe).join("|");
+  const re = new RegExp(`(${DUE_RE.source})|(${MONEY_RE.source})${kw ? `|\\b(${kw})\\b` : ""}`, "gi");
+  let last = 0;
+  for (const m of text.matchAll(re)) {
+    const i = m.index ?? 0;
+    if (i > last) parts.push(text.slice(last, i));
+    const kind = m[1] ? "due" : m[2] ? "money" : "keyword";
+    parts.push(
+      <mark key={i} className={styles.hl} data-kind={kind}>
+        {m[0]}
+      </mark>,
+    );
+    last = i + m[0].length;
+  }
+  if (last < text.length) parts.push(text.slice(last));
+  return <>{parts}</>;
+}
+
+export default function MeetingCaptions() {
+  const [mode, setMode] = useState<"idle" | "live" | "demo">("idle");
+  const [segments, setSegments] = useState<Segment[]>([]);
+  const [interim, setInterim] = useState("");
+  const [speakers, setSpeakers] = useState(["Speaker 1", "Speaker 2"]);
+  const [current, setCurrent] = useState(0);
+  const [renaming, setRenaming] = useState<number | null>(null);
+  const [lang, setLang] = useState("en-US");
+  const [keywords, setKeywords] = useState(["budget", "hotel"]);
+  const [keywordDraft, setKeywordDraft] = useState("");
+  const [tab, setTab] = useState<ItemKind>("action");
+  const [done, setDone] = useState<Set<string>>(new Set());
+  const [hidden, setHidden] = useState<Set<string>>(new Set());
+  const [elapsed, setElapsed] = useState(0);
+  const [levels, setLevels] = useState<number[]>(() => Array(BARS).fill(0.08));
+  const [supported, setSupported] = useState(true);
+  const [error, setError] = useState("");
+  const [copied, setCopied] = useState(false);
+  const [flash, setFlash] = useState<number | null>(null);
+  const [meetingDate] = useState(() => new Date());
+
+  const modeRef = useRef(mode);
+  modeRef.current = mode;
+  const interimRef = useRef("");
+  interimRef.current = interim;
+  const currentRef = useRef(current);
+  currentRef.current = current;
+  const recognizer = useRef<Recognizer | null>(null);
+  const stream = useRef<{ stop: () => void } | null>(null);
+  const demoRun = useRef(0);
+  const nextId = useRef(1);
+  // The sample plays faster than real speech, so its clock runs faster too (realistic timestamps and WPM).
+  const clockRef = useRef({ base: 0, startedAt: 0, speed: 1 });
+  const utteranceStart = useRef<number | null>(null);
+  const transcript = useRef<HTMLDivElement>(null);
+  const stick = useRef(true);
+
+  const now = () => {
+    const c = clockRef.current;
+    return c.base + (c.startedAt ? (Date.now() - c.startedAt) * c.speed : 0);
+  };
+
+  useEffect(() => setSupported(Boolean(getRecognizer())), []);
+
+  // Session timer.
+  useEffect(() => {
+    if (mode === "idle") return;
+    const t = setInterval(() => setElapsed(now()), 250);
+    return () => clearInterval(t);
+  }, [mode]);
+
+  // Keep the transcript pinned to the newest line unless the reader has scrolled up.
+  useEffect(() => {
+    const el = transcript.current;
+    if (el && stick.current) el.scrollTop = el.scrollHeight;
+  }, [segments, interim]);
+
+  useEffect(
+    () => () => {
+      demoRun.current++;
+      recognizer.current?.abort();
+      stream.current?.stop();
+    },
+    [],
+  );
+
+  function startClock(speed = 1) {
+    clockRef.current = { base: clockRef.current.base, startedAt: Date.now(), speed };
+  }
+  function stopClock() {
+    clockRef.current = { base: now(), startedAt: 0, speed: 1 };
+    setElapsed(clockRef.current.base);
+  }
+
+  function addSegment(text: string, speaker = currentRef.current) {
+    const clean = text.trim();
+    if (!clean) return;
+    const end = now();
+    const start = utteranceStart.current ?? Math.max(0, end - 1500);
+    utteranceStart.current = null;
+    setSegments((s) => [...s, { id: nextId.current++, speaker, text: clean[0].toUpperCase() + clean.slice(1), start, end }]);
+  }
+
+  function reset() {
+    setSegments([]);
+    setInterim("");
+    setDone(new Set());
+    setHidden(new Set());
+    setElapsed(0);
+    clockRef.current = { base: 0, startedAt: 0, speed: 1 };
+    utteranceStart.current = null;
+  }
+
+  // ── Live captions from the microphone ─────────────────────────────────────────────
+  async function startLive() {
+    const Ctor = getRecognizer();
+    if (!Ctor) return;
+    stopAll();
+    setError("");
+    const rec = new Ctor();
+    rec.lang = lang;
+    rec.continuous = true;
+    rec.interimResults = true;
+    rec.onresult = (e) => {
+      let pending = "";
+      for (let i = e.resultIndex; i < e.results.length; i++) {
+        const r = e.results[i];
+        if (r.isFinal) addSegment(r[0].transcript);
+        else pending += r[0].transcript;
+      }
+      if (pending && utteranceStart.current === null) utteranceStart.current = now();
+      setInterim(pending);
+    };
+    rec.onerror = (e) => {
+      if (e.error === "not-allowed" || e.error === "service-not-allowed") {
+        setError("Microphone access was blocked. Allow it in the address bar and try again.");
+        stopAll();
+      } else if (e.error === "network") setError("The speech service couldn't be reached. Check your connection.");
+    };
+    // Chrome ends recognition after a pause; keep it going while live.
+    rec.onend = () => {
+      if (modeRef.current === "live") setTimeout(() => modeRef.current === "live" && rec.start(), 250);
+    };
+    recognizer.current = rec;
+    setMode("live");
+    modeRef.current = "live";
+    startClock();
+    try {
+      rec.start();
+    } catch {}
+    startMeter();
+  }
+
+  async function startMeter() {
+    try {
+      const media = await navigator.mediaDevices.getUserMedia({ audio: true });
+      const ctx = new AudioContext();
+      const analyser = ctx.createAnalyser();
+      analyser.fftSize = 512;
+      ctx.createMediaStreamSource(media).connect(analyser);
+      const data = new Uint8Array(analyser.fftSize);
+      let raf = 0;
+      const tick = () => {
+        analyser.getByteTimeDomainData(data);
+        let sum = 0;
+        for (const v of data) sum += ((v - 128) / 128) ** 2;
+        const rms = Math.min(1, Math.sqrt(sum / data.length) * 4);
+        setLevels((l) => [...l.slice(1), Math.max(0.06, rms)]);
+        raf = requestAnimationFrame(tick);
+      };
+      tick();
+      stream.current = {
+        stop: () => {
+          cancelAnimationFrame(raf);
+          media.getTracks().forEach((t) => t.stop());
+          void ctx.close();
+        },
+      };
+    } catch {
+      // The meter is optional; recognition reports its own permission errors.
+    }
+  }
+
+  // ── Scripted sample meeting ──────────────────────────────────────────────────────
+  async function playSample() {
+    stopAll();
+    reset();
+    setError("");
+    setSpeakers(["Ayesha", "Imran", "Nusrat"]);
+    setMode("demo");
+    modeRef.current = "demo";
+    startClock(2.5);
+    const run = ++demoRun.current;
+    for (const line of SAMPLE) {
+      if (demoRun.current !== run) return;
+      setCurrent(line.speaker);
+      currentRef.current = line.speaker;
+      utteranceStart.current = now();
+      const words = line.text.split(" ");
+      for (let i = 1; i <= words.length; i++) {
+        if (demoRun.current !== run) return;
+        setInterim(words.slice(0, i).join(" "));
+        setLevels((l) => [...l.slice(1), 0.25 + Math.random() * 0.6]);
+        await sleep(95 + Math.random() * 60);
+      }
+      addSegment(line.text, line.speaker);
+      setInterim("");
+      for (let i = 0; i < 6; i++) {
+        setLevels((l) => [...l.slice(1), 0.06 + Math.random() * 0.06]);
+        await sleep(90);
+      }
+    }
+    if (demoRun.current === run) stopAll();
+  }
+
+  // Reads refs, not state: it is also called from the sample's async loop, whose closure is stale.
+  function stopAll() {
+    const was = modeRef.current;
+    demoRun.current++;
+    const rec = recognizer.current;
+    recognizer.current = null;
+    modeRef.current = "idle";
+    rec?.stop();
+    stream.current?.stop();
+    stream.current = null;
+    if (was === "live" && interimRef.current) addSegment(interimRef.current);
+    interimRef.current = "";
+    setInterim("");
+    if (was !== "idle") stopClock();
+    setMode("idle");
+    setLevels(Array(BARS).fill(0.08));
+  }
+
+  // ── Derived notes ────────────────────────────────────────────────────────────────
+  const items = useMemo(() => analyse(segments, speakers, meetingDate).filter((i) => !hidden.has(i.id)), [segments, speakers, meetingDate, hidden]);
+  const byKind = (k: ItemKind) => items.filter((i) => i.kind === k);
+  const actionSegments = new Set(byKind("action").map((i) => i.segmentId));
+  const words = segments.reduce((n, s) => n + s.text.split(/\s+/).length, 0);
+  const minutes = Math.max(elapsed, 1) / 60000;
+  const talk = speakers.map((_, i) => segments.filter((s) => s.speaker === i).reduce((n, s) => n + s.text.split(/\s+/).length, 0));
+  const talkTotal = Math.max(1, talk.reduce((a, b) => a + b, 0));
+
+  function jumpTo(segmentId: number) {
+    const el = transcript.current?.querySelector<HTMLElement>(`[data-seg="${segmentId}"]`);
+    if (!el || !transcript.current) return;
+    stick.current = false;
+    transcript.current.scrollTo({ top: el.offsetTop - 40, behavior: "smooth" });
+    setFlash(segmentId);
+    setTimeout(() => setFlash(null), 1400);
+  }
+
+  function notes() {
+    const date = meetingDate.toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
+    const lines = [`# Meeting notes, ${date}`, "", `Duration ${clock(elapsed)} · ${speakers.length} speakers · ${words} words`, ""];
+    const section = (title: string, list: Item[], fmt: (i: Item) => string) => {
+      if (!list.length) return;
+      lines.push(`## ${title}`, ...list.map(fmt), "");
+    };
+    section("Action items", byKind("action"), (i) => {
+      const meta = [i.owner ?? "Unassigned", i.dueDate ? `due ${shortDate(i.dueDate)}` : ""].filter(Boolean).join(" · ");
+      return `- [${done.has(i.id) ? "x" : " "}] ${i.text} (${meta})`;
+    });
+    section("Decisions", byKind("decision"), (i) => `- ${i.text}`);
+    section("Open questions", byKind("question"), (i) => `- ${i.text}`);
+    return lines.join("\n");
+  }
+
+  const transcriptText = () => segments.map((s) => `[${clock(s.start)}] ${speakers[s.speaker] ?? "Speaker"}: ${s.text}`).join("\n");
+
+  async function copyNotes() {
+    await navigator.clipboard.writeText(notes());
+    setCopied(true);
+    setTimeout(() => setCopied(false), 1500);
+  }
+
+  function onKeyDown(e: KeyboardEvent<HTMLDivElement>) {
+    if ((e.target as HTMLElement).closest("input, textarea, select")) return;
+    const n = Number(e.key);
+    if (n >= 1 && n <= speakers.length) {
+      setCurrent(n - 1);
+      e.preventDefault();
+    }
+  }
+
+  function addKeyword() {
+    const k = keywordDraft.trim().toLowerCase();
+    if (k && !keywords.includes(k)) setKeywords([...keywords, k]);
+    setKeywordDraft("");
+  }
+
+  const status = mode === "live" ? "Live" : mode === "demo" ? "Sample meeting" : segments.length ? "Stopped" : "Ready";
+  const list = byKind(tab);
+
+  return (
+    <div className={styles.card} onKeyDown={onKeyDown}>
+      <header className={styles.head}>
+        <div>
+          <h3 className={styles.title}>Live meeting captions</h3>
+          <p className={styles.subtitle}>Captions as people talk, with action items, decisions and questions pulled out automatically.</p>
+        </div>
+        <div className={styles.status} data-mode={mode}>
+          <span className={styles.dot} />
+          {status}
+          <span className={styles.timer}>{clock(elapsed)}</span>
+          <span className={styles.meter} aria-hidden="true">
+            {levels.map((l, i) => (
+              <span key={i} style={{ transform: `scaleY(${l})` }} />
+            ))}
+          </span>
+        </div>
+      </header>
+
+      <div className={styles.controls}>
+        {mode === "idle" ? (
+          <>
+            <button type="button" className={styles.primary} onClick={startLive} disabled={!supported}>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="9" y="3" width="6" height="11" rx="3" />
+                <path d="M5 11a7 7 0 0 0 14 0M12 18v3" />
+              </svg>
+              Start captions
+            </button>
+            <button type="button" className={styles.secondary} onClick={playSample}>
+              ▶ Play sample meeting
+            </button>
+          </>
+        ) : (
+          <button type="button" className={styles.stop} onClick={stopAll}>
+            ■ Stop
+          </button>
+        )}
+        <select className={styles.select} value={lang} onChange={(e) => setLang(e.target.value)} disabled={mode !== "idle"} aria-label="Spoken language">
+          {LANGS.map((l) => (
+            <option key={l.code} value={l.code}>
+              {l.label}
+            </option>
+          ))}
+        </select>
+        {segments.length > 0 && mode === "idle" && (
+          <button type="button" className={styles.ghost} onClick={reset}>
+            Clear
+          </button>
+        )}
+      </div>
+
+      {!supported && <p className={styles.notice}>Live captions need Chrome or Edge on desktop or Android. You can still play the sample meeting.</p>}
+      {error && <p className={styles.error}>{error}</p>}
+
+      <div className={styles.speakers} aria-label="Speakers (press 1–6 to switch)">
+        <span className={styles.label}>Now speaking</span>
+        {speakers.map((name, i) =>
+          renaming === i ? (
+            <input
+              key={i}
+              autoFocus
+              className={styles.rename}
+              defaultValue={name}
+              onBlur={(e) => {
+                const v = e.target.value.trim();
+                if (v) setSpeakers((s) => s.map((x, j) => (j === i ? v : x)));
+                setRenaming(null);
+              }}
+              onKeyDown={(e) => (e.key === "Enter" || e.key === "Escape") && (e.target as HTMLInputElement).blur()}
+            />
+          ) : (
+            <button
+              key={i}
+              type="button"
+              className={styles.speaker}
+              aria-pressed={current === i}
+              style={{ ["--c" as string]: COLORS[i % COLORS.length] }}
+              onClick={() => setCurrent(i)}
+              onDoubleClick={() => setRenaming(i)}
+              title="Click to set who is speaking · double-click to rename"
+            >
+              <span className={styles.swatch} />
+              {name}
+              <kbd>{i + 1}</kbd>
+            </button>
+          ),
+        )}
+        {speakers.length < COLORS.length && (
+          <button type="button" className={styles.addSpeaker} onClick={() => setSpeakers((s) => [...s, `Speaker ${s.length + 1}`])} aria-label="Add speaker">
+            +
+          </button>
+        )}
+      </div>
+
+      <div className={styles.body}>
+        <section className={styles.transcriptBox} aria-label="Transcript">
+          <div
+            ref={transcript}
+            className={styles.transcript}
+            onScroll={(e) => {
+              const el = e.currentTarget;
+              stick.current = el.scrollHeight - el.scrollTop - el.clientHeight < 60;
+            }}
+          >
+            {segments.length === 0 && !interim && (
+              <p className={styles.empty}>
+                Press <strong>Start captions</strong> and talk, or play the sample meeting to see captions and notes appear.
+              </p>
+            )}
+            {segments.map((s) => (
+              <div key={s.id} data-seg={s.id} className={styles.line} data-flash={flash === s.id} style={{ ["--c" as string]: COLORS[s.speaker % COLORS.length] }}>
+                <div className={styles.lineHead}>
+                  <span className={styles.who}>{speakers[s.speaker] ?? "Speaker"}</span>
+                  <span className={styles.time}>{clock(s.start)}</span>
+                  {actionSegments.has(s.id) && <span className={styles.badge}>Action</span>}
+                </div>
+                <p>
+                  <Highlighted text={s.text} keywords={keywords} />
+                </p>
+              </div>
+            ))}
+          </div>
+          <div className={styles.caption} data-active={Boolean(interim)} style={{ ["--c" as string]: COLORS[current % COLORS.length] }} aria-live="off">
+            <span className={styles.captionWho}>{speakers[current]}</span>
+            <span className={styles.captionText}>{interim || (mode !== "idle" ? "Listening…" : "Captions appear here")}</span>
+          </div>
+        </section>
+
+        <aside className={styles.insights} aria-label="Meeting notes">
+          <div className={styles.tabs} role="tablist">
+            {TABS.map((t) => (
+              <button key={t.key} type="button" role="tab" aria-selected={tab === t.key} onClick={() => setTab(t.key)}>
+                {t.label}
+                <span className={styles.count}>{byKind(t.key).length}</span>
+              </button>
+            ))}
+          </div>
+
+          <ul className={styles.items} aria-live="polite">
+            {list.length === 0 && <li className={styles.none}>Nothing yet. They appear as the meeting goes on.</li>}
+            {list.map((it) => (
+              <li key={it.id} className={styles.item} data-kind={it.kind} data-done={done.has(it.id)}>
+                {it.kind === "action" ? (
+                  <input
+                    type="checkbox"
+                    checked={done.has(it.id)}
+                    aria-label={`Done: ${it.text}`}
+                    onChange={() =>
+                      setDone((d) => {
+                        const n = new Set(d);
+                        if (n.has(it.id)) n.delete(it.id);
+                        else n.add(it.id);
+                        return n;
+                      })
+                    }
+                  />
+                ) : (
+                  <span className={styles.kindIcon} aria-hidden="true">
+                    {it.kind === "decision" ? "✓" : "?"}
+                  </span>
+                )}
+                <div className={styles.itemBody}>
+                  <span className={styles.itemText}>{it.text}</span>
+                  <span className={styles.meta}>
+                    {it.kind === "action" && <span className={styles.owner} data-unassigned={!it.owner}>{it.owner ?? "Unassigned"}</span>}
+                    {it.dueDate && <span className={styles.due}>Due {shortDate(it.dueDate)}</span>}
+                    <button type="button" className={styles.at} onClick={() => jumpTo(it.segmentId)}>
+                      at {clock(it.at)}
+                    </button>
+                  </span>
+                </div>
+                <button type="button" className={styles.remove} aria-label="Dismiss" onClick={() => setHidden((h) => new Set(h).add(it.id))}>
+                  ×
+                </button>
+              </li>
+            ))}
+          </ul>
+
+          <div className={styles.stats}>
+            <div>
+              <strong>{clock(elapsed)}</strong>
+              <span>duration</span>
+            </div>
+            <div>
+              <strong>{words}</strong>
+              <span>words</span>
+            </div>
+            <div>
+              <strong>{segments.length ? Math.round(words / minutes) : 0}</strong>
+              <span>words/min</span>
+            </div>
+          </div>
+          <div className={styles.talk} aria-label="Talk time">
+            {speakers.map((name, i) => (
+              <div key={i} className={styles.talkRow}>
+                <span>{name}</span>
+                <span className={styles.talkBar}>
+                  <span style={{ width: `${(talk[i] / talkTotal) * 100}%`, background: COLORS[i % COLORS.length] }} />
+                </span>
+                <span className={styles.talkPct}>{Math.round((talk[i] / talkTotal) * 100)}%</span>
+              </div>
+            ))}
+          </div>
+        </aside>
+      </div>
+
+      <footer className={styles.footer}>
+        <div className={styles.keywords}>
+          <span className={styles.label}>Highlight</span>
+          {keywords.map((k) => (
+            <button key={k} type="button" className={styles.keyword} onClick={() => setKeywords(keywords.filter((x) => x !== k))} aria-label={`Stop highlighting ${k}`}>
+              {k} ×
+            </button>
+          ))}
+          <input
+            className={styles.keywordInput}
+            value={keywordDraft}
+            placeholder="add word"
+            onChange={(e) => setKeywordDraft(e.target.value)}
+            onKeyDown={(e) => e.key === "Enter" && addKeyword()}
+            onBlur={addKeyword}
+            aria-label="Add a word to highlight"
+          />
+        </div>
+        <div className={styles.exports}>
+          <button type="button" className={styles.ghost} onClick={copyNotes} disabled={!segments.length}>
+            {copied ? "Copied ✓" : "Copy notes"}
+          </button>
+          <button type="button" className={styles.ghost} onClick={() => download(transcriptText(), "transcript.txt", "text/plain")} disabled={!segments.length}>
+            Transcript .txt
+          </button>
+          <button type="button" className={styles.ghost} onClick={() => download(notes(), "meeting-notes.md", "text/markdown")} disabled={!segments.length}>
+            Notes .md
+          </button>
+        </div>
+      </footer>
+      <p className={styles.privacy}>
+        Recognition uses your browser&apos;s speech service (in Chrome, audio is processed by Google). This page stores nothing. Notes are extracted on your device.
+      </p>
+    </div>
+  );
+}
+19:["$","pre",null,{"children":["$","code",null,{"children":"$1c"}]}]
+1d:T1eb2,// Rule-based meeting notes: finds action items (with owner and due date), decisions and
+// questions in transcript segments. No AI service: just patterns over each sentence.
+
+export type Segment = { id: number; speaker: number; text: string; start: number; end: number };
+export type ItemKind = "action" | "decision" | "question";
+export type Item = { id: string; kind: ItemKind; text: string; owner?: string; due?: string; dueDate?: Date; segmentId: number; at: number };
+
+const WEEKDAYS = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
+const MONTHS = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"];
+const MONTH = "(?:jan(?:uary)?|feb(?:ruary)?|mar(?:ch)?|apr(?:il)?|may|june?|july?|aug(?:ust)?|sep(?:t(?:ember)?)?|oct(?:ober)?|nov(?:ember)?|dec(?:ember)?)";
+const DAY = "(?:sun|mon|tues|wednes|thurs|fri|satur)day";
+const RELATIVE = "(?:today|tonight|tomorrow|this week|next week|next month|end of (?:the )?(?:day|week|month)|eod|eow)";
+const DATE = `(?:\\d{1,2}(?:st|nd|rd|th)?\\s+${MONTH}|${MONTH}\\s+\\d{1,2}(?:st|nd|rd|th)?)`;
+
+export const DUE_RE = new RegExp(`\\b(?:(?:by|before|on|until|due|this|next)\\s+)?(?:${DAY}|${DATE}|${RELATIVE})\\b`, "i");
+export const MONEY_RE = /(?:(?:BDT|Tk\.?|৳|\$|USD)\s?\d[\d,.]*(?:\s?(?:lakh|crore|k|m|million))?|\d[\d,.]*\s?(?:lakh|crore|taka|BDT))/gi;
+
+const DECISION_RE = /\b(?:we(?:'ve| have)? (?:decided|agreed)|decided to|(?:the )?decision is|let'?s go with|we'?ll go with|we are going with|approved|signed off)\b/i;
+const ACTION_RE =
+  /\b(?:i'?ll|i will|i am going to|i'm going to|we'?ll|we will|we need to|we should|let'?s|can you|could you|would you|please|make sure|follow up|action item|to-?do|assign(?:ed)? (?:it )?to|(?:will|to) (?:send|share|prepare|review|update|schedule|book|call|email|draft|fix|finish|collect|create|organi[sz]e|confirm|check))\b/i;
+const QUESTION_START = /^(?:what|why|how|when|where|who|which|should|shall|do|does|did|is|are|can|could|will|would)\b/i;
+const FILLER = /^(?:(?:ok(?:ay)?|so|and|also|um+|uh+|well|right|yes|yeah|sure|great|perfect|alright|agreed|then|now)[,.!]?\s+)+/i;
+const NOT_NAMES = new Set(["I", "We", "You", "Let", "Lets", "Can", "Could", "Would", "Please", "Make", "So", "And", "Also", "Okay", "Ok", "Yes", "The", "That", "This", "It", "They", "Sure", "Great", "Perfect", "Agreed", "Around", "What", "Should"]);
+
+/** Splits a caption into sentences (speech engines often skip punctuation, so a whole caption can be one). */
+export function sentences(text: string) {
+  return text
+    .split(/(?<=[.!?])\s+/)
+    .map((s) => s.trim())
+    .filter(Boolean);
+}
+
+/** The next given weekday (0 = Sunday) on or after `from`; same day only when `allowToday`. */
+function nextWeekday(from: Date, day: number, allowToday = false) {
+  const d = new Date(from);
+  let diff = (day - d.getDay() + 7) % 7;
+  if (diff === 0 && !allowToday) diff = 7;
+  d.setDate(d.getDate() + diff);
+  return d;
+}
+
+/** Turns "by Friday", "tomorrow", "20 October" into a concrete date relative to the meeting. */
+export function resolveDue(phrase: string, meeting: Date): Date | undefined {
+  const p = phrase.toLowerCase();
+  const d = new Date(meeting);
+  d.setHours(0, 0, 0, 0);
+  if (/today|tonight|eod|end of (the )?day/.test(p)) return d;
+  if (/tomorrow/.test(p)) return new Date(d.getTime() + 864e5);
+  if (/next week/.test(p)) return nextWeekday(d, 1);
+  if (/eow|end of (the )?week|this week/.test(p)) return nextWeekday(d, 5, true);
+  if (/next month|end of (the )?month/.test(p)) return new Date(d.getFullYear(), d.getMonth() + 1, /next/.test(p) ? 1 : 0);
+  const wd = WEEKDAYS.findIndex((w) => p.includes(w));
+  if (wd >= 0) return nextWeekday(d, wd);
+  const day = p.match(/\d{1,2}/);
+  const month = MONTHS.findIndex((m) => p.includes(m.slice(0, 3)));
+  if (day && month >= 0) {
+    const out = new Date(d.getFullYear(), month, Number(day[0]));
+    if (out < d) out.setFullYear(out.getFullYear() + 1);
+    return out;
+  }
+  return undefined;
+}
+
+function findOwner(sentence: string, speakerName: string, speakers: string[]) {
+  const assigned = sentence.match(/assign(?:ed)? (?:it |this )?to ([A-Z][a-z]+)/);
+  if (assigned) return assigned[1];
+  const named = sentence.match(/\b([A-Z][a-z]+),?\s+(?:can you|could you|would you|please|will|you'?ll|to)\b/);
+  if (named && !NOT_NAMES.has(named[1])) return named[1];
+  if (/\b(?:i'?ll|i will|i am going to|i'm going to)\b/i.test(sentence)) return speakerName;
+  if (/\b(?:we'?ll|we will|we need to|we should|let'?s)\b/i.test(sentence)) return "Team";
+  const mention = speakers.find((s) => s && new RegExp(`\\b${s}\\b`).test(sentence) && s !== speakerName);
+  return mention;
+}
+
+/** "Imran, can you send the final budget to finance by Friday?" → "Send the final budget to finance". */
+function cleanTask(sentence: string, due?: string) {
+  let t = sentence.replace(FILLER, "");
+  t = t.replace(/^[A-Z][a-z]+,\s+/, "");
+  t = t.replace(/^assign(?:ed)? (?:it |this )?to [A-Z][a-z]+ to\s+/i, "");
+  t = t.replace(/^(?:can you|could you|would you|please|i'?ll|i will|i am going to|i'm going to|we'?ll|we will|we need to|we should|let'?s)\s+/i, "");
+  t = t.replace(/^please\s+/i, "");
+  if (due) t = t.replace(new RegExp(`\\s*\\b${due.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\b`, "i"), "");
+  t = t.replace(/[\s,]*[.?!]+$/, "").trim();
+  return t ? t[0].toUpperCase() + t.slice(1) : t;
+}
+
+// Talk about the meeting itself ("let's start", "let's wrap up") isn't a task.
+const MEETING_TALK = /\b(?:let'?s|we'?ll|we will)\s+(?:start|begin|kick off|wrap up|end|finish|move on|get started)\b/i;
+
+const capitalise = (s: string) => (s ? s[0].toUpperCase() + s.slice(1) : s);
+
+export function analyse(segments: Segment[], speakers: string[], meeting = new Date()): Item[] {
+  const items: Item[] = [];
+  for (const seg of segments) {
+    sentences(seg.text).forEach((raw, i) => {
+      const s = capitalise(raw.replace(FILLER, ""));
+      if (s.split(/\s+/).length < 3) return;
+      const id = `${seg.id}-${i}`;
+      const due = s.match(DUE_RE)?.[0];
+      const base = { id, segmentId: seg.id, at: seg.start };
+      if (DECISION_RE.test(s)) {
+        items.push({ ...base, kind: "decision", text: s.replace(/[.!]+$/, "") });
+      } else if (ACTION_RE.test(s) && !MEETING_TALK.test(s)) {
+        const owner = findOwner(s, speakers[seg.speaker] ?? "Speaker", speakers);
+        items.push({ ...base, kind: "action", text: cleanTask(s, due), owner, due, dueDate: due ? resolveDue(due, meeting) : undefined });
+      } else if (s.endsWith("?") || QUESTION_START.test(s)) {
+        items.push({ ...base, kind: "question", text: s });
+      }
+    });
+  }
+  return items;
+}
+
+/** A short scripted planning meeting used by the demo. */
+export const SAMPLE: { speaker: number; text: string }[] = [
+  { speaker: 0, text: "Okay, let's start the planning meeting for the team offsite." },
+  { speaker: 1, text: "The venue quote came in at BDT 2.8 lakh, which is within our budget." },
+  { speaker: 0, text: "Great. So we've decided to go with Cox's Bazar for the offsite." },
+  { speaker: 2, text: "I'll book the hotel rooms by Thursday." },
+  { speaker: 0, text: "Imran, can you send the final budget to finance by Friday?" },
+  { speaker: 1, text: "Sure. Should we include the travel allowance in the same sheet?" },
+  { speaker: 0, text: "Yes, keep everything in one sheet so it's easy to approve." },
+  { speaker: 2, text: "We need to collect dietary preferences from everyone by next week." },
+  { speaker: 0, text: "Agreed. I will draft the announcement email tomorrow." },
+  { speaker: 1, text: "What time does the bus leave on the first day?" },
+  { speaker: 2, text: "Around 7 am. Make sure everyone gets the itinerary by 20 October." },
+  { speaker: 0, text: "Perfect, that's everything for today. Thanks, everyone." },
+];
+1b:["$","pre",null,{"children":["$","code",null,{"children":"$1d"}]}]

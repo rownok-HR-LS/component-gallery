@@ -1,0 +1,488 @@
+<!DOCTYPE html><!--6jA2vIGrO3aOlnYlKgPnQ--><html lang="en"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="/component-gallery/_next/static/css/68cce7808a08b910.css" data-precedence="next"/><link href="/component-gallery/_next/static/css/78aec450800ed089.css" rel="stylesheet" as="style" data-precedence="dynamic"/><link rel="preload" as="script" fetchPriority="low" href="/component-gallery/_next/static/chunks/webpack-1b912f870780f4ba.js"/><script src="/component-gallery/_next/static/chunks/4bd1b696-c023c6e3521b1417.js" async=""></script><script src="/component-gallery/_next/static/chunks/255-8e0af360b0021454.js" async=""></script><script src="/component-gallery/_next/static/chunks/main-app-97d5b91ae5ddb9c2.js" async=""></script><script src="/component-gallery/_next/static/chunks/619-ba102abea3e3d0e4.js" async=""></script><script src="/component-gallery/_next/static/chunks/app/components/%5Bslug%5D/page-7b18c14fa5ee9ace.js" async=""></script><link rel="preload" href="/component-gallery/_next/static/chunks/943.e1f9a02be72ee64e.js" as="script" fetchPriority="low"/><title>Password Strength Meter · Component Gallery</title><meta name="description" content="Estimates how long a password would take to crack, spots common words and patterns, and gives one specific tip to make it stronger."/><script src="/component-gallery/_next/static/chunks/polyfills-42372ed130431b0a.js" noModule=""></script></head><body><div hidden=""><!--$--><!--/$--></div><header class="site-header"><div class="container"><a class="brand" href="/component-gallery/">Component Gallery</a><nav><a href="https://github.com/rownok-HR-LS/component-gallery">GitHub</a></nav></div></header><main class="container"><a class="back" href="/component-gallery/">← All components</a><header class="detail-head"><span class="tag">Week <!-- -->2<!-- --> · <!-- -->2026-09-30</span><h1>Password Strength Meter</h1><p>Estimates how long a password would take to crack, spots common words and patterns, and gives one specific tip to make it stronger.</p></header><section class="stage" aria-label="Live demo"><div class="PasswordMeter_card__Z6RnE" data-tone="none"><label for="_R_jav5ubtb_" class="PasswordMeter_title__9JUpL">Password strength</label><div class="PasswordMeter_inputWrap__qqqAz"><input id="_R_jav5ubtb_" class="PasswordMeter_input__h_WrX" type="password" placeholder="Type a password" autoComplete="new-password" spellCheck="false" autoCapitalize="off" value=""/><button type="button" class="PasswordMeter_eye__vS8I3" aria-label="Show password" aria-pressed="false"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"></path><circle cx="12" cy="12" r="3"></circle><path d="M4 20 20 4"></path></svg></button></div><div class="PasswordMeter_meter__uIkJE" aria-hidden="true"><span class="PasswordMeter_segment__4tYYC" data-on="false"></span><span class="PasswordMeter_segment__4tYYC" data-on="false"></span><span class="PasswordMeter_segment__4tYYC" data-on="false"></span><span class="PasswordMeter_segment__4tYYC" data-on="false"></span></div><div class="PasswordMeter_verdict__vyxN3" aria-live="polite"><span class="PasswordMeter_level__MleEd">Enter a password</span><span class="PasswordMeter_time__C4KW5"></span></div><div class="PasswordMeter_scenarios__5E7JJ" role="radiogroup" aria-label="Attack scenario"><button type="button" role="radio" aria-checked="true" class="PasswordMeter_scenario__JGt_k">Leaked database</button><button type="button" role="radio" aria-checked="false" class="PasswordMeter_scenario__JGt_k">Login page</button></div><p class="PasswordMeter_note__CNdue">10 billion guesses per second on a GPU rig</p><p class="PasswordMeter_tip__dZ7y3">Try a passphrase: four random words are easy to remember and hard to crack.</p><ul class="PasswordMeter_checklist__pQIf9"><li data-ok="false"><span class="PasswordMeter_check__WKS_r" aria-hidden="true"></span><span class="PasswordMeter_srOnly____9QN">Missing: </span>At least 12 characters</li><li data-ok="false"><span class="PasswordMeter_check__WKS_r" aria-hidden="true"></span><span class="PasswordMeter_srOnly____9QN">Missing: </span>Upper and lowercase letters</li><li data-ok="false"><span class="PasswordMeter_check__WKS_r" aria-hidden="true"></span><span class="PasswordMeter_srOnly____9QN">Missing: </span>A number</li><li data-ok="false"><span class="PasswordMeter_check__WKS_r" aria-hidden="true"></span><span class="PasswordMeter_srOnly____9QN">Missing: </span>A symbol, like ! # or $</li><li data-ok="false"><span class="PasswordMeter_check__WKS_r" aria-hidden="true"></span><span class="PasswordMeter_srOnly____9QN">Missing: </span>No common words or patterns</li></ul><div class="PasswordMeter_footer__aAY9G"><button type="button" class="PasswordMeter_generate__0W9wE">Generate strong password</button><span class="PasswordMeter_privacy__JTWtn">Checked on your device. Nothing is sent.</span></div></div></section><section class="source"><h2>Source</h2><div class="file"><div class="file-head"><span>Demo.tsx</span><button type="button" class="copy">Copy</button></div><pre><code>import PasswordMeter from &quot;./PasswordMeter&quot;;
+
+export default function Demo() {
+  return &lt;PasswordMeter /&gt;;
+}
+</code></pre></div><div class="file"><div class="file-head"><span>PasswordMeter.module.css</span><button type="button" class="copy">Copy</button></div><pre><code>.card {
+  --surface: #fcfcfb;
+  --ink: #0b0b0b;
+  --ink-2: #52514e;
+  --muted: #898781;
+  --border: rgba(11, 11, 11, 0.1);
+  --track: #e1e0d9;
+  --field: #f4f3f0;
+  --critical: #d03b3b;
+  --serious: #ec835a;
+  --warning: #fab219;
+  --good: #0ca30c;
+  --tone: var(--track);
+
+  width: 100%;
+  max-width: 360px;
+  padding: 22px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: var(--surface);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 12px 32px -12px rgba(0, 0, 0, 0.18);
+  color: var(--ink);
+  font-family: system-ui, -apple-system, &quot;Segoe UI&quot;, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  .card {
+    --surface: #1a1a19;
+    --ink: #ffffff;
+    --ink-2: #c3c2b7;
+    --border: rgba(255, 255, 255, 0.1);
+    --track: #2c2c2a;
+    --field: #232321;
+    box-shadow: 0 12px 32px -12px rgba(0, 0, 0, 0.6);
+  }
+}
+
+.card[data-tone=&quot;critical&quot;] { --tone: var(--critical); }
+.card[data-tone=&quot;serious&quot;] { --tone: var(--serious); }
+.card[data-tone=&quot;warning&quot;] { --tone: var(--warning); }
+.card[data-tone=&quot;good&quot;] { --tone: var(--good); }
+
+.title { display: block; margin-bottom: 10px; font-size: 14px; font-weight: 600; }
+
+/* Input */
+.inputWrap { position: relative; }
+.input {
+  width: 100%;
+  height: 48px;
+  padding: 0 48px 0 14px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  outline: none;
+  background: var(--field);
+  color: var(--ink);
+  font: inherit;
+  font-size: 16px;
+  letter-spacing: 0.02em;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.input::placeholder { color: var(--muted); letter-spacing: 0; }
+.input:focus { border-color: var(--ink-2); box-shadow: 0 0 0 3px color-mix(in srgb, var(--ink) 10%, transparent); }
+
+.eye {
+  position: absolute;
+  top: 50%;
+  right: 6px;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: 8px;
+  background: none;
+  color: var(--ink-2);
+  cursor: pointer;
+  transform: translateY(-50%);
+}
+.eye:hover { background: color-mix(in srgb, var(--ink) 7%, transparent); }
+.eye:focus-visible { outline: 2px solid var(--ink-2); outline-offset: 1px; }
+.eye svg { fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+/* Meter */
+.meter { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; margin: 14px 0 10px; }
+.segment { height: 6px; border-radius: 99px; background: var(--track); transition: background 0.25s ease; }
+.segment[data-on=&quot;true&quot;] { background: var(--tone); }
+
+.verdict { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 12px; }
+.level { display: inline-flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 650; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--tone); }
+.time { color: var(--ink-2); font-size: 13px; font-variant-numeric: tabular-nums; }
+
+/* Attack scenario */
+.scenarios {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  margin-top: 14px;
+  padding: 3px;
+  border-radius: 10px;
+  background: var(--field);
+}
+.scenario {
+  padding: 6px 8px;
+  border: 0;
+  border-radius: 8px;
+  background: none;
+  color: var(--ink-2);
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.scenario[aria-checked=&quot;true&quot;] {
+  background: var(--surface);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
+  color: var(--ink);
+  font-weight: 600;
+}
+.scenario:focus-visible { outline: 2px solid var(--ink-2); outline-offset: 1px; }
+.note { margin: 6px 0 0; color: var(--muted); font-size: 11px; text-align: center; }
+
+/* Tip + checklist */
+.tip {
+  margin: 16px 0 12px;
+  padding: 10px 12px;
+  border-left: 3px solid var(--tone);
+  border-radius: 4px 10px 10px 4px;
+  background: var(--field);
+  font-size: 13px;
+  line-height: 1.45;
+  transition: border-color 0.25s ease;
+}
+
+.checklist { display: flex; flex-direction: column; gap: 7px; margin: 0; padding: 0; list-style: none; font-size: 13px; }
+.checklist li { display: flex; align-items: center; gap: 10px; color: var(--ink-2); }
+.checklist li[data-ok=&quot;true&quot;] { color: var(--ink); }
+.check {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid var(--track);
+  border-radius: 50%;
+  font-size: 11px;
+  font-weight: 700;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+.checklist li[data-ok=&quot;true&quot;] .check { border-color: var(--good); background: var(--good); color: #fff; }
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* Footer */
+.footer { display: flex; flex-direction: column; align-items: center; gap: 8px; margin-top: 18px; }
+.generate {
+  width: 100%;
+  height: 40px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--ink);
+  color: var(--surface);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.1s ease, opacity 0.15s ease;
+}
+.generate:hover { opacity: 0.88; }
+.generate:active { transform: scale(0.98); }
+.generate:focus-visible { outline: 2px solid var(--ink-2); outline-offset: 2px; }
+.privacy { color: var(--muted); font-size: 11px; }
+</code></pre></div><div class="file"><div class="file-head"><span>PasswordMeter.tsx</span><button type="button" class="copy">Copy</button></div><pre><code>&quot;use client&quot;;
+
+import { useId, useState } from &quot;react&quot;;
+import { crackSeconds, estimate, formatDuration, type Estimate, type Finding } from &quot;./strength&quot;;
+import styles from &quot;./PasswordMeter.module.css&quot;;
+
+const LEVELS = [
+  { label: &quot;Very weak&quot;, tone: &quot;critical&quot; },
+  { label: &quot;Weak&quot;, tone: &quot;serious&quot; },
+  { label: &quot;Fair&quot;, tone: &quot;warning&quot; },
+  { label: &quot;Strong&quot;, tone: &quot;good&quot; },
+  { label: &quot;Very strong&quot;, tone: &quot;good&quot; },
+] as const;
+
+const SCENARIOS = [
+  { key: &quot;offline&quot;, label: &quot;Leaked database&quot;, rate: 1e10, note: &quot;10 billion guesses per second on a GPU rig&quot; },
+  { key: &quot;online&quot;, label: &quot;Login page&quot;, rate: 10, note: &quot;10 guesses per second, rate-limited&quot; },
+] as const;
+
+const FINDING_TEXT: Record&lt;Finding[&quot;kind&quot;], (text: string) =&gt; string&gt; = {
+  common: (t) =&gt; `Avoid “${t}”: it&#x27;s on every attacker&#x27;s list`,
+  sequence: (t) =&gt; `Avoid sequences like “${t}”`,
+  keyboard: (t) =&gt; `Avoid keyboard patterns like “${t}”`,
+  repeat: (t) =&gt; `Avoid repeats like “${t}”`,
+  year: (t) =&gt; `“${t}” looks like a year, which is easy to guess`,
+};
+
+const GENERATOR_CHARS = &quot;ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz23456789!@#$%^&amp;*-_+=?&quot;;
+
+function generatePassword(length = 16) {
+  const random = new Uint32Array(length);
+  crypto.getRandomValues(random);
+  return Array.from(random, (n) =&gt; GENERATOR_CHARS[n % GENERATOR_CHARS.length]).join(&quot;&quot;);
+}
+
+function topTip(password: string, result: Estimate) {
+  if (!password) return &quot;Try a passphrase: four random words are easy to remember and hard to crack.&quot;;
+  const common = result.findings.find((f) =&gt; f.kind === &quot;common&quot;);
+  if (common) return `Drop “${common.text}”. Adding numbers to a common word barely helps.`;
+  if (password.length &lt; 12) {
+    const n = 12 - password.length;
+    return `Add ${n} more character${n === 1 ? &quot;&quot; : &quot;s&quot;}. Length adds the most strength.`;
+  }
+  if (result.findings.length &gt; 0) return `${FINDING_TEXT[result.findings[0].kind](result.findings[0].text)}.`;
+  if (result.score &gt;= 3) return &quot;Nice. Save it in a password manager so you don&#x27;t have to remember it.&quot;;
+  return &quot;Make it longer: every extra character multiplies the time to crack it.&quot;;
+}
+
+export default function PasswordMeter() {
+  const [password, setPassword] = useState(&quot;&quot;);
+  const [visible, setVisible] = useState(false);
+  const [scenario, setScenario] = useState&lt;(typeof SCENARIOS)[number][&quot;key&quot;]&gt;(&quot;offline&quot;);
+  const inputId = useId();
+
+  const result = estimate(password);
+  const empty = password.length === 0;
+  const level = LEVELS[result.score];
+  const rate = SCENARIOS.find((s) =&gt; s.key === scenario)!;
+  const time = formatDuration(crackSeconds(result.bits, rate.rate));
+  const timeLabel =
+    time === &quot;instantly&quot; ? &quot;Cracked instantly&quot; : time.startsWith(&quot;longer&quot;) ? `Would take ${time}` : `Cracked in ~${time}`;
+  const filled = empty ? 0 : Math.max(1, result.score);
+  const pattern = result.findings[0];
+
+  const checklist = [
+    { ok: result.checks.length, text: &quot;At least 12 characters&quot; },
+    { ok: result.checks.mixedCase, text: &quot;Upper and lowercase letters&quot; },
+    { ok: result.checks.digit, text: &quot;A number&quot; },
+    { ok: result.checks.symbol, text: &quot;A symbol, like ! # or $&quot; },
+    {
+      ok: !empty &amp;&amp; !pattern,
+      text: pattern ? FINDING_TEXT[pattern.kind](pattern.text) : &quot;No common words or patterns&quot;,
+    },
+  ];
+
+  return (
+    &lt;div className={styles.card} data-tone={empty ? &quot;none&quot; : level.tone}&gt;
+      &lt;label htmlFor={inputId} className={styles.title}&gt;
+        Password strength
+      &lt;/label&gt;
+
+      &lt;div className={styles.inputWrap}&gt;
+        &lt;input
+          id={inputId}
+          className={styles.input}
+          type={visible ? &quot;text&quot; : &quot;password&quot;}
+          value={password}
+          placeholder=&quot;Type a password&quot;
+          autoComplete=&quot;new-password&quot;
+          spellCheck={false}
+          autoCapitalize=&quot;off&quot;
+          onChange={(e) =&gt; setPassword(e.target.value)}
+        /&gt;
+        &lt;button
+          type=&quot;button&quot;
+          className={styles.eye}
+          aria-label={visible ? &quot;Hide password&quot; : &quot;Show password&quot;}
+          aria-pressed={visible}
+          onClick={() =&gt; setVisible((v) =&gt; !v)}
+        &gt;
+          &lt;svg viewBox=&quot;0 0 24 24&quot; width=&quot;18&quot; height=&quot;18&quot; aria-hidden=&quot;true&quot;&gt;
+            &lt;path d=&quot;M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z&quot; /&gt;
+            &lt;circle cx=&quot;12&quot; cy=&quot;12&quot; r=&quot;3&quot; /&gt;
+            {!visible &amp;&amp; &lt;path d=&quot;M4 20 20 4&quot; /&gt;}
+          &lt;/svg&gt;
+        &lt;/button&gt;
+      &lt;/div&gt;
+
+      &lt;div className={styles.meter} aria-hidden=&quot;true&quot;&gt;
+        {[1, 2, 3, 4].map((segment) =&gt; (
+          &lt;span key={segment} className={styles.segment} data-on={segment &lt;= filled} /&gt;
+        ))}
+      &lt;/div&gt;
+
+      &lt;div className={styles.verdict} aria-live=&quot;polite&quot;&gt;
+        &lt;span className={styles.level}&gt;
+          {!empty &amp;&amp; &lt;span className={styles.dot} /&gt;}
+          {empty ? &quot;Enter a password&quot; : level.label}
+        &lt;/span&gt;
+        &lt;span className={styles.time}&gt;{empty ? &quot;&quot; : timeLabel}&lt;/span&gt;
+      &lt;/div&gt;
+
+      &lt;div className={styles.scenarios} role=&quot;radiogroup&quot; aria-label=&quot;Attack scenario&quot;&gt;
+        {SCENARIOS.map((s) =&gt; (
+          &lt;button
+            key={s.key}
+            type=&quot;button&quot;
+            role=&quot;radio&quot;
+            aria-checked={s.key === scenario}
+            className={styles.scenario}
+            onClick={() =&gt; setScenario(s.key)}
+          &gt;
+            {s.label}
+          &lt;/button&gt;
+        ))}
+      &lt;/div&gt;
+      &lt;p className={styles.note}&gt;{rate.note}&lt;/p&gt;
+
+      &lt;p className={styles.tip}&gt;{topTip(password, result)}&lt;/p&gt;
+
+      &lt;ul className={styles.checklist}&gt;
+        {checklist.map((item) =&gt; (
+          &lt;li key={item.text} data-ok={item.ok}&gt;
+            &lt;span className={styles.check} aria-hidden=&quot;true&quot;&gt;
+              {item.ok ? &quot;✓&quot; : &quot;&quot;}
+            &lt;/span&gt;
+            &lt;span className={styles.srOnly}&gt;{item.ok ? &quot;Done: &quot; : &quot;Missing: &quot;}&lt;/span&gt;
+            {item.text}
+          &lt;/li&gt;
+        ))}
+      &lt;/ul&gt;
+
+      &lt;div className={styles.footer}&gt;
+        &lt;button
+          type=&quot;button&quot;
+          className={styles.generate}
+          onClick={() =&gt; {
+            setPassword(generatePassword());
+            setVisible(true);
+          }}
+        &gt;
+          Generate strong password
+        &lt;/button&gt;
+        &lt;span className={styles.privacy}&gt;Checked on your device. Nothing is sent.&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  );
+}
+</code></pre></div><div class="file"><div class="file-head"><span>strength.ts</span><button type="button" class="copy">Copy</button></div><pre><code>// A small, dependency-free strength estimator. It starts from brute-force entropy
+// (length × log2 of the character pool) and discounts characters that sit inside
+// predictable patterns: common passwords, sequences, keyboard rows, repeats and years.
+
+export type Finding = { kind: &quot;common&quot; | &quot;sequence&quot; | &quot;keyboard&quot; | &quot;repeat&quot; | &quot;year&quot;; text: string };
+
+export type Estimate = {
+  bits: number;
+  /** 0 very weak … 4 very strong */
+  score: 0 | 1 | 2 | 3 | 4;
+  findings: Finding[];
+  checks: { length: boolean; mixedCase: boolean; digit: boolean; symbol: boolean };
+};
+
+const COMMON = [
+  &quot;password&quot;, &quot;123456&quot;, &quot;12345678&quot;, &quot;qwerty&quot;, &quot;abc123&quot;, &quot;111111&quot;, &quot;letmein&quot;, &quot;welcome&quot;, &quot;monkey&quot;,
+  &quot;dragon&quot;, &quot;iloveyou&quot;, &quot;admin&quot;, &quot;login&quot;, &quot;master&quot;, &quot;sunshine&quot;, &quot;princess&quot;, &quot;football&quot;, &quot;baseball&quot;,
+  &quot;shadow&quot;, &quot;superman&quot;, &quot;trustno1&quot;, &quot;hello&quot;, &quot;freedom&quot;, &quot;whatever&quot;, &quot;starwars&quot;, &quot;michael&quot;, &quot;charlie&quot;,
+  &quot;jessica&quot;, &quot;qazwsx&quot;, &quot;secret&quot;, &quot;access&quot;, &quot;computer&quot;, &quot;internet&quot;, &quot;love&quot;, &quot;bangladesh&quot;, &quot;dhaka&quot;,
+];
+const KEYBOARD_ROWS = [&quot;qwertyuiop&quot;, &quot;asdfghjkl&quot;, &quot;zxcvbnm&quot;];
+const LEET: Record&lt;string, string&gt; = { &quot;0&quot;: &quot;o&quot;, &quot;1&quot;: &quot;i&quot;, &quot;3&quot;: &quot;e&quot;, &quot;4&quot;: &quot;a&quot;, &quot;5&quot;: &quot;s&quot;, &quot;7&quot;: &quot;t&quot;, &quot;@&quot;: &quot;a&quot;, &quot;$&quot;: &quot;s&quot;, &quot;!&quot;: &quot;i&quot; };
+const SYMBOL = /[!-/:-@[-`{-~]/;
+
+const isAlnum = (c: string) =&gt; /[a-z0-9]/.test(c);
+
+/** Half-open [start, end) ranges where `step` holds between neighbours for at least `min` chars. */
+function runs(s: string, step: (a: string, b: string) =&gt; boolean, min: number) {
+  const found: [number, number][] = [];
+  let start = 0;
+  for (let i = 1; i &lt;= s.length; i++) {
+    if (i &lt; s.length &amp;&amp; step(s[i - 1], s[i])) continue;
+    if (i - start &gt;= min) found.push([start, i]);
+    start = i;
+  }
+  return found;
+}
+
+function keyboardRuns(s: string) {
+  const found: [number, number][] = [];
+  for (let i = 0; i &lt; s.length; i++) {
+    for (let j = s.length; j &gt;= i + 4; j--) {
+      const chunk = s.slice(i, j);
+      const reversed = [...chunk].reverse().join(&quot;&quot;);
+      if (KEYBOARD_ROWS.some((row) =&gt; row.includes(chunk) || row.includes(reversed))) {
+        found.push([i, j]);
+        i = j - 1;
+        break;
+      }
+    }
+  }
+  return found;
+}
+
+export function estimate(password: string): Estimate {
+  const checks = {
+    length: password.length &gt;= 12,
+    mixedCase: /[a-z]/.test(password) &amp;&amp; /[A-Z]/.test(password),
+    digit: /\d/.test(password),
+    symbol: SYMBOL.test(password) || /\s/.test(password),
+  };
+
+  let pool = 0;
+  if (/[a-z]/.test(password)) pool += 26;
+  if (/[A-Z]/.test(password)) pool += 26;
+  if (/\d/.test(password)) pool += 10;
+  if (SYMBOL.test(password)) pool += 33;
+  if (/\s/.test(password)) pool += 1;
+  if (/[^\x00-\x7F]/.test(password)) pool += 100;
+
+  const full = pool &gt; 1 ? Math.log2(pool) : 0;
+  const cost = Array&lt;number&gt;(password.length).fill(full);
+  const findings: Finding[] = [];
+
+  const lower = password.toLowerCase();
+  const plain = [...lower].map((c) =&gt; LEET[c] ?? c).join(&quot;&quot;);
+
+  function mark(kind: Finding[&quot;kind&quot;], [start, end]: [number, number], perChar: (offset: number) =&gt; number) {
+    for (let i = start; i &lt; end; i++) cost[i] = Math.min(cost[i], perChar(i - start));
+    if (!findings.some((f) =&gt; f.kind === kind)) findings.push({ kind, text: password.slice(start, end) });
+  }
+
+  for (const word of COMMON) {
+    for (const s of [lower, plain]) {
+      const at = s.indexOf(word);
+      // The whole word is worth about as much as picking it from the list.
+      if (at &gt;= 0) mark(&quot;common&quot;, [at, at + word.length], () =&gt; 6 / word.length);
+    }
+  }
+  for (const m of lower.matchAll(/(?:19|20)\d\d/g)) mark(&quot;year&quot;, [m.index, m.index + 4], () =&gt; 7.6 / 4);
+
+  const firstFull = (offset: number) =&gt; (offset === 0 ? full : 1);
+  for (const r of runs(lower, (a, b) =&gt; a === b, 3)) mark(&quot;repeat&quot;, r, firstFull);
+  for (const dir of [1, -1]) {
+    const step = (a: string, b: string) =&gt; isAlnum(a) &amp;&amp; isAlnum(b) &amp;&amp; b.charCodeAt(0) - a.charCodeAt(0) === dir;
+    for (const r of runs(lower, step, 3)) mark(&quot;sequence&quot;, r, firstFull);
+  }
+  for (const r of keyboardRuns(lower)) mark(&quot;keyboard&quot;, r, firstFull);
+
+  const bits = cost.reduce((sum, c) =&gt; sum + c, 0);
+  const score = bits &lt; 25 ? 0 : bits &lt; 40 ? 1 : bits &lt; 60 ? 2 : bits &lt; 80 ? 3 : 4;
+
+  return { bits, score, findings, checks };
+}
+
+/** Average time to guess: half the search space at the given guess rate. */
+export function crackSeconds(bits: number, guessesPerSecond: number) {
+  return 2 ** bits / 2 / guessesPerSecond;
+}
+
+const YEAR = 31_557_600;
+const STEPS: [number, string, string][] = [
+  [YEAR * 100, &quot;century&quot;, &quot;centuries&quot;],
+  [YEAR, &quot;year&quot;, &quot;years&quot;],
+  [YEAR / 12, &quot;month&quot;, &quot;months&quot;],
+  [86_400, &quot;day&quot;, &quot;days&quot;],
+  [3_600, &quot;hour&quot;, &quot;hours&quot;],
+  [60, &quot;minute&quot;, &quot;minutes&quot;],
+  [1, &quot;second&quot;, &quot;seconds&quot;],
+];
+const compact = new Intl.NumberFormat(&quot;en&quot;, { notation: &quot;compact&quot;, compactDisplay: &quot;long&quot;, maximumFractionDigits: 1 });
+
+export function formatDuration(seconds: number) {
+  if (seconds &lt; 1) return &quot;instantly&quot;;
+  const years = seconds / YEAR;
+  if (years &gt; 13.8e9) return &quot;longer than the universe has existed&quot;;
+  if (years &gt;= 10_000) return `${compact.format(years)} years`;
+  for (const [size, one, many] of STEPS) {
+    if (seconds &gt;= size) {
+      const n = Math.round(seconds / size);
+      return `${n} ${n === 1 ? one : many}`;
+    }
+  }
+  return &quot;instantly&quot;;
+}
+</code></pre></div></section><nav class="pager"><a href="/component-gallery/components/unit-converter-dial/">← <!-- -->Unit Converter Dial</a><a href="/component-gallery/components/customer-lifetime-value/">Customer Lifetime Value Calculator<!-- --> →</a></nav></main><!--$--><!--/$--><footer class="site-footer"><div class="container"><span>Built by <!-- -->rownok-HR-LS<!-- --> · LofiStack 90-day challenge</span><a href="https://github.com/rownok-HR-LS/component-gallery">Source on GitHub</a></div></footer><script src="/component-gallery/_next/static/chunks/webpack-1b912f870780f4ba.js" id="_R_" async=""></script><script>(self.__next_f=self.__next_f||[]).push([0])</script><script>self.__next_f.push([1,"1:\"$Sreact.fragment\"\n2:I[2619,[\"619\",\"static/chunks/619-ba102abea3e3d0e4.js\",\"449\",\"static/chunks/app/components/%5Bslug%5D/page-7b18c14fa5ee9ace.js\"],\"\"]\n3:I[9766,[],\"\"]\n4:I[8924,[],\"\"]\n6:I[4431,[],\"OutletBoundary\"]\n8:I[5278,[],\"AsyncMetadataOutlet\"]\na:I[4431,[],\"ViewportBoundary\"]\nc:I[4431,[],\"MetadataBoundary\"]\nd:\"$Sreact.suspense\"\nf:I[7150,[],\"\"]\n:HL[\"/component-gallery/_next/static/css/68cce7808a08b910.css\",\"style\"]\n"])</script><script>self.__next_f.push([1,"0:{\"P\":null,\"b\":\"6jA2vIGrO3aOlnYlKgPnQ\",\"p\":\"/component-gallery\",\"c\":[\"\",\"components\",\"password-strength-meter\",\"\"],\"i\":false,\"f\":[[[\"\",{\"children\":[\"components\",{\"children\":[[\"slug\",\"password-strength-meter\",\"d\"],{\"children\":[\"__PAGE__\",{}]}]}]},\"$undefined\",\"$undefined\",true],[\"\",[\"$\",\"$1\",\"c\",{\"children\":[[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/component-gallery/_next/static/css/68cce7808a08b910.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}]],[\"$\",\"html\",null,{\"lang\":\"en\",\"children\":[\"$\",\"body\",null,{\"children\":[[\"$\",\"header\",null,{\"className\":\"site-header\",\"children\":[\"$\",\"div\",null,{\"className\":\"container\",\"children\":[[\"$\",\"$L2\",null,{\"href\":\"/\",\"className\":\"brand\",\"children\":\"Component Gallery\"}],[\"$\",\"nav\",null,{\"children\":[\"$\",\"a\",null,{\"href\":\"https://github.com/rownok-HR-LS/component-gallery\",\"children\":\"GitHub\"}]}]]}]}],[\"$\",\"$L3\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L4\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":[[\"$\",\"main\",null,{\"className\":\"container\",\"children\":[\"$\",\"header\",null,{\"className\":\"hero\",\"children\":[[\"$\",\"h1\",null,{\"children\":\"Not found\"}],[\"$\",\"p\",null,{\"className\":\"lede\",\"children\":\"That component doesn't exist (yet).\"}],[\"$\",\"$L2\",null,{\"href\":\"/\",\"children\":\"← Back to the gallery\"}]]}]}],[]],\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}],[\"$\",\"footer\",null,{\"className\":\"site-footer\",\"children\":[\"$\",\"div\",null,{\"className\":\"container\",\"children\":[[\"$\",\"span\",null,{\"children\":[\"Built by \",\"rownok-HR-LS\",\" · LofiStack 90-day challenge\"]}],[\"$\",\"a\",null,{\"href\":\"https://github.com/rownok-HR-LS/component-gallery\",\"children\":\"Source on GitHub\"}]]}]}]]}]}]]}],{\"children\":[\"components\",[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"$L3\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L4\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]]}],{\"children\":[[\"slug\",\"password-strength-meter\",\"d\"],[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"$L3\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L4\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]]}],{\"children\":[\"__PAGE__\",[\"$\",\"$1\",\"c\",{\"children\":[\"$L5\",null,[\"$\",\"$L6\",null,{\"children\":[\"$L7\",[\"$\",\"$L8\",null,{\"promise\":\"$@9\"}]]}]]}],{},null,false]},null,false]},null,false]},null,false],[\"$\",\"$1\",\"h\",{\"children\":[null,[[\"$\",\"$La\",null,{\"children\":\"$Lb\"}],null],[\"$\",\"$Lc\",null,{\"children\":[\"$\",\"div\",null,{\"hidden\":true,\"children\":[\"$\",\"$d\",null,{\"fallback\":null,\"children\":\"$Le\"}]}]}]]}],false]],\"m\":\"$undefined\",\"G\":[\"$f\",[]],\"s\":false,\"S\":true}\n"])</script><script>self.__next_f.push([1,"b:[[\"$\",\"meta\",\"0\",{\"charSet\":\"utf-8\"}],[\"$\",\"meta\",\"1\",{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"}]]\n7:null\n"])</script><script>self.__next_f.push([1,"9:{\"metadata\":[[\"$\",\"title\",\"0\",{\"children\":\"Password Strength Meter · Component Gallery\"}],[\"$\",\"meta\",\"1\",{\"name\":\"description\",\"content\":\"Estimates how long a password would take to crack, spots common words and patterns, and gives one specific tip to make it stronger.\"}]],\"error\":null,\"digest\":\"$undefined\"}\n"])</script><script>self.__next_f.push([1,"e:\"$9:metadata\"\n"])</script><script>self.__next_f.push([1,"10:I[2325,[\"619\",\"static/chunks/619-ba102abea3e3d0e4.js\",\"449\",\"static/chunks/app/components/%5Bslug%5D/page-7b18c14fa5ee9ace.js\"],\"Demo\"]\n11:I[7333,[\"619\",\"static/chunks/619-ba102abea3e3d0e4.js\",\"449\",\"static/chunks/app/components/%5Bslug%5D/page-7b18c14fa5ee9ace.js\"],\"CopyButton\"]\n12:T1443,"])</script><script>self.__next_f.push([1,".card {\n  --surface: #fcfcfb;\n  --ink: #0b0b0b;\n  --ink-2: #52514e;\n  --muted: #898781;\n  --border: rgba(11, 11, 11, 0.1);\n  --track: #e1e0d9;\n  --field: #f4f3f0;\n  --critical: #d03b3b;\n  --serious: #ec835a;\n  --warning: #fab219;\n  --good: #0ca30c;\n  --tone: var(--track);\n\n  width: 100%;\n  max-width: 360px;\n  padding: 22px;\n  border: 1px solid var(--border);\n  border-radius: 20px;\n  background: var(--surface);\n  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 12px 32px -12px rgba(0, 0, 0, 0.18);\n  color: var(--ink);\n  font-family: system-ui, -apple-system, \"Segoe UI\", sans-serif;\n}\n\n@media (prefers-color-scheme: dark) {\n  .card {\n    --surface: #1a1a19;\n    --ink: #ffffff;\n    --ink-2: #c3c2b7;\n    --border: rgba(255, 255, 255, 0.1);\n    --track: #2c2c2a;\n    --field: #232321;\n    box-shadow: 0 12px 32px -12px rgba(0, 0, 0, 0.6);\n  }\n}\n\n.card[data-tone=\"critical\"] { --tone: var(--critical); }\n.card[data-tone=\"serious\"] { --tone: var(--serious); }\n.card[data-tone=\"warning\"] { --tone: var(--warning); }\n.card[data-tone=\"good\"] { --tone: var(--good); }\n\n.title { display: block; margin-bottom: 10px; font-size: 14px; font-weight: 600; }\n\n/* Input */\n.inputWrap { position: relative; }\n.input {\n  width: 100%;\n  height: 48px;\n  padding: 0 48px 0 14px;\n  border: 1px solid var(--border);\n  border-radius: 12px;\n  outline: none;\n  background: var(--field);\n  color: var(--ink);\n  font: inherit;\n  font-size: 16px;\n  letter-spacing: 0.02em;\n  transition: border-color 0.15s ease, box-shadow 0.15s ease;\n}\n.input::placeholder { color: var(--muted); letter-spacing: 0; }\n.input:focus { border-color: var(--ink-2); box-shadow: 0 0 0 3px color-mix(in srgb, var(--ink) 10%, transparent); }\n\n.eye {\n  position: absolute;\n  top: 50%;\n  right: 6px;\n  display: grid;\n  place-items: center;\n  width: 36px;\n  height: 36px;\n  border: 0;\n  border-radius: 8px;\n  background: none;\n  color: var(--ink-2);\n  cursor: pointer;\n  transform: translateY(-50%);\n}\n.eye:hover { background: color-mix(in srgb, var(--ink) 7%, transparent); }\n.eye:focus-visible { outline: 2px solid var(--ink-2); outline-offset: 1px; }\n.eye svg { fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }\n\n/* Meter */\n.meter { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; margin: 14px 0 10px; }\n.segment { height: 6px; border-radius: 99px; background: var(--track); transition: background 0.25s ease; }\n.segment[data-on=\"true\"] { background: var(--tone); }\n\n.verdict { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 12px; }\n.level { display: inline-flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 650; }\n.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--tone); }\n.time { color: var(--ink-2); font-size: 13px; font-variant-numeric: tabular-nums; }\n\n/* Attack scenario */\n.scenarios {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  gap: 2px;\n  margin-top: 14px;\n  padding: 3px;\n  border-radius: 10px;\n  background: var(--field);\n}\n.scenario {\n  padding: 6px 8px;\n  border: 0;\n  border-radius: 8px;\n  background: none;\n  color: var(--ink-2);\n  font: inherit;\n  font-size: 12px;\n  cursor: pointer;\n  transition: background 0.15s ease, color 0.15s ease;\n}\n.scenario[aria-checked=\"true\"] {\n  background: var(--surface);\n  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);\n  color: var(--ink);\n  font-weight: 600;\n}\n.scenario:focus-visible { outline: 2px solid var(--ink-2); outline-offset: 1px; }\n.note { margin: 6px 0 0; color: var(--muted); font-size: 11px; text-align: center; }\n\n/* Tip + checklist */\n.tip {\n  margin: 16px 0 12px;\n  padding: 10px 12px;\n  border-left: 3px solid var(--tone);\n  border-radius: 4px 10px 10px 4px;\n  background: var(--field);\n  font-size: 13px;\n  line-height: 1.45;\n  transition: border-color 0.25s ease;\n}\n\n.checklist { display: flex; flex-direction: column; gap: 7px; margin: 0; padding: 0; list-style: none; font-size: 13px; }\n.checklist li { display: flex; align-items: center; gap: 10px; color: var(--ink-2); }\n.checklist li[data-ok=\"true\"] { color: var(--ink); }\n.check {\n  display: grid;\n  flex: none;\n  place-items: center;\n  width: 18px;\n  height: 18px;\n  border: 1.5px solid var(--track);\n  border-radius: 50%;\n  font-size: 11px;\n  font-weight: 700;\n  transition: background 0.2s ease, border-color 0.2s ease;\n}\n.checklist li[data-ok=\"true\"] .check { border-color: var(--good); background: var(--good); color: #fff; }\n\n.srOnly {\n  position: absolute;\n  width: 1px;\n  height: 1px;\n  overflow: hidden;\n  clip: rect(0 0 0 0);\n  white-space: nowrap;\n}\n\n/* Footer */\n.footer { display: flex; flex-direction: column; align-items: center; gap: 8px; margin-top: 18px; }\n.generate {\n  width: 100%;\n  height: 40px;\n  border: 0;\n  border-radius: 10px;\n  background: var(--ink);\n  color: var(--surface);\n  font: inherit;\n  font-size: 14px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: transform 0.1s ease, opacity 0.15s ease;\n}\n.generate:hover { opacity: 0.88; }\n.generate:active { transform: scale(0.98); }\n.generate:focus-visible { outline: 2px solid var(--ink-2); outline-offset: 2px; }\n.privacy { color: var(--muted); font-size: 11px; }\n"])</script><script>self.__next_f.push([1,"5:[\"$\",\"main\",null,{\"className\":\"container\",\"children\":[[\"$\",\"$L2\",null,{\"href\":\"/\",\"className\":\"back\",\"children\":\"← All components\"}],[\"$\",\"header\",null,{\"className\":\"detail-head\",\"children\":[[\"$\",\"span\",null,{\"className\":\"tag\",\"children\":[\"Week \",2,\" · \",\"2026-09-30\"]}],[\"$\",\"h1\",null,{\"children\":\"Password Strength Meter\"}],[\"$\",\"p\",null,{\"children\":\"Estimates how long a password would take to crack, spots common words and patterns, and gives one specific tip to make it stronger.\"}]]}],[\"$\",\"section\",null,{\"className\":\"stage\",\"aria-label\":\"Live demo\",\"children\":[\"$\",\"$L10\",null,{\"slug\":\"password-strength-meter\"}]}],[\"$\",\"section\",null,{\"className\":\"source\",\"children\":[[\"$\",\"h2\",null,{\"children\":\"Source\"}],[[\"$\",\"div\",\"Demo.tsx\",{\"className\":\"file\",\"children\":[[\"$\",\"div\",null,{\"className\":\"file-head\",\"children\":[[\"$\",\"span\",null,{\"children\":\"Demo.tsx\"}],[\"$\",\"$L11\",null,{\"text\":\"import PasswordMeter from \\\"./PasswordMeter\\\";\\n\\nexport default function Demo() {\\n  return \u003cPasswordMeter /\u003e;\\n}\\n\"}]]}],[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"children\":\"import PasswordMeter from \\\"./PasswordMeter\\\";\\n\\nexport default function Demo() {\\n  return \u003cPasswordMeter /\u003e;\\n}\\n\"}]}]]}],[\"$\",\"div\",\"PasswordMeter.module.css\",{\"className\":\"file\",\"children\":[[\"$\",\"div\",null,{\"className\":\"file-head\",\"children\":[[\"$\",\"span\",null,{\"children\":\"PasswordMeter.module.css\"}],[\"$\",\"$L11\",null,{\"text\":\"$12\"}]]}],\"$L13\"]}],\"$L14\",\"$L15\"]]}],\"$L16\"]}]\n"])</script><script>self.__next_f.push([1,"17:T1443,"])</script><script>self.__next_f.push([1,".card {\n  --surface: #fcfcfb;\n  --ink: #0b0b0b;\n  --ink-2: #52514e;\n  --muted: #898781;\n  --border: rgba(11, 11, 11, 0.1);\n  --track: #e1e0d9;\n  --field: #f4f3f0;\n  --critical: #d03b3b;\n  --serious: #ec835a;\n  --warning: #fab219;\n  --good: #0ca30c;\n  --tone: var(--track);\n\n  width: 100%;\n  max-width: 360px;\n  padding: 22px;\n  border: 1px solid var(--border);\n  border-radius: 20px;\n  background: var(--surface);\n  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 12px 32px -12px rgba(0, 0, 0, 0.18);\n  color: var(--ink);\n  font-family: system-ui, -apple-system, \"Segoe UI\", sans-serif;\n}\n\n@media (prefers-color-scheme: dark) {\n  .card {\n    --surface: #1a1a19;\n    --ink: #ffffff;\n    --ink-2: #c3c2b7;\n    --border: rgba(255, 255, 255, 0.1);\n    --track: #2c2c2a;\n    --field: #232321;\n    box-shadow: 0 12px 32px -12px rgba(0, 0, 0, 0.6);\n  }\n}\n\n.card[data-tone=\"critical\"] { --tone: var(--critical); }\n.card[data-tone=\"serious\"] { --tone: var(--serious); }\n.card[data-tone=\"warning\"] { --tone: var(--warning); }\n.card[data-tone=\"good\"] { --tone: var(--good); }\n\n.title { display: block; margin-bottom: 10px; font-size: 14px; font-weight: 600; }\n\n/* Input */\n.inputWrap { position: relative; }\n.input {\n  width: 100%;\n  height: 48px;\n  padding: 0 48px 0 14px;\n  border: 1px solid var(--border);\n  border-radius: 12px;\n  outline: none;\n  background: var(--field);\n  color: var(--ink);\n  font: inherit;\n  font-size: 16px;\n  letter-spacing: 0.02em;\n  transition: border-color 0.15s ease, box-shadow 0.15s ease;\n}\n.input::placeholder { color: var(--muted); letter-spacing: 0; }\n.input:focus { border-color: var(--ink-2); box-shadow: 0 0 0 3px color-mix(in srgb, var(--ink) 10%, transparent); }\n\n.eye {\n  position: absolute;\n  top: 50%;\n  right: 6px;\n  display: grid;\n  place-items: center;\n  width: 36px;\n  height: 36px;\n  border: 0;\n  border-radius: 8px;\n  background: none;\n  color: var(--ink-2);\n  cursor: pointer;\n  transform: translateY(-50%);\n}\n.eye:hover { background: color-mix(in srgb, var(--ink) 7%, transparent); }\n.eye:focus-visible { outline: 2px solid var(--ink-2); outline-offset: 1px; }\n.eye svg { fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }\n\n/* Meter */\n.meter { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; margin: 14px 0 10px; }\n.segment { height: 6px; border-radius: 99px; background: var(--track); transition: background 0.25s ease; }\n.segment[data-on=\"true\"] { background: var(--tone); }\n\n.verdict { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 12px; }\n.level { display: inline-flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 650; }\n.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--tone); }\n.time { color: var(--ink-2); font-size: 13px; font-variant-numeric: tabular-nums; }\n\n/* Attack scenario */\n.scenarios {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  gap: 2px;\n  margin-top: 14px;\n  padding: 3px;\n  border-radius: 10px;\n  background: var(--field);\n}\n.scenario {\n  padding: 6px 8px;\n  border: 0;\n  border-radius: 8px;\n  background: none;\n  color: var(--ink-2);\n  font: inherit;\n  font-size: 12px;\n  cursor: pointer;\n  transition: background 0.15s ease, color 0.15s ease;\n}\n.scenario[aria-checked=\"true\"] {\n  background: var(--surface);\n  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);\n  color: var(--ink);\n  font-weight: 600;\n}\n.scenario:focus-visible { outline: 2px solid var(--ink-2); outline-offset: 1px; }\n.note { margin: 6px 0 0; color: var(--muted); font-size: 11px; text-align: center; }\n\n/* Tip + checklist */\n.tip {\n  margin: 16px 0 12px;\n  padding: 10px 12px;\n  border-left: 3px solid var(--tone);\n  border-radius: 4px 10px 10px 4px;\n  background: var(--field);\n  font-size: 13px;\n  line-height: 1.45;\n  transition: border-color 0.25s ease;\n}\n\n.checklist { display: flex; flex-direction: column; gap: 7px; margin: 0; padding: 0; list-style: none; font-size: 13px; }\n.checklist li { display: flex; align-items: center; gap: 10px; color: var(--ink-2); }\n.checklist li[data-ok=\"true\"] { color: var(--ink); }\n.check {\n  display: grid;\n  flex: none;\n  place-items: center;\n  width: 18px;\n  height: 18px;\n  border: 1.5px solid var(--track);\n  border-radius: 50%;\n  font-size: 11px;\n  font-weight: 700;\n  transition: background 0.2s ease, border-color 0.2s ease;\n}\n.checklist li[data-ok=\"true\"] .check { border-color: var(--good); background: var(--good); color: #fff; }\n\n.srOnly {\n  position: absolute;\n  width: 1px;\n  height: 1px;\n  overflow: hidden;\n  clip: rect(0 0 0 0);\n  white-space: nowrap;\n}\n\n/* Footer */\n.footer { display: flex; flex-direction: column; align-items: center; gap: 8px; margin-top: 18px; }\n.generate {\n  width: 100%;\n  height: 40px;\n  border: 0;\n  border-radius: 10px;\n  background: var(--ink);\n  color: var(--surface);\n  font: inherit;\n  font-size: 14px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: transform 0.1s ease, opacity 0.15s ease;\n}\n.generate:hover { opacity: 0.88; }\n.generate:active { transform: scale(0.98); }\n.generate:focus-visible { outline: 2px solid var(--ink-2); outline-offset: 2px; }\n.privacy { color: var(--muted); font-size: 11px; }\n"])</script><script>self.__next_f.push([1,"13:[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"children\":\"$17\"}]}]\n18:T1889,"])</script><script>self.__next_f.push([1,"\"use client\";\n\nimport { useId, useState } from \"react\";\nimport { crackSeconds, estimate, formatDuration, type Estimate, type Finding } from \"./strength\";\nimport styles from \"./PasswordMeter.module.css\";\n\nconst LEVELS = [\n  { label: \"Very weak\", tone: \"critical\" },\n  { label: \"Weak\", tone: \"serious\" },\n  { label: \"Fair\", tone: \"warning\" },\n  { label: \"Strong\", tone: \"good\" },\n  { label: \"Very strong\", tone: \"good\" },\n] as const;\n\nconst SCENARIOS = [\n  { key: \"offline\", label: \"Leaked database\", rate: 1e10, note: \"10 billion guesses per second on a GPU rig\" },\n  { key: \"online\", label: \"Login page\", rate: 10, note: \"10 guesses per second, rate-limited\" },\n] as const;\n\nconst FINDING_TEXT: Record\u003cFinding[\"kind\"], (text: string) =\u003e string\u003e = {\n  common: (t) =\u003e `Avoid “${t}”: it's on every attacker's list`,\n  sequence: (t) =\u003e `Avoid sequences like “${t}”`,\n  keyboard: (t) =\u003e `Avoid keyboard patterns like “${t}”`,\n  repeat: (t) =\u003e `Avoid repeats like “${t}”`,\n  year: (t) =\u003e `“${t}” looks like a year, which is easy to guess`,\n};\n\nconst GENERATOR_CHARS = \"ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz23456789!@#$%^\u0026*-_+=?\";\n\nfunction generatePassword(length = 16) {\n  const random = new Uint32Array(length);\n  crypto.getRandomValues(random);\n  return Array.from(random, (n) =\u003e GENERATOR_CHARS[n % GENERATOR_CHARS.length]).join(\"\");\n}\n\nfunction topTip(password: string, result: Estimate) {\n  if (!password) return \"Try a passphrase: four random words are easy to remember and hard to crack.\";\n  const common = result.findings.find((f) =\u003e f.kind === \"common\");\n  if (common) return `Drop “${common.text}”. Adding numbers to a common word barely helps.`;\n  if (password.length \u003c 12) {\n    const n = 12 - password.length;\n    return `Add ${n} more character${n === 1 ? \"\" : \"s\"}. Length adds the most strength.`;\n  }\n  if (result.findings.length \u003e 0) return `${FINDING_TEXT[result.findings[0].kind](result.findings[0].text)}.`;\n  if (result.score \u003e= 3) return \"Nice. Save it in a password manager so you don't have to remember it.\";\n  return \"Make it longer: every extra character multiplies the time to crack it.\";\n}\n\nexport default function PasswordMeter() {\n  const [password, setPassword] = useState(\"\");\n  const [visible, setVisible] = useState(false);\n  const [scenario, setScenario] = useState\u003c(typeof SCENARIOS)[number][\"key\"]\u003e(\"offline\");\n  const inputId = useId();\n\n  const result = estimate(password);\n  const empty = password.length === 0;\n  const level = LEVELS[result.score];\n  const rate = SCENARIOS.find((s) =\u003e s.key === scenario)!;\n  const time = formatDuration(crackSeconds(result.bits, rate.rate));\n  const timeLabel =\n    time === \"instantly\" ? \"Cracked instantly\" : time.startsWith(\"longer\") ? `Would take ${time}` : `Cracked in ~${time}`;\n  const filled = empty ? 0 : Math.max(1, result.score);\n  const pattern = result.findings[0];\n\n  const checklist = [\n    { ok: result.checks.length, text: \"At least 12 characters\" },\n    { ok: result.checks.mixedCase, text: \"Upper and lowercase letters\" },\n    { ok: result.checks.digit, text: \"A number\" },\n    { ok: result.checks.symbol, text: \"A symbol, like ! # or $\" },\n    {\n      ok: !empty \u0026\u0026 !pattern,\n      text: pattern ? FINDING_TEXT[pattern.kind](pattern.text) : \"No common words or patterns\",\n    },\n  ];\n\n  return (\n    \u003cdiv className={styles.card} data-tone={empty ? \"none\" : level.tone}\u003e\n      \u003clabel htmlFor={inputId} className={styles.title}\u003e\n        Password strength\n      \u003c/label\u003e\n\n      \u003cdiv className={styles.inputWrap}\u003e\n        \u003cinput\n          id={inputId}\n          className={styles.input}\n          type={visible ? \"text\" : \"password\"}\n          value={password}\n          placeholder=\"Type a password\"\n          autoComplete=\"new-password\"\n          spellCheck={false}\n          autoCapitalize=\"off\"\n          onChange={(e) =\u003e setPassword(e.target.value)}\n        /\u003e\n        \u003cbutton\n          type=\"button\"\n          className={styles.eye}\n          aria-label={visible ? \"Hide password\" : \"Show password\"}\n          aria-pressed={visible}\n          onClick={() =\u003e setVisible((v) =\u003e !v)}\n        \u003e\n          \u003csvg viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" aria-hidden=\"true\"\u003e\n            \u003cpath d=\"M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z\" /\u003e\n            \u003ccircle cx=\"12\" cy=\"12\" r=\"3\" /\u003e\n            {!visible \u0026\u0026 \u003cpath d=\"M4 20 20 4\" /\u003e}\n          \u003c/svg\u003e\n        \u003c/button\u003e\n      \u003c/div\u003e\n\n      \u003cdiv className={styles.meter} aria-hidden=\"true\"\u003e\n        {[1, 2, 3, 4].map((segment) =\u003e (\n          \u003cspan key={segment} className={styles.segment} data-on={segment \u003c= filled} /\u003e\n        ))}\n      \u003c/div\u003e\n\n      \u003cdiv className={styles.verdict} aria-live=\"polite\"\u003e\n        \u003cspan className={styles.level}\u003e\n          {!empty \u0026\u0026 \u003cspan className={styles.dot} /\u003e}\n          {empty ? \"Enter a password\" : level.label}\n        \u003c/span\u003e\n        \u003cspan className={styles.time}\u003e{empty ? \"\" : timeLabel}\u003c/span\u003e\n      \u003c/div\u003e\n\n      \u003cdiv className={styles.scenarios} role=\"radiogroup\" aria-label=\"Attack scenario\"\u003e\n        {SCENARIOS.map((s) =\u003e (\n          \u003cbutton\n            key={s.key}\n            type=\"button\"\n            role=\"radio\"\n            aria-checked={s.key === scenario}\n            className={styles.scenario}\n            onClick={() =\u003e setScenario(s.key)}\n          \u003e\n            {s.label}\n          \u003c/button\u003e\n        ))}\n      \u003c/div\u003e\n      \u003cp className={styles.note}\u003e{rate.note}\u003c/p\u003e\n\n      \u003cp className={styles.tip}\u003e{topTip(password, result)}\u003c/p\u003e\n\n      \u003cul className={styles.checklist}\u003e\n        {checklist.map((item) =\u003e (\n          \u003cli key={item.text} data-ok={item.ok}\u003e\n            \u003cspan className={styles.check} aria-hidden=\"true\"\u003e\n              {item.ok ? \"✓\" : \"\"}\n            \u003c/span\u003e\n            \u003cspan className={styles.srOnly}\u003e{item.ok ? \"Done: \" : \"Missing: \"}\u003c/span\u003e\n            {item.text}\n          \u003c/li\u003e\n        ))}\n      \u003c/ul\u003e\n\n      \u003cdiv className={styles.footer}\u003e\n        \u003cbutton\n          type=\"button\"\n          className={styles.generate}\n          onClick={() =\u003e {\n            setPassword(generatePassword());\n            setVisible(true);\n          }}\n        \u003e\n          Generate strong password\n        \u003c/button\u003e\n        \u003cspan className={styles.privacy}\u003eChecked on your device. Nothing is sent.\u003c/span\u003e\n      \u003c/div\u003e\n    \u003c/div\u003e\n  );\n}\n"])</script><script>self.__next_f.push([1,"14:[\"$\",\"div\",\"PasswordMeter.tsx\",{\"className\":\"file\",\"children\":[[\"$\",\"div\",null,{\"className\":\"file-head\",\"children\":[[\"$\",\"span\",null,{\"children\":\"PasswordMeter.tsx\"}],[\"$\",\"$L11\",null,{\"text\":\"$18\"}]]}],\"$L19\"]}]\n1a:T149c,"])</script><script>self.__next_f.push([1,"// A small, dependency-free strength estimator. It starts from brute-force entropy\n// (length × log2 of the character pool) and discounts characters that sit inside\n// predictable patterns: common passwords, sequences, keyboard rows, repeats and years.\n\nexport type Finding = { kind: \"common\" | \"sequence\" | \"keyboard\" | \"repeat\" | \"year\"; text: string };\n\nexport type Estimate = {\n  bits: number;\n  /** 0 very weak … 4 very strong */\n  score: 0 | 1 | 2 | 3 | 4;\n  findings: Finding[];\n  checks: { length: boolean; mixedCase: boolean; digit: boolean; symbol: boolean };\n};\n\nconst COMMON = [\n  \"password\", \"123456\", \"12345678\", \"qwerty\", \"abc123\", \"111111\", \"letmein\", \"welcome\", \"monkey\",\n  \"dragon\", \"iloveyou\", \"admin\", \"login\", \"master\", \"sunshine\", \"princess\", \"football\", \"baseball\",\n  \"shadow\", \"superman\", \"trustno1\", \"hello\", \"freedom\", \"whatever\", \"starwars\", \"michael\", \"charlie\",\n  \"jessica\", \"qazwsx\", \"secret\", \"access\", \"computer\", \"internet\", \"love\", \"bangladesh\", \"dhaka\",\n];\nconst KEYBOARD_ROWS = [\"qwertyuiop\", \"asdfghjkl\", \"zxcvbnm\"];\nconst LEET: Record\u003cstring, string\u003e = { \"0\": \"o\", \"1\": \"i\", \"3\": \"e\", \"4\": \"a\", \"5\": \"s\", \"7\": \"t\", \"@\": \"a\", \"$\": \"s\", \"!\": \"i\" };\nconst SYMBOL = /[!-/:-@[-`{-~]/;\n\nconst isAlnum = (c: string) =\u003e /[a-z0-9]/.test(c);\n\n/** Half-open [start, end) ranges where `step` holds between neighbours for at least `min` chars. */\nfunction runs(s: string, step: (a: string, b: string) =\u003e boolean, min: number) {\n  const found: [number, number][] = [];\n  let start = 0;\n  for (let i = 1; i \u003c= s.length; i++) {\n    if (i \u003c s.length \u0026\u0026 step(s[i - 1], s[i])) continue;\n    if (i - start \u003e= min) found.push([start, i]);\n    start = i;\n  }\n  return found;\n}\n\nfunction keyboardRuns(s: string) {\n  const found: [number, number][] = [];\n  for (let i = 0; i \u003c s.length; i++) {\n    for (let j = s.length; j \u003e= i + 4; j--) {\n      const chunk = s.slice(i, j);\n      const reversed = [...chunk].reverse().join(\"\");\n      if (KEYBOARD_ROWS.some((row) =\u003e row.includes(chunk) || row.includes(reversed))) {\n        found.push([i, j]);\n        i = j - 1;\n        break;\n      }\n    }\n  }\n  return found;\n}\n\nexport function estimate(password: string): Estimate {\n  const checks = {\n    length: password.length \u003e= 12,\n    mixedCase: /[a-z]/.test(password) \u0026\u0026 /[A-Z]/.test(password),\n    digit: /\\d/.test(password),\n    symbol: SYMBOL.test(password) || /\\s/.test(password),\n  };\n\n  let pool = 0;\n  if (/[a-z]/.test(password)) pool += 26;\n  if (/[A-Z]/.test(password)) pool += 26;\n  if (/\\d/.test(password)) pool += 10;\n  if (SYMBOL.test(password)) pool += 33;\n  if (/\\s/.test(password)) pool += 1;\n  if (/[^\\x00-\\x7F]/.test(password)) pool += 100;\n\n  const full = pool \u003e 1 ? Math.log2(pool) : 0;\n  const cost = Array\u003cnumber\u003e(password.length).fill(full);\n  const findings: Finding[] = [];\n\n  const lower = password.toLowerCase();\n  const plain = [...lower].map((c) =\u003e LEET[c] ?? c).join(\"\");\n\n  function mark(kind: Finding[\"kind\"], [start, end]: [number, number], perChar: (offset: number) =\u003e number) {\n    for (let i = start; i \u003c end; i++) cost[i] = Math.min(cost[i], perChar(i - start));\n    if (!findings.some((f) =\u003e f.kind === kind)) findings.push({ kind, text: password.slice(start, end) });\n  }\n\n  for (const word of COMMON) {\n    for (const s of [lower, plain]) {\n      const at = s.indexOf(word);\n      // The whole word is worth about as much as picking it from the list.\n      if (at \u003e= 0) mark(\"common\", [at, at + word.length], () =\u003e 6 / word.length);\n    }\n  }\n  for (const m of lower.matchAll(/(?:19|20)\\d\\d/g)) mark(\"year\", [m.index, m.index + 4], () =\u003e 7.6 / 4);\n\n  const firstFull = (offset: number) =\u003e (offset === 0 ? full : 1);\n  for (const r of runs(lower, (a, b) =\u003e a === b, 3)) mark(\"repeat\", r, firstFull);\n  for (const dir of [1, -1]) {\n    const step = (a: string, b: string) =\u003e isAlnum(a) \u0026\u0026 isAlnum(b) \u0026\u0026 b.charCodeAt(0) - a.charCodeAt(0) === dir;\n    for (const r of runs(lower, step, 3)) mark(\"sequence\", r, firstFull);\n  }\n  for (const r of keyboardRuns(lower)) mark(\"keyboard\", r, firstFull);\n\n  const bits = cost.reduce((sum, c) =\u003e sum + c, 0);\n  const score = bits \u003c 25 ? 0 : bits \u003c 40 ? 1 : bits \u003c 60 ? 2 : bits \u003c 80 ? 3 : 4;\n\n  return { bits, score, findings, checks };\n}\n\n/** Average time to guess: half the search space at the given guess rate. */\nexport function crackSeconds(bits: number, guessesPerSecond: number) {\n  return 2 ** bits / 2 / guessesPerSecond;\n}\n\nconst YEAR = 31_557_600;\nconst STEPS: [number, string, string][] = [\n  [YEAR * 100, \"century\", \"centuries\"],\n  [YEAR, \"year\", \"years\"],\n  [YEAR / 12, \"month\", \"months\"],\n  [86_400, \"day\", \"days\"],\n  [3_600, \"hour\", \"hours\"],\n  [60, \"minute\", \"minutes\"],\n  [1, \"second\", \"seconds\"],\n];\nconst compact = new Intl.NumberFormat(\"en\", { notation: \"compact\", compactDisplay: \"long\", maximumFractionDigits: 1 });\n\nexport function formatDuration(seconds: number) {\n  if (seconds \u003c 1) return \"instantly\";\n  const years = seconds / YEAR;\n  if (years \u003e 13.8e9) return \"longer than the universe has existed\";\n  if (years \u003e= 10_000) return `${compact.format(years)} years`;\n  for (const [size, one, many] of STEPS) {\n    if (seconds \u003e= size) {\n      const n = Math.round(seconds / size);\n      return `${n} ${n === 1 ? one : many}`;\n    }\n  }\n  return \"instantly\";\n}\n"])</script><script>self.__next_f.push([1,"15:[\"$\",\"div\",\"strength.ts\",{\"className\":\"file\",\"children\":[[\"$\",\"div\",null,{\"className\":\"file-head\",\"children\":[[\"$\",\"span\",null,{\"children\":\"strength.ts\"}],[\"$\",\"$L11\",null,{\"text\":\"$1a\"}]]}],\"$L1b\"]}]\n16:[\"$\",\"nav\",null,{\"className\":\"pager\",\"children\":[[\"$\",\"$L2\",null,{\"href\":\"/components/unit-converter-dial\",\"children\":[\"← \",\"Unit Converter Dial\"]}],[\"$\",\"$L2\",null,{\"href\":\"/components/customer-lifetime-value\",\"children\":[\"Customer Lifetime Value Calculator\",\" →\"]}]]}]\n"])</script><script>self.__next_f.push([1,"1c:T1889,"])</script><script>self.__next_f.push([1,"\"use client\";\n\nimport { useId, useState } from \"react\";\nimport { crackSeconds, estimate, formatDuration, type Estimate, type Finding } from \"./strength\";\nimport styles from \"./PasswordMeter.module.css\";\n\nconst LEVELS = [\n  { label: \"Very weak\", tone: \"critical\" },\n  { label: \"Weak\", tone: \"serious\" },\n  { label: \"Fair\", tone: \"warning\" },\n  { label: \"Strong\", tone: \"good\" },\n  { label: \"Very strong\", tone: \"good\" },\n] as const;\n\nconst SCENARIOS = [\n  { key: \"offline\", label: \"Leaked database\", rate: 1e10, note: \"10 billion guesses per second on a GPU rig\" },\n  { key: \"online\", label: \"Login page\", rate: 10, note: \"10 guesses per second, rate-limited\" },\n] as const;\n\nconst FINDING_TEXT: Record\u003cFinding[\"kind\"], (text: string) =\u003e string\u003e = {\n  common: (t) =\u003e `Avoid “${t}”: it's on every attacker's list`,\n  sequence: (t) =\u003e `Avoid sequences like “${t}”`,\n  keyboard: (t) =\u003e `Avoid keyboard patterns like “${t}”`,\n  repeat: (t) =\u003e `Avoid repeats like “${t}”`,\n  year: (t) =\u003e `“${t}” looks like a year, which is easy to guess`,\n};\n\nconst GENERATOR_CHARS = \"ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz23456789!@#$%^\u0026*-_+=?\";\n\nfunction generatePassword(length = 16) {\n  const random = new Uint32Array(length);\n  crypto.getRandomValues(random);\n  return Array.from(random, (n) =\u003e GENERATOR_CHARS[n % GENERATOR_CHARS.length]).join(\"\");\n}\n\nfunction topTip(password: string, result: Estimate) {\n  if (!password) return \"Try a passphrase: four random words are easy to remember and hard to crack.\";\n  const common = result.findings.find((f) =\u003e f.kind === \"common\");\n  if (common) return `Drop “${common.text}”. Adding numbers to a common word barely helps.`;\n  if (password.length \u003c 12) {\n    const n = 12 - password.length;\n    return `Add ${n} more character${n === 1 ? \"\" : \"s\"}. Length adds the most strength.`;\n  }\n  if (result.findings.length \u003e 0) return `${FINDING_TEXT[result.findings[0].kind](result.findings[0].text)}.`;\n  if (result.score \u003e= 3) return \"Nice. Save it in a password manager so you don't have to remember it.\";\n  return \"Make it longer: every extra character multiplies the time to crack it.\";\n}\n\nexport default function PasswordMeter() {\n  const [password, setPassword] = useState(\"\");\n  const [visible, setVisible] = useState(false);\n  const [scenario, setScenario] = useState\u003c(typeof SCENARIOS)[number][\"key\"]\u003e(\"offline\");\n  const inputId = useId();\n\n  const result = estimate(password);\n  const empty = password.length === 0;\n  const level = LEVELS[result.score];\n  const rate = SCENARIOS.find((s) =\u003e s.key === scenario)!;\n  const time = formatDuration(crackSeconds(result.bits, rate.rate));\n  const timeLabel =\n    time === \"instantly\" ? \"Cracked instantly\" : time.startsWith(\"longer\") ? `Would take ${time}` : `Cracked in ~${time}`;\n  const filled = empty ? 0 : Math.max(1, result.score);\n  const pattern = result.findings[0];\n\n  const checklist = [\n    { ok: result.checks.length, text: \"At least 12 characters\" },\n    { ok: result.checks.mixedCase, text: \"Upper and lowercase letters\" },\n    { ok: result.checks.digit, text: \"A number\" },\n    { ok: result.checks.symbol, text: \"A symbol, like ! # or $\" },\n    {\n      ok: !empty \u0026\u0026 !pattern,\n      text: pattern ? FINDING_TEXT[pattern.kind](pattern.text) : \"No common words or patterns\",\n    },\n  ];\n\n  return (\n    \u003cdiv className={styles.card} data-tone={empty ? \"none\" : level.tone}\u003e\n      \u003clabel htmlFor={inputId} className={styles.title}\u003e\n        Password strength\n      \u003c/label\u003e\n\n      \u003cdiv className={styles.inputWrap}\u003e\n        \u003cinput\n          id={inputId}\n          className={styles.input}\n          type={visible ? \"text\" : \"password\"}\n          value={password}\n          placeholder=\"Type a password\"\n          autoComplete=\"new-password\"\n          spellCheck={false}\n          autoCapitalize=\"off\"\n          onChange={(e) =\u003e setPassword(e.target.value)}\n        /\u003e\n        \u003cbutton\n          type=\"button\"\n          className={styles.eye}\n          aria-label={visible ? \"Hide password\" : \"Show password\"}\n          aria-pressed={visible}\n          onClick={() =\u003e setVisible((v) =\u003e !v)}\n        \u003e\n          \u003csvg viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" aria-hidden=\"true\"\u003e\n            \u003cpath d=\"M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z\" /\u003e\n            \u003ccircle cx=\"12\" cy=\"12\" r=\"3\" /\u003e\n            {!visible \u0026\u0026 \u003cpath d=\"M4 20 20 4\" /\u003e}\n          \u003c/svg\u003e\n        \u003c/button\u003e\n      \u003c/div\u003e\n\n      \u003cdiv className={styles.meter} aria-hidden=\"true\"\u003e\n        {[1, 2, 3, 4].map((segment) =\u003e (\n          \u003cspan key={segment} className={styles.segment} data-on={segment \u003c= filled} /\u003e\n        ))}\n      \u003c/div\u003e\n\n      \u003cdiv className={styles.verdict} aria-live=\"polite\"\u003e\n        \u003cspan className={styles.level}\u003e\n          {!empty \u0026\u0026 \u003cspan className={styles.dot} /\u003e}\n          {empty ? \"Enter a password\" : level.label}\n        \u003c/span\u003e\n        \u003cspan className={styles.time}\u003e{empty ? \"\" : timeLabel}\u003c/span\u003e\n      \u003c/div\u003e\n\n      \u003cdiv className={styles.scenarios} role=\"radiogroup\" aria-label=\"Attack scenario\"\u003e\n        {SCENARIOS.map((s) =\u003e (\n          \u003cbutton\n            key={s.key}\n            type=\"button\"\n            role=\"radio\"\n            aria-checked={s.key === scenario}\n            className={styles.scenario}\n            onClick={() =\u003e setScenario(s.key)}\n          \u003e\n            {s.label}\n          \u003c/button\u003e\n        ))}\n      \u003c/div\u003e\n      \u003cp className={styles.note}\u003e{rate.note}\u003c/p\u003e\n\n      \u003cp className={styles.tip}\u003e{topTip(password, result)}\u003c/p\u003e\n\n      \u003cul className={styles.checklist}\u003e\n        {checklist.map((item) =\u003e (\n          \u003cli key={item.text} data-ok={item.ok}\u003e\n            \u003cspan className={styles.check} aria-hidden=\"true\"\u003e\n              {item.ok ? \"✓\" : \"\"}\n            \u003c/span\u003e\n            \u003cspan className={styles.srOnly}\u003e{item.ok ? \"Done: \" : \"Missing: \"}\u003c/span\u003e\n            {item.text}\n          \u003c/li\u003e\n        ))}\n      \u003c/ul\u003e\n\n      \u003cdiv className={styles.footer}\u003e\n        \u003cbutton\n          type=\"button\"\n          className={styles.generate}\n          onClick={() =\u003e {\n            setPassword(generatePassword());\n            setVisible(true);\n          }}\n        \u003e\n          Generate strong password\n        \u003c/button\u003e\n        \u003cspan className={styles.privacy}\u003eChecked on your device. Nothing is sent.\u003c/span\u003e\n      \u003c/div\u003e\n    \u003c/div\u003e\n  );\n}\n"])</script><script>self.__next_f.push([1,"19:[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"children\":\"$1c\"}]}]\n1d:T149c,"])</script><script>self.__next_f.push([1,"// A small, dependency-free strength estimator. It starts from brute-force entropy\n// (length × log2 of the character pool) and discounts characters that sit inside\n// predictable patterns: common passwords, sequences, keyboard rows, repeats and years.\n\nexport type Finding = { kind: \"common\" | \"sequence\" | \"keyboard\" | \"repeat\" | \"year\"; text: string };\n\nexport type Estimate = {\n  bits: number;\n  /** 0 very weak … 4 very strong */\n  score: 0 | 1 | 2 | 3 | 4;\n  findings: Finding[];\n  checks: { length: boolean; mixedCase: boolean; digit: boolean; symbol: boolean };\n};\n\nconst COMMON = [\n  \"password\", \"123456\", \"12345678\", \"qwerty\", \"abc123\", \"111111\", \"letmein\", \"welcome\", \"monkey\",\n  \"dragon\", \"iloveyou\", \"admin\", \"login\", \"master\", \"sunshine\", \"princess\", \"football\", \"baseball\",\n  \"shadow\", \"superman\", \"trustno1\", \"hello\", \"freedom\", \"whatever\", \"starwars\", \"michael\", \"charlie\",\n  \"jessica\", \"qazwsx\", \"secret\", \"access\", \"computer\", \"internet\", \"love\", \"bangladesh\", \"dhaka\",\n];\nconst KEYBOARD_ROWS = [\"qwertyuiop\", \"asdfghjkl\", \"zxcvbnm\"];\nconst LEET: Record\u003cstring, string\u003e = { \"0\": \"o\", \"1\": \"i\", \"3\": \"e\", \"4\": \"a\", \"5\": \"s\", \"7\": \"t\", \"@\": \"a\", \"$\": \"s\", \"!\": \"i\" };\nconst SYMBOL = /[!-/:-@[-`{-~]/;\n\nconst isAlnum = (c: string) =\u003e /[a-z0-9]/.test(c);\n\n/** Half-open [start, end) ranges where `step` holds between neighbours for at least `min` chars. */\nfunction runs(s: string, step: (a: string, b: string) =\u003e boolean, min: number) {\n  const found: [number, number][] = [];\n  let start = 0;\n  for (let i = 1; i \u003c= s.length; i++) {\n    if (i \u003c s.length \u0026\u0026 step(s[i - 1], s[i])) continue;\n    if (i - start \u003e= min) found.push([start, i]);\n    start = i;\n  }\n  return found;\n}\n\nfunction keyboardRuns(s: string) {\n  const found: [number, number][] = [];\n  for (let i = 0; i \u003c s.length; i++) {\n    for (let j = s.length; j \u003e= i + 4; j--) {\n      const chunk = s.slice(i, j);\n      const reversed = [...chunk].reverse().join(\"\");\n      if (KEYBOARD_ROWS.some((row) =\u003e row.includes(chunk) || row.includes(reversed))) {\n        found.push([i, j]);\n        i = j - 1;\n        break;\n      }\n    }\n  }\n  return found;\n}\n\nexport function estimate(password: string): Estimate {\n  const checks = {\n    length: password.length \u003e= 12,\n    mixedCase: /[a-z]/.test(password) \u0026\u0026 /[A-Z]/.test(password),\n    digit: /\\d/.test(password),\n    symbol: SYMBOL.test(password) || /\\s/.test(password),\n  };\n\n  let pool = 0;\n  if (/[a-z]/.test(password)) pool += 26;\n  if (/[A-Z]/.test(password)) pool += 26;\n  if (/\\d/.test(password)) pool += 10;\n  if (SYMBOL.test(password)) pool += 33;\n  if (/\\s/.test(password)) pool += 1;\n  if (/[^\\x00-\\x7F]/.test(password)) pool += 100;\n\n  const full = pool \u003e 1 ? Math.log2(pool) : 0;\n  const cost = Array\u003cnumber\u003e(password.length).fill(full);\n  const findings: Finding[] = [];\n\n  const lower = password.toLowerCase();\n  const plain = [...lower].map((c) =\u003e LEET[c] ?? c).join(\"\");\n\n  function mark(kind: Finding[\"kind\"], [start, end]: [number, number], perChar: (offset: number) =\u003e number) {\n    for (let i = start; i \u003c end; i++) cost[i] = Math.min(cost[i], perChar(i - start));\n    if (!findings.some((f) =\u003e f.kind === kind)) findings.push({ kind, text: password.slice(start, end) });\n  }\n\n  for (const word of COMMON) {\n    for (const s of [lower, plain]) {\n      const at = s.indexOf(word);\n      // The whole word is worth about as much as picking it from the list.\n      if (at \u003e= 0) mark(\"common\", [at, at + word.length], () =\u003e 6 / word.length);\n    }\n  }\n  for (const m of lower.matchAll(/(?:19|20)\\d\\d/g)) mark(\"year\", [m.index, m.index + 4], () =\u003e 7.6 / 4);\n\n  const firstFull = (offset: number) =\u003e (offset === 0 ? full : 1);\n  for (const r of runs(lower, (a, b) =\u003e a === b, 3)) mark(\"repeat\", r, firstFull);\n  for (const dir of [1, -1]) {\n    const step = (a: string, b: string) =\u003e isAlnum(a) \u0026\u0026 isAlnum(b) \u0026\u0026 b.charCodeAt(0) - a.charCodeAt(0) === dir;\n    for (const r of runs(lower, step, 3)) mark(\"sequence\", r, firstFull);\n  }\n  for (const r of keyboardRuns(lower)) mark(\"keyboard\", r, firstFull);\n\n  const bits = cost.reduce((sum, c) =\u003e sum + c, 0);\n  const score = bits \u003c 25 ? 0 : bits \u003c 40 ? 1 : bits \u003c 60 ? 2 : bits \u003c 80 ? 3 : 4;\n\n  return { bits, score, findings, checks };\n}\n\n/** Average time to guess: half the search space at the given guess rate. */\nexport function crackSeconds(bits: number, guessesPerSecond: number) {\n  return 2 ** bits / 2 / guessesPerSecond;\n}\n\nconst YEAR = 31_557_600;\nconst STEPS: [number, string, string][] = [\n  [YEAR * 100, \"century\", \"centuries\"],\n  [YEAR, \"year\", \"years\"],\n  [YEAR / 12, \"month\", \"months\"],\n  [86_400, \"day\", \"days\"],\n  [3_600, \"hour\", \"hours\"],\n  [60, \"minute\", \"minutes\"],\n  [1, \"second\", \"seconds\"],\n];\nconst compact = new Intl.NumberFormat(\"en\", { notation: \"compact\", compactDisplay: \"long\", maximumFractionDigits: 1 });\n\nexport function formatDuration(seconds: number) {\n  if (seconds \u003c 1) return \"instantly\";\n  const years = seconds / YEAR;\n  if (years \u003e 13.8e9) return \"longer than the universe has existed\";\n  if (years \u003e= 10_000) return `${compact.format(years)} years`;\n  for (const [size, one, many] of STEPS) {\n    if (seconds \u003e= size) {\n      const n = Math.round(seconds / size);\n      return `${n} ${n === 1 ? one : many}`;\n    }\n  }\n  return \"instantly\";\n}\n"])</script><script>self.__next_f.push([1,"1b:[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"children\":\"$1d\"}]}]\n"])</script></body></html>

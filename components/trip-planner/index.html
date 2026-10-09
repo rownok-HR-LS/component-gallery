@@ -1,0 +1,1286 @@
+<!DOCTYPE html><!--6jA2vIGrO3aOlnYlKgPnQ--><html lang="en"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="/component-gallery/_next/static/css/68cce7808a08b910.css" data-precedence="next"/><link href="/component-gallery/_next/static/css/ba58da3565229339.css" rel="stylesheet" as="style" data-precedence="dynamic"/><link rel="preload" as="script" fetchPriority="low" href="/component-gallery/_next/static/chunks/webpack-1b912f870780f4ba.js"/><script src="/component-gallery/_next/static/chunks/4bd1b696-c023c6e3521b1417.js" async=""></script><script src="/component-gallery/_next/static/chunks/255-8e0af360b0021454.js" async=""></script><script src="/component-gallery/_next/static/chunks/main-app-97d5b91ae5ddb9c2.js" async=""></script><script src="/component-gallery/_next/static/chunks/619-ba102abea3e3d0e4.js" async=""></script><script src="/component-gallery/_next/static/chunks/app/components/%5Bslug%5D/page-7b18c14fa5ee9ace.js" async=""></script><link rel="preload" href="/component-gallery/_next/static/chunks/948.0798d2fc0a0716f6.js" as="script" fetchPriority="low"/><title>Trip Planner with Live Map · Component Gallery</title><meta name="description" content="Plan a multi-day trip on a real map: search places, organise stops by day, see driving routes with times and distances, split the budget, pack, and share it with a link."/><script src="/component-gallery/_next/static/chunks/polyfills-42372ed130431b0a.js" noModule=""></script></head><body><div hidden=""><!--$--><!--/$--></div><header class="site-header"><div class="container"><a class="brand" href="/component-gallery/">Component Gallery</a><nav><a href="https://github.com/rownok-HR-LS/component-gallery">GitHub</a></nav></div></header><main class="container"><a class="back" href="/component-gallery/">← All components</a><header class="detail-head"><span class="tag">Week <!-- -->7<!-- --> · <!-- -->2026-10-09</span><h1>Trip Planner with Live Map</h1><p>Plan a multi-day trip on a real map: search places, organise stops by day, see driving routes with times and distances, split the budget, pack, and share it with a link.</p></header><section class="stage" aria-label="Live demo"><div class="TripPlanner_card__aEfUl"><div class="TripPlanner_loading__mPs3k">Loading your trip…</div></div></section><section class="source"><h2>Source</h2><div class="file"><div class="file-head"><span>Demo.tsx</span><button type="button" class="copy">Copy</button></div><pre><code>import TripPlanner from &quot;./TripPlanner&quot;;
+
+export default function Demo() {
+  return &lt;TripPlanner /&gt;;
+}
+</code></pre></div><div class="file"><div class="file-head"><span>TripPlanner.module.css</span><button type="button" class="copy">Copy</button></div><pre><code>.card {
+  --surface: #fcfcfb;
+  --ink: #0b0b0b;
+  --ink-2: #52514e;
+  --muted: #898781;
+  --border: rgba(11, 11, 11, 0.1);
+  --field: #f4f3f0;
+  --accent: #2a78d6;
+  --danger: #d92d20;
+
+  position: relative;
+  width: 100%;
+  max-width: 1150px;
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: var(--surface);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 12px 32px -12px rgba(0, 0, 0, 0.18);
+  color: var(--ink);
+  font-family: system-ui, -apple-system, &quot;Segoe UI&quot;, sans-serif;
+  container-type: inline-size;
+}
+
+@media (prefers-color-scheme: dark) {
+  .card {
+    --surface: #18181b;
+    --ink: #ffffff;
+    --ink-2: #c3c2b7;
+    --border: rgba(255, 255, 255, 0.1);
+    --field: #232327;
+    --accent: #6da7ec;
+    --danger: #f97066;
+    box-shadow: 0 12px 32px -12px rgba(0, 0, 0, 0.6);
+  }
+  /* Dark map tiles without needing a separate dark tile server. */
+  .map :global(.leaflet-tile-pane) { filter: invert(1) hue-rotate(180deg) brightness(0.92) contrast(0.88) saturate(0.6); }
+  .map { background: #1f2023; }
+}
+
+.loading { padding: 80px 0; color: var(--muted); text-align: center; }
+
+/* Header */
+.head { margin-bottom: 14px; }
+.titleRow { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; }
+.tripName {
+  flex: 1;
+  min-width: 200px;
+  padding: 4px 8px;
+  margin-left: -8px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  outline: none;
+  background: none;
+  color: var(--ink);
+  font: inherit;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.tripName:hover { border-color: var(--border); }
+.tripName:focus { border-color: var(--accent); background: var(--field); }
+.headActions { display: flex; flex-wrap: wrap; gap: 6px; }
+.meta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; margin-top: 8px; color: var(--ink-2); font-size: 13px; }
+.meta label { display: inline-flex; align-items: center; gap: 6px; }
+.meta input {
+  height: 30px;
+  padding: 0 8px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--field);
+  color: var(--ink);
+  font: inherit;
+  font-size: 13px;
+  color-scheme: light dark;
+}
+.meta input[type=&quot;number&quot;] { width: 64px; }
+.metaStat { color: var(--muted); }
+
+.ghost {
+  height: 32px;
+  padding: 0 12px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: none;
+  color: var(--ink);
+  font: inherit;
+  font-size: 12.5px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.ghost:hover { background: var(--field); }
+.ghost:focus-visible,
+.tabs button:focus-visible,
+.dayStrip button:focus-visible,
+.stopMain:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* Body */
+.body { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(320px, 1fr); gap: 14px; }
+@container (max-width: 760px) {
+  .body { grid-template-columns: 1fr; }
+  .map { height: 340px !important; }
+}
+
+.mapWrap { position: relative; min-width: 0; }
+.map { height: 600px; overflow: hidden; border: 1px solid var(--border); border-radius: 14px; z-index: 0; }
+.dayStrip {
+  position: absolute;
+  top: 10px;
+  left: 56px;
+  right: 10px;
+  z-index: 500;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  pointer-events: none;
+}
+.dayStrip button {
+  padding: 6px 12px;
+  border: 2px solid var(--c);
+  border-radius: 99px;
+  background: color-mix(in srgb, var(--surface) 92%, transparent);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+  color: var(--ink);
+  font: inherit;
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  pointer-events: auto;
+}
+.dayStrip button[aria-selected=&quot;true&quot;] { background: var(--c); color: #fff; }
+.mapHint {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  z-index: 500;
+  margin: 0;
+  padding: 4px 10px;
+  border-radius: 99px;
+  background: rgba(0, 0, 0, 0.62);
+  color: #fff;
+  font-size: 11.5px;
+  pointer-events: none;
+}
+
+.pin {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border: 2.5px solid #fff;
+  border-radius: 50% 50% 50% 4px;
+  background: var(--c);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.35);
+  color: #fff;
+  font: 700 12px system-ui, sans-serif;
+  transform: rotate(-45deg);
+  opacity: 0.55;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.pin[data-active=&quot;true&quot;] { opacity: 1; }
+.pin[data-open=&quot;true&quot;] { transform: rotate(-45deg) scale(1.25); }
+/* The teardrop is rotated; turn the number back upright. */
+.pin b { transform: rotate(45deg); font-weight: 700; line-height: 1; }
+
+.popup { display: flex; flex-direction: column; gap: 8px; min-width: 170px; font-family: system-ui, sans-serif; }
+.popup strong { font-size: 13px; }
+.popup button { padding: 6px 10px; border: 0; border-radius: 8px; color: #fff; font: 600 12.5px system-ui, sans-serif; cursor: pointer; }
+
+/* Panel */
+.panel { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.tabs { display: flex; gap: 2px; padding: 3px; border-radius: 10px; background: var(--field); }
+.tabs button {
+  flex: 1;
+  padding: 7px 6px;
+  border: 0;
+  border-radius: 8px;
+  background: none;
+  color: var(--ink-2);
+  font: inherit;
+  font-size: 12.5px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.tabs button[aria-selected=&quot;true&quot;] { background: var(--surface); box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15); color: var(--ink); font-weight: 600; }
+
+.search { display: flex; gap: 6px; }
+.search input,
+.addRow input {
+  flex: 1;
+  min-width: 0;
+  height: 38px;
+  padding: 0 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  outline: none;
+  background: var(--field);
+  color: var(--ink);
+  font: inherit;
+  font-size: 14px;
+}
+.search input:focus,
+.addRow input:focus { border-color: var(--accent); }
+.search button,
+.addRow button {
+  height: 38px;
+  padding: 0 14px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--ink);
+  color: var(--surface);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.results { display: flex; flex-direction: column; gap: 4px; margin: 0; padding: 6px; border: 1px solid var(--border); border-radius: 12px; list-style: none; }
+.results li { display: flex; align-items: center; gap: 6px; }
+.resultPeek {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+  padding: 6px 8px;
+  border: 0;
+  border-radius: 8px;
+  background: none;
+  color: var(--ink);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.resultPeek:hover { background: var(--field); }
+.resultPeek strong { font-size: 13.5px; }
+.resultPeek span { overflow: hidden; color: var(--muted); font-size: 12px; text-overflow: ellipsis; white-space: nowrap; }
+.addBtn { flex: none; padding: 5px 10px; border: 0; border-radius: 8px; color: #fff; font: inherit; font-size: 12px; font-weight: 600; cursor: pointer; }
+.noResults { padding: 8px; color: var(--muted); font-size: 13px; }
+.closeResults { width: 100%; padding: 4px; border: 0; background: none; color: var(--muted); font: inherit; font-size: 12px; cursor: pointer; }
+
+.dayHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 10px 12px;
+  border-left: 4px solid var(--c);
+  border-radius: 6px 12px 12px 6px;
+  background: color-mix(in srgb, var(--c) 10%, transparent);
+}
+.dayHead div { display: flex; align-items: baseline; gap: 8px; }
+.dayHead strong { font-size: 15px; }
+.dayHead div span { color: var(--ink-2); font-size: 13px; }
+.dayStats { color: var(--ink-2); font-size: 12px; font-variant-numeric: tabular-nums; text-align: right; }
+
+.stops { display: flex; flex-direction: column; max-height: 360px; margin: 0; padding: 0 2px 0 0; overflow-y: auto; list-style: none; }
+.emptyDay { padding: 20px 8px; color: var(--muted); font-size: 13px; text-align: center; }
+.leg { display: flex; align-items: center; height: 26px; margin-left: 13px; padding-left: 20px; border-left: 2px dashed var(--border); color: var(--muted); font-size: 11.5px; font-variant-numeric: tabular-nums; }
+.stop { border: 1px solid var(--border); border-radius: 12px; background: var(--surface); transition: box-shadow 0.15s ease; }
+.stop[data-open=&quot;true&quot;] { border-color: var(--accent); box-shadow: 0 6px 18px -8px rgba(0, 0, 0, 0.25); }
+.stop:hover { box-shadow: 0 4px 12px -8px rgba(0, 0, 0, 0.3); }
+.stopMain {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 9px 10px;
+  border: 0;
+  border-radius: 12px;
+  background: none;
+  color: var(--ink);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.num { display: grid; flex: none; place-items: center; width: 26px; height: 26px; border-radius: 50%; color: #fff; font-size: 12px; font-weight: 700; }
+.stopText { display: flex; flex: 1; flex-direction: column; min-width: 0; }
+.stopText strong { overflow: hidden; font-size: 13.5px; text-overflow: ellipsis; white-space: nowrap; }
+.stopText span { color: var(--muted); font-size: 12px; }
+.grip { color: var(--muted); font-size: 12px; letter-spacing: -2px; cursor: grab; }
+
+.editor { display: flex; flex-direction: column; gap: 8px; padding: 0 12px 12px; }
+.editor label { display: flex; flex-direction: column; gap: 3px; color: var(--ink-2); font-size: 11.5px; }
+.editor input,
+.editor select {
+  height: 32px;
+  min-width: 0;
+  padding: 0 8px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--field);
+  color: var(--ink);
+  font: inherit;
+  font-size: 13px;
+  color-scheme: light dark;
+}
+.row3 { display: grid; grid-template-columns: 1fr 1.2fr 1fr; gap: 6px; }
+.editorActions { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 8px; }
+.editorActions &gt; span { display: flex; gap: 4px; }
+.inline { flex-direction: row !important; align-items: center; gap: 6px !important; }
+.iconBtn,
+.danger { height: 30px; padding: 0 10px; border: 1px solid var(--border); border-radius: 8px; background: none; color: var(--ink); font: inherit; font-size: 13px; cursor: pointer; }
+.iconBtn:disabled { opacity: 0.35; cursor: default; }
+.danger { color: var(--danger); }
+
+.dayActions { display: flex; gap: 6px; }
+
+/* Budget */
+.budget,
+.packing { display: flex; flex-direction: column; gap: 10px; }
+.bigNumbers { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.bigNumbers div { display: flex; flex-direction: column; padding: 12px; border-radius: 12px; background: var(--field); }
+.bigNumbers strong { font-size: 22px; font-variant-numeric: tabular-nums; }
+.bigNumbers span { color: var(--muted); font-size: 12px; }
+.breakdown,
+.extras,
+.packing ul { display: flex; flex-direction: column; gap: 6px; margin: 0; padding: 0; list-style: none; }
+.breakdown li { display: grid; grid-template-columns: 90px 1fr 80px; align-items: center; gap: 8px; font-size: 13px; }
+.bar { height: 8px; overflow: hidden; border-radius: 99px; background: var(--field); }
+.bar span { display: block; height: 100%; border-radius: inherit; background: var(--accent); }
+.amount { text-align: right; font-variant-numeric: tabular-nums; }
+.subhead { margin: 6px 0 0; color: var(--ink-2); font-size: 12.5px; font-weight: 600; }
+.extras li,
+.packing li { display: flex; align-items: center; gap: 8px; padding: 7px 10px; border: 1px solid var(--border); border-radius: 10px; font-size: 13px; }
+.extras li span:first-child { flex: 1; }
+.extras button,
+.packing li button { padding: 0 4px; border: 0; background: none; color: var(--muted); font-size: 16px; cursor: pointer; }
+.addRow { display: flex; gap: 6px; }
+.addRow input[type=&quot;number&quot;] { flex: 0 0 90px; }
+.hint { margin: 0; color: var(--muted); font-size: 12px; }
+
+.progress { height: 8px; overflow: hidden; border-radius: 99px; background: var(--field); }
+.progress span { display: block; height: 100%; border-radius: inherit; background: #1baf7a; transition: width 0.3s ease; }
+.packing li label { display: flex; flex: 1; align-items: center; gap: 10px; cursor: pointer; }
+.packing li input { width: 16px; height: 16px; accent-color: #1baf7a; }
+.packing li[data-done=&quot;true&quot;] label { color: var(--muted); text-decoration: line-through; }
+
+.toast {
+  position: absolute;
+  bottom: 54px;
+  left: 50%;
+  z-index: 1000;
+  padding: 8px 16px;
+  border-radius: 99px;
+  background: var(--ink);
+  color: var(--surface);
+  font-size: 13px;
+  font-weight: 500;
+  transform: translateX(-50%);
+  animation: rise 0.25s ease;
+}
+.credit { margin: 12px 0 0; color: var(--muted); font-size: 11.5px; }
+
+@keyframes rise {
+  from { opacity: 0; transform: translate(-50%, 8px); }
+  to { opacity: 1; transform: translate(-50%, 0); }
+}
+</code></pre></div><div class="file"><div class="file-head"><span>TripPlanner.tsx</span><button type="button" class="copy">Copy</button></div><pre><code>&quot;use client&quot;;
+
+import &quot;leaflet/dist/leaflet.css&quot;;
+import { useEffect, useMemo, useRef, useState, type DragEvent } from &quot;react&quot;;
+import type * as Leaflet from &quot;leaflet&quot;;
+import {
+  CATEGORIES,
+  DAY_COLORS,
+  dayDate,
+  decodeTrip,
+  encodeTrip,
+  sampleTrip,
+  toIcs,
+  uid,
+  type Category,
+  type Stop,
+  type Trip,
+} from &quot;./model&quot;;
+import { km, mins, reverseGeocode, routeFor, searchPlaces, type Place, type Route } from &quot;./services&quot;;
+import styles from &quot;./TripPlanner.module.css&quot;;
+
+const STORAGE_KEY = &quot;gallery-trip-v1&quot;;
+type Tab = &quot;plan&quot; | &quot;budget&quot; | &quot;packing&quot;;
+
+const money = (v: number) =&gt; `৳${Math.round(v).toLocaleString(&quot;en-IN&quot;)}`;
+const colorOf = (i: number) =&gt; DAY_COLORS[i % DAY_COLORS.length];
+const fmtDay = (d: Date) =&gt; d.toLocaleDateString(&quot;en-GB&quot;, { weekday: &quot;short&quot;, day: &quot;numeric&quot;, month: &quot;short&quot; });
+
+function download(text: string, name: string, type: string) {
+  const url = URL.createObjectURL(new Blob([text], { type }));
+  const a = document.createElement(&quot;a&quot;);
+  a.href = url;
+  a.download = name;
+  a.click();
+  setTimeout(() =&gt; URL.revokeObjectURL(url), 1000);
+}
+
+export default function TripPlanner() {
+  const [trip, setTrip] = useState&lt;Trip | null&gt;(null);
+  const [tab, setTab] = useState&lt;Tab&gt;(&quot;plan&quot;);
+  const [day, setDay] = useState(0);
+  const [openStop, setOpenStop] = useState&lt;string | null&gt;(null);
+  const [routes, setRoutes] = useState&lt;Record&lt;string, Route&gt;&gt;({});
+  const [query, setQuery] = useState(&quot;&quot;);
+  const [results, setResults] = useState&lt;Place[] | null&gt;(null);
+  const [searching, setSearching] = useState(false);
+  const [toast, setToast] = useState(&quot;&quot;);
+  const [packDraft, setPackDraft] = useState(&quot;&quot;);
+  const [extraDraft, setExtraDraft] = useState({ label: &quot;&quot;, cost: &quot;&quot; });
+  const [mapReady, setMapReady] = useState(false);
+
+  const mapEl = useRef&lt;HTMLDivElement&gt;(null);
+  const map = useRef&lt;Leaflet.Map | null&gt;(null);
+  const L = useRef&lt;typeof Leaflet | null&gt;(null);
+  const layer = useRef&lt;Leaflet.LayerGroup | null&gt;(null);
+  const tripRef = useRef(trip);
+  tripRef.current = trip;
+  const dayRef = useRef(day);
+  dayRef.current = day;
+  const dragging = useRef&lt;{ day: number; index: number } | null&gt;(null);
+
+  const notify = (msg: string) =&gt; {
+    setToast(msg);
+    setTimeout(() =&gt; setToast(&quot;&quot;), 2200);
+  };
+
+  // ── Load: a shared link wins, then saved trip, then the sample ──────────────────────
+  useEffect(() =&gt; {
+    (async () =&gt; {
+      const shared = window.location.hash.match(/trip=([^&amp;]+)/)?.[1];
+      if (shared) {
+        const t = await decodeTrip(shared);
+        if (t) {
+          setTrip(t);
+          notify(&quot;Opened a shared trip&quot;);
+          return;
+        }
+      }
+      try {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (saved) {
+          setTrip(JSON.parse(saved));
+          return;
+        }
+      } catch {}
+      setTrip(sampleTrip());
+    })();
+  }, []);
+
+  useEffect(() =&gt; {
+    if (!trip) return;
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(trip));
+    } catch {}
+  }, [trip]);
+
+  const update = (fn: (t: Trip) =&gt; Trip) =&gt; setTrip((t) =&gt; (t ? fn(structuredClone(t)) : t));
+
+  // ── Map setup (Leaflet touches window, so it is imported on the client only) ────────
+  useEffect(() =&gt; {
+    let disposed = false;
+    (async () =&gt; {
+      const lib = (await import(&quot;leaflet&quot;)).default;
+      if (disposed || !mapEl.current) return;
+      L.current = lib;
+      const m = lib.map(mapEl.current, { zoomControl: true, scrollWheelZoom: true }).setView([21.4, 92.0], 11);
+      lib
+        .tileLayer(&quot;https://tile.openstreetmap.org/{z}/{x}/{y}.png&quot;, {
+          maxZoom: 19,
+          attribution: &#x27;&amp;copy; &lt;a href=&quot;https://www.openstreetmap.org/copyright&quot;&gt;OpenStreetMap&lt;/a&gt; contributors&#x27;,
+        })
+        .addTo(m);
+      layer.current = lib.layerGroup().addTo(m);
+      m.on(&quot;click&quot;, (e: Leaflet.LeafletMouseEvent) =&gt; showAddPopup(e.latlng.lat, e.latlng.lng));
+      map.current = m;
+      setMapReady(true);
+    })();
+    return () =&gt; {
+      disposed = true;
+      map.current?.remove();
+      map.current = null;
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  function showAddPopup(lat: number, lng: number) {
+    const lib = L.current;
+    const m = map.current;
+    if (!lib || !m || !tripRef.current) return;
+    const box = document.createElement(&quot;div&quot;);
+    box.className = styles.popup;
+    const title = document.createElement(&quot;strong&quot;);
+    title.textContent = &quot;Looking up this place…&quot;;
+    const btn = document.createElement(&quot;button&quot;);
+    btn.type = &quot;button&quot;;
+    btn.textContent = `Add to Day ${dayRef.current + 1}`;
+    btn.style.background = colorOf(dayRef.current);
+    box.append(title, btn);
+    const popup = lib.popup().setLatLng([lat, lng]).setContent(box).openOn(m);
+    let name = &quot;Pinned place&quot;;
+    reverseGeocode(lat, lng).then((n) =&gt; {
+      name = n;
+      title.textContent = n;
+    });
+    btn.onclick = () =&gt; {
+      addStop({ name, lat, lng, detail: &quot;&quot; }, dayRef.current);
+      m.closePopup(popup);
+    };
+  }
+
+  // ── Routes: re-fetch a day&#x27;s route when its stops change (debounced, cached) ────────
+  const signature = trip?.days.map((d) =&gt; d.id + &quot;:&quot; + d.stops.map((s) =&gt; `${s.lat},${s.lng}`).join(&quot;|&quot;)).join(&quot;/&quot;) ?? &quot;&quot;;
+  useEffect(() =&gt; {
+    if (!trip) return;
+    const timer = setTimeout(async () =&gt; {
+      const next: Record&lt;string, Route&gt; = {};
+      for (const d of trip.days) next[d.id] = await routeFor(d.stops);
+      setRoutes(next);
+    }, 500);
+    return () =&gt; clearTimeout(timer);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [signature]);
+
+  // ── Draw markers and routes ─────────────────────────────────────────────────────────
+  useEffect(() =&gt; {
+    const lib = L.current;
+    const group = layer.current;
+    if (!mapReady || !lib || !group || !trip) return;
+    group.clearLayers();
+    trip.days.forEach((d, di) =&gt; {
+      const active = di === day;
+      const color = colorOf(di);
+      const route = routes[d.id];
+      const line = route?.coords.length ? route.coords : d.stops.map((s) =&gt; [s.lat, s.lng] as [number, number]);
+      if (line.length &gt; 1) {
+        lib
+          .polyline(line, { color, weight: active ? 5 : 3, opacity: active ? 0.9 : 0.35, dashArray: route?.estimated ? &quot;6 8&quot; : undefined })
+          .addTo(group);
+      }
+      d.stops.forEach((s, si) =&gt; {
+        const icon = lib.divIcon({
+          className: &quot;&quot;,
+          html: `&lt;span class=&quot;${styles.pin}&quot; data-active=&quot;${active}&quot; data-open=&quot;${openStop === s.id}&quot; style=&quot;--c:${color}&quot;&gt;&lt;b&gt;${si + 1}&lt;/b&gt;&lt;/span&gt;`,
+          iconSize: [28, 28],
+          iconAnchor: [14, 32],
+        });
+        lib
+          .marker([s.lat, s.lng], { icon, zIndexOffset: active ? 1000 : 0, title: s.name })
+          .on(&quot;click&quot;, () =&gt; {
+            setDay(di);
+            setTab(&quot;plan&quot;);
+            setOpenStop(s.id);
+          })
+          .addTo(group);
+      });
+    });
+  }, [trip, routes, day, openStop, mapReady]);
+
+  // Fit the selected day on screen.
+  useEffect(() =&gt; {
+    const lib = L.current;
+    const m = map.current;
+    const stops = trip?.days[day]?.stops ?? [];
+    if (!mapReady || !lib || !m || !stops.length) return;
+    if (stops.length === 1) m.flyTo([stops[0].lat, stops[0].lng], 14, { duration: 0.6 });
+    else m.flyToBounds(lib.latLngBounds(stops.map((s) =&gt; [s.lat, s.lng])), { padding: [50, 50], duration: 0.6 });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [day, mapReady, trip?.days.length]);
+
+  // ── Actions ─────────────────────────────────────────────────────────────────────────
+  function addStop(place: Place, dayIndex: number) {
+    const s: Stop = { id: uid(), name: place.name, lat: place.lat, lng: place.lng, category: &quot;sight&quot;, time: &quot;&quot;, cost: 0, note: &quot;&quot; };
+    update((t) =&gt; {
+      t.days[dayIndex].stops.push(s);
+      return t;
+    });
+    setOpenStop(s.id);
+    setResults(null);
+    setQuery(&quot;&quot;);
+    notify(`Added to Day ${dayIndex + 1}`);
+  }
+
+  function editStop(dayIndex: number, id: string, patch: Partial&lt;Stop&gt;) {
+    update((t) =&gt; {
+      const s = t.days[dayIndex].stops.find((x) =&gt; x.id === id);
+      if (s) Object.assign(s, patch);
+      return t;
+    });
+  }
+
+  function moveStop(from: { day: number; index: number }, toDay: number, toIndex: number) {
+    update((t) =&gt; {
+      const [s] = t.days[from.day].stops.splice(from.index, 1);
+      const target = t.days[toDay].stops;
+      const index = from.day === toDay &amp;&amp; toIndex &gt; from.index ? toIndex - 1 : toIndex;
+      target.splice(Math.min(index, target.length), 0, s);
+      return t;
+    });
+  }
+
+  async function search() {
+    const q = query.trim();
+    if (!q) return;
+    setSearching(true);
+    try {
+      const b = map.current?.getBounds();
+      setResults(await searchPlaces(q, b &amp;&amp; { west: b.getWest(), south: b.getSouth(), east: b.getEast(), north: b.getNorth() }));
+    } catch {
+      setResults([]);
+      notify(&quot;Search is unavailable right now&quot;);
+    } finally {
+      setSearching(false);
+    }
+  }
+
+  async function share() {
+    if (!trip) return;
+    const url = `${window.location.origin}${window.location.pathname}#trip=${await encodeTrip(trip)}`;
+    await navigator.clipboard.writeText(url);
+    notify(&quot;Share link copied. Anyone with it sees this trip&quot;);
+  }
+
+  const onDrop = (e: DragEvent, toDay: number, toIndex: number) =&gt; {
+    e.preventDefault();
+    e.stopPropagation();
+    if (dragging.current) moveStop(dragging.current, toDay, toIndex);
+    dragging.current = null;
+  };
+
+  // ── Derived numbers ─────────────────────────────────────────────────────────────────
+  const totals = useMemo(() =&gt; {
+    if (!trip) return null;
+    const byCat = new Map&lt;string, number&gt;();
+    for (const d of trip.days) for (const s of d.stops) byCat.set(s.category, (byCat.get(s.category) ?? 0) + s.cost);
+    const extras = trip.extras.reduce((a, x) =&gt; a + x.cost, 0);
+    if (extras) byCat.set(&quot;extras&quot;, extras);
+    const total = [...byCat.values()].reduce((a, b) =&gt; a + b, 0);
+    return { byCat, total, perPerson: total / Math.max(1, trip.travelers) };
+  }, [trip]);
+
+  if (!trip || !totals) {
+    return (
+      &lt;div className={styles.card}&gt;
+        &lt;div className={styles.loading}&gt;Loading your trip…&lt;/div&gt;
+      &lt;/div&gt;
+    );
+  }
+
+  const current = trip.days[day] ?? trip.days[0];
+  const route = routes[current?.id];
+  const dayDistance = route?.legs.reduce((a, l) =&gt; a + l.distance, 0) ?? 0;
+  const dayDuration = route?.legs.reduce((a, l) =&gt; a + l.duration, 0) ?? 0;
+  const packed = trip.packing.filter((p) =&gt; p.done).length;
+
+  return (
+    &lt;div className={styles.card}&gt;
+      &lt;header className={styles.head}&gt;
+        &lt;div className={styles.titleRow}&gt;
+          &lt;input className={styles.tripName} value={trip.name} onChange={(e) =&gt; update((t) =&gt; ({ ...t, name: e.target.value }))} aria-label=&quot;Trip name&quot; /&gt;
+          &lt;div className={styles.headActions}&gt;
+            &lt;button type=&quot;button&quot; className={styles.ghost} onClick={share}&gt;
+              Share link
+            &lt;/button&gt;
+            &lt;button type=&quot;button&quot; className={styles.ghost} onClick={() =&gt; download(toIcs(trip), `${trip.name || &quot;trip&quot;}.ics`, &quot;text/calendar&quot;)}&gt;
+              Add to calendar
+            &lt;/button&gt;
+            &lt;button
+              type=&quot;button&quot;
+              className={styles.ghost}
+              onClick={() =&gt; {
+                if (window.confirm(&quot;Start over with the sample trip? Your current plan will be replaced.&quot;)) {
+                  setTrip(sampleTrip());
+                  setDay(0);
+                  history.replaceState(null, &quot;&quot;, window.location.pathname);
+                }
+              }}
+            &gt;
+              Reset
+            &lt;/button&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div className={styles.meta}&gt;
+          &lt;label&gt;
+            Starts
+            &lt;input type=&quot;date&quot; value={trip.start} onChange={(e) =&gt; e.target.value &amp;&amp; update((t) =&gt; ({ ...t, start: e.target.value }))} /&gt;
+          &lt;/label&gt;
+          &lt;label&gt;
+            Travellers
+            &lt;input
+              type=&quot;number&quot;
+              min={1}
+              max={50}
+              value={trip.travelers}
+              onChange={(e) =&gt; update((t) =&gt; ({ ...t, travelers: Math.max(1, Math.min(50, Number(e.target.value) || 1)) }))}
+            /&gt;
+          &lt;/label&gt;
+          &lt;span className={styles.metaStat}&gt;
+            {trip.days.length} days · {trip.days.reduce((a, d) =&gt; a + d.stops.length, 0)} stops · {money(totals.total)} total
+          &lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/header&gt;
+
+      &lt;div className={styles.body}&gt;
+        &lt;div className={styles.mapWrap}&gt;
+          &lt;div ref={mapEl} className={styles.map} aria-label=&quot;Trip map. Click anywhere to add a place.&quot; /&gt;
+          &lt;div className={styles.dayStrip} role=&quot;tablist&quot; aria-label=&quot;Days&quot;&gt;
+            {trip.days.map((d, i) =&gt; (
+              &lt;button
+                key={d.id}
+                type=&quot;button&quot;
+                role=&quot;tab&quot;
+                aria-selected={day === i}
+                style={{ [&quot;--c&quot; as string]: colorOf(i) }}
+                onClick={() =&gt; setDay(i)}
+                onDragOver={(e) =&gt; e.preventDefault()}
+                onDrop={(e) =&gt; onDrop(e, i, trip.days[i].stops.length)}
+              &gt;
+                Day {i + 1}
+              &lt;/button&gt;
+            ))}
+          &lt;/div&gt;
+          &lt;p className={styles.mapHint}&gt;Click the map to add a place&lt;/p&gt;
+        &lt;/div&gt;
+
+        &lt;section className={styles.panel}&gt;
+          &lt;div className={styles.tabs} role=&quot;tablist&quot;&gt;
+            {(
+              [
+                [&quot;plan&quot;, &quot;Itinerary&quot;],
+                [&quot;budget&quot;, `Budget · ${money(totals.perPerson)}/person`],
+                [&quot;packing&quot;, `Packing ${packed}/${trip.packing.length}`],
+              ] as const
+            ).map(([k, label]) =&gt; (
+              &lt;button key={k} type=&quot;button&quot; role=&quot;tab&quot; aria-selected={tab === k} onClick={() =&gt; setTab(k)}&gt;
+                {label}
+              &lt;/button&gt;
+            ))}
+          &lt;/div&gt;
+
+          {tab === &quot;plan&quot; &amp;&amp; (
+            &lt;&gt;
+              &lt;form
+                className={styles.search}
+                onSubmit={(e) =&gt; {
+                  e.preventDefault();
+                  search();
+                }}
+              &gt;
+                &lt;input value={query} onChange={(e) =&gt; setQuery(e.target.value)} placeholder=&quot;Search a place, e.g. Inani Beach&quot; aria-label=&quot;Search places&quot; /&gt;
+                &lt;button type=&quot;submit&quot; disabled={searching}&gt;
+                  {searching ? &quot;…&quot; : &quot;Search&quot;}
+                &lt;/button&gt;
+              &lt;/form&gt;
+              {results &amp;&amp; (
+                &lt;ul className={styles.results}&gt;
+                  {results.length === 0 &amp;&amp; &lt;li className={styles.noResults}&gt;No places found.&lt;/li&gt;}
+                  {results.map((r, i) =&gt; (
+                    &lt;li key={i}&gt;
+                      &lt;button
+                        type=&quot;button&quot;
+                        className={styles.resultPeek}
+                        onClick={() =&gt; map.current?.flyTo([r.lat, r.lng], 14, { duration: 0.6 })}
+                      &gt;
+                        &lt;strong&gt;{r.name}&lt;/strong&gt;
+                        &lt;span&gt;{r.detail}&lt;/span&gt;
+                      &lt;/button&gt;
+                      &lt;button type=&quot;button&quot; className={styles.addBtn} style={{ background: colorOf(day) }} onClick={() =&gt; addStop(r, day)}&gt;
+                        + Day {day + 1}
+                      &lt;/button&gt;
+                    &lt;/li&gt;
+                  ))}
+                  &lt;li&gt;
+                    &lt;button type=&quot;button&quot; className={styles.closeResults} onClick={() =&gt; setResults(null)}&gt;
+                      Close results
+                    &lt;/button&gt;
+                  &lt;/li&gt;
+                &lt;/ul&gt;
+              )}
+
+              &lt;div className={styles.dayHead} style={{ [&quot;--c&quot; as string]: colorOf(day) }}&gt;
+                &lt;div&gt;
+                  &lt;strong&gt;Day {day + 1}&lt;/strong&gt;
+                  &lt;span&gt;{fmtDay(dayDate(trip, day))}&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;span className={styles.dayStats}&gt;
+                  {current.stops.length &gt; 1 ? `${km(dayDistance)} · ${mins(dayDuration)}${route?.estimated ? &quot; (est.)&quot; : &quot;&quot;}` : &quot;Add stops to see the route&quot;}
+                &lt;/span&gt;
+              &lt;/div&gt;
+
+              &lt;ol className={styles.stops} onDragOver={(e) =&gt; e.preventDefault()} onDrop={(e) =&gt; onDrop(e, day, current.stops.length)}&gt;
+                {current.stops.length === 0 &amp;&amp; &lt;li className={styles.emptyDay}&gt;No stops yet. Search above or click the map.&lt;/li&gt;}
+                {current.stops.map((s, i) =&gt; {
+                  const leg = route?.legs[i - 1];
+                  const open = openStop === s.id;
+                  return (
+                    &lt;li key={s.id} className={styles.stopWrap}&gt;
+                      {i &gt; 0 &amp;&amp; leg &amp;&amp; (
+                        &lt;div className={styles.leg}&gt;
+                          &lt;span&gt;
+                            {km(leg.distance)} · {mins(leg.duration)}
+                          &lt;/span&gt;
+                        &lt;/div&gt;
+                      )}
+                      &lt;div
+                        className={styles.stop}
+                        data-open={open}
+                        draggable
+                        onDragStart={() =&gt; (dragging.current = { day, index: i })}
+                        onDragOver={(e) =&gt; e.preventDefault()}
+                        onDrop={(e) =&gt; onDrop(e, day, i)}
+                      &gt;
+                        &lt;button
+                          type=&quot;button&quot;
+                          className={styles.stopMain}
+                          onClick={() =&gt; {
+                            setOpenStop(open ? null : s.id);
+                            map.current?.flyTo([s.lat, s.lng], Math.max(map.current.getZoom(), 13), { duration: 0.5 });
+                          }}
+                          aria-expanded={open}
+                        &gt;
+                          &lt;span className={styles.num} style={{ background: colorOf(day) }}&gt;
+                            {i + 1}
+                          &lt;/span&gt;
+                          &lt;span className={styles.stopText}&gt;
+                            &lt;strong&gt;{s.name}&lt;/strong&gt;
+                            &lt;span&gt;
+                              {s.time &amp;&amp; `${s.time} · `}
+                              {CATEGORIES.find((c) =&gt; c.key === s.category)?.label}
+                              {s.cost &gt; 0 &amp;&amp; ` · ${money(s.cost)}`}
+                            &lt;/span&gt;
+                          &lt;/span&gt;
+                          &lt;span className={styles.grip} aria-hidden=&quot;true&quot;&gt;
+                            ⋮⋮
+                          &lt;/span&gt;
+                        &lt;/button&gt;
+                        {open &amp;&amp; (
+                          &lt;div className={styles.editor}&gt;
+                            &lt;label&gt;
+                              Name
+                              &lt;input value={s.name} onChange={(e) =&gt; editStop(day, s.id, { name: e.target.value })} /&gt;
+                            &lt;/label&gt;
+                            &lt;div className={styles.row3}&gt;
+                              &lt;label&gt;
+                                Time
+                                &lt;input type=&quot;time&quot; value={s.time} onChange={(e) =&gt; editStop(day, s.id, { time: e.target.value })} /&gt;
+                              &lt;/label&gt;
+                              &lt;label&gt;
+                                Type
+                                &lt;select value={s.category} onChange={(e) =&gt; editStop(day, s.id, { category: e.target.value as Category })}&gt;
+                                  {CATEGORIES.map((c) =&gt; (
+                                    &lt;option key={c.key} value={c.key}&gt;
+                                      {c.label}
+                                    &lt;/option&gt;
+                                  ))}
+                                &lt;/select&gt;
+                              &lt;/label&gt;
+                              &lt;label&gt;
+                                Cost (৳)
+                                &lt;input type=&quot;number&quot; min={0} value={s.cost || &quot;&quot;} onChange={(e) =&gt; editStop(day, s.id, { cost: Math.max(0, Number(e.target.value) || 0) })} /&gt;
+                              &lt;/label&gt;
+                            &lt;/div&gt;
+                            &lt;label&gt;
+                              Note
+                              &lt;input value={s.note} placeholder=&quot;Tickets, booking ref, tips…&quot; onChange={(e) =&gt; editStop(day, s.id, { note: e.target.value })} /&gt;
+                            &lt;/label&gt;
+                            &lt;div className={styles.editorActions}&gt;
+                              &lt;label className={styles.inline}&gt;
+                                Move to
+                                &lt;select value={day} onChange={(e) =&gt; moveStop({ day, index: i }, Number(e.target.value), Infinity)}&gt;
+                                  {trip.days.map((_, di) =&gt; (
+                                    &lt;option key={di} value={di}&gt;
+                                      Day {di + 1}
+                                    &lt;/option&gt;
+                                  ))}
+                                &lt;/select&gt;
+                              &lt;/label&gt;
+                              &lt;span&gt;
+                                &lt;button type=&quot;button&quot; className={styles.iconBtn} disabled={i === 0} onClick={() =&gt; moveStop({ day, index: i }, day, i - 1)} aria-label=&quot;Move up&quot;&gt;
+                                  ↑
+                                &lt;/button&gt;
+                                &lt;button
+                                  type=&quot;button&quot;
+                                  className={styles.iconBtn}
+                                  disabled={i === current.stops.length - 1}
+                                  onClick={() =&gt; moveStop({ day, index: i }, day, i + 2)}
+                                  aria-label=&quot;Move down&quot;
+                                &gt;
+                                  ↓
+                                &lt;/button&gt;
+                                &lt;button
+                                  type=&quot;button&quot;
+                                  className={styles.danger}
+                                  onClick={() =&gt;
+                                    update((t) =&gt; {
+                                      t.days[day].stops = t.days[day].stops.filter((x) =&gt; x.id !== s.id);
+                                      return t;
+                                    })
+                                  }
+                                &gt;
+                                  Remove
+                                &lt;/button&gt;
+                              &lt;/span&gt;
+                            &lt;/div&gt;
+                          &lt;/div&gt;
+                        )}
+                      &lt;/div&gt;
+                    &lt;/li&gt;
+                  );
+                })}
+              &lt;/ol&gt;
+
+              &lt;div className={styles.dayActions}&gt;
+                &lt;button
+                  type=&quot;button&quot;
+                  className={styles.ghost}
+                  onClick={() =&gt; {
+                    update((t) =&gt; ({ ...t, days: [...t.days, { id: uid(), stops: [] }] }));
+                    setDay(trip.days.length);
+                  }}
+                &gt;
+                  + Add day
+                &lt;/button&gt;
+                {trip.days.length &gt; 1 &amp;&amp; (
+                  &lt;button
+                    type=&quot;button&quot;
+                    className={styles.ghost}
+                    onClick={() =&gt; {
+                      if (current.stops.length &amp;&amp; !window.confirm(`Delete Day ${day + 1} and its ${current.stops.length} stops?`)) return;
+                      update((t) =&gt; ({ ...t, days: t.days.filter((_, i) =&gt; i !== day) }));
+                      setDay(Math.max(0, day - 1));
+                    }}
+                  &gt;
+                    Delete Day {day + 1}
+                  &lt;/button&gt;
+                )}
+              &lt;/div&gt;
+            &lt;/&gt;
+          )}
+
+          {tab === &quot;budget&quot; &amp;&amp; (
+            &lt;div className={styles.budget}&gt;
+              &lt;div className={styles.bigNumbers}&gt;
+                &lt;div&gt;
+                  &lt;strong&gt;{money(totals.total)}&lt;/strong&gt;
+                  &lt;span&gt;trip total&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;div&gt;
+                  &lt;strong&gt;{money(totals.perPerson)}&lt;/strong&gt;
+                  &lt;span&gt;per person ({trip.travelers})&lt;/span&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+              &lt;ul className={styles.breakdown}&gt;
+                {[...totals.byCat.entries()]
+                  .filter(([, v]) =&gt; v &gt; 0)
+                  .sort((a, b) =&gt; b[1] - a[1])
+                  .map(([k, v]) =&gt; (
+                    &lt;li key={k}&gt;
+                      &lt;span&gt;{k === &quot;extras&quot; ? &quot;Extras&quot; : CATEGORIES.find((c) =&gt; c.key === k)?.label}&lt;/span&gt;
+                      &lt;span className={styles.bar}&gt;
+                        &lt;span style={{ width: `${(v / Math.max(1, totals.total)) * 100}%` }} /&gt;
+                      &lt;/span&gt;
+                      &lt;span className={styles.amount}&gt;{money(v)}&lt;/span&gt;
+                    &lt;/li&gt;
+                  ))}
+              &lt;/ul&gt;
+              &lt;h4 className={styles.subhead}&gt;Extras (tickets, transport, tips)&lt;/h4&gt;
+              &lt;ul className={styles.extras}&gt;
+                {trip.extras.map((x) =&gt; (
+                  &lt;li key={x.id}&gt;
+                    &lt;span&gt;{x.label}&lt;/span&gt;
+                    &lt;span&gt;{money(x.cost)}&lt;/span&gt;
+                    &lt;button type=&quot;button&quot; aria-label={`Remove ${x.label}`} onClick={() =&gt; update((t) =&gt; ({ ...t, extras: t.extras.filter((e) =&gt; e.id !== x.id) }))}&gt;
+                      ×
+                    &lt;/button&gt;
+                  &lt;/li&gt;
+                ))}
+              &lt;/ul&gt;
+              &lt;form
+                className={styles.addRow}
+                onSubmit={(e) =&gt; {
+                  e.preventDefault();
+                  const cost = Number(extraDraft.cost);
+                  if (!extraDraft.label.trim() || !(cost &gt; 0)) return;
+                  update((t) =&gt; ({ ...t, extras: [...t.extras, { id: uid(), label: extraDraft.label.trim(), cost }] }));
+                  setExtraDraft({ label: &quot;&quot;, cost: &quot;&quot; });
+                }}
+              &gt;
+                &lt;input placeholder=&quot;e.g. Bus tickets&quot; value={extraDraft.label} onChange={(e) =&gt; setExtraDraft((d) =&gt; ({ ...d, label: e.target.value }))} /&gt;
+                &lt;input placeholder=&quot;৳&quot; type=&quot;number&quot; min={0} value={extraDraft.cost} onChange={(e) =&gt; setExtraDraft((d) =&gt; ({ ...d, cost: e.target.value }))} /&gt;
+                &lt;button type=&quot;submit&quot;&gt;Add&lt;/button&gt;
+              &lt;/form&gt;
+              &lt;p className={styles.hint}&gt;Stop costs are set on each stop in the itinerary.&lt;/p&gt;
+            &lt;/div&gt;
+          )}
+
+          {tab === &quot;packing&quot; &amp;&amp; (
+            &lt;div className={styles.packing}&gt;
+              &lt;div className={styles.progress}&gt;
+                &lt;span style={{ width: `${(packed / Math.max(1, trip.packing.length)) * 100}%` }} /&gt;
+              &lt;/div&gt;
+              &lt;ul&gt;
+                {trip.packing.map((p) =&gt; (
+                  &lt;li key={p.id} data-done={p.done}&gt;
+                    &lt;label&gt;
+                      &lt;input
+                        type=&quot;checkbox&quot;
+                        checked={p.done}
+                        onChange={() =&gt; update((t) =&gt; ({ ...t, packing: t.packing.map((x) =&gt; (x.id === p.id ? { ...x, done: !x.done } : x)) }))}
+                      /&gt;
+                      {p.label}
+                    &lt;/label&gt;
+                    &lt;button type=&quot;button&quot; aria-label={`Remove ${p.label}`} onClick={() =&gt; update((t) =&gt; ({ ...t, packing: t.packing.filter((x) =&gt; x.id !== p.id) }))}&gt;
+                      ×
+                    &lt;/button&gt;
+                  &lt;/li&gt;
+                ))}
+              &lt;/ul&gt;
+              &lt;form
+                className={styles.addRow}
+                onSubmit={(e) =&gt; {
+                  e.preventDefault();
+                  if (!packDraft.trim()) return;
+                  update((t) =&gt; ({ ...t, packing: [...t.packing, { id: uid(), label: packDraft.trim(), done: false }] }));
+                  setPackDraft(&quot;&quot;);
+                }}
+              &gt;
+                &lt;input placeholder=&quot;Add an item&quot; value={packDraft} onChange={(e) =&gt; setPackDraft(e.target.value)} /&gt;
+                &lt;button type=&quot;submit&quot;&gt;Add&lt;/button&gt;
+              &lt;/form&gt;
+            &lt;/div&gt;
+          )}
+        &lt;/section&gt;
+      &lt;/div&gt;
+
+      {toast &amp;&amp; (
+        &lt;div className={styles.toast} role=&quot;status&quot;&gt;
+          {toast}
+        &lt;/div&gt;
+      )}
+      &lt;p className={styles.credit}&gt;Map data © OpenStreetMap contributors · Routing by OSRM · Search by Nominatim. Your trip is saved in this browser.&lt;/p&gt;
+    &lt;/div&gt;
+  );
+}
+</code></pre></div><div class="file"><div class="file-head"><span>model.ts</span><button type="button" class="copy">Copy</button></div><pre><code>export type Category = &quot;sight&quot; | &quot;food&quot; | &quot;hotel&quot; | &quot;transport&quot; | &quot;shop&quot; | &quot;other&quot;;
+export type Stop = { id: string; name: string; lat: number; lng: number; category: Category; time: string; cost: number; note: string };
+export type Day = { id: string; stops: Stop[] };
+export type Extra = { id: string; label: string; cost: number };
+export type PackItem = { id: string; label: string; done: boolean };
+export type Trip = { name: string; start: string; travelers: number; days: Day[]; extras: Extra[]; packing: PackItem[] };
+
+export const DAY_COLORS = [&quot;#2a78d6&quot;, &quot;#eb6834&quot;, &quot;#1baf7a&quot;, &quot;#7c4dff&quot;, &quot;#e2508a&quot;, &quot;#0e9aa7&quot;, &quot;#c98500&quot;];
+export const CATEGORIES: { key: Category; label: string }[] = [
+  { key: &quot;sight&quot;, label: &quot;Sightseeing&quot; },
+  { key: &quot;food&quot;, label: &quot;Food&quot; },
+  { key: &quot;hotel&quot;, label: &quot;Stay&quot; },
+  { key: &quot;transport&quot;, label: &quot;Transport&quot; },
+  { key: &quot;shop&quot;, label: &quot;Shopping&quot; },
+  { key: &quot;other&quot;, label: &quot;Other&quot; },
+];
+
+let n = 0;
+export const uid = () =&gt; `${Date.now().toString(36)}${(n++).toString(36)}${Math.random().toString(36).slice(2, 5)}`;
+
+const stop = (name: string, lat: number, lng: number, category: Category, time = &quot;&quot;, cost = 0, note = &quot;&quot;): Stop =&gt; ({
+  id: uid(),
+  name,
+  lat,
+  lng,
+  category,
+  time,
+  cost,
+  note,
+});
+
+export function isoDate(d: Date) {
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, &quot;0&quot;)}-${String(d.getDate()).padStart(2, &quot;0&quot;)}`;
+}
+
+export function dayDate(trip: Trip, index: number) {
+  const [y, m, d] = trip.start.split(&quot;-&quot;).map(Number);
+  return new Date(y, m - 1, d + index);
+}
+
+/** A ready-made 3-day Cox&#x27;s Bazar trip so the planner is useful on first open. */
+export function sampleTrip(): Trip {
+  const start = new Date();
+  start.setDate(start.getDate() + 14);
+  return {
+    name: &quot;Cox&#x27;s Bazar weekend&quot;,
+    start: isoDate(start),
+    travelers: 4,
+    days: [
+      {
+        id: uid(),
+        stops: [
+          stop(&quot;Cox&#x27;s Bazar Airport&quot;, 21.4522, 91.9639, &quot;transport&quot;, &quot;10:30&quot;, 0, &quot;Flight from Dhaka&quot;),
+          stop(&quot;Hotel in Kolatoli&quot;, 21.4116, 91.9841, &quot;hotel&quot;, &quot;12:00&quot;, 14000, &quot;2 rooms × 2 nights&quot;),
+          stop(&quot;Laboni Point Beach&quot;, 21.4237, 91.9733, &quot;sight&quot;, &quot;16:30&quot;, 0, &quot;Sunset walk&quot;),
+          stop(&quot;Burmese Market&quot;, 21.4396, 91.9781, &quot;shop&quot;, &quot;19:00&quot;, 2500),
+        ],
+      },
+      {
+        id: uid(),
+        stops: [
+          stop(&quot;Himchari National Park&quot;, 21.3577, 92.0233, &quot;sight&quot;, &quot;09:00&quot;, 400, &quot;Waterfall + hilltop view&quot;),
+          stop(&quot;Inani Beach&quot;, 21.2236, 92.0498, &quot;sight&quot;, &quot;11:30&quot;, 0, &quot;Coral stones at low tide&quot;),
+          stop(&quot;Seafood lunch on Marine Drive&quot;, 21.2785, 92.0447, &quot;food&quot;, &quot;13:30&quot;, 3200),
+          stop(&quot;Hotel in Kolatoli&quot;, 21.4116, 91.9841, &quot;hotel&quot;, &quot;17:00&quot;, 0),
+        ],
+      },
+      {
+        id: uid(),
+        stops: [
+          stop(&quot;Ramu Buddhist Temple&quot;, 21.4247, 92.1006, &quot;sight&quot;, &quot;09:30&quot;, 0),
+          stop(&quot;Dried-fish market&quot;, 21.4482, 91.9729, &quot;shop&quot;, &quot;12:00&quot;, 1500),
+          stop(&quot;Cox&#x27;s Bazar Airport&quot;, 21.4522, 91.9639, &quot;transport&quot;, &quot;15:00&quot;, 0, &quot;Flight back&quot;),
+        ],
+      },
+    ],
+    extras: [
+      { id: uid(), label: &quot;Return flights (4)&quot;, cost: 26000 },
+      { id: uid(), label: &quot;CNG &amp; tuk-tuk rides&quot;, cost: 3000 },
+    ],
+    packing: [
+      &quot;NID / passport&quot;,
+      &quot;Phone charger &amp; power bank&quot;,
+      &quot;Sunscreen&quot;,
+      &quot;Sunglasses &amp; hat&quot;,
+      &quot;Swimwear&quot;,
+      &quot;Flip-flops&quot;,
+      &quot;Light cotton clothes&quot;,
+      &quot;Medicines&quot;,
+      &quot;Cash for markets&quot;,
+    ].map((label, i) =&gt; ({ id: uid(), label, done: i &lt; 2 })),
+  };
+}
+
+// ── Share links: the whole trip, gzip-compressed into the URL hash ────────────────────
+const toB64 = (bytes: Uint8Array) =&gt; btoa(String.fromCharCode(...bytes)).replace(/\+/g, &quot;-&quot;).replace(/\//g, &quot;_&quot;).replace(/=+$/, &quot;&quot;);
+const fromB64 = (s: string) =&gt; Uint8Array.from(atob(s.replace(/-/g, &quot;+&quot;).replace(/_/g, &quot;/&quot;)), (c) =&gt; c.charCodeAt(0));
+
+async function pipe(bytes: Uint8Array, stream: CompressionStream | DecompressionStream) {
+  return new Uint8Array(await new Response(new Blob([bytes as BlobPart]).stream().pipeThrough(stream)).arrayBuffer());
+}
+
+export async function encodeTrip(trip: Trip) {
+  const json = new TextEncoder().encode(JSON.stringify(trip));
+  if (typeof CompressionStream === &quot;undefined&quot;) return `j.${toB64(json)}`;
+  return `z.${toB64(await pipe(json, new CompressionStream(&quot;gzip&quot;)))}`;
+}
+
+export async function decodeTrip(code: string): Promise&lt;Trip | null&gt; {
+  try {
+    const [kind, data] = [code.slice(0, 1), code.slice(2)];
+    const bytes = kind === &quot;z&quot; ? await pipe(fromB64(data), new DecompressionStream(&quot;gzip&quot;)) : fromB64(data);
+    const trip = JSON.parse(new TextDecoder().decode(bytes));
+    return Array.isArray(trip?.days) ? trip : null;
+  } catch {
+    return null;
+  }
+}
+
+/** An .ics calendar: one all-day overview per day plus a 1-hour event for every timed stop. */
+export function toIcs(trip: Trip) {
+  const stamp = new Date().toISOString().replace(/[-:]/g, &quot;&quot;).replace(/\.\d+/, &quot;&quot;);
+  const esc = (s: string) =&gt; s.replace(/([,;\\])/g, &quot;\\$1&quot;).replace(/\n/g, &quot;\\n&quot;);
+  const ymd = (d: Date) =&gt; isoDate(d).replace(/-/g, &quot;&quot;);
+  const lines = [&quot;BEGIN:VCALENDAR&quot;, &quot;VERSION:2.0&quot;, &quot;PRODID:-//Component Gallery//Trip Planner//EN&quot;, &quot;CALSCALE:GREGORIAN&quot;];
+  trip.days.forEach((day, i) =&gt; {
+    const date = dayDate(trip, i);
+    const next = new Date(date);
+    next.setDate(next.getDate() + 1);
+    lines.push(
+      &quot;BEGIN:VEVENT&quot;,
+      `UID:${day.id}@trip`,
+      `DTSTAMP:${stamp}`,
+      `DTSTART;VALUE=DATE:${ymd(date)}`,
+      `DTEND;VALUE=DATE:${ymd(next)}`,
+      `SUMMARY:${esc(`${trip.name}: Day ${i + 1}`)}`,
+      `DESCRIPTION:${esc(day.stops.map((s, j) =&gt; `${j + 1}. ${s.time ? `${s.time} ` : &quot;&quot;}${s.name}`).join(&quot;\n&quot;))}`,
+      &quot;END:VEVENT&quot;,
+    );
+    for (const s of day.stops) {
+      if (!s.time) continue;
+      const [h, m] = s.time.split(&quot;:&quot;).map(Number);
+      const startAt = `${ymd(date)}T${String(h).padStart(2, &quot;0&quot;)}${String(m).padStart(2, &quot;0&quot;)}00`;
+      const endAt = `${ymd(date)}T${String((h + 1) % 24).padStart(2, &quot;0&quot;)}${String(m).padStart(2, &quot;0&quot;)}00`;
+      lines.push(
+        &quot;BEGIN:VEVENT&quot;,
+        `UID:${s.id}-${i}@trip`,
+        `DTSTAMP:${stamp}`,
+        `DTSTART:${startAt}`,
+        `DTEND:${endAt}`,
+        `SUMMARY:${esc(s.name)}`,
+        `LOCATION:${esc(`${s.lat.toFixed(5)},${s.lng.toFixed(5)}`)}`,
+        ...(s.note ? [`DESCRIPTION:${esc(s.note)}`] : []),
+        &quot;END:VEVENT&quot;,
+      );
+    }
+  });
+  lines.push(&quot;END:VCALENDAR&quot;);
+  return lines.join(&quot;\r\n&quot;);
+}
+</code></pre></div><div class="file"><div class="file-head"><span>services.ts</span><button type="button" class="copy">Copy</button></div><pre><code>// Free, key-less OpenStreetMap services. Search runs only on Enter (Nominatim asks for ≤1 request/s,
+// no autocomplete), and routes are cached per day so edits don&#x27;t re-request unchanged legs.
+
+export type Place = { name: string; detail: string; lat: number; lng: number };
+export type Leg = { distance: number; duration: number };
+export type Route = { coords: [number, number][]; legs: Leg[]; estimated: boolean };
+
+const NOMINATIM = &quot;https://nominatim.openstreetmap.org&quot;;
+const OSRM = &quot;https://router.project-osrm.org/route/v1/driving&quot;;
+
+export async function searchPlaces(query: string, view?: { west: number; south: number; east: number; north: number }) {
+  const params = new URLSearchParams({ q: query, format: &quot;jsonv2&quot;, limit: &quot;6&quot;, &quot;accept-language&quot;: &quot;en&quot; });
+  if (view) params.set(&quot;viewbox&quot;, `${view.west},${view.north},${view.east},${view.south}`);
+  const res = await fetch(`${NOMINATIM}/search?${params}`);
+  if (!res.ok) throw new Error(&quot;Search failed&quot;);
+  const data: { name?: string; display_name: string; lat: string; lon: string }[] = await res.json();
+  return data.map&lt;Place&gt;((d) =&gt; {
+    const [first, ...rest] = d.display_name.split(&quot;, &quot;);
+    return { name: d.name || first, detail: rest.slice(0, 3).join(&quot;, &quot;), lat: Number(d.lat), lng: Number(d.lon) };
+  });
+}
+
+export async function reverseGeocode(lat: number, lng: number) {
+  try {
+    const params = new URLSearchParams({ lat: String(lat), lon: String(lng), format: &quot;jsonv2&quot;, zoom: &quot;17&quot;, &quot;accept-language&quot;: &quot;en&quot; });
+    const res = await fetch(`${NOMINATIM}/reverse?${params}`);
+    const d: { name?: string; display_name?: string } = await res.json();
+    return d.name || d.display_name?.split(&quot;, &quot;).slice(0, 2).join(&quot;, &quot;) || &quot;Pinned place&quot;;
+  } catch {
+    return &quot;Pinned place&quot;;
+  }
+}
+
+/** Great-circle distance in metres. */
+export function haversine(a: { lat: number; lng: number }, b: { lat: number; lng: number }) {
+  const R = 6371e3;
+  const toRad = (d: number) =&gt; (d * Math.PI) / 180;
+  const dLat = toRad(b.lat - a.lat);
+  const dLng = toRad(b.lng - a.lng);
+  const h = Math.sin(dLat / 2) ** 2 + Math.cos(toRad(a.lat)) * Math.cos(toRad(b.lat)) * Math.sin(dLng / 2) ** 2;
+  return 2 * R * Math.asin(Math.sqrt(h));
+}
+
+/** Straight lines with a road-detour factor and ~35 km/h, used when routing is unavailable. */
+export function estimateRoute(points: { lat: number; lng: number }[]): Route {
+  const legs = points.slice(1).map((p, i) =&gt; {
+    const distance = haversine(points[i], p) * 1.3;
+    return { distance, duration: distance / (35_000 / 3600) };
+  });
+  return { coords: points.map((p) =&gt; [p.lat, p.lng]), legs, estimated: true };
+}
+
+const cache = new Map&lt;string, Route&gt;();
+
+export async function routeFor(points: { lat: number; lng: number }[]): Promise&lt;Route&gt; {
+  if (points.length &lt; 2) return { coords: [], legs: [], estimated: false };
+  const key = points.map((p) =&gt; `${p.lng.toFixed(5)},${p.lat.toFixed(5)}`).join(&quot;;&quot;);
+  const hit = cache.get(key);
+  if (hit) return hit;
+  try {
+    const res = await fetch(`${OSRM}/${key}?overview=full&amp;geometries=geojson`);
+    const data = await res.json();
+    if (data.code !== &quot;Ok&quot;) throw new Error(data.code);
+    const r = data.routes[0];
+    const route: Route = {
+      coords: r.geometry.coordinates.map(([lng, lat]: [number, number]) =&gt; [lat, lng]),
+      legs: r.legs.map((l: Leg) =&gt; ({ distance: l.distance, duration: l.duration })),
+      estimated: false,
+    };
+    cache.set(key, route);
+    return route;
+  } catch {
+    return estimateRoute(points);
+  }
+}
+
+export const km = (m: number) =&gt; (m &lt; 1000 ? `${Math.round(m)} m` : `${(m / 1000).toFixed(m &lt; 10_000 ? 1 : 0)} km`);
+export const mins = (s: number) =&gt; {
+  const m = Math.round(s / 60);
+  return m &lt; 60 ? `${m} min` : `${Math.floor(m / 60)} h ${String(m % 60).padStart(2, &quot;0&quot;)} min`;
+};
+</code></pre></div></section><nav class="pager"><a href="/component-gallery/components/meeting-captions/">← <!-- -->Live Meeting Captions &amp; Action Items</a><a href="/component-gallery/components/room-planner/">Room Planner, 2D to 3D<!-- --> →</a></nav></main><!--$--><!--/$--><footer class="site-footer"><div class="container"><span>Built by <!-- -->rownok-HR-LS<!-- --> · LofiStack 90-day challenge</span><a href="https://github.com/rownok-HR-LS/component-gallery">Source on GitHub</a></div></footer><script src="/component-gallery/_next/static/chunks/webpack-1b912f870780f4ba.js" id="_R_" async=""></script><script>(self.__next_f=self.__next_f||[]).push([0])</script><script>self.__next_f.push([1,"1:\"$Sreact.fragment\"\n2:I[2619,[\"619\",\"static/chunks/619-ba102abea3e3d0e4.js\",\"449\",\"static/chunks/app/components/%5Bslug%5D/page-7b18c14fa5ee9ace.js\"],\"\"]\n3:I[9766,[],\"\"]\n4:I[8924,[],\"\"]\n6:I[4431,[],\"OutletBoundary\"]\n8:I[5278,[],\"AsyncMetadataOutlet\"]\na:I[4431,[],\"ViewportBoundary\"]\nc:I[4431,[],\"MetadataBoundary\"]\nd:\"$Sreact.suspense\"\nf:I[7150,[],\"\"]\n:HL[\"/component-gallery/_next/static/css/68cce7808a08b910.css\",\"style\"]\n"])</script><script>self.__next_f.push([1,"0:{\"P\":null,\"b\":\"6jA2vIGrO3aOlnYlKgPnQ\",\"p\":\"/component-gallery\",\"c\":[\"\",\"components\",\"trip-planner\",\"\"],\"i\":false,\"f\":[[[\"\",{\"children\":[\"components\",{\"children\":[[\"slug\",\"trip-planner\",\"d\"],{\"children\":[\"__PAGE__\",{}]}]}]},\"$undefined\",\"$undefined\",true],[\"\",[\"$\",\"$1\",\"c\",{\"children\":[[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/component-gallery/_next/static/css/68cce7808a08b910.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}]],[\"$\",\"html\",null,{\"lang\":\"en\",\"children\":[\"$\",\"body\",null,{\"children\":[[\"$\",\"header\",null,{\"className\":\"site-header\",\"children\":[\"$\",\"div\",null,{\"className\":\"container\",\"children\":[[\"$\",\"$L2\",null,{\"href\":\"/\",\"className\":\"brand\",\"children\":\"Component Gallery\"}],[\"$\",\"nav\",null,{\"children\":[\"$\",\"a\",null,{\"href\":\"https://github.com/rownok-HR-LS/component-gallery\",\"children\":\"GitHub\"}]}]]}]}],[\"$\",\"$L3\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L4\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":[[\"$\",\"main\",null,{\"className\":\"container\",\"children\":[\"$\",\"header\",null,{\"className\":\"hero\",\"children\":[[\"$\",\"h1\",null,{\"children\":\"Not found\"}],[\"$\",\"p\",null,{\"className\":\"lede\",\"children\":\"That component doesn't exist (yet).\"}],[\"$\",\"$L2\",null,{\"href\":\"/\",\"children\":\"← Back to the gallery\"}]]}]}],[]],\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}],[\"$\",\"footer\",null,{\"className\":\"site-footer\",\"children\":[\"$\",\"div\",null,{\"className\":\"container\",\"children\":[[\"$\",\"span\",null,{\"children\":[\"Built by \",\"rownok-HR-LS\",\" · LofiStack 90-day challenge\"]}],[\"$\",\"a\",null,{\"href\":\"https://github.com/rownok-HR-LS/component-gallery\",\"children\":\"Source on GitHub\"}]]}]}]]}]}]]}],{\"children\":[\"components\",[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"$L3\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L4\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]]}],{\"children\":[[\"slug\",\"trip-planner\",\"d\"],[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"$L3\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L4\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]]}],{\"children\":[\"__PAGE__\",[\"$\",\"$1\",\"c\",{\"children\":[\"$L5\",null,[\"$\",\"$L6\",null,{\"children\":[\"$L7\",[\"$\",\"$L8\",null,{\"promise\":\"$@9\"}]]}]]}],{},null,false]},null,false]},null,false]},null,false],[\"$\",\"$1\",\"h\",{\"children\":[null,[[\"$\",\"$La\",null,{\"children\":\"$Lb\"}],null],[\"$\",\"$Lc\",null,{\"children\":[\"$\",\"div\",null,{\"hidden\":true,\"children\":[\"$\",\"$d\",null,{\"fallback\":null,\"children\":\"$Le\"}]}]}]]}],false]],\"m\":\"$undefined\",\"G\":[\"$f\",[]],\"s\":false,\"S\":true}\n"])</script><script>self.__next_f.push([1,"b:[[\"$\",\"meta\",\"0\",{\"charSet\":\"utf-8\"}],[\"$\",\"meta\",\"1\",{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"}]]\n7:null\n"])</script><script>self.__next_f.push([1,"9:{\"metadata\":[[\"$\",\"title\",\"0\",{\"children\":\"Trip Planner with Live Map · Component Gallery\"}],[\"$\",\"meta\",\"1\",{\"name\":\"description\",\"content\":\"Plan a multi-day trip on a real map: search places, organise stops by day, see driving routes with times and distances, split the budget, pack, and share it with a link.\"}]],\"error\":null,\"digest\":\"$undefined\"}\n"])</script><script>self.__next_f.push([1,"e:\"$9:metadata\"\n"])</script><script>self.__next_f.push([1,"10:I[2325,[\"619\",\"static/chunks/619-ba102abea3e3d0e4.js\",\"449\",\"static/chunks/app/components/%5Bslug%5D/page-7b18c14fa5ee9ace.js\"],\"Demo\"]\n11:I[7333,[\"619\",\"static/chunks/619-ba102abea3e3d0e4.js\",\"449\",\"static/chunks/app/components/%5Bslug%5D/page-7b18c14fa5ee9ace.js\"],\"CopyButton\"]\n12:T308e,"])</script><script>self.__next_f.push([1,".card {\n  --surface: #fcfcfb;\n  --ink: #0b0b0b;\n  --ink-2: #52514e;\n  --muted: #898781;\n  --border: rgba(11, 11, 11, 0.1);\n  --field: #f4f3f0;\n  --accent: #2a78d6;\n  --danger: #d92d20;\n\n  position: relative;\n  width: 100%;\n  max-width: 1150px;\n  padding: 20px;\n  border: 1px solid var(--border);\n  border-radius: 20px;\n  background: var(--surface);\n  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 12px 32px -12px rgba(0, 0, 0, 0.18);\n  color: var(--ink);\n  font-family: system-ui, -apple-system, \"Segoe UI\", sans-serif;\n  container-type: inline-size;\n}\n\n@media (prefers-color-scheme: dark) {\n  .card {\n    --surface: #18181b;\n    --ink: #ffffff;\n    --ink-2: #c3c2b7;\n    --border: rgba(255, 255, 255, 0.1);\n    --field: #232327;\n    --accent: #6da7ec;\n    --danger: #f97066;\n    box-shadow: 0 12px 32px -12px rgba(0, 0, 0, 0.6);\n  }\n  /* Dark map tiles without needing a separate dark tile server. */\n  .map :global(.leaflet-tile-pane) { filter: invert(1) hue-rotate(180deg) brightness(0.92) contrast(0.88) saturate(0.6); }\n  .map { background: #1f2023; }\n}\n\n.loading { padding: 80px 0; color: var(--muted); text-align: center; }\n\n/* Header */\n.head { margin-bottom: 14px; }\n.titleRow { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; }\n.tripName {\n  flex: 1;\n  min-width: 200px;\n  padding: 4px 8px;\n  margin-left: -8px;\n  border: 1px solid transparent;\n  border-radius: 8px;\n  outline: none;\n  background: none;\n  color: var(--ink);\n  font: inherit;\n  font-size: 22px;\n  font-weight: 700;\n  letter-spacing: -0.01em;\n}\n.tripName:hover { border-color: var(--border); }\n.tripName:focus { border-color: var(--accent); background: var(--field); }\n.headActions { display: flex; flex-wrap: wrap; gap: 6px; }\n.meta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; margin-top: 8px; color: var(--ink-2); font-size: 13px; }\n.meta label { display: inline-flex; align-items: center; gap: 6px; }\n.meta input {\n  height: 30px;\n  padding: 0 8px;\n  border: 1px solid var(--border);\n  border-radius: 8px;\n  background: var(--field);\n  color: var(--ink);\n  font: inherit;\n  font-size: 13px;\n  color-scheme: light dark;\n}\n.meta input[type=\"number\"] { width: 64px; }\n.metaStat { color: var(--muted); }\n\n.ghost {\n  height: 32px;\n  padding: 0 12px;\n  border: 1px solid var(--border);\n  border-radius: 9px;\n  background: none;\n  color: var(--ink);\n  font: inherit;\n  font-size: 12.5px;\n  font-weight: 500;\n  cursor: pointer;\n}\n.ghost:hover { background: var(--field); }\n.ghost:focus-visible,\n.tabs button:focus-visible,\n.dayStrip button:focus-visible,\n.stopMain:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }\n\n/* Body */\n.body { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(320px, 1fr); gap: 14px; }\n@container (max-width: 760px) {\n  .body { grid-template-columns: 1fr; }\n  .map { height: 340px !important; }\n}\n\n.mapWrap { position: relative; min-width: 0; }\n.map { height: 600px; overflow: hidden; border: 1px solid var(--border); border-radius: 14px; z-index: 0; }\n.dayStrip {\n  position: absolute;\n  top: 10px;\n  left: 56px;\n  right: 10px;\n  z-index: 500;\n  display: flex;\n  flex-wrap: wrap;\n  gap: 6px;\n  pointer-events: none;\n}\n.dayStrip button {\n  padding: 6px 12px;\n  border: 2px solid var(--c);\n  border-radius: 99px;\n  background: color-mix(in srgb, var(--surface) 92%, transparent);\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);\n  color: var(--ink);\n  font: inherit;\n  font-size: 12.5px;\n  font-weight: 600;\n  cursor: pointer;\n  pointer-events: auto;\n}\n.dayStrip button[aria-selected=\"true\"] { background: var(--c); color: #fff; }\n.mapHint {\n  position: absolute;\n  bottom: 10px;\n  left: 10px;\n  z-index: 500;\n  margin: 0;\n  padding: 4px 10px;\n  border-radius: 99px;\n  background: rgba(0, 0, 0, 0.62);\n  color: #fff;\n  font-size: 11.5px;\n  pointer-events: none;\n}\n\n.pin {\n  display: grid;\n  place-items: center;\n  width: 28px;\n  height: 28px;\n  border: 2.5px solid #fff;\n  border-radius: 50% 50% 50% 4px;\n  background: var(--c);\n  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.35);\n  color: #fff;\n  font: 700 12px system-ui, sans-serif;\n  transform: rotate(-45deg);\n  opacity: 0.55;\n  transition: transform 0.2s ease, opacity 0.2s ease;\n}\n.pin[data-active=\"true\"] { opacity: 1; }\n.pin[data-open=\"true\"] { transform: rotate(-45deg) scale(1.25); }\n/* The teardrop is rotated; turn the number back upright. */\n.pin b { transform: rotate(45deg); font-weight: 700; line-height: 1; }\n\n.popup { display: flex; flex-direction: column; gap: 8px; min-width: 170px; font-family: system-ui, sans-serif; }\n.popup strong { font-size: 13px; }\n.popup button { padding: 6px 10px; border: 0; border-radius: 8px; color: #fff; font: 600 12.5px system-ui, sans-serif; cursor: pointer; }\n\n/* Panel */\n.panel { display: flex; flex-direction: column; gap: 10px; min-width: 0; }\n.tabs { display: flex; gap: 2px; padding: 3px; border-radius: 10px; background: var(--field); }\n.tabs button {\n  flex: 1;\n  padding: 7px 6px;\n  border: 0;\n  border-radius: 8px;\n  background: none;\n  color: var(--ink-2);\n  font: inherit;\n  font-size: 12.5px;\n  white-space: nowrap;\n  cursor: pointer;\n}\n.tabs button[aria-selected=\"true\"] { background: var(--surface); box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15); color: var(--ink); font-weight: 600; }\n\n.search { display: flex; gap: 6px; }\n.search input,\n.addRow input {\n  flex: 1;\n  min-width: 0;\n  height: 38px;\n  padding: 0 12px;\n  border: 1px solid var(--border);\n  border-radius: 10px;\n  outline: none;\n  background: var(--field);\n  color: var(--ink);\n  font: inherit;\n  font-size: 14px;\n}\n.search input:focus,\n.addRow input:focus { border-color: var(--accent); }\n.search button,\n.addRow button {\n  height: 38px;\n  padding: 0 14px;\n  border: 0;\n  border-radius: 10px;\n  background: var(--ink);\n  color: var(--surface);\n  font: inherit;\n  font-size: 13px;\n  font-weight: 600;\n  cursor: pointer;\n}\n\n.results { display: flex; flex-direction: column; gap: 4px; margin: 0; padding: 6px; border: 1px solid var(--border); border-radius: 12px; list-style: none; }\n.results li { display: flex; align-items: center; gap: 6px; }\n.resultPeek {\n  display: flex;\n  flex: 1;\n  flex-direction: column;\n  min-width: 0;\n  padding: 6px 8px;\n  border: 0;\n  border-radius: 8px;\n  background: none;\n  color: var(--ink);\n  font: inherit;\n  text-align: left;\n  cursor: pointer;\n}\n.resultPeek:hover { background: var(--field); }\n.resultPeek strong { font-size: 13.5px; }\n.resultPeek span { overflow: hidden; color: var(--muted); font-size: 12px; text-overflow: ellipsis; white-space: nowrap; }\n.addBtn { flex: none; padding: 5px 10px; border: 0; border-radius: 8px; color: #fff; font: inherit; font-size: 12px; font-weight: 600; cursor: pointer; }\n.noResults { padding: 8px; color: var(--muted); font-size: 13px; }\n.closeResults { width: 100%; padding: 4px; border: 0; background: none; color: var(--muted); font: inherit; font-size: 12px; cursor: pointer; }\n\n.dayHead {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  gap: 8px;\n  padding: 10px 12px;\n  border-left: 4px solid var(--c);\n  border-radius: 6px 12px 12px 6px;\n  background: color-mix(in srgb, var(--c) 10%, transparent);\n}\n.dayHead div { display: flex; align-items: baseline; gap: 8px; }\n.dayHead strong { font-size: 15px; }\n.dayHead div span { color: var(--ink-2); font-size: 13px; }\n.dayStats { color: var(--ink-2); font-size: 12px; font-variant-numeric: tabular-nums; text-align: right; }\n\n.stops { display: flex; flex-direction: column; max-height: 360px; margin: 0; padding: 0 2px 0 0; overflow-y: auto; list-style: none; }\n.emptyDay { padding: 20px 8px; color: var(--muted); font-size: 13px; text-align: center; }\n.leg { display: flex; align-items: center; height: 26px; margin-left: 13px; padding-left: 20px; border-left: 2px dashed var(--border); color: var(--muted); font-size: 11.5px; font-variant-numeric: tabular-nums; }\n.stop { border: 1px solid var(--border); border-radius: 12px; background: var(--surface); transition: box-shadow 0.15s ease; }\n.stop[data-open=\"true\"] { border-color: var(--accent); box-shadow: 0 6px 18px -8px rgba(0, 0, 0, 0.25); }\n.stop:hover { box-shadow: 0 4px 12px -8px rgba(0, 0, 0, 0.3); }\n.stopMain {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  width: 100%;\n  padding: 9px 10px;\n  border: 0;\n  border-radius: 12px;\n  background: none;\n  color: var(--ink);\n  font: inherit;\n  text-align: left;\n  cursor: pointer;\n}\n.num { display: grid; flex: none; place-items: center; width: 26px; height: 26px; border-radius: 50%; color: #fff; font-size: 12px; font-weight: 700; }\n.stopText { display: flex; flex: 1; flex-direction: column; min-width: 0; }\n.stopText strong { overflow: hidden; font-size: 13.5px; text-overflow: ellipsis; white-space: nowrap; }\n.stopText span { color: var(--muted); font-size: 12px; }\n.grip { color: var(--muted); font-size: 12px; letter-spacing: -2px; cursor: grab; }\n\n.editor { display: flex; flex-direction: column; gap: 8px; padding: 0 12px 12px; }\n.editor label { display: flex; flex-direction: column; gap: 3px; color: var(--ink-2); font-size: 11.5px; }\n.editor input,\n.editor select {\n  height: 32px;\n  min-width: 0;\n  padding: 0 8px;\n  border: 1px solid var(--border);\n  border-radius: 8px;\n  background: var(--field);\n  color: var(--ink);\n  font: inherit;\n  font-size: 13px;\n  color-scheme: light dark;\n}\n.row3 { display: grid; grid-template-columns: 1fr 1.2fr 1fr; gap: 6px; }\n.editorActions { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 8px; }\n.editorActions \u003e span { display: flex; gap: 4px; }\n.inline { flex-direction: row !important; align-items: center; gap: 6px !important; }\n.iconBtn,\n.danger { height: 30px; padding: 0 10px; border: 1px solid var(--border); border-radius: 8px; background: none; color: var(--ink); font: inherit; font-size: 13px; cursor: pointer; }\n.iconBtn:disabled { opacity: 0.35; cursor: default; }\n.danger { color: var(--danger); }\n\n.dayActions { display: flex; gap: 6px; }\n\n/* Budget */\n.budget,\n.packing { display: flex; flex-direction: column; gap: 10px; }\n.bigNumbers { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }\n.bigNumbers div { display: flex; flex-direction: column; padding: 12px; border-radius: 12px; background: var(--field); }\n.bigNumbers strong { font-size: 22px; font-variant-numeric: tabular-nums; }\n.bigNumbers span { color: var(--muted); font-size: 12px; }\n.breakdown,\n.extras,\n.packing ul { display: flex; flex-direction: column; gap: 6px; margin: 0; padding: 0; list-style: none; }\n.breakdown li { display: grid; grid-template-columns: 90px 1fr 80px; align-items: center; gap: 8px; font-size: 13px; }\n.bar { height: 8px; overflow: hidden; border-radius: 99px; background: var(--field); }\n.bar span { display: block; height: 100%; border-radius: inherit; background: var(--accent); }\n.amount { text-align: right; font-variant-numeric: tabular-nums; }\n.subhead { margin: 6px 0 0; color: var(--ink-2); font-size: 12.5px; font-weight: 600; }\n.extras li,\n.packing li { display: flex; align-items: center; gap: 8px; padding: 7px 10px; border: 1px solid var(--border); border-radius: 10px; font-size: 13px; }\n.extras li span:first-child { flex: 1; }\n.extras button,\n.packing li button { padding: 0 4px; border: 0; background: none; color: var(--muted); font-size: 16px; cursor: pointer; }\n.addRow { display: flex; gap: 6px; }\n.addRow input[type=\"number\"] { flex: 0 0 90px; }\n.hint { margin: 0; color: var(--muted); font-size: 12px; }\n\n.progress { height: 8px; overflow: hidden; border-radius: 99px; background: var(--field); }\n.progress span { display: block; height: 100%; border-radius: inherit; background: #1baf7a; transition: width 0.3s ease; }\n.packing li label { display: flex; flex: 1; align-items: center; gap: 10px; cursor: pointer; }\n.packing li input { width: 16px; height: 16px; accent-color: #1baf7a; }\n.packing li[data-done=\"true\"] label { color: var(--muted); text-decoration: line-through; }\n\n.toast {\n  position: absolute;\n  bottom: 54px;\n  left: 50%;\n  z-index: 1000;\n  padding: 8px 16px;\n  border-radius: 99px;\n  background: var(--ink);\n  color: var(--surface);\n  font-size: 13px;\n  font-weight: 500;\n  transform: translateX(-50%);\n  animation: rise 0.25s ease;\n}\n.credit { margin: 12px 0 0; color: var(--muted); font-size: 11.5px; }\n\n@keyframes rise {\n  from { opacity: 0; transform: translate(-50%, 8px); }\n  to { opacity: 1; transform: translate(-50%, 0); }\n}\n"])</script><script>self.__next_f.push([1,"5:[\"$\",\"main\",null,{\"className\":\"container\",\"children\":[[\"$\",\"$L2\",null,{\"href\":\"/\",\"className\":\"back\",\"children\":\"← All components\"}],[\"$\",\"header\",null,{\"className\":\"detail-head\",\"children\":[[\"$\",\"span\",null,{\"className\":\"tag\",\"children\":[\"Week \",7,\" · \",\"2026-10-09\"]}],[\"$\",\"h1\",null,{\"children\":\"Trip Planner with Live Map\"}],[\"$\",\"p\",null,{\"children\":\"Plan a multi-day trip on a real map: search places, organise stops by day, see driving routes with times and distances, split the budget, pack, and share it with a link.\"}]]}],[\"$\",\"section\",null,{\"className\":\"stage\",\"aria-label\":\"Live demo\",\"children\":[\"$\",\"$L10\",null,{\"slug\":\"trip-planner\"}]}],[\"$\",\"section\",null,{\"className\":\"source\",\"children\":[[\"$\",\"h2\",null,{\"children\":\"Source\"}],[[\"$\",\"div\",\"Demo.tsx\",{\"className\":\"file\",\"children\":[[\"$\",\"div\",null,{\"className\":\"file-head\",\"children\":[[\"$\",\"span\",null,{\"children\":\"Demo.tsx\"}],[\"$\",\"$L11\",null,{\"text\":\"import TripPlanner from \\\"./TripPlanner\\\";\\n\\nexport default function Demo() {\\n  return \u003cTripPlanner /\u003e;\\n}\\n\"}]]}],[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"children\":\"import TripPlanner from \\\"./TripPlanner\\\";\\n\\nexport default function Demo() {\\n  return \u003cTripPlanner /\u003e;\\n}\\n\"}]}]]}],[\"$\",\"div\",\"TripPlanner.module.css\",{\"className\":\"file\",\"children\":[[\"$\",\"div\",null,{\"className\":\"file-head\",\"children\":[[\"$\",\"span\",null,{\"children\":\"TripPlanner.module.css\"}],[\"$\",\"$L11\",null,{\"text\":\"$12\"}]]}],\"$L13\"]}],\"$L14\",\"$L15\",\"$L16\"]]}],\"$L17\"]}]\n"])</script><script>self.__next_f.push([1,"18:T308e,"])</script><script>self.__next_f.push([1,".card {\n  --surface: #fcfcfb;\n  --ink: #0b0b0b;\n  --ink-2: #52514e;\n  --muted: #898781;\n  --border: rgba(11, 11, 11, 0.1);\n  --field: #f4f3f0;\n  --accent: #2a78d6;\n  --danger: #d92d20;\n\n  position: relative;\n  width: 100%;\n  max-width: 1150px;\n  padding: 20px;\n  border: 1px solid var(--border);\n  border-radius: 20px;\n  background: var(--surface);\n  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 12px 32px -12px rgba(0, 0, 0, 0.18);\n  color: var(--ink);\n  font-family: system-ui, -apple-system, \"Segoe UI\", sans-serif;\n  container-type: inline-size;\n}\n\n@media (prefers-color-scheme: dark) {\n  .card {\n    --surface: #18181b;\n    --ink: #ffffff;\n    --ink-2: #c3c2b7;\n    --border: rgba(255, 255, 255, 0.1);\n    --field: #232327;\n    --accent: #6da7ec;\n    --danger: #f97066;\n    box-shadow: 0 12px 32px -12px rgba(0, 0, 0, 0.6);\n  }\n  /* Dark map tiles without needing a separate dark tile server. */\n  .map :global(.leaflet-tile-pane) { filter: invert(1) hue-rotate(180deg) brightness(0.92) contrast(0.88) saturate(0.6); }\n  .map { background: #1f2023; }\n}\n\n.loading { padding: 80px 0; color: var(--muted); text-align: center; }\n\n/* Header */\n.head { margin-bottom: 14px; }\n.titleRow { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; }\n.tripName {\n  flex: 1;\n  min-width: 200px;\n  padding: 4px 8px;\n  margin-left: -8px;\n  border: 1px solid transparent;\n  border-radius: 8px;\n  outline: none;\n  background: none;\n  color: var(--ink);\n  font: inherit;\n  font-size: 22px;\n  font-weight: 700;\n  letter-spacing: -0.01em;\n}\n.tripName:hover { border-color: var(--border); }\n.tripName:focus { border-color: var(--accent); background: var(--field); }\n.headActions { display: flex; flex-wrap: wrap; gap: 6px; }\n.meta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; margin-top: 8px; color: var(--ink-2); font-size: 13px; }\n.meta label { display: inline-flex; align-items: center; gap: 6px; }\n.meta input {\n  height: 30px;\n  padding: 0 8px;\n  border: 1px solid var(--border);\n  border-radius: 8px;\n  background: var(--field);\n  color: var(--ink);\n  font: inherit;\n  font-size: 13px;\n  color-scheme: light dark;\n}\n.meta input[type=\"number\"] { width: 64px; }\n.metaStat { color: var(--muted); }\n\n.ghost {\n  height: 32px;\n  padding: 0 12px;\n  border: 1px solid var(--border);\n  border-radius: 9px;\n  background: none;\n  color: var(--ink);\n  font: inherit;\n  font-size: 12.5px;\n  font-weight: 500;\n  cursor: pointer;\n}\n.ghost:hover { background: var(--field); }\n.ghost:focus-visible,\n.tabs button:focus-visible,\n.dayStrip button:focus-visible,\n.stopMain:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }\n\n/* Body */\n.body { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(320px, 1fr); gap: 14px; }\n@container (max-width: 760px) {\n  .body { grid-template-columns: 1fr; }\n  .map { height: 340px !important; }\n}\n\n.mapWrap { position: relative; min-width: 0; }\n.map { height: 600px; overflow: hidden; border: 1px solid var(--border); border-radius: 14px; z-index: 0; }\n.dayStrip {\n  position: absolute;\n  top: 10px;\n  left: 56px;\n  right: 10px;\n  z-index: 500;\n  display: flex;\n  flex-wrap: wrap;\n  gap: 6px;\n  pointer-events: none;\n}\n.dayStrip button {\n  padding: 6px 12px;\n  border: 2px solid var(--c);\n  border-radius: 99px;\n  background: color-mix(in srgb, var(--surface) 92%, transparent);\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);\n  color: var(--ink);\n  font: inherit;\n  font-size: 12.5px;\n  font-weight: 600;\n  cursor: pointer;\n  pointer-events: auto;\n}\n.dayStrip button[aria-selected=\"true\"] { background: var(--c); color: #fff; }\n.mapHint {\n  position: absolute;\n  bottom: 10px;\n  left: 10px;\n  z-index: 500;\n  margin: 0;\n  padding: 4px 10px;\n  border-radius: 99px;\n  background: rgba(0, 0, 0, 0.62);\n  color: #fff;\n  font-size: 11.5px;\n  pointer-events: none;\n}\n\n.pin {\n  display: grid;\n  place-items: center;\n  width: 28px;\n  height: 28px;\n  border: 2.5px solid #fff;\n  border-radius: 50% 50% 50% 4px;\n  background: var(--c);\n  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.35);\n  color: #fff;\n  font: 700 12px system-ui, sans-serif;\n  transform: rotate(-45deg);\n  opacity: 0.55;\n  transition: transform 0.2s ease, opacity 0.2s ease;\n}\n.pin[data-active=\"true\"] { opacity: 1; }\n.pin[data-open=\"true\"] { transform: rotate(-45deg) scale(1.25); }\n/* The teardrop is rotated; turn the number back upright. */\n.pin b { transform: rotate(45deg); font-weight: 700; line-height: 1; }\n\n.popup { display: flex; flex-direction: column; gap: 8px; min-width: 170px; font-family: system-ui, sans-serif; }\n.popup strong { font-size: 13px; }\n.popup button { padding: 6px 10px; border: 0; border-radius: 8px; color: #fff; font: 600 12.5px system-ui, sans-serif; cursor: pointer; }\n\n/* Panel */\n.panel { display: flex; flex-direction: column; gap: 10px; min-width: 0; }\n.tabs { display: flex; gap: 2px; padding: 3px; border-radius: 10px; background: var(--field); }\n.tabs button {\n  flex: 1;\n  padding: 7px 6px;\n  border: 0;\n  border-radius: 8px;\n  background: none;\n  color: var(--ink-2);\n  font: inherit;\n  font-size: 12.5px;\n  white-space: nowrap;\n  cursor: pointer;\n}\n.tabs button[aria-selected=\"true\"] { background: var(--surface); box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15); color: var(--ink); font-weight: 600; }\n\n.search { display: flex; gap: 6px; }\n.search input,\n.addRow input {\n  flex: 1;\n  min-width: 0;\n  height: 38px;\n  padding: 0 12px;\n  border: 1px solid var(--border);\n  border-radius: 10px;\n  outline: none;\n  background: var(--field);\n  color: var(--ink);\n  font: inherit;\n  font-size: 14px;\n}\n.search input:focus,\n.addRow input:focus { border-color: var(--accent); }\n.search button,\n.addRow button {\n  height: 38px;\n  padding: 0 14px;\n  border: 0;\n  border-radius: 10px;\n  background: var(--ink);\n  color: var(--surface);\n  font: inherit;\n  font-size: 13px;\n  font-weight: 600;\n  cursor: pointer;\n}\n\n.results { display: flex; flex-direction: column; gap: 4px; margin: 0; padding: 6px; border: 1px solid var(--border); border-radius: 12px; list-style: none; }\n.results li { display: flex; align-items: center; gap: 6px; }\n.resultPeek {\n  display: flex;\n  flex: 1;\n  flex-direction: column;\n  min-width: 0;\n  padding: 6px 8px;\n  border: 0;\n  border-radius: 8px;\n  background: none;\n  color: var(--ink);\n  font: inherit;\n  text-align: left;\n  cursor: pointer;\n}\n.resultPeek:hover { background: var(--field); }\n.resultPeek strong { font-size: 13.5px; }\n.resultPeek span { overflow: hidden; color: var(--muted); font-size: 12px; text-overflow: ellipsis; white-space: nowrap; }\n.addBtn { flex: none; padding: 5px 10px; border: 0; border-radius: 8px; color: #fff; font: inherit; font-size: 12px; font-weight: 600; cursor: pointer; }\n.noResults { padding: 8px; color: var(--muted); font-size: 13px; }\n.closeResults { width: 100%; padding: 4px; border: 0; background: none; color: var(--muted); font: inherit; font-size: 12px; cursor: pointer; }\n\n.dayHead {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  gap: 8px;\n  padding: 10px 12px;\n  border-left: 4px solid var(--c);\n  border-radius: 6px 12px 12px 6px;\n  background: color-mix(in srgb, var(--c) 10%, transparent);\n}\n.dayHead div { display: flex; align-items: baseline; gap: 8px; }\n.dayHead strong { font-size: 15px; }\n.dayHead div span { color: var(--ink-2); font-size: 13px; }\n.dayStats { color: var(--ink-2); font-size: 12px; font-variant-numeric: tabular-nums; text-align: right; }\n\n.stops { display: flex; flex-direction: column; max-height: 360px; margin: 0; padding: 0 2px 0 0; overflow-y: auto; list-style: none; }\n.emptyDay { padding: 20px 8px; color: var(--muted); font-size: 13px; text-align: center; }\n.leg { display: flex; align-items: center; height: 26px; margin-left: 13px; padding-left: 20px; border-left: 2px dashed var(--border); color: var(--muted); font-size: 11.5px; font-variant-numeric: tabular-nums; }\n.stop { border: 1px solid var(--border); border-radius: 12px; background: var(--surface); transition: box-shadow 0.15s ease; }\n.stop[data-open=\"true\"] { border-color: var(--accent); box-shadow: 0 6px 18px -8px rgba(0, 0, 0, 0.25); }\n.stop:hover { box-shadow: 0 4px 12px -8px rgba(0, 0, 0, 0.3); }\n.stopMain {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  width: 100%;\n  padding: 9px 10px;\n  border: 0;\n  border-radius: 12px;\n  background: none;\n  color: var(--ink);\n  font: inherit;\n  text-align: left;\n  cursor: pointer;\n}\n.num { display: grid; flex: none; place-items: center; width: 26px; height: 26px; border-radius: 50%; color: #fff; font-size: 12px; font-weight: 700; }\n.stopText { display: flex; flex: 1; flex-direction: column; min-width: 0; }\n.stopText strong { overflow: hidden; font-size: 13.5px; text-overflow: ellipsis; white-space: nowrap; }\n.stopText span { color: var(--muted); font-size: 12px; }\n.grip { color: var(--muted); font-size: 12px; letter-spacing: -2px; cursor: grab; }\n\n.editor { display: flex; flex-direction: column; gap: 8px; padding: 0 12px 12px; }\n.editor label { display: flex; flex-direction: column; gap: 3px; color: var(--ink-2); font-size: 11.5px; }\n.editor input,\n.editor select {\n  height: 32px;\n  min-width: 0;\n  padding: 0 8px;\n  border: 1px solid var(--border);\n  border-radius: 8px;\n  background: var(--field);\n  color: var(--ink);\n  font: inherit;\n  font-size: 13px;\n  color-scheme: light dark;\n}\n.row3 { display: grid; grid-template-columns: 1fr 1.2fr 1fr; gap: 6px; }\n.editorActions { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 8px; }\n.editorActions \u003e span { display: flex; gap: 4px; }\n.inline { flex-direction: row !important; align-items: center; gap: 6px !important; }\n.iconBtn,\n.danger { height: 30px; padding: 0 10px; border: 1px solid var(--border); border-radius: 8px; background: none; color: var(--ink); font: inherit; font-size: 13px; cursor: pointer; }\n.iconBtn:disabled { opacity: 0.35; cursor: default; }\n.danger { color: var(--danger); }\n\n.dayActions { display: flex; gap: 6px; }\n\n/* Budget */\n.budget,\n.packing { display: flex; flex-direction: column; gap: 10px; }\n.bigNumbers { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }\n.bigNumbers div { display: flex; flex-direction: column; padding: 12px; border-radius: 12px; background: var(--field); }\n.bigNumbers strong { font-size: 22px; font-variant-numeric: tabular-nums; }\n.bigNumbers span { color: var(--muted); font-size: 12px; }\n.breakdown,\n.extras,\n.packing ul { display: flex; flex-direction: column; gap: 6px; margin: 0; padding: 0; list-style: none; }\n.breakdown li { display: grid; grid-template-columns: 90px 1fr 80px; align-items: center; gap: 8px; font-size: 13px; }\n.bar { height: 8px; overflow: hidden; border-radius: 99px; background: var(--field); }\n.bar span { display: block; height: 100%; border-radius: inherit; background: var(--accent); }\n.amount { text-align: right; font-variant-numeric: tabular-nums; }\n.subhead { margin: 6px 0 0; color: var(--ink-2); font-size: 12.5px; font-weight: 600; }\n.extras li,\n.packing li { display: flex; align-items: center; gap: 8px; padding: 7px 10px; border: 1px solid var(--border); border-radius: 10px; font-size: 13px; }\n.extras li span:first-child { flex: 1; }\n.extras button,\n.packing li button { padding: 0 4px; border: 0; background: none; color: var(--muted); font-size: 16px; cursor: pointer; }\n.addRow { display: flex; gap: 6px; }\n.addRow input[type=\"number\"] { flex: 0 0 90px; }\n.hint { margin: 0; color: var(--muted); font-size: 12px; }\n\n.progress { height: 8px; overflow: hidden; border-radius: 99px; background: var(--field); }\n.progress span { display: block; height: 100%; border-radius: inherit; background: #1baf7a; transition: width 0.3s ease; }\n.packing li label { display: flex; flex: 1; align-items: center; gap: 10px; cursor: pointer; }\n.packing li input { width: 16px; height: 16px; accent-color: #1baf7a; }\n.packing li[data-done=\"true\"] label { color: var(--muted); text-decoration: line-through; }\n\n.toast {\n  position: absolute;\n  bottom: 54px;\n  left: 50%;\n  z-index: 1000;\n  padding: 8px 16px;\n  border-radius: 99px;\n  background: var(--ink);\n  color: var(--surface);\n  font-size: 13px;\n  font-weight: 500;\n  transform: translateX(-50%);\n  animation: rise 0.25s ease;\n}\n.credit { margin: 12px 0 0; color: var(--muted); font-size: 11.5px; }\n\n@keyframes rise {\n  from { opacity: 0; transform: translate(-50%, 8px); }\n  to { opacity: 1; transform: translate(-50%, 0); }\n}\n"])</script><script>self.__next_f.push([1,"13:[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"children\":\"$18\"}]}]\n19:T7043,"])</script><script>self.__next_f.push([1,"\"use client\";\n\nimport \"leaflet/dist/leaflet.css\";\nimport { useEffect, useMemo, useRef, useState, type DragEvent } from \"react\";\nimport type * as Leaflet from \"leaflet\";\nimport {\n  CATEGORIES,\n  DAY_COLORS,\n  dayDate,\n  decodeTrip,\n  encodeTrip,\n  sampleTrip,\n  toIcs,\n  uid,\n  type Category,\n  type Stop,\n  type Trip,\n} from \"./model\";\nimport { km, mins, reverseGeocode, routeFor, searchPlaces, type Place, type Route } from \"./services\";\nimport styles from \"./TripPlanner.module.css\";\n\nconst STORAGE_KEY = \"gallery-trip-v1\";\ntype Tab = \"plan\" | \"budget\" | \"packing\";\n\nconst money = (v: number) =\u003e `৳${Math.round(v).toLocaleString(\"en-IN\")}`;\nconst colorOf = (i: number) =\u003e DAY_COLORS[i % DAY_COLORS.length];\nconst fmtDay = (d: Date) =\u003e d.toLocaleDateString(\"en-GB\", { weekday: \"short\", day: \"numeric\", month: \"short\" });\n\nfunction download(text: string, name: string, type: string) {\n  const url = URL.createObjectURL(new Blob([text], { type }));\n  const a = document.createElement(\"a\");\n  a.href = url;\n  a.download = name;\n  a.click();\n  setTimeout(() =\u003e URL.revokeObjectURL(url), 1000);\n}\n\nexport default function TripPlanner() {\n  const [trip, setTrip] = useState\u003cTrip | null\u003e(null);\n  const [tab, setTab] = useState\u003cTab\u003e(\"plan\");\n  const [day, setDay] = useState(0);\n  const [openStop, setOpenStop] = useState\u003cstring | null\u003e(null);\n  const [routes, setRoutes] = useState\u003cRecord\u003cstring, Route\u003e\u003e({});\n  const [query, setQuery] = useState(\"\");\n  const [results, setResults] = useState\u003cPlace[] | null\u003e(null);\n  const [searching, setSearching] = useState(false);\n  const [toast, setToast] = useState(\"\");\n  const [packDraft, setPackDraft] = useState(\"\");\n  const [extraDraft, setExtraDraft] = useState({ label: \"\", cost: \"\" });\n  const [mapReady, setMapReady] = useState(false);\n\n  const mapEl = useRef\u003cHTMLDivElement\u003e(null);\n  const map = useRef\u003cLeaflet.Map | null\u003e(null);\n  const L = useRef\u003ctypeof Leaflet | null\u003e(null);\n  const layer = useRef\u003cLeaflet.LayerGroup | null\u003e(null);\n  const tripRef = useRef(trip);\n  tripRef.current = trip;\n  const dayRef = useRef(day);\n  dayRef.current = day;\n  const dragging = useRef\u003c{ day: number; index: number } | null\u003e(null);\n\n  const notify = (msg: string) =\u003e {\n    setToast(msg);\n    setTimeout(() =\u003e setToast(\"\"), 2200);\n  };\n\n  // ── Load: a shared link wins, then saved trip, then the sample ──────────────────────\n  useEffect(() =\u003e {\n    (async () =\u003e {\n      const shared = window.location.hash.match(/trip=([^\u0026]+)/)?.[1];\n      if (shared) {\n        const t = await decodeTrip(shared);\n        if (t) {\n          setTrip(t);\n          notify(\"Opened a shared trip\");\n          return;\n        }\n      }\n      try {\n        const saved = localStorage.getItem(STORAGE_KEY);\n        if (saved) {\n          setTrip(JSON.parse(saved));\n          return;\n        }\n      } catch {}\n      setTrip(sampleTrip());\n    })();\n  }, []);\n\n  useEffect(() =\u003e {\n    if (!trip) return;\n    try {\n      localStorage.setItem(STORAGE_KEY, JSON.stringify(trip));\n    } catch {}\n  }, [trip]);\n\n  const update = (fn: (t: Trip) =\u003e Trip) =\u003e setTrip((t) =\u003e (t ? fn(structuredClone(t)) : t));\n\n  // ── Map setup (Leaflet touches window, so it is imported on the client only) ────────\n  useEffect(() =\u003e {\n    let disposed = false;\n    (async () =\u003e {\n      const lib = (await import(\"leaflet\")).default;\n      if (disposed || !mapEl.current) return;\n      L.current = lib;\n      const m = lib.map(mapEl.current, { zoomControl: true, scrollWheelZoom: true }).setView([21.4, 92.0], 11);\n      lib\n        .tileLayer(\"https://tile.openstreetmap.org/{z}/{x}/{y}.png\", {\n          maxZoom: 19,\n          attribution: '\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors',\n        })\n        .addTo(m);\n      layer.current = lib.layerGroup().addTo(m);\n      m.on(\"click\", (e: Leaflet.LeafletMouseEvent) =\u003e showAddPopup(e.latlng.lat, e.latlng.lng));\n      map.current = m;\n      setMapReady(true);\n    })();\n    return () =\u003e {\n      disposed = true;\n      map.current?.remove();\n      map.current = null;\n    };\n    // eslint-disable-next-line react-hooks/exhaustive-deps\n  }, []);\n\n  function showAddPopup(lat: number, lng: number) {\n    const lib = L.current;\n    const m = map.current;\n    if (!lib || !m || !tripRef.current) return;\n    const box = document.createElement(\"div\");\n    box.className = styles.popup;\n    const title = document.createElement(\"strong\");\n    title.textContent = \"Looking up this place…\";\n    const btn = document.createElement(\"button\");\n    btn.type = \"button\";\n    btn.textContent = `Add to Day ${dayRef.current + 1}`;\n    btn.style.background = colorOf(dayRef.current);\n    box.append(title, btn);\n    const popup = lib.popup().setLatLng([lat, lng]).setContent(box).openOn(m);\n    let name = \"Pinned place\";\n    reverseGeocode(lat, lng).then((n) =\u003e {\n      name = n;\n      title.textContent = n;\n    });\n    btn.onclick = () =\u003e {\n      addStop({ name, lat, lng, detail: \"\" }, dayRef.current);\n      m.closePopup(popup);\n    };\n  }\n\n  // ── Routes: re-fetch a day's route when its stops change (debounced, cached) ────────\n  const signature = trip?.days.map((d) =\u003e d.id + \":\" + d.stops.map((s) =\u003e `${s.lat},${s.lng}`).join(\"|\")).join(\"/\") ?? \"\";\n  useEffect(() =\u003e {\n    if (!trip) return;\n    const timer = setTimeout(async () =\u003e {\n      const next: Record\u003cstring, Route\u003e = {};\n      for (const d of trip.days) next[d.id] = await routeFor(d.stops);\n      setRoutes(next);\n    }, 500);\n    return () =\u003e clearTimeout(timer);\n    // eslint-disable-next-line react-hooks/exhaustive-deps\n  }, [signature]);\n\n  // ── Draw markers and routes ─────────────────────────────────────────────────────────\n  useEffect(() =\u003e {\n    const lib = L.current;\n    const group = layer.current;\n    if (!mapReady || !lib || !group || !trip) return;\n    group.clearLayers();\n    trip.days.forEach((d, di) =\u003e {\n      const active = di === day;\n      const color = colorOf(di);\n      const route = routes[d.id];\n      const line = route?.coords.length ? route.coords : d.stops.map((s) =\u003e [s.lat, s.lng] as [number, number]);\n      if (line.length \u003e 1) {\n        lib\n          .polyline(line, { color, weight: active ? 5 : 3, opacity: active ? 0.9 : 0.35, dashArray: route?.estimated ? \"6 8\" : undefined })\n          .addTo(group);\n      }\n      d.stops.forEach((s, si) =\u003e {\n        const icon = lib.divIcon({\n          className: \"\",\n          html: `\u003cspan class=\"${styles.pin}\" data-active=\"${active}\" data-open=\"${openStop === s.id}\" style=\"--c:${color}\"\u003e\u003cb\u003e${si + 1}\u003c/b\u003e\u003c/span\u003e`,\n          iconSize: [28, 28],\n          iconAnchor: [14, 32],\n        });\n        lib\n          .marker([s.lat, s.lng], { icon, zIndexOffset: active ? 1000 : 0, title: s.name })\n          .on(\"click\", () =\u003e {\n            setDay(di);\n            setTab(\"plan\");\n            setOpenStop(s.id);\n          })\n          .addTo(group);\n      });\n    });\n  }, [trip, routes, day, openStop, mapReady]);\n\n  // Fit the selected day on screen.\n  useEffect(() =\u003e {\n    const lib = L.current;\n    const m = map.current;\n    const stops = trip?.days[day]?.stops ?? [];\n    if (!mapReady || !lib || !m || !stops.length) return;\n    if (stops.length === 1) m.flyTo([stops[0].lat, stops[0].lng], 14, { duration: 0.6 });\n    else m.flyToBounds(lib.latLngBounds(stops.map((s) =\u003e [s.lat, s.lng])), { padding: [50, 50], duration: 0.6 });\n    // eslint-disable-next-line react-hooks/exhaustive-deps\n  }, [day, mapReady, trip?.days.length]);\n\n  // ── Actions ─────────────────────────────────────────────────────────────────────────\n  function addStop(place: Place, dayIndex: number) {\n    const s: Stop = { id: uid(), name: place.name, lat: place.lat, lng: place.lng, category: \"sight\", time: \"\", cost: 0, note: \"\" };\n    update((t) =\u003e {\n      t.days[dayIndex].stops.push(s);\n      return t;\n    });\n    setOpenStop(s.id);\n    setResults(null);\n    setQuery(\"\");\n    notify(`Added to Day ${dayIndex + 1}`);\n  }\n\n  function editStop(dayIndex: number, id: string, patch: Partial\u003cStop\u003e) {\n    update((t) =\u003e {\n      const s = t.days[dayIndex].stops.find((x) =\u003e x.id === id);\n      if (s) Object.assign(s, patch);\n      return t;\n    });\n  }\n\n  function moveStop(from: { day: number; index: number }, toDay: number, toIndex: number) {\n    update((t) =\u003e {\n      const [s] = t.days[from.day].stops.splice(from.index, 1);\n      const target = t.days[toDay].stops;\n      const index = from.day === toDay \u0026\u0026 toIndex \u003e from.index ? toIndex - 1 : toIndex;\n      target.splice(Math.min(index, target.length), 0, s);\n      return t;\n    });\n  }\n\n  async function search() {\n    const q = query.trim();\n    if (!q) return;\n    setSearching(true);\n    try {\n      const b = map.current?.getBounds();\n      setResults(await searchPlaces(q, b \u0026\u0026 { west: b.getWest(), south: b.getSouth(), east: b.getEast(), north: b.getNorth() }));\n    } catch {\n      setResults([]);\n      notify(\"Search is unavailable right now\");\n    } finally {\n      setSearching(false);\n    }\n  }\n\n  async function share() {\n    if (!trip) return;\n    const url = `${window.location.origin}${window.location.pathname}#trip=${await encodeTrip(trip)}`;\n    await navigator.clipboard.writeText(url);\n    notify(\"Share link copied. Anyone with it sees this trip\");\n  }\n\n  const onDrop = (e: DragEvent, toDay: number, toIndex: number) =\u003e {\n    e.preventDefault();\n    e.stopPropagation();\n    if (dragging.current) moveStop(dragging.current, toDay, toIndex);\n    dragging.current = null;\n  };\n\n  // ── Derived numbers ─────────────────────────────────────────────────────────────────\n  const totals = useMemo(() =\u003e {\n    if (!trip) return null;\n    const byCat = new Map\u003cstring, number\u003e();\n    for (const d of trip.days) for (const s of d.stops) byCat.set(s.category, (byCat.get(s.category) ?? 0) + s.cost);\n    const extras = trip.extras.reduce((a, x) =\u003e a + x.cost, 0);\n    if (extras) byCat.set(\"extras\", extras);\n    const total = [...byCat.values()].reduce((a, b) =\u003e a + b, 0);\n    return { byCat, total, perPerson: total / Math.max(1, trip.travelers) };\n  }, [trip]);\n\n  if (!trip || !totals) {\n    return (\n      \u003cdiv className={styles.card}\u003e\n        \u003cdiv className={styles.loading}\u003eLoading your trip…\u003c/div\u003e\n      \u003c/div\u003e\n    );\n  }\n\n  const current = trip.days[day] ?? trip.days[0];\n  const route = routes[current?.id];\n  const dayDistance = route?.legs.reduce((a, l) =\u003e a + l.distance, 0) ?? 0;\n  const dayDuration = route?.legs.reduce((a, l) =\u003e a + l.duration, 0) ?? 0;\n  const packed = trip.packing.filter((p) =\u003e p.done).length;\n\n  return (\n    \u003cdiv className={styles.card}\u003e\n      \u003cheader className={styles.head}\u003e\n        \u003cdiv className={styles.titleRow}\u003e\n          \u003cinput className={styles.tripName} value={trip.name} onChange={(e) =\u003e update((t) =\u003e ({ ...t, name: e.target.value }))} aria-label=\"Trip name\" /\u003e\n          \u003cdiv className={styles.headActions}\u003e\n            \u003cbutton type=\"button\" className={styles.ghost} onClick={share}\u003e\n              Share link\n            \u003c/button\u003e\n            \u003cbutton type=\"button\" className={styles.ghost} onClick={() =\u003e download(toIcs(trip), `${trip.name || \"trip\"}.ics`, \"text/calendar\")}\u003e\n              Add to calendar\n            \u003c/button\u003e\n            \u003cbutton\n              type=\"button\"\n              className={styles.ghost}\n              onClick={() =\u003e {\n                if (window.confirm(\"Start over with the sample trip? Your current plan will be replaced.\")) {\n                  setTrip(sampleTrip());\n                  setDay(0);\n                  history.replaceState(null, \"\", window.location.pathname);\n                }\n              }}\n            \u003e\n              Reset\n            \u003c/button\u003e\n          \u003c/div\u003e\n        \u003c/div\u003e\n        \u003cdiv className={styles.meta}\u003e\n          \u003clabel\u003e\n            Starts\n            \u003cinput type=\"date\" value={trip.start} onChange={(e) =\u003e e.target.value \u0026\u0026 update((t) =\u003e ({ ...t, start: e.target.value }))} /\u003e\n          \u003c/label\u003e\n          \u003clabel\u003e\n            Travellers\n            \u003cinput\n              type=\"number\"\n              min={1}\n              max={50}\n              value={trip.travelers}\n              onChange={(e) =\u003e update((t) =\u003e ({ ...t, travelers: Math.max(1, Math.min(50, Number(e.target.value) || 1)) }))}\n            /\u003e\n          \u003c/label\u003e\n          \u003cspan className={styles.metaStat}\u003e\n            {trip.days.length} days · {trip.days.reduce((a, d) =\u003e a + d.stops.length, 0)} stops · {money(totals.total)} total\n          \u003c/span\u003e\n        \u003c/div\u003e\n      \u003c/header\u003e\n\n      \u003cdiv className={styles.body}\u003e\n        \u003cdiv className={styles.mapWrap}\u003e\n          \u003cdiv ref={mapEl} className={styles.map} aria-label=\"Trip map. Click anywhere to add a place.\" /\u003e\n          \u003cdiv className={styles.dayStrip} role=\"tablist\" aria-label=\"Days\"\u003e\n            {trip.days.map((d, i) =\u003e (\n              \u003cbutton\n                key={d.id}\n                type=\"button\"\n                role=\"tab\"\n                aria-selected={day === i}\n                style={{ [\"--c\" as string]: colorOf(i) }}\n                onClick={() =\u003e setDay(i)}\n                onDragOver={(e) =\u003e e.preventDefault()}\n                onDrop={(e) =\u003e onDrop(e, i, trip.days[i].stops.length)}\n              \u003e\n                Day {i + 1}\n              \u003c/button\u003e\n            ))}\n          \u003c/div\u003e\n          \u003cp className={styles.mapHint}\u003eClick the map to add a place\u003c/p\u003e\n        \u003c/div\u003e\n\n        \u003csection className={styles.panel}\u003e\n          \u003cdiv className={styles.tabs} role=\"tablist\"\u003e\n            {(\n              [\n                [\"plan\", \"Itinerary\"],\n                [\"budget\", `Budget · ${money(totals.perPerson)}/person`],\n                [\"packing\", `Packing ${packed}/${trip.packing.length}`],\n              ] as const\n            ).map(([k, label]) =\u003e (\n              \u003cbutton key={k} type=\"button\" role=\"tab\" aria-selected={tab === k} onClick={() =\u003e setTab(k)}\u003e\n                {label}\n              \u003c/button\u003e\n            ))}\n          \u003c/div\u003e\n\n          {tab === \"plan\" \u0026\u0026 (\n            \u003c\u003e\n              \u003cform\n                className={styles.search}\n                onSubmit={(e) =\u003e {\n                  e.preventDefault();\n                  search();\n                }}\n              \u003e\n                \u003cinput value={query} onChange={(e) =\u003e setQuery(e.target.value)} placeholder=\"Search a place, e.g. Inani Beach\" aria-label=\"Search places\" /\u003e\n                \u003cbutton type=\"submit\" disabled={searching}\u003e\n                  {searching ? \"…\" : \"Search\"}\n                \u003c/button\u003e\n              \u003c/form\u003e\n              {results \u0026\u0026 (\n                \u003cul className={styles.results}\u003e\n                  {results.length === 0 \u0026\u0026 \u003cli className={styles.noResults}\u003eNo places found.\u003c/li\u003e}\n                  {results.map((r, i) =\u003e (\n                    \u003cli key={i}\u003e\n                      \u003cbutton\n                        type=\"button\"\n                        className={styles.resultPeek}\n                        onClick={() =\u003e map.current?.flyTo([r.lat, r.lng], 14, { duration: 0.6 })}\n                      \u003e\n                        \u003cstrong\u003e{r.name}\u003c/strong\u003e\n                        \u003cspan\u003e{r.detail}\u003c/span\u003e\n                      \u003c/button\u003e\n                      \u003cbutton type=\"button\" className={styles.addBtn} style={{ background: colorOf(day) }} onClick={() =\u003e addStop(r, day)}\u003e\n                        + Day {day + 1}\n                      \u003c/button\u003e\n                    \u003c/li\u003e\n                  ))}\n                  \u003cli\u003e\n                    \u003cbutton type=\"button\" className={styles.closeResults} onClick={() =\u003e setResults(null)}\u003e\n                      Close results\n                    \u003c/button\u003e\n                  \u003c/li\u003e\n                \u003c/ul\u003e\n              )}\n\n              \u003cdiv className={styles.dayHead} style={{ [\"--c\" as string]: colorOf(day) }}\u003e\n                \u003cdiv\u003e\n                  \u003cstrong\u003eDay {day + 1}\u003c/strong\u003e\n                  \u003cspan\u003e{fmtDay(dayDate(trip, day))}\u003c/span\u003e\n                \u003c/div\u003e\n                \u003cspan className={styles.dayStats}\u003e\n                  {current.stops.length \u003e 1 ? `${km(dayDistance)} · ${mins(dayDuration)}${route?.estimated ? \" (est.)\" : \"\"}` : \"Add stops to see the route\"}\n                \u003c/span\u003e\n              \u003c/div\u003e\n\n              \u003col className={styles.stops} onDragOver={(e) =\u003e e.preventDefault()} onDrop={(e) =\u003e onDrop(e, day, current.stops.length)}\u003e\n                {current.stops.length === 0 \u0026\u0026 \u003cli className={styles.emptyDay}\u003eNo stops yet. Search above or click the map.\u003c/li\u003e}\n                {current.stops.map((s, i) =\u003e {\n                  const leg = route?.legs[i - 1];\n                  const open = openStop === s.id;\n                  return (\n                    \u003cli key={s.id} className={styles.stopWrap}\u003e\n                      {i \u003e 0 \u0026\u0026 leg \u0026\u0026 (\n                        \u003cdiv className={styles.leg}\u003e\n                          \u003cspan\u003e\n                            {km(leg.distance)} · {mins(leg.duration)}\n                          \u003c/span\u003e\n                        \u003c/div\u003e\n                      )}\n                      \u003cdiv\n                        className={styles.stop}\n                        data-open={open}\n                        draggable\n                        onDragStart={() =\u003e (dragging.current = { day, index: i })}\n                        onDragOver={(e) =\u003e e.preventDefault()}\n                        onDrop={(e) =\u003e onDrop(e, day, i)}\n                      \u003e\n                        \u003cbutton\n                          type=\"button\"\n                          className={styles.stopMain}\n                          onClick={() =\u003e {\n                            setOpenStop(open ? null : s.id);\n                            map.current?.flyTo([s.lat, s.lng], Math.max(map.current.getZoom(), 13), { duration: 0.5 });\n                          }}\n                          aria-expanded={open}\n                        \u003e\n                          \u003cspan className={styles.num} style={{ background: colorOf(day) }}\u003e\n                            {i + 1}\n                          \u003c/span\u003e\n                          \u003cspan className={styles.stopText}\u003e\n                            \u003cstrong\u003e{s.name}\u003c/strong\u003e\n                            \u003cspan\u003e\n                              {s.time \u0026\u0026 `${s.time} · `}\n                              {CATEGORIES.find((c) =\u003e c.key === s.category)?.label}\n                              {s.cost \u003e 0 \u0026\u0026 ` · ${money(s.cost)}`}\n                            \u003c/span\u003e\n                          \u003c/span\u003e\n                          \u003cspan className={styles.grip} aria-hidden=\"true\"\u003e\n                            ⋮⋮\n                          \u003c/span\u003e\n                        \u003c/button\u003e\n                        {open \u0026\u0026 (\n                          \u003cdiv className={styles.editor}\u003e\n                            \u003clabel\u003e\n                              Name\n                              \u003cinput value={s.name} onChange={(e) =\u003e editStop(day, s.id, { name: e.target.value })} /\u003e\n                            \u003c/label\u003e\n                            \u003cdiv className={styles.row3}\u003e\n                              \u003clabel\u003e\n                                Time\n                                \u003cinput type=\"time\" value={s.time} onChange={(e) =\u003e editStop(day, s.id, { time: e.target.value })} /\u003e\n                              \u003c/label\u003e\n                              \u003clabel\u003e\n                                Type\n                                \u003cselect value={s.category} onChange={(e) =\u003e editStop(day, s.id, { category: e.target.value as Category })}\u003e\n                                  {CATEGORIES.map((c) =\u003e (\n                                    \u003coption key={c.key} value={c.key}\u003e\n                                      {c.label}\n                                    \u003c/option\u003e\n                                  ))}\n                                \u003c/select\u003e\n                              \u003c/label\u003e\n                              \u003clabel\u003e\n                                Cost (৳)\n                                \u003cinput type=\"number\" min={0} value={s.cost || \"\"} onChange={(e) =\u003e editStop(day, s.id, { cost: Math.max(0, Number(e.target.value) || 0) })} /\u003e\n                              \u003c/label\u003e\n                            \u003c/div\u003e\n                            \u003clabel\u003e\n                              Note\n                              \u003cinput value={s.note} placeholder=\"Tickets, booking ref, tips…\" onChange={(e) =\u003e editStop(day, s.id, { note: e.target.value })} /\u003e\n                            \u003c/label\u003e\n                            \u003cdiv className={styles.editorActions}\u003e\n                              \u003clabel className={styles.inline}\u003e\n                                Move to\n                                \u003cselect value={day} onChange={(e) =\u003e moveStop({ day, index: i }, Number(e.target.value), Infinity)}\u003e\n                                  {trip.days.map((_, di) =\u003e (\n                                    \u003coption key={di} value={di}\u003e\n                                      Day {di + 1}\n                                    \u003c/option\u003e\n                                  ))}\n                                \u003c/select\u003e\n                              \u003c/label\u003e\n                              \u003cspan\u003e\n                                \u003cbutton type=\"button\" className={styles.iconBtn} disabled={i === 0} onClick={() =\u003e moveStop({ day, index: i }, day, i - 1)} aria-label=\"Move up\"\u003e\n                                  ↑\n                                \u003c/button\u003e\n                                \u003cbutton\n                                  type=\"button\"\n                                  className={styles.iconBtn}\n                                  disabled={i === current.stops.length - 1}\n                                  onClick={() =\u003e moveStop({ day, index: i }, day, i + 2)}\n                                  aria-label=\"Move down\"\n                                \u003e\n                                  ↓\n                                \u003c/button\u003e\n                                \u003cbutton\n                                  type=\"button\"\n                                  className={styles.danger}\n                                  onClick={() =\u003e\n                                    update((t) =\u003e {\n                                      t.days[day].stops = t.days[day].stops.filter((x) =\u003e x.id !== s.id);\n                                      return t;\n                                    })\n                                  }\n                                \u003e\n                                  Remove\n                                \u003c/button\u003e\n                              \u003c/span\u003e\n                            \u003c/div\u003e\n                          \u003c/div\u003e\n                        )}\n                      \u003c/div\u003e\n                    \u003c/li\u003e\n                  );\n                })}\n              \u003c/ol\u003e\n\n              \u003cdiv className={styles.dayActions}\u003e\n                \u003cbutton\n                  type=\"button\"\n                  className={styles.ghost}\n                  onClick={() =\u003e {\n                    update((t) =\u003e ({ ...t, days: [...t.days, { id: uid(), stops: [] }] }));\n                    setDay(trip.days.length);\n                  }}\n                \u003e\n                  + Add day\n                \u003c/button\u003e\n                {trip.days.length \u003e 1 \u0026\u0026 (\n                  \u003cbutton\n                    type=\"button\"\n                    className={styles.ghost}\n                    onClick={() =\u003e {\n                      if (current.stops.length \u0026\u0026 !window.confirm(`Delete Day ${day + 1} and its ${current.stops.length} stops?`)) return;\n                      update((t) =\u003e ({ ...t, days: t.days.filter((_, i) =\u003e i !== day) }));\n                      setDay(Math.max(0, day - 1));\n                    }}\n                  \u003e\n                    Delete Day {day + 1}\n                  \u003c/button\u003e\n                )}\n              \u003c/div\u003e\n            \u003c/\u003e\n          )}\n\n          {tab === \"budget\" \u0026\u0026 (\n            \u003cdiv className={styles.budget}\u003e\n              \u003cdiv className={styles.bigNumbers}\u003e\n                \u003cdiv\u003e\n                  \u003cstrong\u003e{money(totals.total)}\u003c/strong\u003e\n                  \u003cspan\u003etrip total\u003c/span\u003e\n                \u003c/div\u003e\n                \u003cdiv\u003e\n                  \u003cstrong\u003e{money(totals.perPerson)}\u003c/strong\u003e\n                  \u003cspan\u003eper person ({trip.travelers})\u003c/span\u003e\n                \u003c/div\u003e\n              \u003c/div\u003e\n              \u003cul className={styles.breakdown}\u003e\n                {[...totals.byCat.entries()]\n                  .filter(([, v]) =\u003e v \u003e 0)\n                  .sort((a, b) =\u003e b[1] - a[1])\n                  .map(([k, v]) =\u003e (\n                    \u003cli key={k}\u003e\n                      \u003cspan\u003e{k === \"extras\" ? \"Extras\" : CATEGORIES.find((c) =\u003e c.key === k)?.label}\u003c/span\u003e\n                      \u003cspan className={styles.bar}\u003e\n                        \u003cspan style={{ width: `${(v / Math.max(1, totals.total)) * 100}%` }} /\u003e\n                      \u003c/span\u003e\n                      \u003cspan className={styles.amount}\u003e{money(v)}\u003c/span\u003e\n                    \u003c/li\u003e\n                  ))}\n              \u003c/ul\u003e\n              \u003ch4 className={styles.subhead}\u003eExtras (tickets, transport, tips)\u003c/h4\u003e\n              \u003cul className={styles.extras}\u003e\n                {trip.extras.map((x) =\u003e (\n                  \u003cli key={x.id}\u003e\n                    \u003cspan\u003e{x.label}\u003c/span\u003e\n                    \u003cspan\u003e{money(x.cost)}\u003c/span\u003e\n                    \u003cbutton type=\"button\" aria-label={`Remove ${x.label}`} onClick={() =\u003e update((t) =\u003e ({ ...t, extras: t.extras.filter((e) =\u003e e.id !== x.id) }))}\u003e\n                      ×\n                    \u003c/button\u003e\n                  \u003c/li\u003e\n                ))}\n              \u003c/ul\u003e\n              \u003cform\n                className={styles.addRow}\n                onSubmit={(e) =\u003e {\n                  e.preventDefault();\n                  const cost = Number(extraDraft.cost);\n                  if (!extraDraft.label.trim() || !(cost \u003e 0)) return;\n                  update((t) =\u003e ({ ...t, extras: [...t.extras, { id: uid(), label: extraDraft.label.trim(), cost }] }));\n                  setExtraDraft({ label: \"\", cost: \"\" });\n                }}\n              \u003e\n                \u003cinput placeholder=\"e.g. Bus tickets\" value={extraDraft.label} onChange={(e) =\u003e setExtraDraft((d) =\u003e ({ ...d, label: e.target.value }))} /\u003e\n                \u003cinput placeholder=\"৳\" type=\"number\" min={0} value={extraDraft.cost} onChange={(e) =\u003e setExtraDraft((d) =\u003e ({ ...d, cost: e.target.value }))} /\u003e\n                \u003cbutton type=\"submit\"\u003eAdd\u003c/button\u003e\n              \u003c/form\u003e\n              \u003cp className={styles.hint}\u003eStop costs are set on each stop in the itinerary.\u003c/p\u003e\n            \u003c/div\u003e\n          )}\n\n          {tab === \"packing\" \u0026\u0026 (\n            \u003cdiv className={styles.packing}\u003e\n              \u003cdiv className={styles.progress}\u003e\n                \u003cspan style={{ width: `${(packed / Math.max(1, trip.packing.length)) * 100}%` }} /\u003e\n              \u003c/div\u003e\n              \u003cul\u003e\n                {trip.packing.map((p) =\u003e (\n                  \u003cli key={p.id} data-done={p.done}\u003e\n                    \u003clabel\u003e\n                      \u003cinput\n                        type=\"checkbox\"\n                        checked={p.done}\n                        onChange={() =\u003e update((t) =\u003e ({ ...t, packing: t.packing.map((x) =\u003e (x.id === p.id ? { ...x, done: !x.done } : x)) }))}\n                      /\u003e\n                      {p.label}\n                    \u003c/label\u003e\n                    \u003cbutton type=\"button\" aria-label={`Remove ${p.label}`} onClick={() =\u003e update((t) =\u003e ({ ...t, packing: t.packing.filter((x) =\u003e x.id !== p.id) }))}\u003e\n                      ×\n                    \u003c/button\u003e\n                  \u003c/li\u003e\n                ))}\n              \u003c/ul\u003e\n              \u003cform\n                className={styles.addRow}\n                onSubmit={(e) =\u003e {\n                  e.preventDefault();\n                  if (!packDraft.trim()) return;\n                  update((t) =\u003e ({ ...t, packing: [...t.packing, { id: uid(), label: packDraft.trim(), done: false }] }));\n                  setPackDraft(\"\");\n                }}\n              \u003e\n                \u003cinput placeholder=\"Add an item\" value={packDraft} onChange={(e) =\u003e setPackDraft(e.target.value)} /\u003e\n                \u003cbutton type=\"submit\"\u003eAdd\u003c/button\u003e\n              \u003c/form\u003e\n            \u003c/div\u003e\n          )}\n        \u003c/section\u003e\n      \u003c/div\u003e\n\n      {toast \u0026\u0026 (\n        \u003cdiv className={styles.toast} role=\"status\"\u003e\n          {toast}\n        \u003c/div\u003e\n      )}\n      \u003cp className={styles.credit}\u003eMap data © OpenStreetMap contributors · Routing by OSRM · Search by Nominatim. Your trip is saved in this browser.\u003c/p\u003e\n    \u003c/div\u003e\n  );\n}\n"])</script><script>self.__next_f.push([1,"14:[\"$\",\"div\",\"TripPlanner.tsx\",{\"className\":\"file\",\"children\":[[\"$\",\"div\",null,{\"className\":\"file-head\",\"children\":[[\"$\",\"span\",null,{\"children\":\"TripPlanner.tsx\"}],[\"$\",\"$L11\",null,{\"text\":\"$19\"}]]}],\"$L1a\"]}]\n1b:T1959,"])</script><script>self.__next_f.push([1,"export type Category = \"sight\" | \"food\" | \"hotel\" | \"transport\" | \"shop\" | \"other\";\nexport type Stop = { id: string; name: string; lat: number; lng: number; category: Category; time: string; cost: number; note: string };\nexport type Day = { id: string; stops: Stop[] };\nexport type Extra = { id: string; label: string; cost: number };\nexport type PackItem = { id: string; label: string; done: boolean };\nexport type Trip = { name: string; start: string; travelers: number; days: Day[]; extras: Extra[]; packing: PackItem[] };\n\nexport const DAY_COLORS = [\"#2a78d6\", \"#eb6834\", \"#1baf7a\", \"#7c4dff\", \"#e2508a\", \"#0e9aa7\", \"#c98500\"];\nexport const CATEGORIES: { key: Category; label: string }[] = [\n  { key: \"sight\", label: \"Sightseeing\" },\n  { key: \"food\", label: \"Food\" },\n  { key: \"hotel\", label: \"Stay\" },\n  { key: \"transport\", label: \"Transport\" },\n  { key: \"shop\", label: \"Shopping\" },\n  { key: \"other\", label: \"Other\" },\n];\n\nlet n = 0;\nexport const uid = () =\u003e `${Date.now().toString(36)}${(n++).toString(36)}${Math.random().toString(36).slice(2, 5)}`;\n\nconst stop = (name: string, lat: number, lng: number, category: Category, time = \"\", cost = 0, note = \"\"): Stop =\u003e ({\n  id: uid(),\n  name,\n  lat,\n  lng,\n  category,\n  time,\n  cost,\n  note,\n});\n\nexport function isoDate(d: Date) {\n  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, \"0\")}-${String(d.getDate()).padStart(2, \"0\")}`;\n}\n\nexport function dayDate(trip: Trip, index: number) {\n  const [y, m, d] = trip.start.split(\"-\").map(Number);\n  return new Date(y, m - 1, d + index);\n}\n\n/** A ready-made 3-day Cox's Bazar trip so the planner is useful on first open. */\nexport function sampleTrip(): Trip {\n  const start = new Date();\n  start.setDate(start.getDate() + 14);\n  return {\n    name: \"Cox's Bazar weekend\",\n    start: isoDate(start),\n    travelers: 4,\n    days: [\n      {\n        id: uid(),\n        stops: [\n          stop(\"Cox's Bazar Airport\", 21.4522, 91.9639, \"transport\", \"10:30\", 0, \"Flight from Dhaka\"),\n          stop(\"Hotel in Kolatoli\", 21.4116, 91.9841, \"hotel\", \"12:00\", 14000, \"2 rooms × 2 nights\"),\n          stop(\"Laboni Point Beach\", 21.4237, 91.9733, \"sight\", \"16:30\", 0, \"Sunset walk\"),\n          stop(\"Burmese Market\", 21.4396, 91.9781, \"shop\", \"19:00\", 2500),\n        ],\n      },\n      {\n        id: uid(),\n        stops: [\n          stop(\"Himchari National Park\", 21.3577, 92.0233, \"sight\", \"09:00\", 400, \"Waterfall + hilltop view\"),\n          stop(\"Inani Beach\", 21.2236, 92.0498, \"sight\", \"11:30\", 0, \"Coral stones at low tide\"),\n          stop(\"Seafood lunch on Marine Drive\", 21.2785, 92.0447, \"food\", \"13:30\", 3200),\n          stop(\"Hotel in Kolatoli\", 21.4116, 91.9841, \"hotel\", \"17:00\", 0),\n        ],\n      },\n      {\n        id: uid(),\n        stops: [\n          stop(\"Ramu Buddhist Temple\", 21.4247, 92.1006, \"sight\", \"09:30\", 0),\n          stop(\"Dried-fish market\", 21.4482, 91.9729, \"shop\", \"12:00\", 1500),\n          stop(\"Cox's Bazar Airport\", 21.4522, 91.9639, \"transport\", \"15:00\", 0, \"Flight back\"),\n        ],\n      },\n    ],\n    extras: [\n      { id: uid(), label: \"Return flights (4)\", cost: 26000 },\n      { id: uid(), label: \"CNG \u0026 tuk-tuk rides\", cost: 3000 },\n    ],\n    packing: [\n      \"NID / passport\",\n      \"Phone charger \u0026 power bank\",\n      \"Sunscreen\",\n      \"Sunglasses \u0026 hat\",\n      \"Swimwear\",\n      \"Flip-flops\",\n      \"Light cotton clothes\",\n      \"Medicines\",\n      \"Cash for markets\",\n    ].map((label, i) =\u003e ({ id: uid(), label, done: i \u003c 2 })),\n  };\n}\n\n// ── Share links: the whole trip, gzip-compressed into the URL hash ────────────────────\nconst toB64 = (bytes: Uint8Array) =\u003e btoa(String.fromCharCode(...bytes)).replace(/\\+/g, \"-\").replace(/\\//g, \"_\").replace(/=+$/, \"\");\nconst fromB64 = (s: string) =\u003e Uint8Array.from(atob(s.replace(/-/g, \"+\").replace(/_/g, \"/\")), (c) =\u003e c.charCodeAt(0));\n\nasync function pipe(bytes: Uint8Array, stream: CompressionStream | DecompressionStream) {\n  return new Uint8Array(await new Response(new Blob([bytes as BlobPart]).stream().pipeThrough(stream)).arrayBuffer());\n}\n\nexport async function encodeTrip(trip: Trip) {\n  const json = new TextEncoder().encode(JSON.stringify(trip));\n  if (typeof CompressionStream === \"undefined\") return `j.${toB64(json)}`;\n  return `z.${toB64(await pipe(json, new CompressionStream(\"gzip\")))}`;\n}\n\nexport async function decodeTrip(code: string): Promise\u003cTrip | null\u003e {\n  try {\n    const [kind, data] = [code.slice(0, 1), code.slice(2)];\n    const bytes = kind === \"z\" ? await pipe(fromB64(data), new DecompressionStream(\"gzip\")) : fromB64(data);\n    const trip = JSON.parse(new TextDecoder().decode(bytes));\n    return Array.isArray(trip?.days) ? trip : null;\n  } catch {\n    return null;\n  }\n}\n\n/** An .ics calendar: one all-day overview per day plus a 1-hour event for every timed stop. */\nexport function toIcs(trip: Trip) {\n  const stamp = new Date().toISOString().replace(/[-:]/g, \"\").replace(/\\.\\d+/, \"\");\n  const esc = (s: string) =\u003e s.replace(/([,;\\\\])/g, \"\\\\$1\").replace(/\\n/g, \"\\\\n\");\n  const ymd = (d: Date) =\u003e isoDate(d).replace(/-/g, \"\");\n  const lines = [\"BEGIN:VCALENDAR\", \"VERSION:2.0\", \"PRODID:-//Component Gallery//Trip Planner//EN\", \"CALSCALE:GREGORIAN\"];\n  trip.days.forEach((day, i) =\u003e {\n    const date = dayDate(trip, i);\n    const next = new Date(date);\n    next.setDate(next.getDate() + 1);\n    lines.push(\n      \"BEGIN:VEVENT\",\n      `UID:${day.id}@trip`,\n      `DTSTAMP:${stamp}`,\n      `DTSTART;VALUE=DATE:${ymd(date)}`,\n      `DTEND;VALUE=DATE:${ymd(next)}`,\n      `SUMMARY:${esc(`${trip.name}: Day ${i + 1}`)}`,\n      `DESCRIPTION:${esc(day.stops.map((s, j) =\u003e `${j + 1}. ${s.time ? `${s.time} ` : \"\"}${s.name}`).join(\"\\n\"))}`,\n      \"END:VEVENT\",\n    );\n    for (const s of day.stops) {\n      if (!s.time) continue;\n      const [h, m] = s.time.split(\":\").map(Number);\n      const startAt = `${ymd(date)}T${String(h).padStart(2, \"0\")}${String(m).padStart(2, \"0\")}00`;\n      const endAt = `${ymd(date)}T${String((h + 1) % 24).padStart(2, \"0\")}${String(m).padStart(2, \"0\")}00`;\n      lines.push(\n        \"BEGIN:VEVENT\",\n        `UID:${s.id}-${i}@trip`,\n        `DTSTAMP:${stamp}`,\n        `DTSTART:${startAt}`,\n        `DTEND:${endAt}`,\n        `SUMMARY:${esc(s.name)}`,\n        `LOCATION:${esc(`${s.lat.toFixed(5)},${s.lng.toFixed(5)}`)}`,\n        ...(s.note ? [`DESCRIPTION:${esc(s.note)}`] : []),\n        \"END:VEVENT\",\n      );\n    }\n  });\n  lines.push(\"END:VCALENDAR\");\n  return lines.join(\"\\r\\n\");\n}\n"])</script><script>self.__next_f.push([1,"15:[\"$\",\"div\",\"model.ts\",{\"className\":\"file\",\"children\":[[\"$\",\"div\",null,{\"className\":\"file-head\",\"children\":[[\"$\",\"span\",null,{\"children\":\"model.ts\"}],[\"$\",\"$L11\",null,{\"text\":\"$1b\"}]]}],\"$L1c\"]}]\n1d:Tede,"])</script><script>self.__next_f.push([1,"// Free, key-less OpenStreetMap services. Search runs only on Enter (Nominatim asks for ≤1 request/s,\n// no autocomplete), and routes are cached per day so edits don't re-request unchanged legs.\n\nexport type Place = { name: string; detail: string; lat: number; lng: number };\nexport type Leg = { distance: number; duration: number };\nexport type Route = { coords: [number, number][]; legs: Leg[]; estimated: boolean };\n\nconst NOMINATIM = \"https://nominatim.openstreetmap.org\";\nconst OSRM = \"https://router.project-osrm.org/route/v1/driving\";\n\nexport async function searchPlaces(query: string, view?: { west: number; south: number; east: number; north: number }) {\n  const params = new URLSearchParams({ q: query, format: \"jsonv2\", limit: \"6\", \"accept-language\": \"en\" });\n  if (view) params.set(\"viewbox\", `${view.west},${view.north},${view.east},${view.south}`);\n  const res = await fetch(`${NOMINATIM}/search?${params}`);\n  if (!res.ok) throw new Error(\"Search failed\");\n  const data: { name?: string; display_name: string; lat: string; lon: string }[] = await res.json();\n  return data.map\u003cPlace\u003e((d) =\u003e {\n    const [first, ...rest] = d.display_name.split(\", \");\n    return { name: d.name || first, detail: rest.slice(0, 3).join(\", \"), lat: Number(d.lat), lng: Number(d.lon) };\n  });\n}\n\nexport async function reverseGeocode(lat: number, lng: number) {\n  try {\n    const params = new URLSearchParams({ lat: String(lat), lon: String(lng), format: \"jsonv2\", zoom: \"17\", \"accept-language\": \"en\" });\n    const res = await fetch(`${NOMINATIM}/reverse?${params}`);\n    const d: { name?: string; display_name?: string } = await res.json();\n    return d.name || d.display_name?.split(\", \").slice(0, 2).join(\", \") || \"Pinned place\";\n  } catch {\n    return \"Pinned place\";\n  }\n}\n\n/** Great-circle distance in metres. */\nexport function haversine(a: { lat: number; lng: number }, b: { lat: number; lng: number }) {\n  const R = 6371e3;\n  const toRad = (d: number) =\u003e (d * Math.PI) / 180;\n  const dLat = toRad(b.lat - a.lat);\n  const dLng = toRad(b.lng - a.lng);\n  const h = Math.sin(dLat / 2) ** 2 + Math.cos(toRad(a.lat)) * Math.cos(toRad(b.lat)) * Math.sin(dLng / 2) ** 2;\n  return 2 * R * Math.asin(Math.sqrt(h));\n}\n\n/** Straight lines with a road-detour factor and ~35 km/h, used when routing is unavailable. */\nexport function estimateRoute(points: { lat: number; lng: number }[]): Route {\n  const legs = points.slice(1).map((p, i) =\u003e {\n    const distance = haversine(points[i], p) * 1.3;\n    return { distance, duration: distance / (35_000 / 3600) };\n  });\n  return { coords: points.map((p) =\u003e [p.lat, p.lng]), legs, estimated: true };\n}\n\nconst cache = new Map\u003cstring, Route\u003e();\n\nexport async function routeFor(points: { lat: number; lng: number }[]): Promise\u003cRoute\u003e {\n  if (points.length \u003c 2) return { coords: [], legs: [], estimated: false };\n  const key = points.map((p) =\u003e `${p.lng.toFixed(5)},${p.lat.toFixed(5)}`).join(\";\");\n  const hit = cache.get(key);\n  if (hit) return hit;\n  try {\n    const res = await fetch(`${OSRM}/${key}?overview=full\u0026geometries=geojson`);\n    const data = await res.json();\n    if (data.code !== \"Ok\") throw new Error(data.code);\n    const r = data.routes[0];\n    const route: Route = {\n      coords: r.geometry.coordinates.map(([lng, lat]: [number, number]) =\u003e [lat, lng]),\n      legs: r.legs.map((l: Leg) =\u003e ({ distance: l.distance, duration: l.duration })),\n      estimated: false,\n    };\n    cache.set(key, route);\n    return route;\n  } catch {\n    return estimateRoute(points);\n  }\n}\n\nexport const km = (m: number) =\u003e (m \u003c 1000 ? `${Math.round(m)} m` : `${(m / 1000).toFixed(m \u003c 10_000 ? 1 : 0)} km`);\nexport const mins = (s: number) =\u003e {\n  const m = Math.round(s / 60);\n  return m \u003c 60 ? `${m} min` : `${Math.floor(m / 60)} h ${String(m % 60).padStart(2, \"0\")} min`;\n};\n"])</script><script>self.__next_f.push([1,"16:[\"$\",\"div\",\"services.ts\",{\"className\":\"file\",\"children\":[[\"$\",\"div\",null,{\"className\":\"file-head\",\"children\":[[\"$\",\"span\",null,{\"children\":\"services.ts\"}],[\"$\",\"$L11\",null,{\"text\":\"$1d\"}]]}],\"$L1e\"]}]\n17:[\"$\",\"nav\",null,{\"className\":\"pager\",\"children\":[[\"$\",\"$L2\",null,{\"href\":\"/components/meeting-captions\",\"children\":[\"← \",\"Live Meeting Captions \u0026 Action Items\"]}],[\"$\",\"$L2\",null,{\"href\":\"/components/room-planner\",\"children\":[\"Room Planner, 2D to 3D\",\" →\"]}]]}]\n"])</script><script>self.__next_f.push([1,"1f:T7043,"])</script><script>self.__next_f.push([1,"\"use client\";\n\nimport \"leaflet/dist/leaflet.css\";\nimport { useEffect, useMemo, useRef, useState, type DragEvent } from \"react\";\nimport type * as Leaflet from \"leaflet\";\nimport {\n  CATEGORIES,\n  DAY_COLORS,\n  dayDate,\n  decodeTrip,\n  encodeTrip,\n  sampleTrip,\n  toIcs,\n  uid,\n  type Category,\n  type Stop,\n  type Trip,\n} from \"./model\";\nimport { km, mins, reverseGeocode, routeFor, searchPlaces, type Place, type Route } from \"./services\";\nimport styles from \"./TripPlanner.module.css\";\n\nconst STORAGE_KEY = \"gallery-trip-v1\";\ntype Tab = \"plan\" | \"budget\" | \"packing\";\n\nconst money = (v: number) =\u003e `৳${Math.round(v).toLocaleString(\"en-IN\")}`;\nconst colorOf = (i: number) =\u003e DAY_COLORS[i % DAY_COLORS.length];\nconst fmtDay = (d: Date) =\u003e d.toLocaleDateString(\"en-GB\", { weekday: \"short\", day: \"numeric\", month: \"short\" });\n\nfunction download(text: string, name: string, type: string) {\n  const url = URL.createObjectURL(new Blob([text], { type }));\n  const a = document.createElement(\"a\");\n  a.href = url;\n  a.download = name;\n  a.click();\n  setTimeout(() =\u003e URL.revokeObjectURL(url), 1000);\n}\n\nexport default function TripPlanner() {\n  const [trip, setTrip] = useState\u003cTrip | null\u003e(null);\n  const [tab, setTab] = useState\u003cTab\u003e(\"plan\");\n  const [day, setDay] = useState(0);\n  const [openStop, setOpenStop] = useState\u003cstring | null\u003e(null);\n  const [routes, setRoutes] = useState\u003cRecord\u003cstring, Route\u003e\u003e({});\n  const [query, setQuery] = useState(\"\");\n  const [results, setResults] = useState\u003cPlace[] | null\u003e(null);\n  const [searching, setSearching] = useState(false);\n  const [toast, setToast] = useState(\"\");\n  const [packDraft, setPackDraft] = useState(\"\");\n  const [extraDraft, setExtraDraft] = useState({ label: \"\", cost: \"\" });\n  const [mapReady, setMapReady] = useState(false);\n\n  const mapEl = useRef\u003cHTMLDivElement\u003e(null);\n  const map = useRef\u003cLeaflet.Map | null\u003e(null);\n  const L = useRef\u003ctypeof Leaflet | null\u003e(null);\n  const layer = useRef\u003cLeaflet.LayerGroup | null\u003e(null);\n  const tripRef = useRef(trip);\n  tripRef.current = trip;\n  const dayRef = useRef(day);\n  dayRef.current = day;\n  const dragging = useRef\u003c{ day: number; index: number } | null\u003e(null);\n\n  const notify = (msg: string) =\u003e {\n    setToast(msg);\n    setTimeout(() =\u003e setToast(\"\"), 2200);\n  };\n\n  // ── Load: a shared link wins, then saved trip, then the sample ──────────────────────\n  useEffect(() =\u003e {\n    (async () =\u003e {\n      const shared = window.location.hash.match(/trip=([^\u0026]+)/)?.[1];\n      if (shared) {\n        const t = await decodeTrip(shared);\n        if (t) {\n          setTrip(t);\n          notify(\"Opened a shared trip\");\n          return;\n        }\n      }\n      try {\n        const saved = localStorage.getItem(STORAGE_KEY);\n        if (saved) {\n          setTrip(JSON.parse(saved));\n          return;\n        }\n      } catch {}\n      setTrip(sampleTrip());\n    })();\n  }, []);\n\n  useEffect(() =\u003e {\n    if (!trip) return;\n    try {\n      localStorage.setItem(STORAGE_KEY, JSON.stringify(trip));\n    } catch {}\n  }, [trip]);\n\n  const update = (fn: (t: Trip) =\u003e Trip) =\u003e setTrip((t) =\u003e (t ? fn(structuredClone(t)) : t));\n\n  // ── Map setup (Leaflet touches window, so it is imported on the client only) ────────\n  useEffect(() =\u003e {\n    let disposed = false;\n    (async () =\u003e {\n      const lib = (await import(\"leaflet\")).default;\n      if (disposed || !mapEl.current) return;\n      L.current = lib;\n      const m = lib.map(mapEl.current, { zoomControl: true, scrollWheelZoom: true }).setView([21.4, 92.0], 11);\n      lib\n        .tileLayer(\"https://tile.openstreetmap.org/{z}/{x}/{y}.png\", {\n          maxZoom: 19,\n          attribution: '\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors',\n        })\n        .addTo(m);\n      layer.current = lib.layerGroup().addTo(m);\n      m.on(\"click\", (e: Leaflet.LeafletMouseEvent) =\u003e showAddPopup(e.latlng.lat, e.latlng.lng));\n      map.current = m;\n      setMapReady(true);\n    })();\n    return () =\u003e {\n      disposed = true;\n      map.current?.remove();\n      map.current = null;\n    };\n    // eslint-disable-next-line react-hooks/exhaustive-deps\n  }, []);\n\n  function showAddPopup(lat: number, lng: number) {\n    const lib = L.current;\n    const m = map.current;\n    if (!lib || !m || !tripRef.current) return;\n    const box = document.createElement(\"div\");\n    box.className = styles.popup;\n    const title = document.createElement(\"strong\");\n    title.textContent = \"Looking up this place…\";\n    const btn = document.createElement(\"button\");\n    btn.type = \"button\";\n    btn.textContent = `Add to Day ${dayRef.current + 1}`;\n    btn.style.background = colorOf(dayRef.current);\n    box.append(title, btn);\n    const popup = lib.popup().setLatLng([lat, lng]).setContent(box).openOn(m);\n    let name = \"Pinned place\";\n    reverseGeocode(lat, lng).then((n) =\u003e {\n      name = n;\n      title.textContent = n;\n    });\n    btn.onclick = () =\u003e {\n      addStop({ name, lat, lng, detail: \"\" }, dayRef.current);\n      m.closePopup(popup);\n    };\n  }\n\n  // ── Routes: re-fetch a day's route when its stops change (debounced, cached) ────────\n  const signature = trip?.days.map((d) =\u003e d.id + \":\" + d.stops.map((s) =\u003e `${s.lat},${s.lng}`).join(\"|\")).join(\"/\") ?? \"\";\n  useEffect(() =\u003e {\n    if (!trip) return;\n    const timer = setTimeout(async () =\u003e {\n      const next: Record\u003cstring, Route\u003e = {};\n      for (const d of trip.days) next[d.id] = await routeFor(d.stops);\n      setRoutes(next);\n    }, 500);\n    return () =\u003e clearTimeout(timer);\n    // eslint-disable-next-line react-hooks/exhaustive-deps\n  }, [signature]);\n\n  // ── Draw markers and routes ─────────────────────────────────────────────────────────\n  useEffect(() =\u003e {\n    const lib = L.current;\n    const group = layer.current;\n    if (!mapReady || !lib || !group || !trip) return;\n    group.clearLayers();\n    trip.days.forEach((d, di) =\u003e {\n      const active = di === day;\n      const color = colorOf(di);\n      const route = routes[d.id];\n      const line = route?.coords.length ? route.coords : d.stops.map((s) =\u003e [s.lat, s.lng] as [number, number]);\n      if (line.length \u003e 1) {\n        lib\n          .polyline(line, { color, weight: active ? 5 : 3, opacity: active ? 0.9 : 0.35, dashArray: route?.estimated ? \"6 8\" : undefined })\n          .addTo(group);\n      }\n      d.stops.forEach((s, si) =\u003e {\n        const icon = lib.divIcon({\n          className: \"\",\n          html: `\u003cspan class=\"${styles.pin}\" data-active=\"${active}\" data-open=\"${openStop === s.id}\" style=\"--c:${color}\"\u003e\u003cb\u003e${si + 1}\u003c/b\u003e\u003c/span\u003e`,\n          iconSize: [28, 28],\n          iconAnchor: [14, 32],\n        });\n        lib\n          .marker([s.lat, s.lng], { icon, zIndexOffset: active ? 1000 : 0, title: s.name })\n          .on(\"click\", () =\u003e {\n            setDay(di);\n            setTab(\"plan\");\n            setOpenStop(s.id);\n          })\n          .addTo(group);\n      });\n    });\n  }, [trip, routes, day, openStop, mapReady]);\n\n  // Fit the selected day on screen.\n  useEffect(() =\u003e {\n    const lib = L.current;\n    const m = map.current;\n    const stops = trip?.days[day]?.stops ?? [];\n    if (!mapReady || !lib || !m || !stops.length) return;\n    if (stops.length === 1) m.flyTo([stops[0].lat, stops[0].lng], 14, { duration: 0.6 });\n    else m.flyToBounds(lib.latLngBounds(stops.map((s) =\u003e [s.lat, s.lng])), { padding: [50, 50], duration: 0.6 });\n    // eslint-disable-next-line react-hooks/exhaustive-deps\n  }, [day, mapReady, trip?.days.length]);\n\n  // ── Actions ─────────────────────────────────────────────────────────────────────────\n  function addStop(place: Place, dayIndex: number) {\n    const s: Stop = { id: uid(), name: place.name, lat: place.lat, lng: place.lng, category: \"sight\", time: \"\", cost: 0, note: \"\" };\n    update((t) =\u003e {\n      t.days[dayIndex].stops.push(s);\n      return t;\n    });\n    setOpenStop(s.id);\n    setResults(null);\n    setQuery(\"\");\n    notify(`Added to Day ${dayIndex + 1}`);\n  }\n\n  function editStop(dayIndex: number, id: string, patch: Partial\u003cStop\u003e) {\n    update((t) =\u003e {\n      const s = t.days[dayIndex].stops.find((x) =\u003e x.id === id);\n      if (s) Object.assign(s, patch);\n      return t;\n    });\n  }\n\n  function moveStop(from: { day: number; index: number }, toDay: number, toIndex: number) {\n    update((t) =\u003e {\n      const [s] = t.days[from.day].stops.splice(from.index, 1);\n      const target = t.days[toDay].stops;\n      const index = from.day === toDay \u0026\u0026 toIndex \u003e from.index ? toIndex - 1 : toIndex;\n      target.splice(Math.min(index, target.length), 0, s);\n      return t;\n    });\n  }\n\n  async function search() {\n    const q = query.trim();\n    if (!q) return;\n    setSearching(true);\n    try {\n      const b = map.current?.getBounds();\n      setResults(await searchPlaces(q, b \u0026\u0026 { west: b.getWest(), south: b.getSouth(), east: b.getEast(), north: b.getNorth() }));\n    } catch {\n      setResults([]);\n      notify(\"Search is unavailable right now\");\n    } finally {\n      setSearching(false);\n    }\n  }\n\n  async function share() {\n    if (!trip) return;\n    const url = `${window.location.origin}${window.location.pathname}#trip=${await encodeTrip(trip)}`;\n    await navigator.clipboard.writeText(url);\n    notify(\"Share link copied. Anyone with it sees this trip\");\n  }\n\n  const onDrop = (e: DragEvent, toDay: number, toIndex: number) =\u003e {\n    e.preventDefault();\n    e.stopPropagation();\n    if (dragging.current) moveStop(dragging.current, toDay, toIndex);\n    dragging.current = null;\n  };\n\n  // ── Derived numbers ─────────────────────────────────────────────────────────────────\n  const totals = useMemo(() =\u003e {\n    if (!trip) return null;\n    const byCat = new Map\u003cstring, number\u003e();\n    for (const d of trip.days) for (const s of d.stops) byCat.set(s.category, (byCat.get(s.category) ?? 0) + s.cost);\n    const extras = trip.extras.reduce((a, x) =\u003e a + x.cost, 0);\n    if (extras) byCat.set(\"extras\", extras);\n    const total = [...byCat.values()].reduce((a, b) =\u003e a + b, 0);\n    return { byCat, total, perPerson: total / Math.max(1, trip.travelers) };\n  }, [trip]);\n\n  if (!trip || !totals) {\n    return (\n      \u003cdiv className={styles.card}\u003e\n        \u003cdiv className={styles.loading}\u003eLoading your trip…\u003c/div\u003e\n      \u003c/div\u003e\n    );\n  }\n\n  const current = trip.days[day] ?? trip.days[0];\n  const route = routes[current?.id];\n  const dayDistance = route?.legs.reduce((a, l) =\u003e a + l.distance, 0) ?? 0;\n  const dayDuration = route?.legs.reduce((a, l) =\u003e a + l.duration, 0) ?? 0;\n  const packed = trip.packing.filter((p) =\u003e p.done).length;\n\n  return (\n    \u003cdiv className={styles.card}\u003e\n      \u003cheader className={styles.head}\u003e\n        \u003cdiv className={styles.titleRow}\u003e\n          \u003cinput className={styles.tripName} value={trip.name} onChange={(e) =\u003e update((t) =\u003e ({ ...t, name: e.target.value }))} aria-label=\"Trip name\" /\u003e\n          \u003cdiv className={styles.headActions}\u003e\n            \u003cbutton type=\"button\" className={styles.ghost} onClick={share}\u003e\n              Share link\n            \u003c/button\u003e\n            \u003cbutton type=\"button\" className={styles.ghost} onClick={() =\u003e download(toIcs(trip), `${trip.name || \"trip\"}.ics`, \"text/calendar\")}\u003e\n              Add to calendar\n            \u003c/button\u003e\n            \u003cbutton\n              type=\"button\"\n              className={styles.ghost}\n              onClick={() =\u003e {\n                if (window.confirm(\"Start over with the sample trip? Your current plan will be replaced.\")) {\n                  setTrip(sampleTrip());\n                  setDay(0);\n                  history.replaceState(null, \"\", window.location.pathname);\n                }\n              }}\n            \u003e\n              Reset\n            \u003c/button\u003e\n          \u003c/div\u003e\n        \u003c/div\u003e\n        \u003cdiv className={styles.meta}\u003e\n          \u003clabel\u003e\n            Starts\n            \u003cinput type=\"date\" value={trip.start} onChange={(e) =\u003e e.target.value \u0026\u0026 update((t) =\u003e ({ ...t, start: e.target.value }))} /\u003e\n          \u003c/label\u003e\n          \u003clabel\u003e\n            Travellers\n            \u003cinput\n              type=\"number\"\n              min={1}\n              max={50}\n              value={trip.travelers}\n              onChange={(e) =\u003e update((t) =\u003e ({ ...t, travelers: Math.max(1, Math.min(50, Number(e.target.value) || 1)) }))}\n            /\u003e\n          \u003c/label\u003e\n          \u003cspan className={styles.metaStat}\u003e\n            {trip.days.length} days · {trip.days.reduce((a, d) =\u003e a + d.stops.length, 0)} stops · {money(totals.total)} total\n          \u003c/span\u003e\n        \u003c/div\u003e\n      \u003c/header\u003e\n\n      \u003cdiv className={styles.body}\u003e\n        \u003cdiv className={styles.mapWrap}\u003e\n          \u003cdiv ref={mapEl} className={styles.map} aria-label=\"Trip map. Click anywhere to add a place.\" /\u003e\n          \u003cdiv className={styles.dayStrip} role=\"tablist\" aria-label=\"Days\"\u003e\n            {trip.days.map((d, i) =\u003e (\n              \u003cbutton\n                key={d.id}\n                type=\"button\"\n                role=\"tab\"\n                aria-selected={day === i}\n                style={{ [\"--c\" as string]: colorOf(i) }}\n                onClick={() =\u003e setDay(i)}\n                onDragOver={(e) =\u003e e.preventDefault()}\n                onDrop={(e) =\u003e onDrop(e, i, trip.days[i].stops.length)}\n              \u003e\n                Day {i + 1}\n              \u003c/button\u003e\n            ))}\n          \u003c/div\u003e\n          \u003cp className={styles.mapHint}\u003eClick the map to add a place\u003c/p\u003e\n        \u003c/div\u003e\n\n        \u003csection className={styles.panel}\u003e\n          \u003cdiv className={styles.tabs} role=\"tablist\"\u003e\n            {(\n              [\n                [\"plan\", \"Itinerary\"],\n                [\"budget\", `Budget · ${money(totals.perPerson)}/person`],\n                [\"packing\", `Packing ${packed}/${trip.packing.length}`],\n              ] as const\n            ).map(([k, label]) =\u003e (\n              \u003cbutton key={k} type=\"button\" role=\"tab\" aria-selected={tab === k} onClick={() =\u003e setTab(k)}\u003e\n                {label}\n              \u003c/button\u003e\n            ))}\n          \u003c/div\u003e\n\n          {tab === \"plan\" \u0026\u0026 (\n            \u003c\u003e\n              \u003cform\n                className={styles.search}\n                onSubmit={(e) =\u003e {\n                  e.preventDefault();\n                  search();\n                }}\n              \u003e\n                \u003cinput value={query} onChange={(e) =\u003e setQuery(e.target.value)} placeholder=\"Search a place, e.g. Inani Beach\" aria-label=\"Search places\" /\u003e\n                \u003cbutton type=\"submit\" disabled={searching}\u003e\n                  {searching ? \"…\" : \"Search\"}\n                \u003c/button\u003e\n              \u003c/form\u003e\n              {results \u0026\u0026 (\n                \u003cul className={styles.results}\u003e\n                  {results.length === 0 \u0026\u0026 \u003cli className={styles.noResults}\u003eNo places found.\u003c/li\u003e}\n                  {results.map((r, i) =\u003e (\n                    \u003cli key={i}\u003e\n                      \u003cbutton\n                        type=\"button\"\n                        className={styles.resultPeek}\n                        onClick={() =\u003e map.current?.flyTo([r.lat, r.lng], 14, { duration: 0.6 })}\n                      \u003e\n                        \u003cstrong\u003e{r.name}\u003c/strong\u003e\n                        \u003cspan\u003e{r.detail}\u003c/span\u003e\n                      \u003c/button\u003e\n                      \u003cbutton type=\"button\" className={styles.addBtn} style={{ background: colorOf(day) }} onClick={() =\u003e addStop(r, day)}\u003e\n                        + Day {day + 1}\n                      \u003c/button\u003e\n                    \u003c/li\u003e\n                  ))}\n                  \u003cli\u003e\n                    \u003cbutton type=\"button\" className={styles.closeResults} onClick={() =\u003e setResults(null)}\u003e\n                      Close results\n                    \u003c/button\u003e\n                  \u003c/li\u003e\n                \u003c/ul\u003e\n              )}\n\n              \u003cdiv className={styles.dayHead} style={{ [\"--c\" as string]: colorOf(day) }}\u003e\n                \u003cdiv\u003e\n                  \u003cstrong\u003eDay {day + 1}\u003c/strong\u003e\n                  \u003cspan\u003e{fmtDay(dayDate(trip, day))}\u003c/span\u003e\n                \u003c/div\u003e\n                \u003cspan className={styles.dayStats}\u003e\n                  {current.stops.length \u003e 1 ? `${km(dayDistance)} · ${mins(dayDuration)}${route?.estimated ? \" (est.)\" : \"\"}` : \"Add stops to see the route\"}\n                \u003c/span\u003e\n              \u003c/div\u003e\n\n              \u003col className={styles.stops} onDragOver={(e) =\u003e e.preventDefault()} onDrop={(e) =\u003e onDrop(e, day, current.stops.length)}\u003e\n                {current.stops.length === 0 \u0026\u0026 \u003cli className={styles.emptyDay}\u003eNo stops yet. Search above or click the map.\u003c/li\u003e}\n                {current.stops.map((s, i) =\u003e {\n                  const leg = route?.legs[i - 1];\n                  const open = openStop === s.id;\n                  return (\n                    \u003cli key={s.id} className={styles.stopWrap}\u003e\n                      {i \u003e 0 \u0026\u0026 leg \u0026\u0026 (\n                        \u003cdiv className={styles.leg}\u003e\n                          \u003cspan\u003e\n                            {km(leg.distance)} · {mins(leg.duration)}\n                          \u003c/span\u003e\n                        \u003c/div\u003e\n                      )}\n                      \u003cdiv\n                        className={styles.stop}\n                        data-open={open}\n                        draggable\n                        onDragStart={() =\u003e (dragging.current = { day, index: i })}\n                        onDragOver={(e) =\u003e e.preventDefault()}\n                        onDrop={(e) =\u003e onDrop(e, day, i)}\n                      \u003e\n                        \u003cbutton\n                          type=\"button\"\n                          className={styles.stopMain}\n                          onClick={() =\u003e {\n                            setOpenStop(open ? null : s.id);\n                            map.current?.flyTo([s.lat, s.lng], Math.max(map.current.getZoom(), 13), { duration: 0.5 });\n                          }}\n                          aria-expanded={open}\n                        \u003e\n                          \u003cspan className={styles.num} style={{ background: colorOf(day) }}\u003e\n                            {i + 1}\n                          \u003c/span\u003e\n                          \u003cspan className={styles.stopText}\u003e\n                            \u003cstrong\u003e{s.name}\u003c/strong\u003e\n                            \u003cspan\u003e\n                              {s.time \u0026\u0026 `${s.time} · `}\n                              {CATEGORIES.find((c) =\u003e c.key === s.category)?.label}\n                              {s.cost \u003e 0 \u0026\u0026 ` · ${money(s.cost)}`}\n                            \u003c/span\u003e\n                          \u003c/span\u003e\n                          \u003cspan className={styles.grip} aria-hidden=\"true\"\u003e\n                            ⋮⋮\n                          \u003c/span\u003e\n                        \u003c/button\u003e\n                        {open \u0026\u0026 (\n                          \u003cdiv className={styles.editor}\u003e\n                            \u003clabel\u003e\n                              Name\n                              \u003cinput value={s.name} onChange={(e) =\u003e editStop(day, s.id, { name: e.target.value })} /\u003e\n                            \u003c/label\u003e\n                            \u003cdiv className={styles.row3}\u003e\n                              \u003clabel\u003e\n                                Time\n                                \u003cinput type=\"time\" value={s.time} onChange={(e) =\u003e editStop(day, s.id, { time: e.target.value })} /\u003e\n                              \u003c/label\u003e\n                              \u003clabel\u003e\n                                Type\n                                \u003cselect value={s.category} onChange={(e) =\u003e editStop(day, s.id, { category: e.target.value as Category })}\u003e\n                                  {CATEGORIES.map((c) =\u003e (\n                                    \u003coption key={c.key} value={c.key}\u003e\n                                      {c.label}\n                                    \u003c/option\u003e\n                                  ))}\n                                \u003c/select\u003e\n                              \u003c/label\u003e\n                              \u003clabel\u003e\n                                Cost (৳)\n                                \u003cinput type=\"number\" min={0} value={s.cost || \"\"} onChange={(e) =\u003e editStop(day, s.id, { cost: Math.max(0, Number(e.target.value) || 0) })} /\u003e\n                              \u003c/label\u003e\n                            \u003c/div\u003e\n                            \u003clabel\u003e\n                              Note\n                              \u003cinput value={s.note} placeholder=\"Tickets, booking ref, tips…\" onChange={(e) =\u003e editStop(day, s.id, { note: e.target.value })} /\u003e\n                            \u003c/label\u003e\n                            \u003cdiv className={styles.editorActions}\u003e\n                              \u003clabel className={styles.inline}\u003e\n                                Move to\n                                \u003cselect value={day} onChange={(e) =\u003e moveStop({ day, index: i }, Number(e.target.value), Infinity)}\u003e\n                                  {trip.days.map((_, di) =\u003e (\n                                    \u003coption key={di} value={di}\u003e\n                                      Day {di + 1}\n                                    \u003c/option\u003e\n                                  ))}\n                                \u003c/select\u003e\n                              \u003c/label\u003e\n                              \u003cspan\u003e\n                                \u003cbutton type=\"button\" className={styles.iconBtn} disabled={i === 0} onClick={() =\u003e moveStop({ day, index: i }, day, i - 1)} aria-label=\"Move up\"\u003e\n                                  ↑\n                                \u003c/button\u003e\n                                \u003cbutton\n                                  type=\"button\"\n                                  className={styles.iconBtn}\n                                  disabled={i === current.stops.length - 1}\n                                  onClick={() =\u003e moveStop({ day, index: i }, day, i + 2)}\n                                  aria-label=\"Move down\"\n                                \u003e\n                                  ↓\n                                \u003c/button\u003e\n                                \u003cbutton\n                                  type=\"button\"\n                                  className={styles.danger}\n                                  onClick={() =\u003e\n                                    update((t) =\u003e {\n                                      t.days[day].stops = t.days[day].stops.filter((x) =\u003e x.id !== s.id);\n                                      return t;\n                                    })\n                                  }\n                                \u003e\n                                  Remove\n                                \u003c/button\u003e\n                              \u003c/span\u003e\n                            \u003c/div\u003e\n                          \u003c/div\u003e\n                        )}\n                      \u003c/div\u003e\n                    \u003c/li\u003e\n                  );\n                })}\n              \u003c/ol\u003e\n\n              \u003cdiv className={styles.dayActions}\u003e\n                \u003cbutton\n                  type=\"button\"\n                  className={styles.ghost}\n                  onClick={() =\u003e {\n                    update((t) =\u003e ({ ...t, days: [...t.days, { id: uid(), stops: [] }] }));\n                    setDay(trip.days.length);\n                  }}\n                \u003e\n                  + Add day\n                \u003c/button\u003e\n                {trip.days.length \u003e 1 \u0026\u0026 (\n                  \u003cbutton\n                    type=\"button\"\n                    className={styles.ghost}\n                    onClick={() =\u003e {\n                      if (current.stops.length \u0026\u0026 !window.confirm(`Delete Day ${day + 1} and its ${current.stops.length} stops?`)) return;\n                      update((t) =\u003e ({ ...t, days: t.days.filter((_, i) =\u003e i !== day) }));\n                      setDay(Math.max(0, day - 1));\n                    }}\n                  \u003e\n                    Delete Day {day + 1}\n                  \u003c/button\u003e\n                )}\n              \u003c/div\u003e\n            \u003c/\u003e\n          )}\n\n          {tab === \"budget\" \u0026\u0026 (\n            \u003cdiv className={styles.budget}\u003e\n              \u003cdiv className={styles.bigNumbers}\u003e\n                \u003cdiv\u003e\n                  \u003cstrong\u003e{money(totals.total)}\u003c/strong\u003e\n                  \u003cspan\u003etrip total\u003c/span\u003e\n                \u003c/div\u003e\n                \u003cdiv\u003e\n                  \u003cstrong\u003e{money(totals.perPerson)}\u003c/strong\u003e\n                  \u003cspan\u003eper person ({trip.travelers})\u003c/span\u003e\n                \u003c/div\u003e\n              \u003c/div\u003e\n              \u003cul className={styles.breakdown}\u003e\n                {[...totals.byCat.entries()]\n                  .filter(([, v]) =\u003e v \u003e 0)\n                  .sort((a, b) =\u003e b[1] - a[1])\n                  .map(([k, v]) =\u003e (\n                    \u003cli key={k}\u003e\n                      \u003cspan\u003e{k === \"extras\" ? \"Extras\" : CATEGORIES.find((c) =\u003e c.key === k)?.label}\u003c/span\u003e\n                      \u003cspan className={styles.bar}\u003e\n                        \u003cspan style={{ width: `${(v / Math.max(1, totals.total)) * 100}%` }} /\u003e\n                      \u003c/span\u003e\n                      \u003cspan className={styles.amount}\u003e{money(v)}\u003c/span\u003e\n                    \u003c/li\u003e\n                  ))}\n              \u003c/ul\u003e\n              \u003ch4 className={styles.subhead}\u003eExtras (tickets, transport, tips)\u003c/h4\u003e\n              \u003cul className={styles.extras}\u003e\n                {trip.extras.map((x) =\u003e (\n                  \u003cli key={x.id}\u003e\n                    \u003cspan\u003e{x.label}\u003c/span\u003e\n                    \u003cspan\u003e{money(x.cost)}\u003c/span\u003e\n                    \u003cbutton type=\"button\" aria-label={`Remove ${x.label}`} onClick={() =\u003e update((t) =\u003e ({ ...t, extras: t.extras.filter((e) =\u003e e.id !== x.id) }))}\u003e\n                      ×\n                    \u003c/button\u003e\n                  \u003c/li\u003e\n                ))}\n              \u003c/ul\u003e\n              \u003cform\n                className={styles.addRow}\n                onSubmit={(e) =\u003e {\n                  e.preventDefault();\n                  const cost = Number(extraDraft.cost);\n                  if (!extraDraft.label.trim() || !(cost \u003e 0)) return;\n                  update((t) =\u003e ({ ...t, extras: [...t.extras, { id: uid(), label: extraDraft.label.trim(), cost }] }));\n                  setExtraDraft({ label: \"\", cost: \"\" });\n                }}\n              \u003e\n                \u003cinput placeholder=\"e.g. Bus tickets\" value={extraDraft.label} onChange={(e) =\u003e setExtraDraft((d) =\u003e ({ ...d, label: e.target.value }))} /\u003e\n                \u003cinput placeholder=\"৳\" type=\"number\" min={0} value={extraDraft.cost} onChange={(e) =\u003e setExtraDraft((d) =\u003e ({ ...d, cost: e.target.value }))} /\u003e\n                \u003cbutton type=\"submit\"\u003eAdd\u003c/button\u003e\n              \u003c/form\u003e\n              \u003cp className={styles.hint}\u003eStop costs are set on each stop in the itinerary.\u003c/p\u003e\n            \u003c/div\u003e\n          )}\n\n          {tab === \"packing\" \u0026\u0026 (\n            \u003cdiv className={styles.packing}\u003e\n              \u003cdiv className={styles.progress}\u003e\n                \u003cspan style={{ width: `${(packed / Math.max(1, trip.packing.length)) * 100}%` }} /\u003e\n              \u003c/div\u003e\n              \u003cul\u003e\n                {trip.packing.map((p) =\u003e (\n                  \u003cli key={p.id} data-done={p.done}\u003e\n                    \u003clabel\u003e\n                      \u003cinput\n                        type=\"checkbox\"\n                        checked={p.done}\n                        onChange={() =\u003e update((t) =\u003e ({ ...t, packing: t.packing.map((x) =\u003e (x.id === p.id ? { ...x, done: !x.done } : x)) }))}\n                      /\u003e\n                      {p.label}\n                    \u003c/label\u003e\n                    \u003cbutton type=\"button\" aria-label={`Remove ${p.label}`} onClick={() =\u003e update((t) =\u003e ({ ...t, packing: t.packing.filter((x) =\u003e x.id !== p.id) }))}\u003e\n                      ×\n                    \u003c/button\u003e\n                  \u003c/li\u003e\n                ))}\n              \u003c/ul\u003e\n              \u003cform\n                className={styles.addRow}\n                onSubmit={(e) =\u003e {\n                  e.preventDefault();\n                  if (!packDraft.trim()) return;\n                  update((t) =\u003e ({ ...t, packing: [...t.packing, { id: uid(), label: packDraft.trim(), done: false }] }));\n                  setPackDraft(\"\");\n                }}\n              \u003e\n                \u003cinput placeholder=\"Add an item\" value={packDraft} onChange={(e) =\u003e setPackDraft(e.target.value)} /\u003e\n                \u003cbutton type=\"submit\"\u003eAdd\u003c/button\u003e\n              \u003c/form\u003e\n            \u003c/div\u003e\n          )}\n        \u003c/section\u003e\n      \u003c/div\u003e\n\n      {toast \u0026\u0026 (\n        \u003cdiv className={styles.toast} role=\"status\"\u003e\n          {toast}\n        \u003c/div\u003e\n      )}\n      \u003cp className={styles.credit}\u003eMap data © OpenStreetMap contributors · Routing by OSRM · Search by Nominatim. Your trip is saved in this browser.\u003c/p\u003e\n    \u003c/div\u003e\n  );\n}\n"])</script><script>self.__next_f.push([1,"1a:[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"children\":\"$1f\"}]}]\n20:T1959,"])</script><script>self.__next_f.push([1,"export type Category = \"sight\" | \"food\" | \"hotel\" | \"transport\" | \"shop\" | \"other\";\nexport type Stop = { id: string; name: string; lat: number; lng: number; category: Category; time: string; cost: number; note: string };\nexport type Day = { id: string; stops: Stop[] };\nexport type Extra = { id: string; label: string; cost: number };\nexport type PackItem = { id: string; label: string; done: boolean };\nexport type Trip = { name: string; start: string; travelers: number; days: Day[]; extras: Extra[]; packing: PackItem[] };\n\nexport const DAY_COLORS = [\"#2a78d6\", \"#eb6834\", \"#1baf7a\", \"#7c4dff\", \"#e2508a\", \"#0e9aa7\", \"#c98500\"];\nexport const CATEGORIES: { key: Category; label: string }[] = [\n  { key: \"sight\", label: \"Sightseeing\" },\n  { key: \"food\", label: \"Food\" },\n  { key: \"hotel\", label: \"Stay\" },\n  { key: \"transport\", label: \"Transport\" },\n  { key: \"shop\", label: \"Shopping\" },\n  { key: \"other\", label: \"Other\" },\n];\n\nlet n = 0;\nexport const uid = () =\u003e `${Date.now().toString(36)}${(n++).toString(36)}${Math.random().toString(36).slice(2, 5)}`;\n\nconst stop = (name: string, lat: number, lng: number, category: Category, time = \"\", cost = 0, note = \"\"): Stop =\u003e ({\n  id: uid(),\n  name,\n  lat,\n  lng,\n  category,\n  time,\n  cost,\n  note,\n});\n\nexport function isoDate(d: Date) {\n  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, \"0\")}-${String(d.getDate()).padStart(2, \"0\")}`;\n}\n\nexport function dayDate(trip: Trip, index: number) {\n  const [y, m, d] = trip.start.split(\"-\").map(Number);\n  return new Date(y, m - 1, d + index);\n}\n\n/** A ready-made 3-day Cox's Bazar trip so the planner is useful on first open. */\nexport function sampleTrip(): Trip {\n  const start = new Date();\n  start.setDate(start.getDate() + 14);\n  return {\n    name: \"Cox's Bazar weekend\",\n    start: isoDate(start),\n    travelers: 4,\n    days: [\n      {\n        id: uid(),\n        stops: [\n          stop(\"Cox's Bazar Airport\", 21.4522, 91.9639, \"transport\", \"10:30\", 0, \"Flight from Dhaka\"),\n          stop(\"Hotel in Kolatoli\", 21.4116, 91.9841, \"hotel\", \"12:00\", 14000, \"2 rooms × 2 nights\"),\n          stop(\"Laboni Point Beach\", 21.4237, 91.9733, \"sight\", \"16:30\", 0, \"Sunset walk\"),\n          stop(\"Burmese Market\", 21.4396, 91.9781, \"shop\", \"19:00\", 2500),\n        ],\n      },\n      {\n        id: uid(),\n        stops: [\n          stop(\"Himchari National Park\", 21.3577, 92.0233, \"sight\", \"09:00\", 400, \"Waterfall + hilltop view\"),\n          stop(\"Inani Beach\", 21.2236, 92.0498, \"sight\", \"11:30\", 0, \"Coral stones at low tide\"),\n          stop(\"Seafood lunch on Marine Drive\", 21.2785, 92.0447, \"food\", \"13:30\", 3200),\n          stop(\"Hotel in Kolatoli\", 21.4116, 91.9841, \"hotel\", \"17:00\", 0),\n        ],\n      },\n      {\n        id: uid(),\n        stops: [\n          stop(\"Ramu Buddhist Temple\", 21.4247, 92.1006, \"sight\", \"09:30\", 0),\n          stop(\"Dried-fish market\", 21.4482, 91.9729, \"shop\", \"12:00\", 1500),\n          stop(\"Cox's Bazar Airport\", 21.4522, 91.9639, \"transport\", \"15:00\", 0, \"Flight back\"),\n        ],\n      },\n    ],\n    extras: [\n      { id: uid(), label: \"Return flights (4)\", cost: 26000 },\n      { id: uid(), label: \"CNG \u0026 tuk-tuk rides\", cost: 3000 },\n    ],\n    packing: [\n      \"NID / passport\",\n      \"Phone charger \u0026 power bank\",\n      \"Sunscreen\",\n      \"Sunglasses \u0026 hat\",\n      \"Swimwear\",\n      \"Flip-flops\",\n      \"Light cotton clothes\",\n      \"Medicines\",\n      \"Cash for markets\",\n    ].map((label, i) =\u003e ({ id: uid(), label, done: i \u003c 2 })),\n  };\n}\n\n// ── Share links: the whole trip, gzip-compressed into the URL hash ────────────────────\nconst toB64 = (bytes: Uint8Array) =\u003e btoa(String.fromCharCode(...bytes)).replace(/\\+/g, \"-\").replace(/\\//g, \"_\").replace(/=+$/, \"\");\nconst fromB64 = (s: string) =\u003e Uint8Array.from(atob(s.replace(/-/g, \"+\").replace(/_/g, \"/\")), (c) =\u003e c.charCodeAt(0));\n\nasync function pipe(bytes: Uint8Array, stream: CompressionStream | DecompressionStream) {\n  return new Uint8Array(await new Response(new Blob([bytes as BlobPart]).stream().pipeThrough(stream)).arrayBuffer());\n}\n\nexport async function encodeTrip(trip: Trip) {\n  const json = new TextEncoder().encode(JSON.stringify(trip));\n  if (typeof CompressionStream === \"undefined\") return `j.${toB64(json)}`;\n  return `z.${toB64(await pipe(json, new CompressionStream(\"gzip\")))}`;\n}\n\nexport async function decodeTrip(code: string): Promise\u003cTrip | null\u003e {\n  try {\n    const [kind, data] = [code.slice(0, 1), code.slice(2)];\n    const bytes = kind === \"z\" ? await pipe(fromB64(data), new DecompressionStream(\"gzip\")) : fromB64(data);\n    const trip = JSON.parse(new TextDecoder().decode(bytes));\n    return Array.isArray(trip?.days) ? trip : null;\n  } catch {\n    return null;\n  }\n}\n\n/** An .ics calendar: one all-day overview per day plus a 1-hour event for every timed stop. */\nexport function toIcs(trip: Trip) {\n  const stamp = new Date().toISOString().replace(/[-:]/g, \"\").replace(/\\.\\d+/, \"\");\n  const esc = (s: string) =\u003e s.replace(/([,;\\\\])/g, \"\\\\$1\").replace(/\\n/g, \"\\\\n\");\n  const ymd = (d: Date) =\u003e isoDate(d).replace(/-/g, \"\");\n  const lines = [\"BEGIN:VCALENDAR\", \"VERSION:2.0\", \"PRODID:-//Component Gallery//Trip Planner//EN\", \"CALSCALE:GREGORIAN\"];\n  trip.days.forEach((day, i) =\u003e {\n    const date = dayDate(trip, i);\n    const next = new Date(date);\n    next.setDate(next.getDate() + 1);\n    lines.push(\n      \"BEGIN:VEVENT\",\n      `UID:${day.id}@trip`,\n      `DTSTAMP:${stamp}`,\n      `DTSTART;VALUE=DATE:${ymd(date)}`,\n      `DTEND;VALUE=DATE:${ymd(next)}`,\n      `SUMMARY:${esc(`${trip.name}: Day ${i + 1}`)}`,\n      `DESCRIPTION:${esc(day.stops.map((s, j) =\u003e `${j + 1}. ${s.time ? `${s.time} ` : \"\"}${s.name}`).join(\"\\n\"))}`,\n      \"END:VEVENT\",\n    );\n    for (const s of day.stops) {\n      if (!s.time) continue;\n      const [h, m] = s.time.split(\":\").map(Number);\n      const startAt = `${ymd(date)}T${String(h).padStart(2, \"0\")}${String(m).padStart(2, \"0\")}00`;\n      const endAt = `${ymd(date)}T${String((h + 1) % 24).padStart(2, \"0\")}${String(m).padStart(2, \"0\")}00`;\n      lines.push(\n        \"BEGIN:VEVENT\",\n        `UID:${s.id}-${i}@trip`,\n        `DTSTAMP:${stamp}`,\n        `DTSTART:${startAt}`,\n        `DTEND:${endAt}`,\n        `SUMMARY:${esc(s.name)}`,\n        `LOCATION:${esc(`${s.lat.toFixed(5)},${s.lng.toFixed(5)}`)}`,\n        ...(s.note ? [`DESCRIPTION:${esc(s.note)}`] : []),\n        \"END:VEVENT\",\n      );\n    }\n  });\n  lines.push(\"END:VCALENDAR\");\n  return lines.join(\"\\r\\n\");\n}\n"])</script><script>self.__next_f.push([1,"1c:[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"children\":\"$20\"}]}]\n21:Tede,"])</script><script>self.__next_f.push([1,"// Free, key-less OpenStreetMap services. Search runs only on Enter (Nominatim asks for ≤1 request/s,\n// no autocomplete), and routes are cached per day so edits don't re-request unchanged legs.\n\nexport type Place = { name: string; detail: string; lat: number; lng: number };\nexport type Leg = { distance: number; duration: number };\nexport type Route = { coords: [number, number][]; legs: Leg[]; estimated: boolean };\n\nconst NOMINATIM = \"https://nominatim.openstreetmap.org\";\nconst OSRM = \"https://router.project-osrm.org/route/v1/driving\";\n\nexport async function searchPlaces(query: string, view?: { west: number; south: number; east: number; north: number }) {\n  const params = new URLSearchParams({ q: query, format: \"jsonv2\", limit: \"6\", \"accept-language\": \"en\" });\n  if (view) params.set(\"viewbox\", `${view.west},${view.north},${view.east},${view.south}`);\n  const res = await fetch(`${NOMINATIM}/search?${params}`);\n  if (!res.ok) throw new Error(\"Search failed\");\n  const data: { name?: string; display_name: string; lat: string; lon: string }[] = await res.json();\n  return data.map\u003cPlace\u003e((d) =\u003e {\n    const [first, ...rest] = d.display_name.split(\", \");\n    return { name: d.name || first, detail: rest.slice(0, 3).join(\", \"), lat: Number(d.lat), lng: Number(d.lon) };\n  });\n}\n\nexport async function reverseGeocode(lat: number, lng: number) {\n  try {\n    const params = new URLSearchParams({ lat: String(lat), lon: String(lng), format: \"jsonv2\", zoom: \"17\", \"accept-language\": \"en\" });\n    const res = await fetch(`${NOMINATIM}/reverse?${params}`);\n    const d: { name?: string; display_name?: string } = await res.json();\n    return d.name || d.display_name?.split(\", \").slice(0, 2).join(\", \") || \"Pinned place\";\n  } catch {\n    return \"Pinned place\";\n  }\n}\n\n/** Great-circle distance in metres. */\nexport function haversine(a: { lat: number; lng: number }, b: { lat: number; lng: number }) {\n  const R = 6371e3;\n  const toRad = (d: number) =\u003e (d * Math.PI) / 180;\n  const dLat = toRad(b.lat - a.lat);\n  const dLng = toRad(b.lng - a.lng);\n  const h = Math.sin(dLat / 2) ** 2 + Math.cos(toRad(a.lat)) * Math.cos(toRad(b.lat)) * Math.sin(dLng / 2) ** 2;\n  return 2 * R * Math.asin(Math.sqrt(h));\n}\n\n/** Straight lines with a road-detour factor and ~35 km/h, used when routing is unavailable. */\nexport function estimateRoute(points: { lat: number; lng: number }[]): Route {\n  const legs = points.slice(1).map((p, i) =\u003e {\n    const distance = haversine(points[i], p) * 1.3;\n    return { distance, duration: distance / (35_000 / 3600) };\n  });\n  return { coords: points.map((p) =\u003e [p.lat, p.lng]), legs, estimated: true };\n}\n\nconst cache = new Map\u003cstring, Route\u003e();\n\nexport async function routeFor(points: { lat: number; lng: number }[]): Promise\u003cRoute\u003e {\n  if (points.length \u003c 2) return { coords: [], legs: [], estimated: false };\n  const key = points.map((p) =\u003e `${p.lng.toFixed(5)},${p.lat.toFixed(5)}`).join(\";\");\n  const hit = cache.get(key);\n  if (hit) return hit;\n  try {\n    const res = await fetch(`${OSRM}/${key}?overview=full\u0026geometries=geojson`);\n    const data = await res.json();\n    if (data.code !== \"Ok\") throw new Error(data.code);\n    const r = data.routes[0];\n    const route: Route = {\n      coords: r.geometry.coordinates.map(([lng, lat]: [number, number]) =\u003e [lat, lng]),\n      legs: r.legs.map((l: Leg) =\u003e ({ distance: l.distance, duration: l.duration })),\n      estimated: false,\n    };\n    cache.set(key, route);\n    return route;\n  } catch {\n    return estimateRoute(points);\n  }\n}\n\nexport const km = (m: number) =\u003e (m \u003c 1000 ? `${Math.round(m)} m` : `${(m / 1000).toFixed(m \u003c 10_000 ? 1 : 0)} km`);\nexport const mins = (s: number) =\u003e {\n  const m = Math.round(s / 60);\n  return m \u003c 60 ? `${m} min` : `${Math.floor(m / 60)} h ${String(m % 60).padStart(2, \"0\")} min`;\n};\n"])</script><script>self.__next_f.push([1,"1e:[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"children\":\"$21\"}]}]\n"])</script></body></html>

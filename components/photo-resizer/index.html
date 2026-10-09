@@ -1,0 +1,645 @@
+<!DOCTYPE html><!--6jA2vIGrO3aOlnYlKgPnQ--><html lang="en"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="/component-gallery/_next/static/css/68cce7808a08b910.css" data-precedence="next"/><link href="/component-gallery/_next/static/css/8f6c98e04cb14f89.css" rel="stylesheet" as="style" data-precedence="dynamic"/><link rel="preload" as="script" fetchPriority="low" href="/component-gallery/_next/static/chunks/webpack-1b912f870780f4ba.js"/><script src="/component-gallery/_next/static/chunks/4bd1b696-c023c6e3521b1417.js" async=""></script><script src="/component-gallery/_next/static/chunks/255-8e0af360b0021454.js" async=""></script><script src="/component-gallery/_next/static/chunks/main-app-97d5b91ae5ddb9c2.js" async=""></script><script src="/component-gallery/_next/static/chunks/619-ba102abea3e3d0e4.js" async=""></script><script src="/component-gallery/_next/static/chunks/app/components/%5Bslug%5D/page-7b18c14fa5ee9ace.js" async=""></script><link rel="preload" href="/component-gallery/_next/static/chunks/438.c2af267aad03bca4.js" as="script" fetchPriority="low"/><title>Photo Resizer for Official Forms · Component Gallery</title><meta name="description" content="Crop, resize and compress a photo to the exact pixel size and KB limit a job, passport or visa form asks for, without it ever leaving your device."/><script src="/component-gallery/_next/static/chunks/polyfills-42372ed130431b0a.js" noModule=""></script></head><body><div hidden=""><!--$--><!--/$--></div><header class="site-header"><div class="container"><a class="brand" href="/component-gallery/">Component Gallery</a><nav><a href="https://github.com/rownok-HR-LS/component-gallery">GitHub</a></nav></div></header><main class="container"><a class="back" href="/component-gallery/">← All components</a><header class="detail-head"><span class="tag">Week <!-- -->3<!-- --> · <!-- -->2026-10-07</span><h1>Photo Resizer for Official Forms</h1><p>Crop, resize and compress a photo to the exact pixel size and KB limit a job, passport or visa form asks for, without it ever leaving your device.</p></header><section class="stage" aria-label="Live demo"><div class="PhotoResizer_card__GyeyP"><header class="PhotoResizer_head__SkP_B"><h3 class="PhotoResizer_title__XfdBn">Photo resizer for forms</h3><p class="PhotoResizer_subtitle__TD57F">Crop, resize and compress to the exact size a form asks for.</p></header><div class="PhotoResizer_presets__ZnLEc" role="radiogroup" aria-label="Required size"><button type="button" role="radio" aria-checked="true" class="PhotoResizer_preset__1nzD9"><span class="PhotoResizer_presetName__EeevX">Job / admission</span><span class="PhotoResizer_presetDetail__XPmvr">300×300 · ≤100 KB</span></button><button type="button" role="radio" aria-checked="false" class="PhotoResizer_preset__1nzD9"><span class="PhotoResizer_presetName__EeevX">Signature</span><span class="PhotoResizer_presetDetail__XPmvr">300×80 · ≤60 KB</span></button><button type="button" role="radio" aria-checked="false" class="PhotoResizer_preset__1nzD9"><span class="PhotoResizer_presetName__EeevX">Passport size</span><span class="PhotoResizer_presetDetail__XPmvr">413×531</span></button><button type="button" role="radio" aria-checked="false" class="PhotoResizer_preset__1nzD9"><span class="PhotoResizer_presetName__EeevX">US visa</span><span class="PhotoResizer_presetDetail__XPmvr">600×600 · ≤240 KB</span></button><button type="button" role="radio" aria-checked="false" class="PhotoResizer_preset__1nzD9"><span class="PhotoResizer_presetName__EeevX">Custom</span><span class="PhotoResizer_presetDetail__XPmvr">Your size</span></button></div><p class="PhotoResizer_disclaimer__2c6_r">Common sizes. Always check your form&#x27;s own instructions.</p><label class="PhotoResizer_dropzone__0kCcg" data-over="false"><input type="file" accept="image/*" class="PhotoResizer_fileInput__A1VRP"/><svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true" class="PhotoResizer_dropIcon__v4_QO"><path d="M12 16V4m0 0-4 4m4-4 4 4M4 16v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"></path></svg><span class="PhotoResizer_dropTitle__nafhR">Drop a photo here, or click to choose</span><span class="PhotoResizer_dropNote__rVnRO">JPG or PNG. It never leaves this device.</span><button type="button" class="PhotoResizer_sampleLink__QyKfH">Try a sample photo</button></label></div></section><section class="source"><h2>Source</h2><div class="file"><div class="file-head"><span>Demo.tsx</span><button type="button" class="copy">Copy</button></div><pre><code>import PhotoResizer from &quot;./PhotoResizer&quot;;
+
+export default function Demo() {
+  return &lt;PhotoResizer /&gt;;
+}
+</code></pre></div><div class="file"><div class="file-head"><span>PhotoResizer.module.css</span><button type="button" class="copy">Copy</button></div><pre><code>.card {
+  --surface: #fcfcfb;
+  --ink: #0b0b0b;
+  --ink-2: #52514e;
+  --muted: #898781;
+  --border: rgba(11, 11, 11, 0.1);
+  --field: #f4f3f0;
+  --accent: #2a78d6;
+  --good: #0ca30c;
+  --serious: #ec835a;
+  --checker: #e8e7e2;
+
+  width: 100%;
+  max-width: 580px;
+  padding: 22px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: var(--surface);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 12px 32px -12px rgba(0, 0, 0, 0.18);
+  color: var(--ink);
+  font-family: system-ui, -apple-system, &quot;Segoe UI&quot;, sans-serif;
+  container-type: inline-size;
+}
+
+@media (prefers-color-scheme: dark) {
+  .card {
+    --surface: #1a1a19;
+    --ink: #ffffff;
+    --ink-2: #c3c2b7;
+    --border: rgba(255, 255, 255, 0.1);
+    --field: #232321;
+    --accent: #3987e5;
+    --checker: #2c2c2a;
+    box-shadow: 0 12px 32px -12px rgba(0, 0, 0, 0.6);
+  }
+}
+
+.head { margin-bottom: 14px; }
+.title { margin: 0; font-size: 17px; font-weight: 650; }
+.subtitle { margin: 2px 0 0; color: var(--ink-2); font-size: 13px; }
+
+/* Presets */
+.presets { display: grid; grid-template-columns: repeat(auto-fill, minmax(122px, 1fr)); gap: 6px; }
+.preset {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1px;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: none;
+  color: var(--ink);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.preset:hover { background: var(--field); }
+.preset[aria-checked=&quot;true&quot;] {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+  box-shadow: inset 0 0 0 1px var(--accent);
+}
+.preset:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.presetName { font-size: 13px; font-weight: 600; }
+.presetDetail { color: var(--ink-2); font-size: 11px; font-variant-numeric: tabular-nums; }
+
+.custom { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 10px; }
+.customField { display: flex; flex-direction: column; gap: 4px; color: var(--ink-2); font-size: 11.5px; }
+.customField input {
+  height: 34px;
+  min-width: 0;
+  padding: 0 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  outline: none;
+  background: var(--field);
+  color: var(--ink);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+}
+.customField input:focus { border-color: var(--accent); }
+
+.disclaimer { margin: 8px 0 14px; color: var(--muted); font-size: 11.5px; }
+
+/* Empty state */
+.dropzone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 32px 16px;
+  border: 1.5px dashed color-mix(in srgb, var(--ink) 22%, transparent);
+  border-radius: 14px;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.dropzone:hover,
+.dropzone[data-over=&quot;true&quot;] { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 6%, transparent); }
+.dropzone:focus-within { outline: 2px solid var(--accent); outline-offset: 2px; }
+.fileInput { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+.dropIcon { fill: none; stroke: var(--accent); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.dropTitle { font-size: 14px; font-weight: 600; }
+.dropNote { color: var(--muted); font-size: 12px; }
+.sampleLink {
+  margin-top: 6px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--accent);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+/* Editor + result */
+.body { display: grid; grid-template-columns: auto 1fr; align-items: start; gap: 22px; }
+@container (max-width: 500px) {
+  .body { grid-template-columns: 1fr; justify-items: center; }
+  .output { width: 100%; }
+}
+
+.editor { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: 6px;
+  background: repeating-conic-gradient(var(--checker) 0 25%, transparent 0 50%) 0 0 / 16px 16px;
+  box-shadow: 0 0 0 1px var(--border), 0 6px 20px -8px rgba(0, 0, 0, 0.3);
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+}
+.frame:active { cursor: grabbing; }
+.frame:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.photo { position: absolute; top: 50%; left: 50%; max-width: none; pointer-events: none; }
+.thirds {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to right, transparent calc(33.33% - 0.5px), rgba(255, 255, 255, 0.45) 0 calc(33.33% + 0.5px), transparent 0 calc(66.66% - 0.5px), rgba(255, 255, 255, 0.45) 0 calc(66.66% + 0.5px), transparent 0),
+    linear-gradient(to bottom, transparent calc(33.33% - 0.5px), rgba(255, 255, 255, 0.45) 0 calc(33.33% + 0.5px), transparent 0 calc(66.66% - 0.5px), rgba(255, 255, 255, 0.45) 0 calc(66.66% + 0.5px), transparent 0);
+  pointer-events: none;
+}
+.faceGuide {
+  position: absolute;
+  top: 14%;
+  left: 50%;
+  width: 46%;
+  height: 58%;
+  border: 1.5px dashed rgba(255, 255, 255, 0.85);
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15);
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.zoom { display: flex; align-items: center; gap: 10px; width: 100%; max-width: 260px; color: var(--ink-2); font-size: 12px; }
+.zoom input { flex: 1; accent-color: var(--accent); }
+.hint { margin: 0; color: var(--muted); font-size: 11.5px; }
+
+.output { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.outputLabel { color: var(--ink-2); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+.preview {
+  width: 100%;
+  max-width: 140px;
+  max-height: 160px;
+  overflow: hidden;
+  border-radius: 4px;
+  background: var(--field);
+  box-shadow: 0 0 0 1px var(--border);
+}
+.preview img { display: block; width: 100%; height: 100%; object-fit: contain; }
+
+.facts { display: flex; flex-direction: column; gap: 4px; margin: 0; font-size: 13px; }
+.facts div { display: flex; justify-content: space-between; gap: 12px; }
+.facts dt { color: var(--ink-2); }
+.facts dd { margin: 0; font-weight: 600; font-variant-numeric: tabular-nums; text-align: right; }
+.limit { color: var(--muted); font-weight: 400; }
+
+.status { display: flex; align-items: center; gap: 8px; margin: 0; font-size: 13px; font-weight: 600; }
+.status span {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--good);
+  color: #fff;
+  font-size: 11px;
+}
+.status[data-ok=&quot;false&quot;] span { background: var(--serious); color: #0b0b0b; }
+
+.download {
+  display: grid;
+  place-items: center;
+  height: 40px;
+  border-radius: 10px;
+  background: var(--ink);
+  color: var(--surface);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: opacity 0.15s ease, transform 0.1s ease;
+}
+.download:hover { opacity: 0.88; }
+.download:active { transform: scale(0.98); }
+.download[aria-disabled=&quot;true&quot;] { opacity: 0.4; pointer-events: none; }
+.download:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.replace {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--ink-2);
+  font: inherit;
+  font-size: 12.5px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+</code></pre></div><div class="file"><div class="file-head"><span>PhotoResizer.tsx</span><button type="button" class="copy">Copy</button></div><pre><code>&quot;use client&quot;;
+
+import { useEffect, useRef, useState, type DragEvent, type KeyboardEvent, type PointerEvent } from &quot;react&quot;;
+import { compressToLimit, drawSamplePortrait } from &quot;./image&quot;;
+import styles from &quot;./PhotoResizer.module.css&quot;;
+
+type Size = { w: number; h: number; kb: number | null; guide: boolean };
+type Preset = Size &amp; { key: string; label: string };
+type Photo = { img: HTMLImageElement; url: string };
+type Result = { url: string; bytes: number; quality: number; fits: boolean };
+
+const PRESETS: Preset[] = [
+  { key: &quot;job&quot;, label: &quot;Job / admission&quot;, w: 300, h: 300, kb: 100, guide: true },
+  { key: &quot;signature&quot;, label: &quot;Signature&quot;, w: 300, h: 80, kb: 60, guide: false },
+  { key: &quot;passport&quot;, label: &quot;Passport size&quot;, w: 413, h: 531, kb: null, guide: true },
+  { key: &quot;visa&quot;, label: &quot;US visa&quot;, w: 600, h: 600, kb: 240, guide: true },
+];
+
+// Largest the crop frame is drawn on screen.
+const FRAME = { w: 260, h: 280 };
+const MAX_ZOOM = 4;
+
+const clamp = (v: number, lo: number, hi: number) =&gt; Math.max(lo, Math.min(hi, v));
+const kb = (bytes: number) =&gt; `${Math.round(bytes / 1024)} KB`;
+
+export default function PhotoResizer() {
+  const [presetKey, setPresetKey] = useState(&quot;job&quot;);
+  const [custom, setCustom] = useState({ w: &quot;400&quot;, h: &quot;400&quot;, kb: &quot;150&quot; });
+  const [photo, setPhoto] = useState&lt;Photo | null&gt;(null);
+  const [zoom, setZoom] = useState(1);
+  const [offset, setOffset] = useState({ x: 0, y: 0 });
+  const [result, setResult] = useState&lt;Result | null&gt;(null);
+  const [dragOver, setDragOver] = useState(false);
+  const frameRef = useRef&lt;HTMLDivElement&gt;(null);
+  const drag = useRef&lt;{ px: number; py: number; ox: number; oy: number } | null&gt;(null);
+
+  const preset = PRESETS.find((p) =&gt; p.key === presetKey);
+  const size: Size = preset ?? {
+    w: clamp(Math.round(Number(custom.w) || 0), 50, 3000),
+    h: clamp(Math.round(Number(custom.h) || 0), 50, 3000),
+    kb: Number(custom.kb) &gt; 0 ? Number(custom.kb) : null,
+    guide: false,
+  };
+
+  // On-screen crop frame with the target aspect ratio.
+  const frameScale = Math.min(FRAME.w / size.w, FRAME.h / size.h);
+  const frameW = size.w * frameScale;
+  const frameH = size.h * frameScale;
+
+  const nw = photo?.img.naturalWidth ?? 1;
+  const nh = photo?.img.naturalHeight ?? 1;
+  const scale = Math.max(frameW / nw, frameH / nh) * zoom; // screen px per image px
+  const dispW = nw * scale;
+  const dispH = nh * scale;
+  // Keep the photo covering the frame however it is dragged or zoomed.
+  const pos = {
+    x: clamp(offset.x, -(dispW - frameW) / 2, (dispW - frameW) / 2),
+    y: clamp(offset.y, -(dispH - frameH) / 2, (dispH - frameH) / 2),
+  };
+
+  function load(file: Blob) {
+    const url = URL.createObjectURL(file);
+    const img = new Image();
+    img.onload = () =&gt; {
+      setPhoto((prev) =&gt; {
+        if (prev) URL.revokeObjectURL(prev.url);
+        return { img, url };
+      });
+      setZoom(1);
+      setOffset({ x: 0, y: 0 });
+    };
+    img.src = url;
+  }
+
+  function choosePreset(key: string) {
+    setPresetKey(key);
+    setZoom(1);
+    setOffset({ x: 0, y: 0 });
+  }
+
+  // Re-render the output whenever the crop or target changes.
+  useEffect(() =&gt; {
+    if (!photo) return;
+    let cancelled = false;
+    const timer = setTimeout(async () =&gt; {
+      const canvas = document.createElement(&quot;canvas&quot;);
+      canvas.width = size.w;
+      canvas.height = size.h;
+      const ctx = canvas.getContext(&quot;2d&quot;)!;
+      ctx.fillStyle = &quot;#ffffff&quot;;
+      ctx.fillRect(0, 0, size.w, size.h);
+      ctx.imageSmoothingQuality = &quot;high&quot;;
+      const srcW = frameW / scale;
+      const srcH = frameH / scale;
+      const cx = nw / 2 - pos.x / scale;
+      const cy = nh / 2 - pos.y / scale;
+      ctx.drawImage(photo.img, cx - srcW / 2, cy - srcH / 2, srcW, srcH, 0, 0, size.w, size.h);
+
+      const { blob, quality } = await compressToLimit(canvas, size.kb);
+      if (cancelled) return;
+      setResult((prev) =&gt; {
+        if (prev) URL.revokeObjectURL(prev.url);
+        return { url: URL.createObjectURL(blob), bytes: blob.size, quality, fits: size.kb === null || blob.size &lt;= size.kb * 1024 };
+      });
+    }, 150);
+    return () =&gt; {
+      cancelled = true;
+      clearTimeout(timer);
+    };
+  }, [photo, size.w, size.h, size.kb, frameW, frameH, scale, nw, nh, pos.x, pos.y]);
+
+  // Wheel zoom needs a non-passive listener so the page doesn&#x27;t scroll.
+  useEffect(() =&gt; {
+    const el = frameRef.current;
+    if (!el) return;
+    const onWheel = (e: WheelEvent) =&gt; {
+      e.preventDefault();
+      setZoom((z) =&gt; clamp(z * (e.deltaY &lt; 0 ? 1.1 : 1 / 1.1), 1, MAX_ZOOM));
+    };
+    el.addEventListener(&quot;wheel&quot;, onWheel, { passive: false });
+    return () =&gt; el.removeEventListener(&quot;wheel&quot;, onWheel);
+  }, [photo]);
+
+  function onPointerDown(e: PointerEvent&lt;HTMLDivElement&gt;) {
+    e.currentTarget.setPointerCapture(e.pointerId);
+    drag.current = { px: e.clientX, py: e.clientY, ox: pos.x, oy: pos.y };
+  }
+  function onPointerMove(e: PointerEvent&lt;HTMLDivElement&gt;) {
+    const d = drag.current;
+    if (d) setOffset({ x: d.ox + e.clientX - d.px, y: d.oy + e.clientY - d.py });
+  }
+  function onKeyDown(e: KeyboardEvent) {
+    const step = e.shiftKey ? 30 : 8;
+    const moves: Record&lt;string, [number, number]&gt; = { ArrowLeft: [step, 0], ArrowRight: [-step, 0], ArrowUp: [0, step], ArrowDown: [0, -step] };
+    if (moves[e.key]) setOffset({ x: pos.x + moves[e.key][0], y: pos.y + moves[e.key][1] });
+    else if (e.key === &quot;+&quot; || e.key === &quot;=&quot;) setZoom((z) =&gt; clamp(z * 1.1, 1, MAX_ZOOM));
+    else if (e.key === &quot;-&quot;) setZoom((z) =&gt; clamp(z / 1.1, 1, MAX_ZOOM));
+    else return;
+    e.preventDefault();
+  }
+
+  function onDrop(e: DragEvent) {
+    e.preventDefault();
+    setDragOver(false);
+    const file = e.dataTransfer.files[0];
+    if (file?.type.startsWith(&quot;image/&quot;)) load(file);
+  }
+
+  async function loadSample() {
+    load(await drawSamplePortrait());
+  }
+
+  return (
+    &lt;div className={styles.card}&gt;
+      &lt;header className={styles.head}&gt;
+        &lt;h3 className={styles.title}&gt;Photo resizer for forms&lt;/h3&gt;
+        &lt;p className={styles.subtitle}&gt;Crop, resize and compress to the exact size a form asks for.&lt;/p&gt;
+      &lt;/header&gt;
+
+      &lt;div className={styles.presets} role=&quot;radiogroup&quot; aria-label=&quot;Required size&quot;&gt;
+        {[...PRESETS, null].map((p) =&gt; {
+          const key = p?.key ?? &quot;custom&quot;;
+          return (
+            &lt;button
+              key={key}
+              type=&quot;button&quot;
+              role=&quot;radio&quot;
+              aria-checked={presetKey === key}
+              className={styles.preset}
+              onClick={() =&gt; choosePreset(key)}
+            &gt;
+              &lt;span className={styles.presetName}&gt;{p ? p.label : &quot;Custom&quot;}&lt;/span&gt;
+              &lt;span className={styles.presetDetail}&gt;
+                {p ? `${p.w}×${p.h}${p.kb ? ` · ≤${p.kb} KB` : &quot;&quot;}` : &quot;Your size&quot;}
+              &lt;/span&gt;
+            &lt;/button&gt;
+          );
+        })}
+      &lt;/div&gt;
+
+      {!preset &amp;&amp; (
+        &lt;div className={styles.custom}&gt;
+          {([&quot;w&quot;, &quot;h&quot;, &quot;kb&quot;] as const).map((k) =&gt; (
+            &lt;label key={k} className={styles.customField}&gt;
+              &lt;span&gt;{k === &quot;w&quot; ? &quot;Width (px)&quot; : k === &quot;h&quot; ? &quot;Height (px)&quot; : &quot;Max KB&quot;}&lt;/span&gt;
+              &lt;input
+                inputMode=&quot;numeric&quot;
+                value={custom[k]}
+                placeholder={k === &quot;kb&quot; ? &quot;No limit&quot; : &quot;&quot;}
+                onChange={(e) =&gt; /^\d*$/.test(e.target.value) &amp;&amp; setCustom((c) =&gt; ({ ...c, [k]: e.target.value }))}
+              /&gt;
+            &lt;/label&gt;
+          ))}
+        &lt;/div&gt;
+      )}
+      &lt;p className={styles.disclaimer}&gt;Common sizes. Always check your form&amp;apos;s own instructions.&lt;/p&gt;
+
+      {!photo ? (
+        &lt;label
+          className={styles.dropzone}
+          data-over={dragOver}
+          onDragOver={(e) =&gt; {
+            e.preventDefault();
+            setDragOver(true);
+          }}
+          onDragLeave={() =&gt; setDragOver(false)}
+          onDrop={onDrop}
+        &gt;
+          &lt;input
+            type=&quot;file&quot;
+            accept=&quot;image/*&quot;
+            className={styles.fileInput}
+            onChange={(e) =&gt; e.target.files?.[0] &amp;&amp; load(e.target.files[0])}
+          /&gt;
+          &lt;svg viewBox=&quot;0 0 24 24&quot; width=&quot;28&quot; height=&quot;28&quot; aria-hidden=&quot;true&quot; className={styles.dropIcon}&gt;
+            &lt;path d=&quot;M12 16V4m0 0-4 4m4-4 4 4M4 16v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2&quot; /&gt;
+          &lt;/svg&gt;
+          &lt;span className={styles.dropTitle}&gt;Drop a photo here, or click to choose&lt;/span&gt;
+          &lt;span className={styles.dropNote}&gt;JPG or PNG. It never leaves this device.&lt;/span&gt;
+          &lt;button
+            type=&quot;button&quot;
+            className={styles.sampleLink}
+            onClick={(e) =&gt; {
+              e.preventDefault();
+              loadSample();
+            }}
+          &gt;
+            Try a sample photo
+          &lt;/button&gt;
+        &lt;/label&gt;
+      ) : (
+        &lt;div className={styles.body}&gt;
+          &lt;div className={styles.editor}&gt;
+            &lt;div
+              ref={frameRef}
+              className={styles.frame}
+              style={{ width: frameW, height: frameH }}
+              tabIndex={0}
+              role=&quot;application&quot;
+              aria-label=&quot;Crop area. Drag or use arrow keys to move, plus and minus to zoom.&quot;
+              onPointerDown={onPointerDown}
+              onPointerMove={onPointerMove}
+              onPointerUp={() =&gt; (drag.current = null)}
+              onPointerCancel={() =&gt; (drag.current = null)}
+              onKeyDown={onKeyDown}
+            &gt;
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              &lt;img
+                src={photo.url}
+                alt=&quot;&quot;
+                draggable={false}
+                className={styles.photo}
+                style={{ width: dispW, height: dispH, transform: `translate(-50%, -50%) translate(${pos.x}px, ${pos.y}px)` }}
+              /&gt;
+              &lt;div className={styles.thirds} aria-hidden=&quot;true&quot; /&gt;
+              {size.guide &amp;&amp; &lt;div className={styles.faceGuide} aria-hidden=&quot;true&quot; /&gt;}
+            &lt;/div&gt;
+            &lt;label className={styles.zoom}&gt;
+              &lt;span&gt;Zoom&lt;/span&gt;
+              &lt;input
+                type=&quot;range&quot;
+                min={1}
+                max={MAX_ZOOM}
+                step={0.01}
+                value={zoom}
+                onChange={(e) =&gt; setZoom(Number(e.target.value))}
+              /&gt;
+            &lt;/label&gt;
+            &lt;p className={styles.hint}&gt;Drag to move · scroll to zoom&lt;/p&gt;
+          &lt;/div&gt;
+
+          &lt;div className={styles.output}&gt;
+            &lt;span className={styles.outputLabel}&gt;Result&lt;/span&gt;
+            &lt;div className={styles.preview} style={{ aspectRatio: `${size.w} / ${size.h}` }}&gt;
+              {result &amp;&amp; (
+                // eslint-disable-next-line @next/next/no-img-element
+                &lt;img src={result.url} alt={`Resized photo, ${size.w} by ${size.h} pixels`} /&gt;
+              )}
+            &lt;/div&gt;
+            &lt;dl className={styles.facts}&gt;
+              &lt;div&gt;
+                &lt;dt&gt;Size&lt;/dt&gt;
+                &lt;dd&gt;
+                  {size.w} × {size.h} px
+                &lt;/dd&gt;
+              &lt;/div&gt;
+              &lt;div&gt;
+                &lt;dt&gt;File&lt;/dt&gt;
+                &lt;dd&gt;
+                  {result ? kb(result.bytes) : &quot;…&quot;}
+                  {size.kb &amp;&amp; &lt;span className={styles.limit}&gt; of {size.kb} KB max&lt;/span&gt;}
+                &lt;/dd&gt;
+              &lt;/div&gt;
+              &lt;div&gt;
+                &lt;dt&gt;Quality&lt;/dt&gt;
+                &lt;dd&gt;{result ? `${Math.round(result.quality * 100)}%` : &quot;…&quot;}&lt;/dd&gt;
+              &lt;/div&gt;
+            &lt;/dl&gt;
+            {result &amp;&amp; (
+              &lt;p className={styles.status} data-ok={result.fits}&gt;
+                &lt;span aria-hidden=&quot;true&quot;&gt;{result.fits ? &quot;✓&quot; : &quot;!&quot;}&lt;/span&gt;
+                {result.fits ? &quot;Ready for upload&quot; : `Still over ${size.kb} KB. Try a smaller size or a plainer background.`}
+              &lt;/p&gt;
+            )}
+            &lt;a
+              className={styles.download}
+              href={result?.url}
+              download={`photo-${size.w}x${size.h}.jpg`}
+              aria-disabled={!result}
+            &gt;
+              Download JPG
+            &lt;/a&gt;
+            &lt;button
+              type=&quot;button&quot;
+              className={styles.replace}
+              onClick={() =&gt; {
+                setPhoto(null);
+                setResult(null);
+              }}
+            &gt;
+              Use a different photo
+            &lt;/button&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      )}
+    &lt;/div&gt;
+  );
+}
+</code></pre></div><div class="file"><div class="file-head"><span>image.ts</span><button type="button" class="copy">Copy</button></div><pre><code>function toJpeg(canvas: HTMLCanvasElement, quality: number) {
+  return new Promise&lt;Blob&gt;((resolve, reject) =&gt;
+    canvas.toBlob((blob) =&gt; (blob ? resolve(blob) : reject(new Error(&quot;Could not encode image&quot;))), &quot;image/jpeg&quot;, quality),
+  );
+}
+
+/** Highest JPEG quality that fits under `maxKB` (binary search), or 0.92 when there is no limit. */
+export async function compressToLimit(canvas: HTMLCanvasElement, maxKB: number | null) {
+  const best = await toJpeg(canvas, 0.92);
+  if (maxKB === null || best.size &lt;= maxKB * 1024) return { blob: best, quality: 0.92 };
+
+  let lo = 0.05;
+  let hi = 0.92;
+  let found: { blob: Blob; quality: number } | null = null;
+  for (let i = 0; i &lt; 7; i++) {
+    const quality = (lo + hi) / 2;
+    const blob = await toJpeg(canvas, quality);
+    if (blob.size &lt;= maxKB * 1024) {
+      found = { blob, quality };
+      lo = quality;
+    } else {
+      hi = quality;
+    }
+  }
+  return found ?? { blob: await toJpeg(canvas, 0.05), quality: 0.05 };
+}
+
+/** A simple illustrated portrait so the demo works without uploading anything. */
+export function drawSamplePortrait() {
+  const canvas = document.createElement(&quot;canvas&quot;);
+  canvas.width = 900;
+  canvas.height = 1100;
+  const ctx = canvas.getContext(&quot;2d&quot;)!;
+
+  const bg = ctx.createLinearGradient(0, 0, 900, 1100);
+  bg.addColorStop(0, &quot;#9ec5f4&quot;);
+  bg.addColorStop(1, &quot;#cde2fb&quot;);
+  ctx.fillStyle = bg;
+  ctx.fillRect(0, 0, 900, 1100);
+
+  // Shoulders and collar
+  ctx.fillStyle = &quot;#1c3557&quot;;
+  ctx.beginPath();
+  ctx.ellipse(450, 1100, 380, 300, 0, Math.PI, 0);
+  ctx.fill();
+  ctx.fillStyle = &quot;#ffffff&quot;;
+  ctx.beginPath();
+  ctx.moveTo(380, 820);
+  ctx.lineTo(450, 930);
+  ctx.lineTo(520, 820);
+  ctx.closePath();
+  ctx.fill();
+
+  // Neck and face
+  ctx.fillStyle = &quot;#c98d63&quot;;
+  ctx.fillRect(400, 640, 100, 200);
+  ctx.fillStyle = &quot;#d9a07a&quot;;
+  ctx.beginPath();
+  ctx.ellipse(450, 520, 170, 210, 0, 0, Math.PI * 2);
+  ctx.fill();
+
+  // Hair
+  ctx.fillStyle = &quot;#231a14&quot;;
+  ctx.beginPath();
+  ctx.ellipse(450, 400, 185, 130, 0, Math.PI, 0);
+  ctx.fill();
+
+  // Eyes and smile
+  ctx.fillStyle = &quot;#231a14&quot;;
+  for (const x of [385, 515]) {
+    ctx.beginPath();
+    ctx.ellipse(x, 520, 14, 18, 0, 0, Math.PI * 2);
+    ctx.fill();
+  }
+  ctx.strokeStyle = &quot;#8a4b33&quot;;
+  ctx.lineWidth = 10;
+  ctx.lineCap = &quot;round&quot;;
+  ctx.beginPath();
+  ctx.arc(450, 600, 60, 0.2 * Math.PI, 0.8 * Math.PI);
+  ctx.stroke();
+
+  return new Promise&lt;Blob&gt;((resolve) =&gt; canvas.toBlob((b) =&gt; resolve(b!), &quot;image/jpeg&quot;, 0.95));
+}
+</code></pre></div></section><nav class="pager"><a href="/component-gallery/components/customer-lifetime-value/">← <!-- -->Customer Lifetime Value Calculator</a><a href="/component-gallery/components/morphing-submit-button/">Morphing Submit Button<!-- --> →</a></nav></main><!--$--><!--/$--><footer class="site-footer"><div class="container"><span>Built by <!-- -->rownok-HR-LS<!-- --> · LofiStack 90-day challenge</span><a href="https://github.com/rownok-HR-LS/component-gallery">Source on GitHub</a></div></footer><script src="/component-gallery/_next/static/chunks/webpack-1b912f870780f4ba.js" id="_R_" async=""></script><script>(self.__next_f=self.__next_f||[]).push([0])</script><script>self.__next_f.push([1,"1:\"$Sreact.fragment\"\n2:I[2619,[\"619\",\"static/chunks/619-ba102abea3e3d0e4.js\",\"449\",\"static/chunks/app/components/%5Bslug%5D/page-7b18c14fa5ee9ace.js\"],\"\"]\n3:I[9766,[],\"\"]\n4:I[8924,[],\"\"]\n6:I[4431,[],\"OutletBoundary\"]\n8:I[5278,[],\"AsyncMetadataOutlet\"]\na:I[4431,[],\"ViewportBoundary\"]\nc:I[4431,[],\"MetadataBoundary\"]\nd:\"$Sreact.suspense\"\nf:I[7150,[],\"\"]\n:HL[\"/component-gallery/_next/static/css/68cce7808a08b910.css\",\"style\"]\n"])</script><script>self.__next_f.push([1,"0:{\"P\":null,\"b\":\"6jA2vIGrO3aOlnYlKgPnQ\",\"p\":\"/component-gallery\",\"c\":[\"\",\"components\",\"photo-resizer\",\"\"],\"i\":false,\"f\":[[[\"\",{\"children\":[\"components\",{\"children\":[[\"slug\",\"photo-resizer\",\"d\"],{\"children\":[\"__PAGE__\",{}]}]}]},\"$undefined\",\"$undefined\",true],[\"\",[\"$\",\"$1\",\"c\",{\"children\":[[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/component-gallery/_next/static/css/68cce7808a08b910.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}]],[\"$\",\"html\",null,{\"lang\":\"en\",\"children\":[\"$\",\"body\",null,{\"children\":[[\"$\",\"header\",null,{\"className\":\"site-header\",\"children\":[\"$\",\"div\",null,{\"className\":\"container\",\"children\":[[\"$\",\"$L2\",null,{\"href\":\"/\",\"className\":\"brand\",\"children\":\"Component Gallery\"}],[\"$\",\"nav\",null,{\"children\":[\"$\",\"a\",null,{\"href\":\"https://github.com/rownok-HR-LS/component-gallery\",\"children\":\"GitHub\"}]}]]}]}],[\"$\",\"$L3\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L4\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":[[\"$\",\"main\",null,{\"className\":\"container\",\"children\":[\"$\",\"header\",null,{\"className\":\"hero\",\"children\":[[\"$\",\"h1\",null,{\"children\":\"Not found\"}],[\"$\",\"p\",null,{\"className\":\"lede\",\"children\":\"That component doesn't exist (yet).\"}],[\"$\",\"$L2\",null,{\"href\":\"/\",\"children\":\"← Back to the gallery\"}]]}]}],[]],\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}],[\"$\",\"footer\",null,{\"className\":\"site-footer\",\"children\":[\"$\",\"div\",null,{\"className\":\"container\",\"children\":[[\"$\",\"span\",null,{\"children\":[\"Built by \",\"rownok-HR-LS\",\" · LofiStack 90-day challenge\"]}],[\"$\",\"a\",null,{\"href\":\"https://github.com/rownok-HR-LS/component-gallery\",\"children\":\"Source on GitHub\"}]]}]}]]}]}]]}],{\"children\":[\"components\",[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"$L3\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L4\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]]}],{\"children\":[[\"slug\",\"photo-resizer\",\"d\"],[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"$L3\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L4\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]]}],{\"children\":[\"__PAGE__\",[\"$\",\"$1\",\"c\",{\"children\":[\"$L5\",null,[\"$\",\"$L6\",null,{\"children\":[\"$L7\",[\"$\",\"$L8\",null,{\"promise\":\"$@9\"}]]}]]}],{},null,false]},null,false]},null,false]},null,false],[\"$\",\"$1\",\"h\",{\"children\":[null,[[\"$\",\"$La\",null,{\"children\":\"$Lb\"}],null],[\"$\",\"$Lc\",null,{\"children\":[\"$\",\"div\",null,{\"hidden\":true,\"children\":[\"$\",\"$d\",null,{\"fallback\":null,\"children\":\"$Le\"}]}]}]]}],false]],\"m\":\"$undefined\",\"G\":[\"$f\",[]],\"s\":false,\"S\":true}\n"])</script><script>self.__next_f.push([1,"b:[[\"$\",\"meta\",\"0\",{\"charSet\":\"utf-8\"}],[\"$\",\"meta\",\"1\",{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"}]]\n7:null\n"])</script><script>self.__next_f.push([1,"9:{\"metadata\":[[\"$\",\"title\",\"0\",{\"children\":\"Photo Resizer for Official Forms · Component Gallery\"}],[\"$\",\"meta\",\"1\",{\"name\":\"description\",\"content\":\"Crop, resize and compress a photo to the exact pixel size and KB limit a job, passport or visa form asks for, without it ever leaving your device.\"}]],\"error\":null,\"digest\":\"$undefined\"}\n"])</script><script>self.__next_f.push([1,"e:\"$9:metadata\"\n"])</script><script>self.__next_f.push([1,"10:I[2325,[\"619\",\"static/chunks/619-ba102abea3e3d0e4.js\",\"449\",\"static/chunks/app/components/%5Bslug%5D/page-7b18c14fa5ee9ace.js\"],\"Demo\"]\n11:I[7333,[\"619\",\"static/chunks/619-ba102abea3e3d0e4.js\",\"449\",\"static/chunks/app/components/%5Bslug%5D/page-7b18c14fa5ee9ace.js\"],\"CopyButton\"]\n12:T1ca3,"])</script><script>self.__next_f.push([1,".card {\n  --surface: #fcfcfb;\n  --ink: #0b0b0b;\n  --ink-2: #52514e;\n  --muted: #898781;\n  --border: rgba(11, 11, 11, 0.1);\n  --field: #f4f3f0;\n  --accent: #2a78d6;\n  --good: #0ca30c;\n  --serious: #ec835a;\n  --checker: #e8e7e2;\n\n  width: 100%;\n  max-width: 580px;\n  padding: 22px;\n  border: 1px solid var(--border);\n  border-radius: 20px;\n  background: var(--surface);\n  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 12px 32px -12px rgba(0, 0, 0, 0.18);\n  color: var(--ink);\n  font-family: system-ui, -apple-system, \"Segoe UI\", sans-serif;\n  container-type: inline-size;\n}\n\n@media (prefers-color-scheme: dark) {\n  .card {\n    --surface: #1a1a19;\n    --ink: #ffffff;\n    --ink-2: #c3c2b7;\n    --border: rgba(255, 255, 255, 0.1);\n    --field: #232321;\n    --accent: #3987e5;\n    --checker: #2c2c2a;\n    box-shadow: 0 12px 32px -12px rgba(0, 0, 0, 0.6);\n  }\n}\n\n.head { margin-bottom: 14px; }\n.title { margin: 0; font-size: 17px; font-weight: 650; }\n.subtitle { margin: 2px 0 0; color: var(--ink-2); font-size: 13px; }\n\n/* Presets */\n.presets { display: grid; grid-template-columns: repeat(auto-fill, minmax(122px, 1fr)); gap: 6px; }\n.preset {\n  display: flex;\n  flex-direction: column;\n  align-items: flex-start;\n  gap: 1px;\n  padding: 8px 10px;\n  border: 1px solid var(--border);\n  border-radius: 10px;\n  background: none;\n  color: var(--ink);\n  font: inherit;\n  text-align: left;\n  cursor: pointer;\n  transition: border-color 0.15s ease, background 0.15s ease;\n}\n.preset:hover { background: var(--field); }\n.preset[aria-checked=\"true\"] {\n  border-color: var(--accent);\n  background: color-mix(in srgb, var(--accent) 10%, transparent);\n  box-shadow: inset 0 0 0 1px var(--accent);\n}\n.preset:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }\n.presetName { font-size: 13px; font-weight: 600; }\n.presetDetail { color: var(--ink-2); font-size: 11px; font-variant-numeric: tabular-nums; }\n\n.custom { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 10px; }\n.customField { display: flex; flex-direction: column; gap: 4px; color: var(--ink-2); font-size: 11.5px; }\n.customField input {\n  height: 34px;\n  min-width: 0;\n  padding: 0 10px;\n  border: 1px solid var(--border);\n  border-radius: 8px;\n  outline: none;\n  background: var(--field);\n  color: var(--ink);\n  font: inherit;\n  font-size: 14px;\n  font-weight: 600;\n}\n.customField input:focus { border-color: var(--accent); }\n\n.disclaimer { margin: 8px 0 14px; color: var(--muted); font-size: 11.5px; }\n\n/* Empty state */\n.dropzone {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  gap: 6px;\n  padding: 32px 16px;\n  border: 1.5px dashed color-mix(in srgb, var(--ink) 22%, transparent);\n  border-radius: 14px;\n  text-align: center;\n  cursor: pointer;\n  transition: border-color 0.15s ease, background 0.15s ease;\n}\n.dropzone:hover,\n.dropzone[data-over=\"true\"] { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 6%, transparent); }\n.dropzone:focus-within { outline: 2px solid var(--accent); outline-offset: 2px; }\n.fileInput { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }\n.dropIcon { fill: none; stroke: var(--accent); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }\n.dropTitle { font-size: 14px; font-weight: 600; }\n.dropNote { color: var(--muted); font-size: 12px; }\n.sampleLink {\n  margin-top: 6px;\n  padding: 0;\n  border: 0;\n  background: none;\n  color: var(--accent);\n  font: inherit;\n  font-size: 13px;\n  font-weight: 600;\n  text-decoration: underline;\n  text-underline-offset: 3px;\n  cursor: pointer;\n}\n\n/* Editor + result */\n.body { display: grid; grid-template-columns: auto 1fr; align-items: start; gap: 22px; }\n@container (max-width: 500px) {\n  .body { grid-template-columns: 1fr; justify-items: center; }\n  .output { width: 100%; }\n}\n\n.editor { display: flex; flex-direction: column; align-items: center; gap: 10px; }\n.frame {\n  position: relative;\n  overflow: hidden;\n  border-radius: 6px;\n  background: repeating-conic-gradient(var(--checker) 0 25%, transparent 0 50%) 0 0 / 16px 16px;\n  box-shadow: 0 0 0 1px var(--border), 0 6px 20px -8px rgba(0, 0, 0, 0.3);\n  cursor: grab;\n  touch-action: none;\n  user-select: none;\n}\n.frame:active { cursor: grabbing; }\n.frame:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }\n.photo { position: absolute; top: 50%; left: 50%; max-width: none; pointer-events: none; }\n.thirds {\n  position: absolute;\n  inset: 0;\n  background:\n    linear-gradient(to right, transparent calc(33.33% - 0.5px), rgba(255, 255, 255, 0.45) 0 calc(33.33% + 0.5px), transparent 0 calc(66.66% - 0.5px), rgba(255, 255, 255, 0.45) 0 calc(66.66% + 0.5px), transparent 0),\n    linear-gradient(to bottom, transparent calc(33.33% - 0.5px), rgba(255, 255, 255, 0.45) 0 calc(33.33% + 0.5px), transparent 0 calc(66.66% - 0.5px), rgba(255, 255, 255, 0.45) 0 calc(66.66% + 0.5px), transparent 0);\n  pointer-events: none;\n}\n.faceGuide {\n  position: absolute;\n  top: 14%;\n  left: 50%;\n  width: 46%;\n  height: 58%;\n  border: 1.5px dashed rgba(255, 255, 255, 0.85);\n  border-radius: 50%;\n  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15);\n  transform: translateX(-50%);\n  pointer-events: none;\n}\n\n.zoom { display: flex; align-items: center; gap: 10px; width: 100%; max-width: 260px; color: var(--ink-2); font-size: 12px; }\n.zoom input { flex: 1; accent-color: var(--accent); }\n.hint { margin: 0; color: var(--muted); font-size: 11.5px; }\n\n.output { display: flex; flex-direction: column; gap: 10px; min-width: 0; }\n.outputLabel { color: var(--ink-2); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }\n.preview {\n  width: 100%;\n  max-width: 140px;\n  max-height: 160px;\n  overflow: hidden;\n  border-radius: 4px;\n  background: var(--field);\n  box-shadow: 0 0 0 1px var(--border);\n}\n.preview img { display: block; width: 100%; height: 100%; object-fit: contain; }\n\n.facts { display: flex; flex-direction: column; gap: 4px; margin: 0; font-size: 13px; }\n.facts div { display: flex; justify-content: space-between; gap: 12px; }\n.facts dt { color: var(--ink-2); }\n.facts dd { margin: 0; font-weight: 600; font-variant-numeric: tabular-nums; text-align: right; }\n.limit { color: var(--muted); font-weight: 400; }\n\n.status { display: flex; align-items: center; gap: 8px; margin: 0; font-size: 13px; font-weight: 600; }\n.status span {\n  display: grid;\n  flex: none;\n  place-items: center;\n  width: 18px;\n  height: 18px;\n  border-radius: 50%;\n  background: var(--good);\n  color: #fff;\n  font-size: 11px;\n}\n.status[data-ok=\"false\"] span { background: var(--serious); color: #0b0b0b; }\n\n.download {\n  display: grid;\n  place-items: center;\n  height: 40px;\n  border-radius: 10px;\n  background: var(--ink);\n  color: var(--surface);\n  font-size: 14px;\n  font-weight: 600;\n  text-decoration: none;\n  transition: opacity 0.15s ease, transform 0.1s ease;\n}\n.download:hover { opacity: 0.88; }\n.download:active { transform: scale(0.98); }\n.download[aria-disabled=\"true\"] { opacity: 0.4; pointer-events: none; }\n.download:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }\n\n.replace {\n  padding: 0;\n  border: 0;\n  background: none;\n  color: var(--ink-2);\n  font: inherit;\n  font-size: 12.5px;\n  text-decoration: underline;\n  text-underline-offset: 3px;\n  cursor: pointer;\n}\n"])</script><script>self.__next_f.push([1,"5:[\"$\",\"main\",null,{\"className\":\"container\",\"children\":[[\"$\",\"$L2\",null,{\"href\":\"/\",\"className\":\"back\",\"children\":\"← All components\"}],[\"$\",\"header\",null,{\"className\":\"detail-head\",\"children\":[[\"$\",\"span\",null,{\"className\":\"tag\",\"children\":[\"Week \",3,\" · \",\"2026-10-07\"]}],[\"$\",\"h1\",null,{\"children\":\"Photo Resizer for Official Forms\"}],[\"$\",\"p\",null,{\"children\":\"Crop, resize and compress a photo to the exact pixel size and KB limit a job, passport or visa form asks for, without it ever leaving your device.\"}]]}],[\"$\",\"section\",null,{\"className\":\"stage\",\"aria-label\":\"Live demo\",\"children\":[\"$\",\"$L10\",null,{\"slug\":\"photo-resizer\"}]}],[\"$\",\"section\",null,{\"className\":\"source\",\"children\":[[\"$\",\"h2\",null,{\"children\":\"Source\"}],[[\"$\",\"div\",\"Demo.tsx\",{\"className\":\"file\",\"children\":[[\"$\",\"div\",null,{\"className\":\"file-head\",\"children\":[[\"$\",\"span\",null,{\"children\":\"Demo.tsx\"}],[\"$\",\"$L11\",null,{\"text\":\"import PhotoResizer from \\\"./PhotoResizer\\\";\\n\\nexport default function Demo() {\\n  return \u003cPhotoResizer /\u003e;\\n}\\n\"}]]}],[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"children\":\"import PhotoResizer from \\\"./PhotoResizer\\\";\\n\\nexport default function Demo() {\\n  return \u003cPhotoResizer /\u003e;\\n}\\n\"}]}]]}],[\"$\",\"div\",\"PhotoResizer.module.css\",{\"className\":\"file\",\"children\":[[\"$\",\"div\",null,{\"className\":\"file-head\",\"children\":[[\"$\",\"span\",null,{\"children\":\"PhotoResizer.module.css\"}],[\"$\",\"$L11\",null,{\"text\":\"$12\"}]]}],\"$L13\"]}],\"$L14\",\"$L15\"]]}],\"$L16\"]}]\n"])</script><script>self.__next_f.push([1,"17:T1ca3,"])</script><script>self.__next_f.push([1,".card {\n  --surface: #fcfcfb;\n  --ink: #0b0b0b;\n  --ink-2: #52514e;\n  --muted: #898781;\n  --border: rgba(11, 11, 11, 0.1);\n  --field: #f4f3f0;\n  --accent: #2a78d6;\n  --good: #0ca30c;\n  --serious: #ec835a;\n  --checker: #e8e7e2;\n\n  width: 100%;\n  max-width: 580px;\n  padding: 22px;\n  border: 1px solid var(--border);\n  border-radius: 20px;\n  background: var(--surface);\n  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 12px 32px -12px rgba(0, 0, 0, 0.18);\n  color: var(--ink);\n  font-family: system-ui, -apple-system, \"Segoe UI\", sans-serif;\n  container-type: inline-size;\n}\n\n@media (prefers-color-scheme: dark) {\n  .card {\n    --surface: #1a1a19;\n    --ink: #ffffff;\n    --ink-2: #c3c2b7;\n    --border: rgba(255, 255, 255, 0.1);\n    --field: #232321;\n    --accent: #3987e5;\n    --checker: #2c2c2a;\n    box-shadow: 0 12px 32px -12px rgba(0, 0, 0, 0.6);\n  }\n}\n\n.head { margin-bottom: 14px; }\n.title { margin: 0; font-size: 17px; font-weight: 650; }\n.subtitle { margin: 2px 0 0; color: var(--ink-2); font-size: 13px; }\n\n/* Presets */\n.presets { display: grid; grid-template-columns: repeat(auto-fill, minmax(122px, 1fr)); gap: 6px; }\n.preset {\n  display: flex;\n  flex-direction: column;\n  align-items: flex-start;\n  gap: 1px;\n  padding: 8px 10px;\n  border: 1px solid var(--border);\n  border-radius: 10px;\n  background: none;\n  color: var(--ink);\n  font: inherit;\n  text-align: left;\n  cursor: pointer;\n  transition: border-color 0.15s ease, background 0.15s ease;\n}\n.preset:hover { background: var(--field); }\n.preset[aria-checked=\"true\"] {\n  border-color: var(--accent);\n  background: color-mix(in srgb, var(--accent) 10%, transparent);\n  box-shadow: inset 0 0 0 1px var(--accent);\n}\n.preset:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }\n.presetName { font-size: 13px; font-weight: 600; }\n.presetDetail { color: var(--ink-2); font-size: 11px; font-variant-numeric: tabular-nums; }\n\n.custom { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 10px; }\n.customField { display: flex; flex-direction: column; gap: 4px; color: var(--ink-2); font-size: 11.5px; }\n.customField input {\n  height: 34px;\n  min-width: 0;\n  padding: 0 10px;\n  border: 1px solid var(--border);\n  border-radius: 8px;\n  outline: none;\n  background: var(--field);\n  color: var(--ink);\n  font: inherit;\n  font-size: 14px;\n  font-weight: 600;\n}\n.customField input:focus { border-color: var(--accent); }\n\n.disclaimer { margin: 8px 0 14px; color: var(--muted); font-size: 11.5px; }\n\n/* Empty state */\n.dropzone {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  gap: 6px;\n  padding: 32px 16px;\n  border: 1.5px dashed color-mix(in srgb, var(--ink) 22%, transparent);\n  border-radius: 14px;\n  text-align: center;\n  cursor: pointer;\n  transition: border-color 0.15s ease, background 0.15s ease;\n}\n.dropzone:hover,\n.dropzone[data-over=\"true\"] { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 6%, transparent); }\n.dropzone:focus-within { outline: 2px solid var(--accent); outline-offset: 2px; }\n.fileInput { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }\n.dropIcon { fill: none; stroke: var(--accent); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }\n.dropTitle { font-size: 14px; font-weight: 600; }\n.dropNote { color: var(--muted); font-size: 12px; }\n.sampleLink {\n  margin-top: 6px;\n  padding: 0;\n  border: 0;\n  background: none;\n  color: var(--accent);\n  font: inherit;\n  font-size: 13px;\n  font-weight: 600;\n  text-decoration: underline;\n  text-underline-offset: 3px;\n  cursor: pointer;\n}\n\n/* Editor + result */\n.body { display: grid; grid-template-columns: auto 1fr; align-items: start; gap: 22px; }\n@container (max-width: 500px) {\n  .body { grid-template-columns: 1fr; justify-items: center; }\n  .output { width: 100%; }\n}\n\n.editor { display: flex; flex-direction: column; align-items: center; gap: 10px; }\n.frame {\n  position: relative;\n  overflow: hidden;\n  border-radius: 6px;\n  background: repeating-conic-gradient(var(--checker) 0 25%, transparent 0 50%) 0 0 / 16px 16px;\n  box-shadow: 0 0 0 1px var(--border), 0 6px 20px -8px rgba(0, 0, 0, 0.3);\n  cursor: grab;\n  touch-action: none;\n  user-select: none;\n}\n.frame:active { cursor: grabbing; }\n.frame:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }\n.photo { position: absolute; top: 50%; left: 50%; max-width: none; pointer-events: none; }\n.thirds {\n  position: absolute;\n  inset: 0;\n  background:\n    linear-gradient(to right, transparent calc(33.33% - 0.5px), rgba(255, 255, 255, 0.45) 0 calc(33.33% + 0.5px), transparent 0 calc(66.66% - 0.5px), rgba(255, 255, 255, 0.45) 0 calc(66.66% + 0.5px), transparent 0),\n    linear-gradient(to bottom, transparent calc(33.33% - 0.5px), rgba(255, 255, 255, 0.45) 0 calc(33.33% + 0.5px), transparent 0 calc(66.66% - 0.5px), rgba(255, 255, 255, 0.45) 0 calc(66.66% + 0.5px), transparent 0);\n  pointer-events: none;\n}\n.faceGuide {\n  position: absolute;\n  top: 14%;\n  left: 50%;\n  width: 46%;\n  height: 58%;\n  border: 1.5px dashed rgba(255, 255, 255, 0.85);\n  border-radius: 50%;\n  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15);\n  transform: translateX(-50%);\n  pointer-events: none;\n}\n\n.zoom { display: flex; align-items: center; gap: 10px; width: 100%; max-width: 260px; color: var(--ink-2); font-size: 12px; }\n.zoom input { flex: 1; accent-color: var(--accent); }\n.hint { margin: 0; color: var(--muted); font-size: 11.5px; }\n\n.output { display: flex; flex-direction: column; gap: 10px; min-width: 0; }\n.outputLabel { color: var(--ink-2); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }\n.preview {\n  width: 100%;\n  max-width: 140px;\n  max-height: 160px;\n  overflow: hidden;\n  border-radius: 4px;\n  background: var(--field);\n  box-shadow: 0 0 0 1px var(--border);\n}\n.preview img { display: block; width: 100%; height: 100%; object-fit: contain; }\n\n.facts { display: flex; flex-direction: column; gap: 4px; margin: 0; font-size: 13px; }\n.facts div { display: flex; justify-content: space-between; gap: 12px; }\n.facts dt { color: var(--ink-2); }\n.facts dd { margin: 0; font-weight: 600; font-variant-numeric: tabular-nums; text-align: right; }\n.limit { color: var(--muted); font-weight: 400; }\n\n.status { display: flex; align-items: center; gap: 8px; margin: 0; font-size: 13px; font-weight: 600; }\n.status span {\n  display: grid;\n  flex: none;\n  place-items: center;\n  width: 18px;\n  height: 18px;\n  border-radius: 50%;\n  background: var(--good);\n  color: #fff;\n  font-size: 11px;\n}\n.status[data-ok=\"false\"] span { background: var(--serious); color: #0b0b0b; }\n\n.download {\n  display: grid;\n  place-items: center;\n  height: 40px;\n  border-radius: 10px;\n  background: var(--ink);\n  color: var(--surface);\n  font-size: 14px;\n  font-weight: 600;\n  text-decoration: none;\n  transition: opacity 0.15s ease, transform 0.1s ease;\n}\n.download:hover { opacity: 0.88; }\n.download:active { transform: scale(0.98); }\n.download[aria-disabled=\"true\"] { opacity: 0.4; pointer-events: none; }\n.download:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }\n\n.replace {\n  padding: 0;\n  border: 0;\n  background: none;\n  color: var(--ink-2);\n  font: inherit;\n  font-size: 12.5px;\n  text-decoration: underline;\n  text-underline-offset: 3px;\n  cursor: pointer;\n}\n"])</script><script>self.__next_f.push([1,"13:[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"children\":\"$17\"}]}]\n18:T300d,"])</script><script>self.__next_f.push([1,"\"use client\";\n\nimport { useEffect, useRef, useState, type DragEvent, type KeyboardEvent, type PointerEvent } from \"react\";\nimport { compressToLimit, drawSamplePortrait } from \"./image\";\nimport styles from \"./PhotoResizer.module.css\";\n\ntype Size = { w: number; h: number; kb: number | null; guide: boolean };\ntype Preset = Size \u0026 { key: string; label: string };\ntype Photo = { img: HTMLImageElement; url: string };\ntype Result = { url: string; bytes: number; quality: number; fits: boolean };\n\nconst PRESETS: Preset[] = [\n  { key: \"job\", label: \"Job / admission\", w: 300, h: 300, kb: 100, guide: true },\n  { key: \"signature\", label: \"Signature\", w: 300, h: 80, kb: 60, guide: false },\n  { key: \"passport\", label: \"Passport size\", w: 413, h: 531, kb: null, guide: true },\n  { key: \"visa\", label: \"US visa\", w: 600, h: 600, kb: 240, guide: true },\n];\n\n// Largest the crop frame is drawn on screen.\nconst FRAME = { w: 260, h: 280 };\nconst MAX_ZOOM = 4;\n\nconst clamp = (v: number, lo: number, hi: number) =\u003e Math.max(lo, Math.min(hi, v));\nconst kb = (bytes: number) =\u003e `${Math.round(bytes / 1024)} KB`;\n\nexport default function PhotoResizer() {\n  const [presetKey, setPresetKey] = useState(\"job\");\n  const [custom, setCustom] = useState({ w: \"400\", h: \"400\", kb: \"150\" });\n  const [photo, setPhoto] = useState\u003cPhoto | null\u003e(null);\n  const [zoom, setZoom] = useState(1);\n  const [offset, setOffset] = useState({ x: 0, y: 0 });\n  const [result, setResult] = useState\u003cResult | null\u003e(null);\n  const [dragOver, setDragOver] = useState(false);\n  const frameRef = useRef\u003cHTMLDivElement\u003e(null);\n  const drag = useRef\u003c{ px: number; py: number; ox: number; oy: number } | null\u003e(null);\n\n  const preset = PRESETS.find((p) =\u003e p.key === presetKey);\n  const size: Size = preset ?? {\n    w: clamp(Math.round(Number(custom.w) || 0), 50, 3000),\n    h: clamp(Math.round(Number(custom.h) || 0), 50, 3000),\n    kb: Number(custom.kb) \u003e 0 ? Number(custom.kb) : null,\n    guide: false,\n  };\n\n  // On-screen crop frame with the target aspect ratio.\n  const frameScale = Math.min(FRAME.w / size.w, FRAME.h / size.h);\n  const frameW = size.w * frameScale;\n  const frameH = size.h * frameScale;\n\n  const nw = photo?.img.naturalWidth ?? 1;\n  const nh = photo?.img.naturalHeight ?? 1;\n  const scale = Math.max(frameW / nw, frameH / nh) * zoom; // screen px per image px\n  const dispW = nw * scale;\n  const dispH = nh * scale;\n  // Keep the photo covering the frame however it is dragged or zoomed.\n  const pos = {\n    x: clamp(offset.x, -(dispW - frameW) / 2, (dispW - frameW) / 2),\n    y: clamp(offset.y, -(dispH - frameH) / 2, (dispH - frameH) / 2),\n  };\n\n  function load(file: Blob) {\n    const url = URL.createObjectURL(file);\n    const img = new Image();\n    img.onload = () =\u003e {\n      setPhoto((prev) =\u003e {\n        if (prev) URL.revokeObjectURL(prev.url);\n        return { img, url };\n      });\n      setZoom(1);\n      setOffset({ x: 0, y: 0 });\n    };\n    img.src = url;\n  }\n\n  function choosePreset(key: string) {\n    setPresetKey(key);\n    setZoom(1);\n    setOffset({ x: 0, y: 0 });\n  }\n\n  // Re-render the output whenever the crop or target changes.\n  useEffect(() =\u003e {\n    if (!photo) return;\n    let cancelled = false;\n    const timer = setTimeout(async () =\u003e {\n      const canvas = document.createElement(\"canvas\");\n      canvas.width = size.w;\n      canvas.height = size.h;\n      const ctx = canvas.getContext(\"2d\")!;\n      ctx.fillStyle = \"#ffffff\";\n      ctx.fillRect(0, 0, size.w, size.h);\n      ctx.imageSmoothingQuality = \"high\";\n      const srcW = frameW / scale;\n      const srcH = frameH / scale;\n      const cx = nw / 2 - pos.x / scale;\n      const cy = nh / 2 - pos.y / scale;\n      ctx.drawImage(photo.img, cx - srcW / 2, cy - srcH / 2, srcW, srcH, 0, 0, size.w, size.h);\n\n      const { blob, quality } = await compressToLimit(canvas, size.kb);\n      if (cancelled) return;\n      setResult((prev) =\u003e {\n        if (prev) URL.revokeObjectURL(prev.url);\n        return { url: URL.createObjectURL(blob), bytes: blob.size, quality, fits: size.kb === null || blob.size \u003c= size.kb * 1024 };\n      });\n    }, 150);\n    return () =\u003e {\n      cancelled = true;\n      clearTimeout(timer);\n    };\n  }, [photo, size.w, size.h, size.kb, frameW, frameH, scale, nw, nh, pos.x, pos.y]);\n\n  // Wheel zoom needs a non-passive listener so the page doesn't scroll.\n  useEffect(() =\u003e {\n    const el = frameRef.current;\n    if (!el) return;\n    const onWheel = (e: WheelEvent) =\u003e {\n      e.preventDefault();\n      setZoom((z) =\u003e clamp(z * (e.deltaY \u003c 0 ? 1.1 : 1 / 1.1), 1, MAX_ZOOM));\n    };\n    el.addEventListener(\"wheel\", onWheel, { passive: false });\n    return () =\u003e el.removeEventListener(\"wheel\", onWheel);\n  }, [photo]);\n\n  function onPointerDown(e: PointerEvent\u003cHTMLDivElement\u003e) {\n    e.currentTarget.setPointerCapture(e.pointerId);\n    drag.current = { px: e.clientX, py: e.clientY, ox: pos.x, oy: pos.y };\n  }\n  function onPointerMove(e: PointerEvent\u003cHTMLDivElement\u003e) {\n    const d = drag.current;\n    if (d) setOffset({ x: d.ox + e.clientX - d.px, y: d.oy + e.clientY - d.py });\n  }\n  function onKeyDown(e: KeyboardEvent) {\n    const step = e.shiftKey ? 30 : 8;\n    const moves: Record\u003cstring, [number, number]\u003e = { ArrowLeft: [step, 0], ArrowRight: [-step, 0], ArrowUp: [0, step], ArrowDown: [0, -step] };\n    if (moves[e.key]) setOffset({ x: pos.x + moves[e.key][0], y: pos.y + moves[e.key][1] });\n    else if (e.key === \"+\" || e.key === \"=\") setZoom((z) =\u003e clamp(z * 1.1, 1, MAX_ZOOM));\n    else if (e.key === \"-\") setZoom((z) =\u003e clamp(z / 1.1, 1, MAX_ZOOM));\n    else return;\n    e.preventDefault();\n  }\n\n  function onDrop(e: DragEvent) {\n    e.preventDefault();\n    setDragOver(false);\n    const file = e.dataTransfer.files[0];\n    if (file?.type.startsWith(\"image/\")) load(file);\n  }\n\n  async function loadSample() {\n    load(await drawSamplePortrait());\n  }\n\n  return (\n    \u003cdiv className={styles.card}\u003e\n      \u003cheader className={styles.head}\u003e\n        \u003ch3 className={styles.title}\u003ePhoto resizer for forms\u003c/h3\u003e\n        \u003cp className={styles.subtitle}\u003eCrop, resize and compress to the exact size a form asks for.\u003c/p\u003e\n      \u003c/header\u003e\n\n      \u003cdiv className={styles.presets} role=\"radiogroup\" aria-label=\"Required size\"\u003e\n        {[...PRESETS, null].map((p) =\u003e {\n          const key = p?.key ?? \"custom\";\n          return (\n            \u003cbutton\n              key={key}\n              type=\"button\"\n              role=\"radio\"\n              aria-checked={presetKey === key}\n              className={styles.preset}\n              onClick={() =\u003e choosePreset(key)}\n            \u003e\n              \u003cspan className={styles.presetName}\u003e{p ? p.label : \"Custom\"}\u003c/span\u003e\n              \u003cspan className={styles.presetDetail}\u003e\n                {p ? `${p.w}×${p.h}${p.kb ? ` · ≤${p.kb} KB` : \"\"}` : \"Your size\"}\n              \u003c/span\u003e\n            \u003c/button\u003e\n          );\n        })}\n      \u003c/div\u003e\n\n      {!preset \u0026\u0026 (\n        \u003cdiv className={styles.custom}\u003e\n          {([\"w\", \"h\", \"kb\"] as const).map((k) =\u003e (\n            \u003clabel key={k} className={styles.customField}\u003e\n              \u003cspan\u003e{k === \"w\" ? \"Width (px)\" : k === \"h\" ? \"Height (px)\" : \"Max KB\"}\u003c/span\u003e\n              \u003cinput\n                inputMode=\"numeric\"\n                value={custom[k]}\n                placeholder={k === \"kb\" ? \"No limit\" : \"\"}\n                onChange={(e) =\u003e /^\\d*$/.test(e.target.value) \u0026\u0026 setCustom((c) =\u003e ({ ...c, [k]: e.target.value }))}\n              /\u003e\n            \u003c/label\u003e\n          ))}\n        \u003c/div\u003e\n      )}\n      \u003cp className={styles.disclaimer}\u003eCommon sizes. Always check your form\u0026apos;s own instructions.\u003c/p\u003e\n\n      {!photo ? (\n        \u003clabel\n          className={styles.dropzone}\n          data-over={dragOver}\n          onDragOver={(e) =\u003e {\n            e.preventDefault();\n            setDragOver(true);\n          }}\n          onDragLeave={() =\u003e setDragOver(false)}\n          onDrop={onDrop}\n        \u003e\n          \u003cinput\n            type=\"file\"\n            accept=\"image/*\"\n            className={styles.fileInput}\n            onChange={(e) =\u003e e.target.files?.[0] \u0026\u0026 load(e.target.files[0])}\n          /\u003e\n          \u003csvg viewBox=\"0 0 24 24\" width=\"28\" height=\"28\" aria-hidden=\"true\" className={styles.dropIcon}\u003e\n            \u003cpath d=\"M12 16V4m0 0-4 4m4-4 4 4M4 16v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2\" /\u003e\n          \u003c/svg\u003e\n          \u003cspan className={styles.dropTitle}\u003eDrop a photo here, or click to choose\u003c/span\u003e\n          \u003cspan className={styles.dropNote}\u003eJPG or PNG. It never leaves this device.\u003c/span\u003e\n          \u003cbutton\n            type=\"button\"\n            className={styles.sampleLink}\n            onClick={(e) =\u003e {\n              e.preventDefault();\n              loadSample();\n            }}\n          \u003e\n            Try a sample photo\n          \u003c/button\u003e\n        \u003c/label\u003e\n      ) : (\n        \u003cdiv className={styles.body}\u003e\n          \u003cdiv className={styles.editor}\u003e\n            \u003cdiv\n              ref={frameRef}\n              className={styles.frame}\n              style={{ width: frameW, height: frameH }}\n              tabIndex={0}\n              role=\"application\"\n              aria-label=\"Crop area. Drag or use arrow keys to move, plus and minus to zoom.\"\n              onPointerDown={onPointerDown}\n              onPointerMove={onPointerMove}\n              onPointerUp={() =\u003e (drag.current = null)}\n              onPointerCancel={() =\u003e (drag.current = null)}\n              onKeyDown={onKeyDown}\n            \u003e\n              {/* eslint-disable-next-line @next/next/no-img-element */}\n              \u003cimg\n                src={photo.url}\n                alt=\"\"\n                draggable={false}\n                className={styles.photo}\n                style={{ width: dispW, height: dispH, transform: `translate(-50%, -50%) translate(${pos.x}px, ${pos.y}px)` }}\n              /\u003e\n              \u003cdiv className={styles.thirds} aria-hidden=\"true\" /\u003e\n              {size.guide \u0026\u0026 \u003cdiv className={styles.faceGuide} aria-hidden=\"true\" /\u003e}\n            \u003c/div\u003e\n            \u003clabel className={styles.zoom}\u003e\n              \u003cspan\u003eZoom\u003c/span\u003e\n              \u003cinput\n                type=\"range\"\n                min={1}\n                max={MAX_ZOOM}\n                step={0.01}\n                value={zoom}\n                onChange={(e) =\u003e setZoom(Number(e.target.value))}\n              /\u003e\n            \u003c/label\u003e\n            \u003cp className={styles.hint}\u003eDrag to move · scroll to zoom\u003c/p\u003e\n          \u003c/div\u003e\n\n          \u003cdiv className={styles.output}\u003e\n            \u003cspan className={styles.outputLabel}\u003eResult\u003c/span\u003e\n            \u003cdiv className={styles.preview} style={{ aspectRatio: `${size.w} / ${size.h}` }}\u003e\n              {result \u0026\u0026 (\n                // eslint-disable-next-line @next/next/no-img-element\n                \u003cimg src={result.url} alt={`Resized photo, ${size.w} by ${size.h} pixels`} /\u003e\n              )}\n            \u003c/div\u003e\n            \u003cdl className={styles.facts}\u003e\n              \u003cdiv\u003e\n                \u003cdt\u003eSize\u003c/dt\u003e\n                \u003cdd\u003e\n                  {size.w} × {size.h} px\n                \u003c/dd\u003e\n              \u003c/div\u003e\n              \u003cdiv\u003e\n                \u003cdt\u003eFile\u003c/dt\u003e\n                \u003cdd\u003e\n                  {result ? kb(result.bytes) : \"…\"}\n                  {size.kb \u0026\u0026 \u003cspan className={styles.limit}\u003e of {size.kb} KB max\u003c/span\u003e}\n                \u003c/dd\u003e\n              \u003c/div\u003e\n              \u003cdiv\u003e\n                \u003cdt\u003eQuality\u003c/dt\u003e\n                \u003cdd\u003e{result ? `${Math.round(result.quality * 100)}%` : \"…\"}\u003c/dd\u003e\n              \u003c/div\u003e\n            \u003c/dl\u003e\n            {result \u0026\u0026 (\n              \u003cp className={styles.status} data-ok={result.fits}\u003e\n                \u003cspan aria-hidden=\"true\"\u003e{result.fits ? \"✓\" : \"!\"}\u003c/span\u003e\n                {result.fits ? \"Ready for upload\" : `Still over ${size.kb} KB. Try a smaller size or a plainer background.`}\n              \u003c/p\u003e\n            )}\n            \u003ca\n              className={styles.download}\n              href={result?.url}\n              download={`photo-${size.w}x${size.h}.jpg`}\n              aria-disabled={!result}\n            \u003e\n              Download JPG\n            \u003c/a\u003e\n            \u003cbutton\n              type=\"button\"\n              className={styles.replace}\n              onClick={() =\u003e {\n                setPhoto(null);\n                setResult(null);\n              }}\n            \u003e\n              Use a different photo\n            \u003c/button\u003e\n          \u003c/div\u003e\n        \u003c/div\u003e\n      )}\n    \u003c/div\u003e\n  );\n}\n"])</script><script>self.__next_f.push([1,"14:[\"$\",\"div\",\"PhotoResizer.tsx\",{\"className\":\"file\",\"children\":[[\"$\",\"div\",null,{\"className\":\"file-head\",\"children\":[[\"$\",\"span\",null,{\"children\":\"PhotoResizer.tsx\"}],[\"$\",\"$L11\",null,{\"text\":\"$18\"}]]}],\"$L19\"]}]\n1a:T9ab,"])</script><script>self.__next_f.push([1,"function toJpeg(canvas: HTMLCanvasElement, quality: number) {\n  return new Promise\u003cBlob\u003e((resolve, reject) =\u003e\n    canvas.toBlob((blob) =\u003e (blob ? resolve(blob) : reject(new Error(\"Could not encode image\"))), \"image/jpeg\", quality),\n  );\n}\n\n/** Highest JPEG quality that fits under `maxKB` (binary search), or 0.92 when there is no limit. */\nexport async function compressToLimit(canvas: HTMLCanvasElement, maxKB: number | null) {\n  const best = await toJpeg(canvas, 0.92);\n  if (maxKB === null || best.size \u003c= maxKB * 1024) return { blob: best, quality: 0.92 };\n\n  let lo = 0.05;\n  let hi = 0.92;\n  let found: { blob: Blob; quality: number } | null = null;\n  for (let i = 0; i \u003c 7; i++) {\n    const quality = (lo + hi) / 2;\n    const blob = await toJpeg(canvas, quality);\n    if (blob.size \u003c= maxKB * 1024) {\n      found = { blob, quality };\n      lo = quality;\n    } else {\n      hi = quality;\n    }\n  }\n  return found ?? { blob: await toJpeg(canvas, 0.05), quality: 0.05 };\n}\n\n/** A simple illustrated portrait so the demo works without uploading anything. */\nexport function drawSamplePortrait() {\n  const canvas = document.createElement(\"canvas\");\n  canvas.width = 900;\n  canvas.height = 1100;\n  const ctx = canvas.getContext(\"2d\")!;\n\n  const bg = ctx.createLinearGradient(0, 0, 900, 1100);\n  bg.addColorStop(0, \"#9ec5f4\");\n  bg.addColorStop(1, \"#cde2fb\");\n  ctx.fillStyle = bg;\n  ctx.fillRect(0, 0, 900, 1100);\n\n  // Shoulders and collar\n  ctx.fillStyle = \"#1c3557\";\n  ctx.beginPath();\n  ctx.ellipse(450, 1100, 380, 300, 0, Math.PI, 0);\n  ctx.fill();\n  ctx.fillStyle = \"#ffffff\";\n  ctx.beginPath();\n  ctx.moveTo(380, 820);\n  ctx.lineTo(450, 930);\n  ctx.lineTo(520, 820);\n  ctx.closePath();\n  ctx.fill();\n\n  // Neck and face\n  ctx.fillStyle = \"#c98d63\";\n  ctx.fillRect(400, 640, 100, 200);\n  ctx.fillStyle = \"#d9a07a\";\n  ctx.beginPath();\n  ctx.ellipse(450, 520, 170, 210, 0, 0, Math.PI * 2);\n  ctx.fill();\n\n  // Hair\n  ctx.fillStyle = \"#231a14\";\n  ctx.beginPath();\n  ctx.ellipse(450, 400, 185, 130, 0, Math.PI, 0);\n  ctx.fill();\n\n  // Eyes and smile\n  ctx.fillStyle = \"#231a14\";\n  for (const x of [385, 515]) {\n    ctx.beginPath();\n    ctx.ellipse(x, 520, 14, 18, 0, 0, Math.PI * 2);\n    ctx.fill();\n  }\n  ctx.strokeStyle = \"#8a4b33\";\n  ctx.lineWidth = 10;\n  ctx.lineCap = \"round\";\n  ctx.beginPath();\n  ctx.arc(450, 600, 60, 0.2 * Math.PI, 0.8 * Math.PI);\n  ctx.stroke();\n\n  return new Promise\u003cBlob\u003e((resolve) =\u003e canvas.toBlob((b) =\u003e resolve(b!), \"image/jpeg\", 0.95));\n}\n"])</script><script>self.__next_f.push([1,"1b:T9ab,"])</script><script>self.__next_f.push([1,"function toJpeg(canvas: HTMLCanvasElement, quality: number) {\n  return new Promise\u003cBlob\u003e((resolve, reject) =\u003e\n    canvas.toBlob((blob) =\u003e (blob ? resolve(blob) : reject(new Error(\"Could not encode image\"))), \"image/jpeg\", quality),\n  );\n}\n\n/** Highest JPEG quality that fits under `maxKB` (binary search), or 0.92 when there is no limit. */\nexport async function compressToLimit(canvas: HTMLCanvasElement, maxKB: number | null) {\n  const best = await toJpeg(canvas, 0.92);\n  if (maxKB === null || best.size \u003c= maxKB * 1024) return { blob: best, quality: 0.92 };\n\n  let lo = 0.05;\n  let hi = 0.92;\n  let found: { blob: Blob; quality: number } | null = null;\n  for (let i = 0; i \u003c 7; i++) {\n    const quality = (lo + hi) / 2;\n    const blob = await toJpeg(canvas, quality);\n    if (blob.size \u003c= maxKB * 1024) {\n      found = { blob, quality };\n      lo = quality;\n    } else {\n      hi = quality;\n    }\n  }\n  return found ?? { blob: await toJpeg(canvas, 0.05), quality: 0.05 };\n}\n\n/** A simple illustrated portrait so the demo works without uploading anything. */\nexport function drawSamplePortrait() {\n  const canvas = document.createElement(\"canvas\");\n  canvas.width = 900;\n  canvas.height = 1100;\n  const ctx = canvas.getContext(\"2d\")!;\n\n  const bg = ctx.createLinearGradient(0, 0, 900, 1100);\n  bg.addColorStop(0, \"#9ec5f4\");\n  bg.addColorStop(1, \"#cde2fb\");\n  ctx.fillStyle = bg;\n  ctx.fillRect(0, 0, 900, 1100);\n\n  // Shoulders and collar\n  ctx.fillStyle = \"#1c3557\";\n  ctx.beginPath();\n  ctx.ellipse(450, 1100, 380, 300, 0, Math.PI, 0);\n  ctx.fill();\n  ctx.fillStyle = \"#ffffff\";\n  ctx.beginPath();\n  ctx.moveTo(380, 820);\n  ctx.lineTo(450, 930);\n  ctx.lineTo(520, 820);\n  ctx.closePath();\n  ctx.fill();\n\n  // Neck and face\n  ctx.fillStyle = \"#c98d63\";\n  ctx.fillRect(400, 640, 100, 200);\n  ctx.fillStyle = \"#d9a07a\";\n  ctx.beginPath();\n  ctx.ellipse(450, 520, 170, 210, 0, 0, Math.PI * 2);\n  ctx.fill();\n\n  // Hair\n  ctx.fillStyle = \"#231a14\";\n  ctx.beginPath();\n  ctx.ellipse(450, 400, 185, 130, 0, Math.PI, 0);\n  ctx.fill();\n\n  // Eyes and smile\n  ctx.fillStyle = \"#231a14\";\n  for (const x of [385, 515]) {\n    ctx.beginPath();\n    ctx.ellipse(x, 520, 14, 18, 0, 0, Math.PI * 2);\n    ctx.fill();\n  }\n  ctx.strokeStyle = \"#8a4b33\";\n  ctx.lineWidth = 10;\n  ctx.lineCap = \"round\";\n  ctx.beginPath();\n  ctx.arc(450, 600, 60, 0.2 * Math.PI, 0.8 * Math.PI);\n  ctx.stroke();\n\n  return new Promise\u003cBlob\u003e((resolve) =\u003e canvas.toBlob((b) =\u003e resolve(b!), \"image/jpeg\", 0.95));\n}\n"])</script><script>self.__next_f.push([1,"15:[\"$\",\"div\",\"image.ts\",{\"className\":\"file\",\"children\":[[\"$\",\"div\",null,{\"className\":\"file-head\",\"children\":[[\"$\",\"span\",null,{\"children\":\"image.ts\"}],[\"$\",\"$L11\",null,{\"text\":\"$1a\"}]]}],[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"children\":\"$1b\"}]}]]}]\n16:[\"$\",\"nav\",null,{\"className\":\"pager\",\"children\":[[\"$\",\"$L2\",null,{\"href\":\"/components/customer-lifetime-value\",\"children\":[\"← \",\"Customer Lifetime Value Calculator\"]}],[\"$\",\"$L2\",null,{\"href\":\"/components/morphing-submit-button\",\"children\":[\"Morphing Submit Button\",\" →\"]}]]}]\n"])</script><script>self.__next_f.push([1,"1c:T300d,"])</script><script>self.__next_f.push([1,"\"use client\";\n\nimport { useEffect, useRef, useState, type DragEvent, type KeyboardEvent, type PointerEvent } from \"react\";\nimport { compressToLimit, drawSamplePortrait } from \"./image\";\nimport styles from \"./PhotoResizer.module.css\";\n\ntype Size = { w: number; h: number; kb: number | null; guide: boolean };\ntype Preset = Size \u0026 { key: string; label: string };\ntype Photo = { img: HTMLImageElement; url: string };\ntype Result = { url: string; bytes: number; quality: number; fits: boolean };\n\nconst PRESETS: Preset[] = [\n  { key: \"job\", label: \"Job / admission\", w: 300, h: 300, kb: 100, guide: true },\n  { key: \"signature\", label: \"Signature\", w: 300, h: 80, kb: 60, guide: false },\n  { key: \"passport\", label: \"Passport size\", w: 413, h: 531, kb: null, guide: true },\n  { key: \"visa\", label: \"US visa\", w: 600, h: 600, kb: 240, guide: true },\n];\n\n// Largest the crop frame is drawn on screen.\nconst FRAME = { w: 260, h: 280 };\nconst MAX_ZOOM = 4;\n\nconst clamp = (v: number, lo: number, hi: number) =\u003e Math.max(lo, Math.min(hi, v));\nconst kb = (bytes: number) =\u003e `${Math.round(bytes / 1024)} KB`;\n\nexport default function PhotoResizer() {\n  const [presetKey, setPresetKey] = useState(\"job\");\n  const [custom, setCustom] = useState({ w: \"400\", h: \"400\", kb: \"150\" });\n  const [photo, setPhoto] = useState\u003cPhoto | null\u003e(null);\n  const [zoom, setZoom] = useState(1);\n  const [offset, setOffset] = useState({ x: 0, y: 0 });\n  const [result, setResult] = useState\u003cResult | null\u003e(null);\n  const [dragOver, setDragOver] = useState(false);\n  const frameRef = useRef\u003cHTMLDivElement\u003e(null);\n  const drag = useRef\u003c{ px: number; py: number; ox: number; oy: number } | null\u003e(null);\n\n  const preset = PRESETS.find((p) =\u003e p.key === presetKey);\n  const size: Size = preset ?? {\n    w: clamp(Math.round(Number(custom.w) || 0), 50, 3000),\n    h: clamp(Math.round(Number(custom.h) || 0), 50, 3000),\n    kb: Number(custom.kb) \u003e 0 ? Number(custom.kb) : null,\n    guide: false,\n  };\n\n  // On-screen crop frame with the target aspect ratio.\n  const frameScale = Math.min(FRAME.w / size.w, FRAME.h / size.h);\n  const frameW = size.w * frameScale;\n  const frameH = size.h * frameScale;\n\n  const nw = photo?.img.naturalWidth ?? 1;\n  const nh = photo?.img.naturalHeight ?? 1;\n  const scale = Math.max(frameW / nw, frameH / nh) * zoom; // screen px per image px\n  const dispW = nw * scale;\n  const dispH = nh * scale;\n  // Keep the photo covering the frame however it is dragged or zoomed.\n  const pos = {\n    x: clamp(offset.x, -(dispW - frameW) / 2, (dispW - frameW) / 2),\n    y: clamp(offset.y, -(dispH - frameH) / 2, (dispH - frameH) / 2),\n  };\n\n  function load(file: Blob) {\n    const url = URL.createObjectURL(file);\n    const img = new Image();\n    img.onload = () =\u003e {\n      setPhoto((prev) =\u003e {\n        if (prev) URL.revokeObjectURL(prev.url);\n        return { img, url };\n      });\n      setZoom(1);\n      setOffset({ x: 0, y: 0 });\n    };\n    img.src = url;\n  }\n\n  function choosePreset(key: string) {\n    setPresetKey(key);\n    setZoom(1);\n    setOffset({ x: 0, y: 0 });\n  }\n\n  // Re-render the output whenever the crop or target changes.\n  useEffect(() =\u003e {\n    if (!photo) return;\n    let cancelled = false;\n    const timer = setTimeout(async () =\u003e {\n      const canvas = document.createElement(\"canvas\");\n      canvas.width = size.w;\n      canvas.height = size.h;\n      const ctx = canvas.getContext(\"2d\")!;\n      ctx.fillStyle = \"#ffffff\";\n      ctx.fillRect(0, 0, size.w, size.h);\n      ctx.imageSmoothingQuality = \"high\";\n      const srcW = frameW / scale;\n      const srcH = frameH / scale;\n      const cx = nw / 2 - pos.x / scale;\n      const cy = nh / 2 - pos.y / scale;\n      ctx.drawImage(photo.img, cx - srcW / 2, cy - srcH / 2, srcW, srcH, 0, 0, size.w, size.h);\n\n      const { blob, quality } = await compressToLimit(canvas, size.kb);\n      if (cancelled) return;\n      setResult((prev) =\u003e {\n        if (prev) URL.revokeObjectURL(prev.url);\n        return { url: URL.createObjectURL(blob), bytes: blob.size, quality, fits: size.kb === null || blob.size \u003c= size.kb * 1024 };\n      });\n    }, 150);\n    return () =\u003e {\n      cancelled = true;\n      clearTimeout(timer);\n    };\n  }, [photo, size.w, size.h, size.kb, frameW, frameH, scale, nw, nh, pos.x, pos.y]);\n\n  // Wheel zoom needs a non-passive listener so the page doesn't scroll.\n  useEffect(() =\u003e {\n    const el = frameRef.current;\n    if (!el) return;\n    const onWheel = (e: WheelEvent) =\u003e {\n      e.preventDefault();\n      setZoom((z) =\u003e clamp(z * (e.deltaY \u003c 0 ? 1.1 : 1 / 1.1), 1, MAX_ZOOM));\n    };\n    el.addEventListener(\"wheel\", onWheel, { passive: false });\n    return () =\u003e el.removeEventListener(\"wheel\", onWheel);\n  }, [photo]);\n\n  function onPointerDown(e: PointerEvent\u003cHTMLDivElement\u003e) {\n    e.currentTarget.setPointerCapture(e.pointerId);\n    drag.current = { px: e.clientX, py: e.clientY, ox: pos.x, oy: pos.y };\n  }\n  function onPointerMove(e: PointerEvent\u003cHTMLDivElement\u003e) {\n    const d = drag.current;\n    if (d) setOffset({ x: d.ox + e.clientX - d.px, y: d.oy + e.clientY - d.py });\n  }\n  function onKeyDown(e: KeyboardEvent) {\n    const step = e.shiftKey ? 30 : 8;\n    const moves: Record\u003cstring, [number, number]\u003e = { ArrowLeft: [step, 0], ArrowRight: [-step, 0], ArrowUp: [0, step], ArrowDown: [0, -step] };\n    if (moves[e.key]) setOffset({ x: pos.x + moves[e.key][0], y: pos.y + moves[e.key][1] });\n    else if (e.key === \"+\" || e.key === \"=\") setZoom((z) =\u003e clamp(z * 1.1, 1, MAX_ZOOM));\n    else if (e.key === \"-\") setZoom((z) =\u003e clamp(z / 1.1, 1, MAX_ZOOM));\n    else return;\n    e.preventDefault();\n  }\n\n  function onDrop(e: DragEvent) {\n    e.preventDefault();\n    setDragOver(false);\n    const file = e.dataTransfer.files[0];\n    if (file?.type.startsWith(\"image/\")) load(file);\n  }\n\n  async function loadSample() {\n    load(await drawSamplePortrait());\n  }\n\n  return (\n    \u003cdiv className={styles.card}\u003e\n      \u003cheader className={styles.head}\u003e\n        \u003ch3 className={styles.title}\u003ePhoto resizer for forms\u003c/h3\u003e\n        \u003cp className={styles.subtitle}\u003eCrop, resize and compress to the exact size a form asks for.\u003c/p\u003e\n      \u003c/header\u003e\n\n      \u003cdiv className={styles.presets} role=\"radiogroup\" aria-label=\"Required size\"\u003e\n        {[...PRESETS, null].map((p) =\u003e {\n          const key = p?.key ?? \"custom\";\n          return (\n            \u003cbutton\n              key={key}\n              type=\"button\"\n              role=\"radio\"\n              aria-checked={presetKey === key}\n              className={styles.preset}\n              onClick={() =\u003e choosePreset(key)}\n            \u003e\n              \u003cspan className={styles.presetName}\u003e{p ? p.label : \"Custom\"}\u003c/span\u003e\n              \u003cspan className={styles.presetDetail}\u003e\n                {p ? `${p.w}×${p.h}${p.kb ? ` · ≤${p.kb} KB` : \"\"}` : \"Your size\"}\n              \u003c/span\u003e\n            \u003c/button\u003e\n          );\n        })}\n      \u003c/div\u003e\n\n      {!preset \u0026\u0026 (\n        \u003cdiv className={styles.custom}\u003e\n          {([\"w\", \"h\", \"kb\"] as const).map((k) =\u003e (\n            \u003clabel key={k} className={styles.customField}\u003e\n              \u003cspan\u003e{k === \"w\" ? \"Width (px)\" : k === \"h\" ? \"Height (px)\" : \"Max KB\"}\u003c/span\u003e\n              \u003cinput\n                inputMode=\"numeric\"\n                value={custom[k]}\n                placeholder={k === \"kb\" ? \"No limit\" : \"\"}\n                onChange={(e) =\u003e /^\\d*$/.test(e.target.value) \u0026\u0026 setCustom((c) =\u003e ({ ...c, [k]: e.target.value }))}\n              /\u003e\n            \u003c/label\u003e\n          ))}\n        \u003c/div\u003e\n      )}\n      \u003cp className={styles.disclaimer}\u003eCommon sizes. Always check your form\u0026apos;s own instructions.\u003c/p\u003e\n\n      {!photo ? (\n        \u003clabel\n          className={styles.dropzone}\n          data-over={dragOver}\n          onDragOver={(e) =\u003e {\n            e.preventDefault();\n            setDragOver(true);\n          }}\n          onDragLeave={() =\u003e setDragOver(false)}\n          onDrop={onDrop}\n        \u003e\n          \u003cinput\n            type=\"file\"\n            accept=\"image/*\"\n            className={styles.fileInput}\n            onChange={(e) =\u003e e.target.files?.[0] \u0026\u0026 load(e.target.files[0])}\n          /\u003e\n          \u003csvg viewBox=\"0 0 24 24\" width=\"28\" height=\"28\" aria-hidden=\"true\" className={styles.dropIcon}\u003e\n            \u003cpath d=\"M12 16V4m0 0-4 4m4-4 4 4M4 16v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2\" /\u003e\n          \u003c/svg\u003e\n          \u003cspan className={styles.dropTitle}\u003eDrop a photo here, or click to choose\u003c/span\u003e\n          \u003cspan className={styles.dropNote}\u003eJPG or PNG. It never leaves this device.\u003c/span\u003e\n          \u003cbutton\n            type=\"button\"\n            className={styles.sampleLink}\n            onClick={(e) =\u003e {\n              e.preventDefault();\n              loadSample();\n            }}\n          \u003e\n            Try a sample photo\n          \u003c/button\u003e\n        \u003c/label\u003e\n      ) : (\n        \u003cdiv className={styles.body}\u003e\n          \u003cdiv className={styles.editor}\u003e\n            \u003cdiv\n              ref={frameRef}\n              className={styles.frame}\n              style={{ width: frameW, height: frameH }}\n              tabIndex={0}\n              role=\"application\"\n              aria-label=\"Crop area. Drag or use arrow keys to move, plus and minus to zoom.\"\n              onPointerDown={onPointerDown}\n              onPointerMove={onPointerMove}\n              onPointerUp={() =\u003e (drag.current = null)}\n              onPointerCancel={() =\u003e (drag.current = null)}\n              onKeyDown={onKeyDown}\n            \u003e\n              {/* eslint-disable-next-line @next/next/no-img-element */}\n              \u003cimg\n                src={photo.url}\n                alt=\"\"\n                draggable={false}\n                className={styles.photo}\n                style={{ width: dispW, height: dispH, transform: `translate(-50%, -50%) translate(${pos.x}px, ${pos.y}px)` }}\n              /\u003e\n              \u003cdiv className={styles.thirds} aria-hidden=\"true\" /\u003e\n              {size.guide \u0026\u0026 \u003cdiv className={styles.faceGuide} aria-hidden=\"true\" /\u003e}\n            \u003c/div\u003e\n            \u003clabel className={styles.zoom}\u003e\n              \u003cspan\u003eZoom\u003c/span\u003e\n              \u003cinput\n                type=\"range\"\n                min={1}\n                max={MAX_ZOOM}\n                step={0.01}\n                value={zoom}\n                onChange={(e) =\u003e setZoom(Number(e.target.value))}\n              /\u003e\n            \u003c/label\u003e\n            \u003cp className={styles.hint}\u003eDrag to move · scroll to zoom\u003c/p\u003e\n          \u003c/div\u003e\n\n          \u003cdiv className={styles.output}\u003e\n            \u003cspan className={styles.outputLabel}\u003eResult\u003c/span\u003e\n            \u003cdiv className={styles.preview} style={{ aspectRatio: `${size.w} / ${size.h}` }}\u003e\n              {result \u0026\u0026 (\n                // eslint-disable-next-line @next/next/no-img-element\n                \u003cimg src={result.url} alt={`Resized photo, ${size.w} by ${size.h} pixels`} /\u003e\n              )}\n            \u003c/div\u003e\n            \u003cdl className={styles.facts}\u003e\n              \u003cdiv\u003e\n                \u003cdt\u003eSize\u003c/dt\u003e\n                \u003cdd\u003e\n                  {size.w} × {size.h} px\n                \u003c/dd\u003e\n              \u003c/div\u003e\n              \u003cdiv\u003e\n                \u003cdt\u003eFile\u003c/dt\u003e\n                \u003cdd\u003e\n                  {result ? kb(result.bytes) : \"…\"}\n                  {size.kb \u0026\u0026 \u003cspan className={styles.limit}\u003e of {size.kb} KB max\u003c/span\u003e}\n                \u003c/dd\u003e\n              \u003c/div\u003e\n              \u003cdiv\u003e\n                \u003cdt\u003eQuality\u003c/dt\u003e\n                \u003cdd\u003e{result ? `${Math.round(result.quality * 100)}%` : \"…\"}\u003c/dd\u003e\n              \u003c/div\u003e\n            \u003c/dl\u003e\n            {result \u0026\u0026 (\n              \u003cp className={styles.status} data-ok={result.fits}\u003e\n                \u003cspan aria-hidden=\"true\"\u003e{result.fits ? \"✓\" : \"!\"}\u003c/span\u003e\n                {result.fits ? \"Ready for upload\" : `Still over ${size.kb} KB. Try a smaller size or a plainer background.`}\n              \u003c/p\u003e\n            )}\n            \u003ca\n              className={styles.download}\n              href={result?.url}\n              download={`photo-${size.w}x${size.h}.jpg`}\n              aria-disabled={!result}\n            \u003e\n              Download JPG\n            \u003c/a\u003e\n            \u003cbutton\n              type=\"button\"\n              className={styles.replace}\n              onClick={() =\u003e {\n                setPhoto(null);\n                setResult(null);\n              }}\n            \u003e\n              Use a different photo\n            \u003c/button\u003e\n          \u003c/div\u003e\n        \u003c/div\u003e\n      )}\n    \u003c/div\u003e\n  );\n}\n"])</script><script>self.__next_f.push([1,"19:[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"children\":\"$1c\"}]}]\n"])</script></body></html>

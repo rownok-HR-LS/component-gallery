@@ -1,0 +1,628 @@
+<!DOCTYPE html><!--6jA2vIGrO3aOlnYlKgPnQ--><html lang="en"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="/component-gallery/_next/static/css/68cce7808a08b910.css" data-precedence="next"/><link href="/component-gallery/_next/static/css/8b6abe20c4c9a142.css" rel="stylesheet" as="style" data-precedence="dynamic"/><link rel="preload" as="script" fetchPriority="low" href="/component-gallery/_next/static/chunks/webpack-1b912f870780f4ba.js"/><script src="/component-gallery/_next/static/chunks/4bd1b696-c023c6e3521b1417.js" async=""></script><script src="/component-gallery/_next/static/chunks/255-8e0af360b0021454.js" async=""></script><script src="/component-gallery/_next/static/chunks/main-app-97d5b91ae5ddb9c2.js" async=""></script><script src="/component-gallery/_next/static/chunks/619-ba102abea3e3d0e4.js" async=""></script><script src="/component-gallery/_next/static/chunks/app/components/%5Bslug%5D/page-7b18c14fa5ee9ace.js" async=""></script><link rel="preload" href="/component-gallery/_next/static/chunks/207.4557a174397868ed.js" as="script" fetchPriority="low"/><title>Stacking Toast Notifications · Component Gallery</title><meta name="description" content="Toasts that stack like cards, fan out on hover, pause their timers, swipe away, and turn loading into success, with Undo and Retry actions."/><script src="/component-gallery/_next/static/chunks/polyfills-42372ed130431b0a.js" noModule=""></script></head><body><div hidden=""><!--$--><!--/$--></div><header class="site-header"><div class="container"><a class="brand" href="/component-gallery/">Component Gallery</a><nav><a href="https://github.com/rownok-HR-LS/component-gallery">GitHub</a></nav></div></header><main class="container"><a class="back" href="/component-gallery/">← All components</a><header class="detail-head"><span class="tag">Week <!-- -->4<!-- --> · <!-- -->2026-10-08</span><h1>Stacking Toast Notifications</h1><p>Toasts that stack like cards, fan out on hover, pause their timers, swipe away, and turn loading into success, with Undo and Retry actions.</p></header><section class="stage" aria-label="Live demo"><div class="Demo_frame__Ji4Ic"><div class="Demo_chrome___FQzX"><span></span><span></span><span></span><strong>Inbox · Acme Mail</strong></div><div class="Demo_body__HjuCF"><p class="Demo_heading__lmrE_">Trigger a notification</p><div class="Demo_grid__qFqfO"><button type="button" class="Demo_trigger__v3jLp" data-tone="success"><span class="Demo_dot__TfArY"></span>Save changes</button><button type="button" class="Demo_trigger__v3jLp" data-tone="loading"><span class="Demo_dot__TfArY"></span>Upload report.pdf</button><button type="button" class="Demo_trigger__v3jLp" data-tone="warning"><span class="Demo_dot__TfArY"></span>Delete email</button><button type="button" class="Demo_trigger__v3jLp" data-tone="error"><span class="Demo_dot__TfArY"></span>Go offline</button><button type="button" class="Demo_trigger__v3jLp" data-tone="info"><span class="Demo_dot__TfArY"></span>New message</button><button type="button" class="Demo_trigger__v3jLp" data-tone="burst"><span class="Demo_dot__TfArY"></span>Burst ×4</button></div><p class="Demo_hint__Cjt20">Hover the stack to expand · swipe a toast sideways to dismiss</p></div><section class="Toaster_region__jBToB" aria-label="Notifications"><ol class="Toaster_stack__cCYHy" style="height:0" data-expanded="false"></ol></section></div></section><section class="source"><h2>Source</h2><div class="file"><div class="file-head"><span>Demo.module.css</span><button type="button" class="copy">Copy</button></div><pre><code>.frame {
+  --surface: #fcfcfb;
+  --ink: #0b0b0b;
+  --ink-2: #52514e;
+  --muted: #898781;
+  --border: rgba(11, 11, 11, 0.1);
+  --field: #f2f1ee;
+
+  position: relative;
+  width: 100%;
+  max-width: 640px;
+  min-height: 440px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--surface);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 16px 40px -16px rgba(0, 0, 0, 0.25);
+  color: var(--ink);
+  font-family: system-ui, -apple-system, &quot;Segoe UI&quot;, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  .frame {
+    --surface: #17171a;
+    --ink: #ffffff;
+    --ink-2: #c3c2b7;
+    --border: rgba(255, 255, 255, 0.1);
+    --field: #222226;
+    box-shadow: 0 16px 40px -16px rgba(0, 0, 0, 0.7);
+  }
+}
+
+.chrome {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  height: 40px;
+  padding: 0 14px;
+  border-bottom: 1px solid var(--border);
+  background: var(--field);
+}
+.chrome span { width: 11px; height: 11px; border-radius: 50%; background: #ff5f57; }
+.chrome span:nth-child(2) { background: #febc2e; }
+.chrome span:nth-child(3) { background: #28c840; }
+.chrome strong { margin-left: 10px; color: var(--ink-2); font-size: 12.5px; font-weight: 600; }
+
+/* Bottom padding leaves room for the toast stack so it doesn&#x27;t cover the buttons. */
+.body { padding: 22px 22px 130px; }
+.heading { margin: 0 0 12px; color: var(--ink-2); font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(150px, 40%), 1fr)); gap: 8px; }
+.trigger {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 11px 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface);
+  color: var(--ink);
+  font: inherit;
+  font-size: 13.5px;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+.trigger:hover { background: var(--field); }
+.trigger:active { transform: scale(0.98); }
+.trigger:focus-visible { outline: 2px solid #2e90fa; outline-offset: 2px; }
+
+.dot { width: 8px; height: 8px; flex: none; border-radius: 50%; background: #2e90fa; }
+.trigger[data-tone=&quot;success&quot;] .dot { background: #12b76a; }
+.trigger[data-tone=&quot;warning&quot;] .dot { background: #f79009; }
+.trigger[data-tone=&quot;error&quot;] .dot { background: #f04438; }
+.trigger[data-tone=&quot;loading&quot;] .dot { background: var(--muted); }
+.trigger[data-tone=&quot;burst&quot;] .dot { background: conic-gradient(#12b76a 0 25%, #2e90fa 0 50%, #f79009 0 75%, #f04438 0); }
+
+.hint { margin: 14px 0 0; color: var(--muted); font-size: 12px; }
+</code></pre></div><div class="file"><div class="file-head"><span>Demo.tsx</span><button type="button" class="copy">Copy</button></div><pre><code>&quot;use client&quot;;
+
+import Toaster from &quot;./Toaster&quot;;
+import { useToaster } from &quot;./useToaster&quot;;
+import styles from &quot;./Demo.module.css&quot;;
+
+const wait = (ms: number) =&gt; new Promise((resolve) =&gt; setTimeout(resolve, ms));
+
+// A mock mail app whose buttons fire each kind of toast.
+export default function Demo() {
+  const { toasts, show, dismiss, promise } = useToaster();
+
+  const actions = [
+    {
+      label: &quot;Save changes&quot;,
+      tone: &quot;success&quot;,
+      run: () =&gt; show({ type: &quot;success&quot;, title: &quot;Changes saved&quot;, description: &quot;Your signature was updated.&quot; }),
+    },
+    {
+      label: &quot;Upload report.pdf&quot;,
+      tone: &quot;loading&quot;,
+      run: () =&gt;
+        promise(wait(2200), { loading: &quot;Uploading report.pdf…&quot;, success: &quot;report.pdf uploaded&quot;, error: &quot;Upload failed&quot; }).catch(() =&gt; {}),
+    },
+    {
+      label: &quot;Delete email&quot;,
+      tone: &quot;warning&quot;,
+      run: () =&gt;
+        show({
+          type: &quot;warning&quot;,
+          title: &quot;Email moved to Trash&quot;,
+          description: &quot;“Q3 budget review” from Imran&quot;,
+          duration: 6000,
+          action: { label: &quot;Undo&quot;, onClick: () =&gt; show({ type: &quot;success&quot;, title: &quot;Email restored&quot; }) },
+        }),
+    },
+    {
+      label: &quot;Go offline&quot;,
+      tone: &quot;error&quot;,
+      run: () =&gt;
+        show({
+          type: &quot;error&quot;,
+          title: &quot;Connection lost&quot;,
+          description: &quot;Changes will sync when you&#x27;re back online.&quot;,
+          action: {
+            label: &quot;Retry&quot;,
+            onClick: () =&gt;
+              promise(wait(1500), { loading: &quot;Reconnecting…&quot;, success: &quot;Back online&quot;, error: &quot;Still offline&quot; }).catch(() =&gt; {}),
+          },
+        }),
+    },
+    {
+      label: &quot;New message&quot;,
+      tone: &quot;info&quot;,
+      run: () =&gt; show({ type: &quot;info&quot;, title: &quot;New message from Ayesha&quot;, description: &quot;“Can we move the 3pm meeting to 4?”&quot; }),
+    },
+    {
+      label: &quot;Burst ×4&quot;,
+      tone: &quot;burst&quot;,
+      run: () =&gt; {
+        const items = [
+          { type: &quot;info&quot;, title: &quot;Nusrat joined #design&quot; },
+          { type: &quot;success&quot;, title: &quot;Invoice #1042 paid&quot; },
+          { type: &quot;info&quot;, title: &quot;3 new comments on “Roadmap”&quot; },
+          { type: &quot;warning&quot;, title: &quot;Storage 90% full&quot; },
+        ] as const;
+        items.forEach((t, i) =&gt; setTimeout(() =&gt; show({ ...t }), i * 180));
+      },
+    },
+  ];
+
+  return (
+    &lt;div className={styles.frame}&gt;
+      &lt;div className={styles.chrome}&gt;
+        &lt;span /&gt;
+        &lt;span /&gt;
+        &lt;span /&gt;
+        &lt;strong&gt;Inbox · Acme Mail&lt;/strong&gt;
+      &lt;/div&gt;
+      &lt;div className={styles.body}&gt;
+        &lt;p className={styles.heading}&gt;Trigger a notification&lt;/p&gt;
+        &lt;div className={styles.grid}&gt;
+          {actions.map((a) =&gt; (
+            &lt;button key={a.label} type=&quot;button&quot; className={styles.trigger} data-tone={a.tone} onClick={a.run}&gt;
+              &lt;span className={styles.dot} /&gt;
+              {a.label}
+            &lt;/button&gt;
+          ))}
+        &lt;/div&gt;
+        &lt;p className={styles.hint}&gt;Hover the stack to expand · swipe a toast sideways to dismiss&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;Toaster toasts={toasts} onDismiss={dismiss} /&gt;
+    &lt;/div&gt;
+  );
+}
+</code></pre></div><div class="file"><div class="file-head"><span>Toaster.module.css</span><button type="button" class="copy">Copy</button></div><pre><code>.region {
+  --surface: #ffffff;
+  --ink: #0b0b0b;
+  --ink-2: #52514e;
+  --border: rgba(11, 11, 11, 0.09);
+  --success: #12b76a;
+  --error: #f04438;
+  --warning: #f79009;
+  --info: #2e90fa;
+  --ease: cubic-bezier(0.21, 1.02, 0.73, 1);
+
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  z-index: 10;
+  width: min(356px, calc(100% - 32px));
+  font-family: system-ui, -apple-system, &quot;Segoe UI&quot;, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  .region {
+    --surface: #24242a;
+    --ink: #ffffff;
+    --ink-2: #c3c2b7;
+    --border: rgba(255, 255, 255, 0.1);
+  }
+}
+
+.stack { position: relative; margin: 0; padding: 0; list-style: none; transition: height 0.4s var(--ease); }
+
+.toast {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--surface);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06), 0 12px 28px -10px rgba(0, 0, 0, 0.3);
+  color: var(--ink);
+  touch-action: pan-y;
+  user-select: none;
+  transform-origin: 50% 0;
+  transition:
+    transform 0.4s var(--ease),
+    opacity 0.35s ease,
+    height 0.4s var(--ease);
+  cursor: grab;
+}
+.toast[data-dragging=&quot;true&quot;] { transition: opacity 0.1s ease; cursor: grabbing; }
+
+.inner {
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  align-items: start;
+  gap: 10px;
+  padding: 13px 12px 13px 14px;
+}
+
+.icon {
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  margin-top: 1px;
+  border-radius: 50%;
+  color: #fff;
+}
+.icon[data-type=&quot;success&quot;] { background: var(--success); }
+.icon[data-type=&quot;error&quot;] { background: var(--error); }
+.icon[data-type=&quot;warning&quot;] { background: var(--warning); }
+.icon[data-type=&quot;info&quot;] { background: var(--info); }
+.icon svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
+
+.spinner {
+  width: 18px;
+  height: 18px;
+  border: 2.4px solid color-mix(in srgb, var(--ink) 15%, transparent);
+  border-top-color: var(--ink-2);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+.text { min-width: 0; }
+.title { margin: 1px 0 0; font-size: 14px; font-weight: 600; line-height: 1.35; }
+.description { margin: 2px 0 0; color: var(--ink-2); font-size: 13px; line-height: 1.4; }
+
+.action {
+  align-self: center;
+  padding: 5px 11px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--ink);
+  color: var(--surface);
+  font: inherit;
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.action:hover { opacity: 0.85; }
+
+.close {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: 0;
+  border-radius: 6px;
+  background: none;
+  color: var(--ink-2);
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.15s ease, background 0.15s ease;
+}
+.toast:hover .close,
+.close:focus-visible { opacity: 1; }
+.close:hover { background: color-mix(in srgb, var(--ink) 8%, transparent); }
+.close svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; }
+.action:focus-visible,
+.close:focus-visible { outline: 2px solid var(--info); outline-offset: 1px; }
+@media (hover: none) {
+  .close { opacity: 1; }
+}
+
+/* Time left before auto-dismiss */
+.progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2.5px;
+  transform-origin: left;
+  animation: shrink linear forwards;
+}
+.toast[data-type=&quot;success&quot;] .progress { background: var(--success); }
+.toast[data-type=&quot;error&quot;] .progress { background: var(--error); }
+.toast[data-type=&quot;warning&quot;] .progress { background: var(--warning); }
+.toast[data-type=&quot;info&quot;] .progress { background: var(--info); }
+
+@keyframes shrink { from { transform: scaleX(1); } to { transform: scaleX(0); } }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .toast { transition: opacity 0.2s ease; }
+  .stack { transition: none; }
+}
+</code></pre></div><div class="file"><div class="file-head"><span>Toaster.tsx</span><button type="button" class="copy">Copy</button></div><pre><code>&quot;use client&quot;;
+
+import { useEffect, useLayoutEffect, useRef, useState, type PointerEvent } from &quot;react&quot;;
+import { type ToastItem, type ToastType } from &quot;./useToaster&quot;;
+import styles from &quot;./Toaster.module.css&quot;;
+
+type Props = {
+  toasts: ToastItem[];
+  onDismiss: (id: number, exitX?: number) =&gt; void;
+};
+
+const GAP = 10;
+const PEEK = 14; // how much each older toast peeks out above the one in front
+const VISIBLE_WHEN_STACKED = 3;
+const SWIPE_DISMISS = 90;
+
+const ICONS: Record&lt;ToastType, React.ReactNode&gt; = {
+  success: &lt;path d=&quot;M7 12.5l3 3 7-7&quot; /&gt;,
+  error: &lt;path d=&quot;M9 9l6 6m0-6-6 6&quot; /&gt;,
+  warning: &lt;path d=&quot;M12 8v5m0 3.2v.1&quot; /&gt;,
+  info: &lt;path d=&quot;M12 11v5m0-8.2v.1&quot; /&gt;,
+  loading: null,
+};
+
+export default function Toaster({ toasts, onDismiss }: Props) {
+  const [hovered, setHovered] = useState(false);
+  const [focused, setFocused] = useState(false);
+  const [heights, setHeights] = useState&lt;Record&lt;number, number&gt;&gt;({});
+
+  // Newest toast is at the front (index 0).
+  const ordered = [...toasts].reverse();
+  const live = ordered.filter((t) =&gt; !t.removing);
+  const expanded = (hovered || focused) &amp;&amp; live.length &gt; 0;
+  const paused = hovered || focused;
+  const frontHeight = heights[live[0]?.id] ?? 64;
+
+  // Collapse once the last toast is gone, so the next one starts stacked.
+  useEffect(() =&gt; {
+    if (toasts.length === 0) setFocused(false);
+  }, [toasts.length]);
+
+  let offset = 0;
+  const offsets = new Map&lt;number, number&gt;();
+  live.forEach((t, i) =&gt; {
+    offsets.set(t.id, offset);
+    offset += (heights[t.id] ?? 64) + GAP;
+    if (i === live.length - 1) offset -= GAP;
+  });
+
+  const stackHeight = live.length === 0 ? 0 : expanded ? offset : frontHeight + PEEK * Math.min(live.length - 1, VISIBLE_WHEN_STACKED - 1);
+
+  return (
+    &lt;section
+      className={styles.region}
+      aria-label=&quot;Notifications&quot;
+      onMouseEnter={() =&gt; setHovered(true)}
+      onMouseLeave={() =&gt; setHovered(false)}
+      onFocus={() =&gt; setFocused(true)}
+      onBlur={(e) =&gt; {
+        if (!e.currentTarget.contains(e.relatedTarget as Node)) setFocused(false);
+      }}
+    &gt;
+      &lt;ol className={styles.stack} style={{ height: stackHeight }} data-expanded={expanded}&gt;
+        {ordered.map((toast) =&gt; {
+          const index = live.indexOf(toast);
+          return (
+            &lt;Toast
+              key={toast.id}
+              toast={toast}
+              index={index &lt; 0 ? 0 : index}
+              expanded={expanded}
+              offset={offsets.get(toast.id) ?? 0}
+              frontHeight={frontHeight}
+              height={heights[toast.id]}
+              paused={paused}
+              onHeight={(h) =&gt; setHeights((prev) =&gt; (prev[toast.id] === h ? prev : { ...prev, [toast.id]: h }))}
+              onDismiss={onDismiss}
+            /&gt;
+          );
+        })}
+      &lt;/ol&gt;
+    &lt;/section&gt;
+  );
+}
+
+type ToastProps = {
+  toast: ToastItem;
+  index: number;
+  expanded: boolean;
+  offset: number;
+  frontHeight: number;
+  height: number | undefined;
+  paused: boolean;
+  onHeight: (height: number) =&gt; void;
+  onDismiss: (id: number, exitX?: number) =&gt; void;
+};
+
+function Toast({ toast, index, expanded, offset, frontHeight, height, paused, onHeight, onDismiss }: ToastProps) {
+  const inner = useRef&lt;HTMLDivElement&gt;(null);
+  const [mounted, setMounted] = useState(false);
+  const [drag, setDrag] = useState&lt;{ startX: number; dx: number } | null&gt;(null);
+  const remaining = useRef(toast.duration);
+  const lastPosition = useRef({ y: 0, scale: 1 });
+
+  useLayoutEffect(() =&gt; {
+    // +2 for the top and bottom border of the list item.
+    if (inner.current) onHeight(inner.current.offsetHeight + 2);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [toast.version]);
+
+  useEffect(() =&gt; {
+    const raf = requestAnimationFrame(() =&gt; setMounted(true));
+    return () =&gt; cancelAnimationFrame(raf);
+  }, []);
+
+  // Restart the countdown whenever the toast is updated (e.g. loading → success).
+  useEffect(() =&gt; {
+    remaining.current = toast.duration;
+  }, [toast.version, toast.duration]);
+
+  // Auto-dismiss, pausing while the stack is hovered or focused.
+  useEffect(() =&gt; {
+    if (paused || toast.removing || drag || !Number.isFinite(toast.duration)) return;
+    const started = Date.now();
+    const timer = setTimeout(() =&gt; onDismiss(toast.id), remaining.current);
+    return () =&gt; {
+      clearTimeout(timer);
+      remaining.current -= Date.now() - started;
+    };
+  }, [paused, toast.removing, toast.version, toast.duration, toast.id, drag, onDismiss]);
+
+  function onPointerDown(e: PointerEvent&lt;HTMLLIElement&gt;) {
+    if ((e.target as HTMLElement).closest(&quot;button&quot;)) return;
+    e.currentTarget.setPointerCapture(e.pointerId);
+    setDrag({ startX: e.clientX, dx: 0 });
+  }
+  function onPointerMove(e: PointerEvent&lt;HTMLLIElement&gt;) {
+    if (drag) setDrag({ ...drag, dx: e.clientX - drag.startX });
+  }
+  function onPointerUp() {
+    if (!drag) return;
+    if (Math.abs(drag.dx) &gt; SWIPE_DISMISS) onDismiss(toast.id, Math.sign(drag.dx) * 420);
+    setDrag(null);
+  }
+
+  const stacked = !expanded;
+  const hidden = stacked &amp;&amp; index &gt;= VISIBLE_WHEN_STACKED;
+  let x = drag?.dx ?? 0;
+  let y = stacked ? -index * PEEK : -offset;
+  let scale = stacked ? 1 - index * 0.06 : 1;
+  let opacity = hidden ? 0 : 1 - Math.min(Math.abs(x) / 260, 0.7);
+
+  if (!mounted) {
+    y = 80;
+    opacity = 0;
+  }
+  if (toast.removing) {
+    // Leave from where it was, not from the slot it would get after removal.
+    ({ y, scale } = lastPosition.current);
+    if (toast.exitX) x = toast.exitX;
+    else y += 24;
+    opacity = 0;
+    scale *= 0.96;
+  } else if (mounted) {
+    lastPosition.current = { y, scale };
+  }
+
+  const timed = Number.isFinite(toast.duration);
+
+  return (
+    &lt;li
+      className={styles.toast}
+      data-type={toast.type}
+      data-dragging={Boolean(drag)}
+      role={toast.type === &quot;error&quot; ? &quot;alert&quot; : &quot;status&quot;}
+      aria-live={toast.type === &quot;error&quot; ? &quot;assertive&quot; : &quot;polite&quot;}
+      style={{
+        transform: `translate(${x}px, ${y}px) scale(${scale})`,
+        opacity,
+        zIndex: 50 - index,
+        // When stacked, older toasts take the front toast&#x27;s height so their peeks line up.
+        height: stacked &amp;&amp; index &gt; 0 ? frontHeight : height,
+        pointerEvents: hidden || toast.removing ? &quot;none&quot; : undefined,
+      }}
+      onPointerDown={onPointerDown}
+      onPointerMove={onPointerMove}
+      onPointerUp={onPointerUp}
+      onPointerCancel={onPointerUp}
+    &gt;
+      &lt;div ref={inner} className={styles.inner} aria-hidden={hidden || undefined}&gt;
+        &lt;span className={styles.icon} data-type={toast.type} aria-hidden=&quot;true&quot;&gt;
+          {toast.type === &quot;loading&quot; ? (
+            &lt;span className={styles.spinner} /&gt;
+          ) : (
+            &lt;svg viewBox=&quot;0 0 24 24&quot;&gt;{ICONS[toast.type]}&lt;/svg&gt;
+          )}
+        &lt;/span&gt;
+        &lt;div className={styles.text}&gt;
+          &lt;p className={styles.title}&gt;{toast.title}&lt;/p&gt;
+          {toast.description &amp;&amp; &lt;p className={styles.description}&gt;{toast.description}&lt;/p&gt;}
+        &lt;/div&gt;
+        {toast.action &amp;&amp; (
+          &lt;button
+            type=&quot;button&quot;
+            className={styles.action}
+            onClick={() =&gt; {
+              toast.action!.onClick();
+              onDismiss(toast.id);
+            }}
+          &gt;
+            {toast.action.label}
+          &lt;/button&gt;
+        )}
+        &lt;button type=&quot;button&quot; className={styles.close} aria-label=&quot;Dismiss notification&quot; onClick={() =&gt; onDismiss(toast.id)}&gt;
+          &lt;svg viewBox=&quot;0 0 24 24&quot; aria-hidden=&quot;true&quot;&gt;
+            &lt;path d=&quot;M7 7l10 10M17 7 7 17&quot; /&gt;
+          &lt;/svg&gt;
+        &lt;/button&gt;
+      &lt;/div&gt;
+      {timed &amp;&amp; (
+        &lt;span
+          key={toast.version}
+          className={styles.progress}
+          style={{ animationDuration: `${toast.duration}ms`, animationPlayState: paused || drag ? &quot;paused&quot; : &quot;running&quot; }}
+        /&gt;
+      )}
+    &lt;/li&gt;
+  );
+}
+</code></pre></div><div class="file"><div class="file-head"><span>useToaster.ts</span><button type="button" class="copy">Copy</button></div><pre><code>&quot;use client&quot;;
+
+import { useCallback, useState } from &quot;react&quot;;
+
+export type ToastType = &quot;success&quot; | &quot;error&quot; | &quot;warning&quot; | &quot;info&quot; | &quot;loading&quot;;
+
+export type ToastInput = {
+  type?: ToastType;
+  title: string;
+  description?: string;
+  action?: { label: string; onClick: () =&gt; void };
+  /** Milliseconds before auto-dismiss. Loading toasts stay until updated. */
+  duration?: number;
+};
+
+export type ToastItem = ToastInput &amp; {
+  id: number;
+  type: ToastType;
+  duration: number;
+  /** Bumped on every update so timers and progress bars restart. */
+  version: number;
+  removing?: boolean;
+  /** Horizontal fly-out distance when dismissed by a swipe. */
+  exitX?: number;
+};
+
+const MAX_TOASTS = 5;
+const DEFAULT_DURATION = 4000;
+export const EXIT_MS = 350;
+
+let nextId = 1;
+
+const durationFor = (input: ToastInput) =&gt;
+  input.duration ?? (input.type === &quot;loading&quot; ? Infinity : DEFAULT_DURATION);
+
+export function useToaster() {
+  const [toasts, setToasts] = useState&lt;ToastItem[]&gt;([]);
+
+  const dismiss = useCallback((id: number, exitX = 0) =&gt; {
+    setToasts((ts) =&gt; ts.map((t) =&gt; (t.id === id ? { ...t, removing: true, exitX } : t)));
+    setTimeout(() =&gt; setToasts((ts) =&gt; ts.filter((t) =&gt; t.id !== id)), EXIT_MS);
+  }, []);
+
+  const show = useCallback((input: ToastInput) =&gt; {
+    const id = nextId++;
+    const item: ToastItem = { ...input, id, type: input.type ?? &quot;info&quot;, duration: durationFor(input), version: 0 };
+    setToasts((ts) =&gt; [...ts, item].slice(-MAX_TOASTS));
+    return id;
+  }, []);
+
+  const update = useCallback((id: number, input: ToastInput) =&gt; {
+    setToasts((ts) =&gt;
+      ts.map((t) =&gt;
+        t.id === id ? { ...t, ...input, type: input.type ?? t.type, duration: durationFor(input), version: t.version + 1 } : t,
+      ),
+    );
+  }, []);
+
+  /** Shows a loading toast that turns into success or error when the promise settles. */
+  const promise = useCallback(
+    async &lt;T,&gt;(work: Promise&lt;T&gt;, messages: { loading: string; success: string; error: string }) =&gt; {
+      const id = show({ type: &quot;loading&quot;, title: messages.loading });
+      try {
+        const value = await work;
+        update(id, { type: &quot;success&quot;, title: messages.success });
+        return value;
+      } catch (err) {
+        update(id, { type: &quot;error&quot;, title: messages.error });
+        throw err;
+      }
+    },
+    [show, update],
+  );
+
+  return { toasts, show, update, dismiss, promise };
+}
+</code></pre></div></section><nav class="pager"><a href="/component-gallery/components/spin-the-wheel/">← <!-- -->Spin-the-Wheel Picker</a><a href="/component-gallery/components/document-scanner/">Document Scanner<!-- --> →</a></nav></main><!--$--><!--/$--><footer class="site-footer"><div class="container"><span>Built by <!-- -->rownok-HR-LS<!-- --> · LofiStack 90-day challenge</span><a href="https://github.com/rownok-HR-LS/component-gallery">Source on GitHub</a></div></footer><script src="/component-gallery/_next/static/chunks/webpack-1b912f870780f4ba.js" id="_R_" async=""></script><script>(self.__next_f=self.__next_f||[]).push([0])</script><script>self.__next_f.push([1,"1:\"$Sreact.fragment\"\n2:I[2619,[\"619\",\"static/chunks/619-ba102abea3e3d0e4.js\",\"449\",\"static/chunks/app/components/%5Bslug%5D/page-7b18c14fa5ee9ace.js\"],\"\"]\n3:I[9766,[],\"\"]\n4:I[8924,[],\"\"]\n6:I[4431,[],\"OutletBoundary\"]\n8:I[5278,[],\"AsyncMetadataOutlet\"]\na:I[4431,[],\"ViewportBoundary\"]\nc:I[4431,[],\"MetadataBoundary\"]\nd:\"$Sreact.suspense\"\nf:I[7150,[],\"\"]\n:HL[\"/component-gallery/_next/static/css/68cce7808a08b910.css\",\"style\"]\n"])</script><script>self.__next_f.push([1,"0:{\"P\":null,\"b\":\"6jA2vIGrO3aOlnYlKgPnQ\",\"p\":\"/component-gallery\",\"c\":[\"\",\"components\",\"stacking-toasts\",\"\"],\"i\":false,\"f\":[[[\"\",{\"children\":[\"components\",{\"children\":[[\"slug\",\"stacking-toasts\",\"d\"],{\"children\":[\"__PAGE__\",{}]}]}]},\"$undefined\",\"$undefined\",true],[\"\",[\"$\",\"$1\",\"c\",{\"children\":[[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/component-gallery/_next/static/css/68cce7808a08b910.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}]],[\"$\",\"html\",null,{\"lang\":\"en\",\"children\":[\"$\",\"body\",null,{\"children\":[[\"$\",\"header\",null,{\"className\":\"site-header\",\"children\":[\"$\",\"div\",null,{\"className\":\"container\",\"children\":[[\"$\",\"$L2\",null,{\"href\":\"/\",\"className\":\"brand\",\"children\":\"Component Gallery\"}],[\"$\",\"nav\",null,{\"children\":[\"$\",\"a\",null,{\"href\":\"https://github.com/rownok-HR-LS/component-gallery\",\"children\":\"GitHub\"}]}]]}]}],[\"$\",\"$L3\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L4\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":[[\"$\",\"main\",null,{\"className\":\"container\",\"children\":[\"$\",\"header\",null,{\"className\":\"hero\",\"children\":[[\"$\",\"h1\",null,{\"children\":\"Not found\"}],[\"$\",\"p\",null,{\"className\":\"lede\",\"children\":\"That component doesn't exist (yet).\"}],[\"$\",\"$L2\",null,{\"href\":\"/\",\"children\":\"← Back to the gallery\"}]]}]}],[]],\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}],[\"$\",\"footer\",null,{\"className\":\"site-footer\",\"children\":[\"$\",\"div\",null,{\"className\":\"container\",\"children\":[[\"$\",\"span\",null,{\"children\":[\"Built by \",\"rownok-HR-LS\",\" · LofiStack 90-day challenge\"]}],[\"$\",\"a\",null,{\"href\":\"https://github.com/rownok-HR-LS/component-gallery\",\"children\":\"Source on GitHub\"}]]}]}]]}]}]]}],{\"children\":[\"components\",[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"$L3\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L4\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]]}],{\"children\":[[\"slug\",\"stacking-toasts\",\"d\"],[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"$L3\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L4\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]]}],{\"children\":[\"__PAGE__\",[\"$\",\"$1\",\"c\",{\"children\":[\"$L5\",null,[\"$\",\"$L6\",null,{\"children\":[\"$L7\",[\"$\",\"$L8\",null,{\"promise\":\"$@9\"}]]}]]}],{},null,false]},null,false]},null,false]},null,false],[\"$\",\"$1\",\"h\",{\"children\":[null,[[\"$\",\"$La\",null,{\"children\":\"$Lb\"}],null],[\"$\",\"$Lc\",null,{\"children\":[\"$\",\"div\",null,{\"hidden\":true,\"children\":[\"$\",\"$d\",null,{\"fallback\":null,\"children\":\"$Le\"}]}]}]]}],false]],\"m\":\"$undefined\",\"G\":[\"$f\",[]],\"s\":false,\"S\":true}\n"])</script><script>self.__next_f.push([1,"b:[[\"$\",\"meta\",\"0\",{\"charSet\":\"utf-8\"}],[\"$\",\"meta\",\"1\",{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"}]]\n7:null\n"])</script><script>self.__next_f.push([1,"9:{\"metadata\":[[\"$\",\"title\",\"0\",{\"children\":\"Stacking Toast Notifications · Component Gallery\"}],[\"$\",\"meta\",\"1\",{\"name\":\"description\",\"content\":\"Toasts that stack like cards, fan out on hover, pause their timers, swipe away, and turn loading into success, with Undo and Retry actions.\"}]],\"error\":null,\"digest\":\"$undefined\"}\n"])</script><script>self.__next_f.push([1,"e:\"$9:metadata\"\n"])</script><script>self.__next_f.push([1,"10:I[2325,[\"619\",\"static/chunks/619-ba102abea3e3d0e4.js\",\"449\",\"static/chunks/app/components/%5Bslug%5D/page-7b18c14fa5ee9ace.js\"],\"Demo\"]\n11:I[7333,[\"619\",\"static/chunks/619-ba102abea3e3d0e4.js\",\"449\",\"static/chunks/app/components/%5Bslug%5D/page-7b18c14fa5ee9ace.js\"],\"CopyButton\"]\n12:Ta26,"])</script><script>self.__next_f.push([1,".frame {\n  --surface: #fcfcfb;\n  --ink: #0b0b0b;\n  --ink-2: #52514e;\n  --muted: #898781;\n  --border: rgba(11, 11, 11, 0.1);\n  --field: #f2f1ee;\n\n  position: relative;\n  width: 100%;\n  max-width: 640px;\n  min-height: 440px;\n  overflow: hidden;\n  border: 1px solid var(--border);\n  border-radius: 16px;\n  background: var(--surface);\n  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 16px 40px -16px rgba(0, 0, 0, 0.25);\n  color: var(--ink);\n  font-family: system-ui, -apple-system, \"Segoe UI\", sans-serif;\n}\n\n@media (prefers-color-scheme: dark) {\n  .frame {\n    --surface: #17171a;\n    --ink: #ffffff;\n    --ink-2: #c3c2b7;\n    --border: rgba(255, 255, 255, 0.1);\n    --field: #222226;\n    box-shadow: 0 16px 40px -16px rgba(0, 0, 0, 0.7);\n  }\n}\n\n.chrome {\n  display: flex;\n  align-items: center;\n  gap: 7px;\n  height: 40px;\n  padding: 0 14px;\n  border-bottom: 1px solid var(--border);\n  background: var(--field);\n}\n.chrome span { width: 11px; height: 11px; border-radius: 50%; background: #ff5f57; }\n.chrome span:nth-child(2) { background: #febc2e; }\n.chrome span:nth-child(3) { background: #28c840; }\n.chrome strong { margin-left: 10px; color: var(--ink-2); font-size: 12.5px; font-weight: 600; }\n\n/* Bottom padding leaves room for the toast stack so it doesn't cover the buttons. */\n.body { padding: 22px 22px 130px; }\n.heading { margin: 0 0 12px; color: var(--ink-2); font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; }\n\n.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(150px, 40%), 1fr)); gap: 8px; }\n.trigger {\n  display: flex;\n  align-items: center;\n  gap: 9px;\n  padding: 11px 12px;\n  border: 1px solid var(--border);\n  border-radius: 10px;\n  background: var(--surface);\n  color: var(--ink);\n  font: inherit;\n  font-size: 13.5px;\n  font-weight: 500;\n  text-align: left;\n  cursor: pointer;\n  transition: background 0.15s ease, transform 0.1s ease;\n}\n.trigger:hover { background: var(--field); }\n.trigger:active { transform: scale(0.98); }\n.trigger:focus-visible { outline: 2px solid #2e90fa; outline-offset: 2px; }\n\n.dot { width: 8px; height: 8px; flex: none; border-radius: 50%; background: #2e90fa; }\n.trigger[data-tone=\"success\"] .dot { background: #12b76a; }\n.trigger[data-tone=\"warning\"] .dot { background: #f79009; }\n.trigger[data-tone=\"error\"] .dot { background: #f04438; }\n.trigger[data-tone=\"loading\"] .dot { background: var(--muted); }\n.trigger[data-tone=\"burst\"] .dot { background: conic-gradient(#12b76a 0 25%, #2e90fa 0 50%, #f79009 0 75%, #f04438 0); }\n\n.hint { margin: 14px 0 0; color: var(--muted); font-size: 12px; }\n"])</script><script>self.__next_f.push([1,"5:[\"$\",\"main\",null,{\"className\":\"container\",\"children\":[[\"$\",\"$L2\",null,{\"href\":\"/\",\"className\":\"back\",\"children\":\"← All components\"}],[\"$\",\"header\",null,{\"className\":\"detail-head\",\"children\":[[\"$\",\"span\",null,{\"className\":\"tag\",\"children\":[\"Week \",4,\" · \",\"2026-10-08\"]}],[\"$\",\"h1\",null,{\"children\":\"Stacking Toast Notifications\"}],[\"$\",\"p\",null,{\"children\":\"Toasts that stack like cards, fan out on hover, pause their timers, swipe away, and turn loading into success, with Undo and Retry actions.\"}]]}],[\"$\",\"section\",null,{\"className\":\"stage\",\"aria-label\":\"Live demo\",\"children\":[\"$\",\"$L10\",null,{\"slug\":\"stacking-toasts\"}]}],[\"$\",\"section\",null,{\"className\":\"source\",\"children\":[[\"$\",\"h2\",null,{\"children\":\"Source\"}],[[\"$\",\"div\",\"Demo.module.css\",{\"className\":\"file\",\"children\":[[\"$\",\"div\",null,{\"className\":\"file-head\",\"children\":[[\"$\",\"span\",null,{\"children\":\"Demo.module.css\"}],[\"$\",\"$L11\",null,{\"text\":\"$12\"}]]}],\"$L13\"]}],\"$L14\",\"$L15\",\"$L16\",\"$L17\"]]}],\"$L18\"]}]\n"])</script><script>self.__next_f.push([1,"19:Ta26,"])</script><script>self.__next_f.push([1,".frame {\n  --surface: #fcfcfb;\n  --ink: #0b0b0b;\n  --ink-2: #52514e;\n  --muted: #898781;\n  --border: rgba(11, 11, 11, 0.1);\n  --field: #f2f1ee;\n\n  position: relative;\n  width: 100%;\n  max-width: 640px;\n  min-height: 440px;\n  overflow: hidden;\n  border: 1px solid var(--border);\n  border-radius: 16px;\n  background: var(--surface);\n  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 16px 40px -16px rgba(0, 0, 0, 0.25);\n  color: var(--ink);\n  font-family: system-ui, -apple-system, \"Segoe UI\", sans-serif;\n}\n\n@media (prefers-color-scheme: dark) {\n  .frame {\n    --surface: #17171a;\n    --ink: #ffffff;\n    --ink-2: #c3c2b7;\n    --border: rgba(255, 255, 255, 0.1);\n    --field: #222226;\n    box-shadow: 0 16px 40px -16px rgba(0, 0, 0, 0.7);\n  }\n}\n\n.chrome {\n  display: flex;\n  align-items: center;\n  gap: 7px;\n  height: 40px;\n  padding: 0 14px;\n  border-bottom: 1px solid var(--border);\n  background: var(--field);\n}\n.chrome span { width: 11px; height: 11px; border-radius: 50%; background: #ff5f57; }\n.chrome span:nth-child(2) { background: #febc2e; }\n.chrome span:nth-child(3) { background: #28c840; }\n.chrome strong { margin-left: 10px; color: var(--ink-2); font-size: 12.5px; font-weight: 600; }\n\n/* Bottom padding leaves room for the toast stack so it doesn't cover the buttons. */\n.body { padding: 22px 22px 130px; }\n.heading { margin: 0 0 12px; color: var(--ink-2); font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; }\n\n.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(150px, 40%), 1fr)); gap: 8px; }\n.trigger {\n  display: flex;\n  align-items: center;\n  gap: 9px;\n  padding: 11px 12px;\n  border: 1px solid var(--border);\n  border-radius: 10px;\n  background: var(--surface);\n  color: var(--ink);\n  font: inherit;\n  font-size: 13.5px;\n  font-weight: 500;\n  text-align: left;\n  cursor: pointer;\n  transition: background 0.15s ease, transform 0.1s ease;\n}\n.trigger:hover { background: var(--field); }\n.trigger:active { transform: scale(0.98); }\n.trigger:focus-visible { outline: 2px solid #2e90fa; outline-offset: 2px; }\n\n.dot { width: 8px; height: 8px; flex: none; border-radius: 50%; background: #2e90fa; }\n.trigger[data-tone=\"success\"] .dot { background: #12b76a; }\n.trigger[data-tone=\"warning\"] .dot { background: #f79009; }\n.trigger[data-tone=\"error\"] .dot { background: #f04438; }\n.trigger[data-tone=\"loading\"] .dot { background: var(--muted); }\n.trigger[data-tone=\"burst\"] .dot { background: conic-gradient(#12b76a 0 25%, #2e90fa 0 50%, #f79009 0 75%, #f04438 0); }\n\n.hint { margin: 14px 0 0; color: var(--muted); font-size: 12px; }\n"])</script><script>self.__next_f.push([1,"13:[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"children\":\"$19\"}]}]\n1a:Tbe6,"])</script><script>self.__next_f.push([1,"\"use client\";\n\nimport Toaster from \"./Toaster\";\nimport { useToaster } from \"./useToaster\";\nimport styles from \"./Demo.module.css\";\n\nconst wait = (ms: number) =\u003e new Promise((resolve) =\u003e setTimeout(resolve, ms));\n\n// A mock mail app whose buttons fire each kind of toast.\nexport default function Demo() {\n  const { toasts, show, dismiss, promise } = useToaster();\n\n  const actions = [\n    {\n      label: \"Save changes\",\n      tone: \"success\",\n      run: () =\u003e show({ type: \"success\", title: \"Changes saved\", description: \"Your signature was updated.\" }),\n    },\n    {\n      label: \"Upload report.pdf\",\n      tone: \"loading\",\n      run: () =\u003e\n        promise(wait(2200), { loading: \"Uploading report.pdf…\", success: \"report.pdf uploaded\", error: \"Upload failed\" }).catch(() =\u003e {}),\n    },\n    {\n      label: \"Delete email\",\n      tone: \"warning\",\n      run: () =\u003e\n        show({\n          type: \"warning\",\n          title: \"Email moved to Trash\",\n          description: \"“Q3 budget review” from Imran\",\n          duration: 6000,\n          action: { label: \"Undo\", onClick: () =\u003e show({ type: \"success\", title: \"Email restored\" }) },\n        }),\n    },\n    {\n      label: \"Go offline\",\n      tone: \"error\",\n      run: () =\u003e\n        show({\n          type: \"error\",\n          title: \"Connection lost\",\n          description: \"Changes will sync when you're back online.\",\n          action: {\n            label: \"Retry\",\n            onClick: () =\u003e\n              promise(wait(1500), { loading: \"Reconnecting…\", success: \"Back online\", error: \"Still offline\" }).catch(() =\u003e {}),\n          },\n        }),\n    },\n    {\n      label: \"New message\",\n      tone: \"info\",\n      run: () =\u003e show({ type: \"info\", title: \"New message from Ayesha\", description: \"“Can we move the 3pm meeting to 4?”\" }),\n    },\n    {\n      label: \"Burst ×4\",\n      tone: \"burst\",\n      run: () =\u003e {\n        const items = [\n          { type: \"info\", title: \"Nusrat joined #design\" },\n          { type: \"success\", title: \"Invoice #1042 paid\" },\n          { type: \"info\", title: \"3 new comments on “Roadmap”\" },\n          { type: \"warning\", title: \"Storage 90% full\" },\n        ] as const;\n        items.forEach((t, i) =\u003e setTimeout(() =\u003e show({ ...t }), i * 180));\n      },\n    },\n  ];\n\n  return (\n    \u003cdiv className={styles.frame}\u003e\n      \u003cdiv className={styles.chrome}\u003e\n        \u003cspan /\u003e\n        \u003cspan /\u003e\n        \u003cspan /\u003e\n        \u003cstrong\u003eInbox · Acme Mail\u003c/strong\u003e\n      \u003c/div\u003e\n      \u003cdiv className={styles.body}\u003e\n        \u003cp className={styles.heading}\u003eTrigger a notification\u003c/p\u003e\n        \u003cdiv className={styles.grid}\u003e\n          {actions.map((a) =\u003e (\n            \u003cbutton key={a.label} type=\"button\" className={styles.trigger} data-tone={a.tone} onClick={a.run}\u003e\n              \u003cspan className={styles.dot} /\u003e\n              {a.label}\n            \u003c/button\u003e\n          ))}\n        \u003c/div\u003e\n        \u003cp className={styles.hint}\u003eHover the stack to expand · swipe a toast sideways to dismiss\u003c/p\u003e\n      \u003c/div\u003e\n      \u003cToaster toasts={toasts} onDismiss={dismiss} /\u003e\n    \u003c/div\u003e\n  );\n}\n"])</script><script>self.__next_f.push([1,"1b:Tbe6,"])</script><script>self.__next_f.push([1,"\"use client\";\n\nimport Toaster from \"./Toaster\";\nimport { useToaster } from \"./useToaster\";\nimport styles from \"./Demo.module.css\";\n\nconst wait = (ms: number) =\u003e new Promise((resolve) =\u003e setTimeout(resolve, ms));\n\n// A mock mail app whose buttons fire each kind of toast.\nexport default function Demo() {\n  const { toasts, show, dismiss, promise } = useToaster();\n\n  const actions = [\n    {\n      label: \"Save changes\",\n      tone: \"success\",\n      run: () =\u003e show({ type: \"success\", title: \"Changes saved\", description: \"Your signature was updated.\" }),\n    },\n    {\n      label: \"Upload report.pdf\",\n      tone: \"loading\",\n      run: () =\u003e\n        promise(wait(2200), { loading: \"Uploading report.pdf…\", success: \"report.pdf uploaded\", error: \"Upload failed\" }).catch(() =\u003e {}),\n    },\n    {\n      label: \"Delete email\",\n      tone: \"warning\",\n      run: () =\u003e\n        show({\n          type: \"warning\",\n          title: \"Email moved to Trash\",\n          description: \"“Q3 budget review” from Imran\",\n          duration: 6000,\n          action: { label: \"Undo\", onClick: () =\u003e show({ type: \"success\", title: \"Email restored\" }) },\n        }),\n    },\n    {\n      label: \"Go offline\",\n      tone: \"error\",\n      run: () =\u003e\n        show({\n          type: \"error\",\n          title: \"Connection lost\",\n          description: \"Changes will sync when you're back online.\",\n          action: {\n            label: \"Retry\",\n            onClick: () =\u003e\n              promise(wait(1500), { loading: \"Reconnecting…\", success: \"Back online\", error: \"Still offline\" }).catch(() =\u003e {}),\n          },\n        }),\n    },\n    {\n      label: \"New message\",\n      tone: \"info\",\n      run: () =\u003e show({ type: \"info\", title: \"New message from Ayesha\", description: \"“Can we move the 3pm meeting to 4?”\" }),\n    },\n    {\n      label: \"Burst ×4\",\n      tone: \"burst\",\n      run: () =\u003e {\n        const items = [\n          { type: \"info\", title: \"Nusrat joined #design\" },\n          { type: \"success\", title: \"Invoice #1042 paid\" },\n          { type: \"info\", title: \"3 new comments on “Roadmap”\" },\n          { type: \"warning\", title: \"Storage 90% full\" },\n        ] as const;\n        items.forEach((t, i) =\u003e setTimeout(() =\u003e show({ ...t }), i * 180));\n      },\n    },\n  ];\n\n  return (\n    \u003cdiv className={styles.frame}\u003e\n      \u003cdiv className={styles.chrome}\u003e\n        \u003cspan /\u003e\n        \u003cspan /\u003e\n        \u003cspan /\u003e\n        \u003cstrong\u003eInbox · Acme Mail\u003c/strong\u003e\n      \u003c/div\u003e\n      \u003cdiv className={styles.body}\u003e\n        \u003cp className={styles.heading}\u003eTrigger a notification\u003c/p\u003e\n        \u003cdiv className={styles.grid}\u003e\n          {actions.map((a) =\u003e (\n            \u003cbutton key={a.label} type=\"button\" className={styles.trigger} data-tone={a.tone} onClick={a.run}\u003e\n              \u003cspan className={styles.dot} /\u003e\n              {a.label}\n            \u003c/button\u003e\n          ))}\n        \u003c/div\u003e\n        \u003cp className={styles.hint}\u003eHover the stack to expand · swipe a toast sideways to dismiss\u003c/p\u003e\n      \u003c/div\u003e\n      \u003cToaster toasts={toasts} onDismiss={dismiss} /\u003e\n    \u003c/div\u003e\n  );\n}\n"])</script><script>self.__next_f.push([1,"14:[\"$\",\"div\",\"Demo.tsx\",{\"className\":\"file\",\"children\":[[\"$\",\"div\",null,{\"className\":\"file-head\",\"children\":[[\"$\",\"span\",null,{\"children\":\"Demo.tsx\"}],[\"$\",\"$L11\",null,{\"text\":\"$1a\"}]]}],[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"children\":\"$1b\"}]}]]}]\n1c:Tf58,"])</script><script>self.__next_f.push([1,".region {\n  --surface: #ffffff;\n  --ink: #0b0b0b;\n  --ink-2: #52514e;\n  --border: rgba(11, 11, 11, 0.09);\n  --success: #12b76a;\n  --error: #f04438;\n  --warning: #f79009;\n  --info: #2e90fa;\n  --ease: cubic-bezier(0.21, 1.02, 0.73, 1);\n\n  position: absolute;\n  right: 16px;\n  bottom: 16px;\n  z-index: 10;\n  width: min(356px, calc(100% - 32px));\n  font-family: system-ui, -apple-system, \"Segoe UI\", sans-serif;\n}\n\n@media (prefers-color-scheme: dark) {\n  .region {\n    --surface: #24242a;\n    --ink: #ffffff;\n    --ink-2: #c3c2b7;\n    --border: rgba(255, 255, 255, 0.1);\n  }\n}\n\n.stack { position: relative; margin: 0; padding: 0; list-style: none; transition: height 0.4s var(--ease); }\n\n.toast {\n  position: absolute;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  overflow: hidden;\n  border: 1px solid var(--border);\n  border-radius: 14px;\n  background: var(--surface);\n  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06), 0 12px 28px -10px rgba(0, 0, 0, 0.3);\n  color: var(--ink);\n  touch-action: pan-y;\n  user-select: none;\n  transform-origin: 50% 0;\n  transition:\n    transform 0.4s var(--ease),\n    opacity 0.35s ease,\n    height 0.4s var(--ease);\n  cursor: grab;\n}\n.toast[data-dragging=\"true\"] { transition: opacity 0.1s ease; cursor: grabbing; }\n\n.inner {\n  display: grid;\n  grid-template-columns: auto 1fr auto auto;\n  align-items: start;\n  gap: 10px;\n  padding: 13px 12px 13px 14px;\n}\n\n.icon {\n  display: grid;\n  place-items: center;\n  width: 22px;\n  height: 22px;\n  margin-top: 1px;\n  border-radius: 50%;\n  color: #fff;\n}\n.icon[data-type=\"success\"] { background: var(--success); }\n.icon[data-type=\"error\"] { background: var(--error); }\n.icon[data-type=\"warning\"] { background: var(--warning); }\n.icon[data-type=\"info\"] { background: var(--info); }\n.icon svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }\n\n.spinner {\n  width: 18px;\n  height: 18px;\n  border: 2.4px solid color-mix(in srgb, var(--ink) 15%, transparent);\n  border-top-color: var(--ink-2);\n  border-radius: 50%;\n  animation: spin 0.8s linear infinite;\n}\n\n.text { min-width: 0; }\n.title { margin: 1px 0 0; font-size: 14px; font-weight: 600; line-height: 1.35; }\n.description { margin: 2px 0 0; color: var(--ink-2); font-size: 13px; line-height: 1.4; }\n\n.action {\n  align-self: center;\n  padding: 5px 11px;\n  border: 0;\n  border-radius: 8px;\n  background: var(--ink);\n  color: var(--surface);\n  font: inherit;\n  font-size: 12.5px;\n  font-weight: 600;\n  cursor: pointer;\n}\n.action:hover { opacity: 0.85; }\n\n.close {\n  display: grid;\n  place-items: center;\n  width: 24px;\n  height: 24px;\n  padding: 0;\n  border: 0;\n  border-radius: 6px;\n  background: none;\n  color: var(--ink-2);\n  cursor: pointer;\n  opacity: 0;\n  transition: opacity 0.15s ease, background 0.15s ease;\n}\n.toast:hover .close,\n.close:focus-visible { opacity: 1; }\n.close:hover { background: color-mix(in srgb, var(--ink) 8%, transparent); }\n.close svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; }\n.action:focus-visible,\n.close:focus-visible { outline: 2px solid var(--info); outline-offset: 1px; }\n@media (hover: none) {\n  .close { opacity: 1; }\n}\n\n/* Time left before auto-dismiss */\n.progress {\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  width: 100%;\n  height: 2.5px;\n  transform-origin: left;\n  animation: shrink linear forwards;\n}\n.toast[data-type=\"success\"] .progress { background: var(--success); }\n.toast[data-type=\"error\"] .progress { background: var(--error); }\n.toast[data-type=\"warning\"] .progress { background: var(--warning); }\n.toast[data-type=\"info\"] .progress { background: var(--info); }\n\n@keyframes shrink { from { transform: scaleX(1); } to { transform: scaleX(0); } }\n@keyframes spin { to { transform: rotate(360deg); } }\n\n@media (prefers-reduced-motion: reduce) {\n  .toast { transition: opacity 0.2s ease; }\n  .stack { transition: none; }\n}\n"])</script><script>self.__next_f.push([1,"15:[\"$\",\"div\",\"Toaster.module.css\",{\"className\":\"file\",\"children\":[[\"$\",\"div\",null,{\"className\":\"file-head\",\"children\":[[\"$\",\"span\",null,{\"children\":\"Toaster.module.css\"}],[\"$\",\"$L11\",null,{\"text\":\"$1c\"}]]}],\"$L1d\"]}]\n1e:T1e82,"])</script><script>self.__next_f.push([1,"\"use client\";\n\nimport { useEffect, useLayoutEffect, useRef, useState, type PointerEvent } from \"react\";\nimport { type ToastItem, type ToastType } from \"./useToaster\";\nimport styles from \"./Toaster.module.css\";\n\ntype Props = {\n  toasts: ToastItem[];\n  onDismiss: (id: number, exitX?: number) =\u003e void;\n};\n\nconst GAP = 10;\nconst PEEK = 14; // how much each older toast peeks out above the one in front\nconst VISIBLE_WHEN_STACKED = 3;\nconst SWIPE_DISMISS = 90;\n\nconst ICONS: Record\u003cToastType, React.ReactNode\u003e = {\n  success: \u003cpath d=\"M7 12.5l3 3 7-7\" /\u003e,\n  error: \u003cpath d=\"M9 9l6 6m0-6-6 6\" /\u003e,\n  warning: \u003cpath d=\"M12 8v5m0 3.2v.1\" /\u003e,\n  info: \u003cpath d=\"M12 11v5m0-8.2v.1\" /\u003e,\n  loading: null,\n};\n\nexport default function Toaster({ toasts, onDismiss }: Props) {\n  const [hovered, setHovered] = useState(false);\n  const [focused, setFocused] = useState(false);\n  const [heights, setHeights] = useState\u003cRecord\u003cnumber, number\u003e\u003e({});\n\n  // Newest toast is at the front (index 0).\n  const ordered = [...toasts].reverse();\n  const live = ordered.filter((t) =\u003e !t.removing);\n  const expanded = (hovered || focused) \u0026\u0026 live.length \u003e 0;\n  const paused = hovered || focused;\n  const frontHeight = heights[live[0]?.id] ?? 64;\n\n  // Collapse once the last toast is gone, so the next one starts stacked.\n  useEffect(() =\u003e {\n    if (toasts.length === 0) setFocused(false);\n  }, [toasts.length]);\n\n  let offset = 0;\n  const offsets = new Map\u003cnumber, number\u003e();\n  live.forEach((t, i) =\u003e {\n    offsets.set(t.id, offset);\n    offset += (heights[t.id] ?? 64) + GAP;\n    if (i === live.length - 1) offset -= GAP;\n  });\n\n  const stackHeight = live.length === 0 ? 0 : expanded ? offset : frontHeight + PEEK * Math.min(live.length - 1, VISIBLE_WHEN_STACKED - 1);\n\n  return (\n    \u003csection\n      className={styles.region}\n      aria-label=\"Notifications\"\n      onMouseEnter={() =\u003e setHovered(true)}\n      onMouseLeave={() =\u003e setHovered(false)}\n      onFocus={() =\u003e setFocused(true)}\n      onBlur={(e) =\u003e {\n        if (!e.currentTarget.contains(e.relatedTarget as Node)) setFocused(false);\n      }}\n    \u003e\n      \u003col className={styles.stack} style={{ height: stackHeight }} data-expanded={expanded}\u003e\n        {ordered.map((toast) =\u003e {\n          const index = live.indexOf(toast);\n          return (\n            \u003cToast\n              key={toast.id}\n              toast={toast}\n              index={index \u003c 0 ? 0 : index}\n              expanded={expanded}\n              offset={offsets.get(toast.id) ?? 0}\n              frontHeight={frontHeight}\n              height={heights[toast.id]}\n              paused={paused}\n              onHeight={(h) =\u003e setHeights((prev) =\u003e (prev[toast.id] === h ? prev : { ...prev, [toast.id]: h }))}\n              onDismiss={onDismiss}\n            /\u003e\n          );\n        })}\n      \u003c/ol\u003e\n    \u003c/section\u003e\n  );\n}\n\ntype ToastProps = {\n  toast: ToastItem;\n  index: number;\n  expanded: boolean;\n  offset: number;\n  frontHeight: number;\n  height: number | undefined;\n  paused: boolean;\n  onHeight: (height: number) =\u003e void;\n  onDismiss: (id: number, exitX?: number) =\u003e void;\n};\n\nfunction Toast({ toast, index, expanded, offset, frontHeight, height, paused, onHeight, onDismiss }: ToastProps) {\n  const inner = useRef\u003cHTMLDivElement\u003e(null);\n  const [mounted, setMounted] = useState(false);\n  const [drag, setDrag] = useState\u003c{ startX: number; dx: number } | null\u003e(null);\n  const remaining = useRef(toast.duration);\n  const lastPosition = useRef({ y: 0, scale: 1 });\n\n  useLayoutEffect(() =\u003e {\n    // +2 for the top and bottom border of the list item.\n    if (inner.current) onHeight(inner.current.offsetHeight + 2);\n    // eslint-disable-next-line react-hooks/exhaustive-deps\n  }, [toast.version]);\n\n  useEffect(() =\u003e {\n    const raf = requestAnimationFrame(() =\u003e setMounted(true));\n    return () =\u003e cancelAnimationFrame(raf);\n  }, []);\n\n  // Restart the countdown whenever the toast is updated (e.g. loading → success).\n  useEffect(() =\u003e {\n    remaining.current = toast.duration;\n  }, [toast.version, toast.duration]);\n\n  // Auto-dismiss, pausing while the stack is hovered or focused.\n  useEffect(() =\u003e {\n    if (paused || toast.removing || drag || !Number.isFinite(toast.duration)) return;\n    const started = Date.now();\n    const timer = setTimeout(() =\u003e onDismiss(toast.id), remaining.current);\n    return () =\u003e {\n      clearTimeout(timer);\n      remaining.current -= Date.now() - started;\n    };\n  }, [paused, toast.removing, toast.version, toast.duration, toast.id, drag, onDismiss]);\n\n  function onPointerDown(e: PointerEvent\u003cHTMLLIElement\u003e) {\n    if ((e.target as HTMLElement).closest(\"button\")) return;\n    e.currentTarget.setPointerCapture(e.pointerId);\n    setDrag({ startX: e.clientX, dx: 0 });\n  }\n  function onPointerMove(e: PointerEvent\u003cHTMLLIElement\u003e) {\n    if (drag) setDrag({ ...drag, dx: e.clientX - drag.startX });\n  }\n  function onPointerUp() {\n    if (!drag) return;\n    if (Math.abs(drag.dx) \u003e SWIPE_DISMISS) onDismiss(toast.id, Math.sign(drag.dx) * 420);\n    setDrag(null);\n  }\n\n  const stacked = !expanded;\n  const hidden = stacked \u0026\u0026 index \u003e= VISIBLE_WHEN_STACKED;\n  let x = drag?.dx ?? 0;\n  let y = stacked ? -index * PEEK : -offset;\n  let scale = stacked ? 1 - index * 0.06 : 1;\n  let opacity = hidden ? 0 : 1 - Math.min(Math.abs(x) / 260, 0.7);\n\n  if (!mounted) {\n    y = 80;\n    opacity = 0;\n  }\n  if (toast.removing) {\n    // Leave from where it was, not from the slot it would get after removal.\n    ({ y, scale } = lastPosition.current);\n    if (toast.exitX) x = toast.exitX;\n    else y += 24;\n    opacity = 0;\n    scale *= 0.96;\n  } else if (mounted) {\n    lastPosition.current = { y, scale };\n  }\n\n  const timed = Number.isFinite(toast.duration);\n\n  return (\n    \u003cli\n      className={styles.toast}\n      data-type={toast.type}\n      data-dragging={Boolean(drag)}\n      role={toast.type === \"error\" ? \"alert\" : \"status\"}\n      aria-live={toast.type === \"error\" ? \"assertive\" : \"polite\"}\n      style={{\n        transform: `translate(${x}px, ${y}px) scale(${scale})`,\n        opacity,\n        zIndex: 50 - index,\n        // When stacked, older toasts take the front toast's height so their peeks line up.\n        height: stacked \u0026\u0026 index \u003e 0 ? frontHeight : height,\n        pointerEvents: hidden || toast.removing ? \"none\" : undefined,\n      }}\n      onPointerDown={onPointerDown}\n      onPointerMove={onPointerMove}\n      onPointerUp={onPointerUp}\n      onPointerCancel={onPointerUp}\n    \u003e\n      \u003cdiv ref={inner} className={styles.inner} aria-hidden={hidden || undefined}\u003e\n        \u003cspan className={styles.icon} data-type={toast.type} aria-hidden=\"true\"\u003e\n          {toast.type === \"loading\" ? (\n            \u003cspan className={styles.spinner} /\u003e\n          ) : (\n            \u003csvg viewBox=\"0 0 24 24\"\u003e{ICONS[toast.type]}\u003c/svg\u003e\n          )}\n        \u003c/span\u003e\n        \u003cdiv className={styles.text}\u003e\n          \u003cp className={styles.title}\u003e{toast.title}\u003c/p\u003e\n          {toast.description \u0026\u0026 \u003cp className={styles.description}\u003e{toast.description}\u003c/p\u003e}\n        \u003c/div\u003e\n        {toast.action \u0026\u0026 (\n          \u003cbutton\n            type=\"button\"\n            className={styles.action}\n            onClick={() =\u003e {\n              toast.action!.onClick();\n              onDismiss(toast.id);\n            }}\n          \u003e\n            {toast.action.label}\n          \u003c/button\u003e\n        )}\n        \u003cbutton type=\"button\" className={styles.close} aria-label=\"Dismiss notification\" onClick={() =\u003e onDismiss(toast.id)}\u003e\n          \u003csvg viewBox=\"0 0 24 24\" aria-hidden=\"true\"\u003e\n            \u003cpath d=\"M7 7l10 10M17 7 7 17\" /\u003e\n          \u003c/svg\u003e\n        \u003c/button\u003e\n      \u003c/div\u003e\n      {timed \u0026\u0026 (\n        \u003cspan\n          key={toast.version}\n          className={styles.progress}\n          style={{ animationDuration: `${toast.duration}ms`, animationPlayState: paused || drag ? \"paused\" : \"running\" }}\n        /\u003e\n      )}\n    \u003c/li\u003e\n  );\n}\n"])</script><script>self.__next_f.push([1,"16:[\"$\",\"div\",\"Toaster.tsx\",{\"className\":\"file\",\"children\":[[\"$\",\"div\",null,{\"className\":\"file-head\",\"children\":[[\"$\",\"span\",null,{\"children\":\"Toaster.tsx\"}],[\"$\",\"$L11\",null,{\"text\":\"$1e\"}]]}],\"$L1f\"]}]\n20:T953,"])</script><script>self.__next_f.push([1,"\"use client\";\n\nimport { useCallback, useState } from \"react\";\n\nexport type ToastType = \"success\" | \"error\" | \"warning\" | \"info\" | \"loading\";\n\nexport type ToastInput = {\n  type?: ToastType;\n  title: string;\n  description?: string;\n  action?: { label: string; onClick: () =\u003e void };\n  /** Milliseconds before auto-dismiss. Loading toasts stay until updated. */\n  duration?: number;\n};\n\nexport type ToastItem = ToastInput \u0026 {\n  id: number;\n  type: ToastType;\n  duration: number;\n  /** Bumped on every update so timers and progress bars restart. */\n  version: number;\n  removing?: boolean;\n  /** Horizontal fly-out distance when dismissed by a swipe. */\n  exitX?: number;\n};\n\nconst MAX_TOASTS = 5;\nconst DEFAULT_DURATION = 4000;\nexport const EXIT_MS = 350;\n\nlet nextId = 1;\n\nconst durationFor = (input: ToastInput) =\u003e\n  input.duration ?? (input.type === \"loading\" ? Infinity : DEFAULT_DURATION);\n\nexport function useToaster() {\n  const [toasts, setToasts] = useState\u003cToastItem[]\u003e([]);\n\n  const dismiss = useCallback((id: number, exitX = 0) =\u003e {\n    setToasts((ts) =\u003e ts.map((t) =\u003e (t.id === id ? { ...t, removing: true, exitX } : t)));\n    setTimeout(() =\u003e setToasts((ts) =\u003e ts.filter((t) =\u003e t.id !== id)), EXIT_MS);\n  }, []);\n\n  const show = useCallback((input: ToastInput) =\u003e {\n    const id = nextId++;\n    const item: ToastItem = { ...input, id, type: input.type ?? \"info\", duration: durationFor(input), version: 0 };\n    setToasts((ts) =\u003e [...ts, item].slice(-MAX_TOASTS));\n    return id;\n  }, []);\n\n  const update = useCallback((id: number, input: ToastInput) =\u003e {\n    setToasts((ts) =\u003e\n      ts.map((t) =\u003e\n        t.id === id ? { ...t, ...input, type: input.type ?? t.type, duration: durationFor(input), version: t.version + 1 } : t,\n      ),\n    );\n  }, []);\n\n  /** Shows a loading toast that turns into success or error when the promise settles. */\n  const promise = useCallback(\n    async \u003cT,\u003e(work: Promise\u003cT\u003e, messages: { loading: string; success: string; error: string }) =\u003e {\n      const id = show({ type: \"loading\", title: messages.loading });\n      try {\n        const value = await work;\n        update(id, { type: \"success\", title: messages.success });\n        return value;\n      } catch (err) {\n        update(id, { type: \"error\", title: messages.error });\n        throw err;\n      }\n    },\n    [show, update],\n  );\n\n  return { toasts, show, update, dismiss, promise };\n}\n"])</script><script>self.__next_f.push([1,"21:T953,"])</script><script>self.__next_f.push([1,"\"use client\";\n\nimport { useCallback, useState } from \"react\";\n\nexport type ToastType = \"success\" | \"error\" | \"warning\" | \"info\" | \"loading\";\n\nexport type ToastInput = {\n  type?: ToastType;\n  title: string;\n  description?: string;\n  action?: { label: string; onClick: () =\u003e void };\n  /** Milliseconds before auto-dismiss. Loading toasts stay until updated. */\n  duration?: number;\n};\n\nexport type ToastItem = ToastInput \u0026 {\n  id: number;\n  type: ToastType;\n  duration: number;\n  /** Bumped on every update so timers and progress bars restart. */\n  version: number;\n  removing?: boolean;\n  /** Horizontal fly-out distance when dismissed by a swipe. */\n  exitX?: number;\n};\n\nconst MAX_TOASTS = 5;\nconst DEFAULT_DURATION = 4000;\nexport const EXIT_MS = 350;\n\nlet nextId = 1;\n\nconst durationFor = (input: ToastInput) =\u003e\n  input.duration ?? (input.type === \"loading\" ? Infinity : DEFAULT_DURATION);\n\nexport function useToaster() {\n  const [toasts, setToasts] = useState\u003cToastItem[]\u003e([]);\n\n  const dismiss = useCallback((id: number, exitX = 0) =\u003e {\n    setToasts((ts) =\u003e ts.map((t) =\u003e (t.id === id ? { ...t, removing: true, exitX } : t)));\n    setTimeout(() =\u003e setToasts((ts) =\u003e ts.filter((t) =\u003e t.id !== id)), EXIT_MS);\n  }, []);\n\n  const show = useCallback((input: ToastInput) =\u003e {\n    const id = nextId++;\n    const item: ToastItem = { ...input, id, type: input.type ?? \"info\", duration: durationFor(input), version: 0 };\n    setToasts((ts) =\u003e [...ts, item].slice(-MAX_TOASTS));\n    return id;\n  }, []);\n\n  const update = useCallback((id: number, input: ToastInput) =\u003e {\n    setToasts((ts) =\u003e\n      ts.map((t) =\u003e\n        t.id === id ? { ...t, ...input, type: input.type ?? t.type, duration: durationFor(input), version: t.version + 1 } : t,\n      ),\n    );\n  }, []);\n\n  /** Shows a loading toast that turns into success or error when the promise settles. */\n  const promise = useCallback(\n    async \u003cT,\u003e(work: Promise\u003cT\u003e, messages: { loading: string; success: string; error: string }) =\u003e {\n      const id = show({ type: \"loading\", title: messages.loading });\n      try {\n        const value = await work;\n        update(id, { type: \"success\", title: messages.success });\n        return value;\n      } catch (err) {\n        update(id, { type: \"error\", title: messages.error });\n        throw err;\n      }\n    },\n    [show, update],\n  );\n\n  return { toasts, show, update, dismiss, promise };\n}\n"])</script><script>self.__next_f.push([1,"17:[\"$\",\"div\",\"useToaster.ts\",{\"className\":\"file\",\"children\":[[\"$\",\"div\",null,{\"className\":\"file-head\",\"children\":[[\"$\",\"span\",null,{\"children\":\"useToaster.ts\"}],[\"$\",\"$L11\",null,{\"text\":\"$20\"}]]}],[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"children\":\"$21\"}]}]]}]\n18:[\"$\",\"nav\",null,{\"className\":\"pager\",\"children\":[[\"$\",\"$L2\",null,{\"href\":\"/components/spin-the-wheel\",\"children\":[\"← \",\"Spin-the-Wheel Picker\"]}],[\"$\",\"$L2\",null,{\"href\":\"/components/document-scanner\",\"children\":[\"Document Scanner\",\" →\"]}]]}]\n"])</script><script>self.__next_f.push([1,"22:Tf58,"])</script><script>self.__next_f.push([1,".region {\n  --surface: #ffffff;\n  --ink: #0b0b0b;\n  --ink-2: #52514e;\n  --border: rgba(11, 11, 11, 0.09);\n  --success: #12b76a;\n  --error: #f04438;\n  --warning: #f79009;\n  --info: #2e90fa;\n  --ease: cubic-bezier(0.21, 1.02, 0.73, 1);\n\n  position: absolute;\n  right: 16px;\n  bottom: 16px;\n  z-index: 10;\n  width: min(356px, calc(100% - 32px));\n  font-family: system-ui, -apple-system, \"Segoe UI\", sans-serif;\n}\n\n@media (prefers-color-scheme: dark) {\n  .region {\n    --surface: #24242a;\n    --ink: #ffffff;\n    --ink-2: #c3c2b7;\n    --border: rgba(255, 255, 255, 0.1);\n  }\n}\n\n.stack { position: relative; margin: 0; padding: 0; list-style: none; transition: height 0.4s var(--ease); }\n\n.toast {\n  position: absolute;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  overflow: hidden;\n  border: 1px solid var(--border);\n  border-radius: 14px;\n  background: var(--surface);\n  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06), 0 12px 28px -10px rgba(0, 0, 0, 0.3);\n  color: var(--ink);\n  touch-action: pan-y;\n  user-select: none;\n  transform-origin: 50% 0;\n  transition:\n    transform 0.4s var(--ease),\n    opacity 0.35s ease,\n    height 0.4s var(--ease);\n  cursor: grab;\n}\n.toast[data-dragging=\"true\"] { transition: opacity 0.1s ease; cursor: grabbing; }\n\n.inner {\n  display: grid;\n  grid-template-columns: auto 1fr auto auto;\n  align-items: start;\n  gap: 10px;\n  padding: 13px 12px 13px 14px;\n}\n\n.icon {\n  display: grid;\n  place-items: center;\n  width: 22px;\n  height: 22px;\n  margin-top: 1px;\n  border-radius: 50%;\n  color: #fff;\n}\n.icon[data-type=\"success\"] { background: var(--success); }\n.icon[data-type=\"error\"] { background: var(--error); }\n.icon[data-type=\"warning\"] { background: var(--warning); }\n.icon[data-type=\"info\"] { background: var(--info); }\n.icon svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }\n\n.spinner {\n  width: 18px;\n  height: 18px;\n  border: 2.4px solid color-mix(in srgb, var(--ink) 15%, transparent);\n  border-top-color: var(--ink-2);\n  border-radius: 50%;\n  animation: spin 0.8s linear infinite;\n}\n\n.text { min-width: 0; }\n.title { margin: 1px 0 0; font-size: 14px; font-weight: 600; line-height: 1.35; }\n.description { margin: 2px 0 0; color: var(--ink-2); font-size: 13px; line-height: 1.4; }\n\n.action {\n  align-self: center;\n  padding: 5px 11px;\n  border: 0;\n  border-radius: 8px;\n  background: var(--ink);\n  color: var(--surface);\n  font: inherit;\n  font-size: 12.5px;\n  font-weight: 600;\n  cursor: pointer;\n}\n.action:hover { opacity: 0.85; }\n\n.close {\n  display: grid;\n  place-items: center;\n  width: 24px;\n  height: 24px;\n  padding: 0;\n  border: 0;\n  border-radius: 6px;\n  background: none;\n  color: var(--ink-2);\n  cursor: pointer;\n  opacity: 0;\n  transition: opacity 0.15s ease, background 0.15s ease;\n}\n.toast:hover .close,\n.close:focus-visible { opacity: 1; }\n.close:hover { background: color-mix(in srgb, var(--ink) 8%, transparent); }\n.close svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; }\n.action:focus-visible,\n.close:focus-visible { outline: 2px solid var(--info); outline-offset: 1px; }\n@media (hover: none) {\n  .close { opacity: 1; }\n}\n\n/* Time left before auto-dismiss */\n.progress {\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  width: 100%;\n  height: 2.5px;\n  transform-origin: left;\n  animation: shrink linear forwards;\n}\n.toast[data-type=\"success\"] .progress { background: var(--success); }\n.toast[data-type=\"error\"] .progress { background: var(--error); }\n.toast[data-type=\"warning\"] .progress { background: var(--warning); }\n.toast[data-type=\"info\"] .progress { background: var(--info); }\n\n@keyframes shrink { from { transform: scaleX(1); } to { transform: scaleX(0); } }\n@keyframes spin { to { transform: rotate(360deg); } }\n\n@media (prefers-reduced-motion: reduce) {\n  .toast { transition: opacity 0.2s ease; }\n  .stack { transition: none; }\n}\n"])</script><script>self.__next_f.push([1,"1d:[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"children\":\"$22\"}]}]\n23:T1e82,"])</script><script>self.__next_f.push([1,"\"use client\";\n\nimport { useEffect, useLayoutEffect, useRef, useState, type PointerEvent } from \"react\";\nimport { type ToastItem, type ToastType } from \"./useToaster\";\nimport styles from \"./Toaster.module.css\";\n\ntype Props = {\n  toasts: ToastItem[];\n  onDismiss: (id: number, exitX?: number) =\u003e void;\n};\n\nconst GAP = 10;\nconst PEEK = 14; // how much each older toast peeks out above the one in front\nconst VISIBLE_WHEN_STACKED = 3;\nconst SWIPE_DISMISS = 90;\n\nconst ICONS: Record\u003cToastType, React.ReactNode\u003e = {\n  success: \u003cpath d=\"M7 12.5l3 3 7-7\" /\u003e,\n  error: \u003cpath d=\"M9 9l6 6m0-6-6 6\" /\u003e,\n  warning: \u003cpath d=\"M12 8v5m0 3.2v.1\" /\u003e,\n  info: \u003cpath d=\"M12 11v5m0-8.2v.1\" /\u003e,\n  loading: null,\n};\n\nexport default function Toaster({ toasts, onDismiss }: Props) {\n  const [hovered, setHovered] = useState(false);\n  const [focused, setFocused] = useState(false);\n  const [heights, setHeights] = useState\u003cRecord\u003cnumber, number\u003e\u003e({});\n\n  // Newest toast is at the front (index 0).\n  const ordered = [...toasts].reverse();\n  const live = ordered.filter((t) =\u003e !t.removing);\n  const expanded = (hovered || focused) \u0026\u0026 live.length \u003e 0;\n  const paused = hovered || focused;\n  const frontHeight = heights[live[0]?.id] ?? 64;\n\n  // Collapse once the last toast is gone, so the next one starts stacked.\n  useEffect(() =\u003e {\n    if (toasts.length === 0) setFocused(false);\n  }, [toasts.length]);\n\n  let offset = 0;\n  const offsets = new Map\u003cnumber, number\u003e();\n  live.forEach((t, i) =\u003e {\n    offsets.set(t.id, offset);\n    offset += (heights[t.id] ?? 64) + GAP;\n    if (i === live.length - 1) offset -= GAP;\n  });\n\n  const stackHeight = live.length === 0 ? 0 : expanded ? offset : frontHeight + PEEK * Math.min(live.length - 1, VISIBLE_WHEN_STACKED - 1);\n\n  return (\n    \u003csection\n      className={styles.region}\n      aria-label=\"Notifications\"\n      onMouseEnter={() =\u003e setHovered(true)}\n      onMouseLeave={() =\u003e setHovered(false)}\n      onFocus={() =\u003e setFocused(true)}\n      onBlur={(e) =\u003e {\n        if (!e.currentTarget.contains(e.relatedTarget as Node)) setFocused(false);\n      }}\n    \u003e\n      \u003col className={styles.stack} style={{ height: stackHeight }} data-expanded={expanded}\u003e\n        {ordered.map((toast) =\u003e {\n          const index = live.indexOf(toast);\n          return (\n            \u003cToast\n              key={toast.id}\n              toast={toast}\n              index={index \u003c 0 ? 0 : index}\n              expanded={expanded}\n              offset={offsets.get(toast.id) ?? 0}\n              frontHeight={frontHeight}\n              height={heights[toast.id]}\n              paused={paused}\n              onHeight={(h) =\u003e setHeights((prev) =\u003e (prev[toast.id] === h ? prev : { ...prev, [toast.id]: h }))}\n              onDismiss={onDismiss}\n            /\u003e\n          );\n        })}\n      \u003c/ol\u003e\n    \u003c/section\u003e\n  );\n}\n\ntype ToastProps = {\n  toast: ToastItem;\n  index: number;\n  expanded: boolean;\n  offset: number;\n  frontHeight: number;\n  height: number | undefined;\n  paused: boolean;\n  onHeight: (height: number) =\u003e void;\n  onDismiss: (id: number, exitX?: number) =\u003e void;\n};\n\nfunction Toast({ toast, index, expanded, offset, frontHeight, height, paused, onHeight, onDismiss }: ToastProps) {\n  const inner = useRef\u003cHTMLDivElement\u003e(null);\n  const [mounted, setMounted] = useState(false);\n  const [drag, setDrag] = useState\u003c{ startX: number; dx: number } | null\u003e(null);\n  const remaining = useRef(toast.duration);\n  const lastPosition = useRef({ y: 0, scale: 1 });\n\n  useLayoutEffect(() =\u003e {\n    // +2 for the top and bottom border of the list item.\n    if (inner.current) onHeight(inner.current.offsetHeight + 2);\n    // eslint-disable-next-line react-hooks/exhaustive-deps\n  }, [toast.version]);\n\n  useEffect(() =\u003e {\n    const raf = requestAnimationFrame(() =\u003e setMounted(true));\n    return () =\u003e cancelAnimationFrame(raf);\n  }, []);\n\n  // Restart the countdown whenever the toast is updated (e.g. loading → success).\n  useEffect(() =\u003e {\n    remaining.current = toast.duration;\n  }, [toast.version, toast.duration]);\n\n  // Auto-dismiss, pausing while the stack is hovered or focused.\n  useEffect(() =\u003e {\n    if (paused || toast.removing || drag || !Number.isFinite(toast.duration)) return;\n    const started = Date.now();\n    const timer = setTimeout(() =\u003e onDismiss(toast.id), remaining.current);\n    return () =\u003e {\n      clearTimeout(timer);\n      remaining.current -= Date.now() - started;\n    };\n  }, [paused, toast.removing, toast.version, toast.duration, toast.id, drag, onDismiss]);\n\n  function onPointerDown(e: PointerEvent\u003cHTMLLIElement\u003e) {\n    if ((e.target as HTMLElement).closest(\"button\")) return;\n    e.currentTarget.setPointerCapture(e.pointerId);\n    setDrag({ startX: e.clientX, dx: 0 });\n  }\n  function onPointerMove(e: PointerEvent\u003cHTMLLIElement\u003e) {\n    if (drag) setDrag({ ...drag, dx: e.clientX - drag.startX });\n  }\n  function onPointerUp() {\n    if (!drag) return;\n    if (Math.abs(drag.dx) \u003e SWIPE_DISMISS) onDismiss(toast.id, Math.sign(drag.dx) * 420);\n    setDrag(null);\n  }\n\n  const stacked = !expanded;\n  const hidden = stacked \u0026\u0026 index \u003e= VISIBLE_WHEN_STACKED;\n  let x = drag?.dx ?? 0;\n  let y = stacked ? -index * PEEK : -offset;\n  let scale = stacked ? 1 - index * 0.06 : 1;\n  let opacity = hidden ? 0 : 1 - Math.min(Math.abs(x) / 260, 0.7);\n\n  if (!mounted) {\n    y = 80;\n    opacity = 0;\n  }\n  if (toast.removing) {\n    // Leave from where it was, not from the slot it would get after removal.\n    ({ y, scale } = lastPosition.current);\n    if (toast.exitX) x = toast.exitX;\n    else y += 24;\n    opacity = 0;\n    scale *= 0.96;\n  } else if (mounted) {\n    lastPosition.current = { y, scale };\n  }\n\n  const timed = Number.isFinite(toast.duration);\n\n  return (\n    \u003cli\n      className={styles.toast}\n      data-type={toast.type}\n      data-dragging={Boolean(drag)}\n      role={toast.type === \"error\" ? \"alert\" : \"status\"}\n      aria-live={toast.type === \"error\" ? \"assertive\" : \"polite\"}\n      style={{\n        transform: `translate(${x}px, ${y}px) scale(${scale})`,\n        opacity,\n        zIndex: 50 - index,\n        // When stacked, older toasts take the front toast's height so their peeks line up.\n        height: stacked \u0026\u0026 index \u003e 0 ? frontHeight : height,\n        pointerEvents: hidden || toast.removing ? \"none\" : undefined,\n      }}\n      onPointerDown={onPointerDown}\n      onPointerMove={onPointerMove}\n      onPointerUp={onPointerUp}\n      onPointerCancel={onPointerUp}\n    \u003e\n      \u003cdiv ref={inner} className={styles.inner} aria-hidden={hidden || undefined}\u003e\n        \u003cspan className={styles.icon} data-type={toast.type} aria-hidden=\"true\"\u003e\n          {toast.type === \"loading\" ? (\n            \u003cspan className={styles.spinner} /\u003e\n          ) : (\n            \u003csvg viewBox=\"0 0 24 24\"\u003e{ICONS[toast.type]}\u003c/svg\u003e\n          )}\n        \u003c/span\u003e\n        \u003cdiv className={styles.text}\u003e\n          \u003cp className={styles.title}\u003e{toast.title}\u003c/p\u003e\n          {toast.description \u0026\u0026 \u003cp className={styles.description}\u003e{toast.description}\u003c/p\u003e}\n        \u003c/div\u003e\n        {toast.action \u0026\u0026 (\n          \u003cbutton\n            type=\"button\"\n            className={styles.action}\n            onClick={() =\u003e {\n              toast.action!.onClick();\n              onDismiss(toast.id);\n            }}\n          \u003e\n            {toast.action.label}\n          \u003c/button\u003e\n        )}\n        \u003cbutton type=\"button\" className={styles.close} aria-label=\"Dismiss notification\" onClick={() =\u003e onDismiss(toast.id)}\u003e\n          \u003csvg viewBox=\"0 0 24 24\" aria-hidden=\"true\"\u003e\n            \u003cpath d=\"M7 7l10 10M17 7 7 17\" /\u003e\n          \u003c/svg\u003e\n        \u003c/button\u003e\n      \u003c/div\u003e\n      {timed \u0026\u0026 (\n        \u003cspan\n          key={toast.version}\n          className={styles.progress}\n          style={{ animationDuration: `${toast.duration}ms`, animationPlayState: paused || drag ? \"paused\" : \"running\" }}\n        /\u003e\n      )}\n    \u003c/li\u003e\n  );\n}\n"])</script><script>self.__next_f.push([1,"1f:[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"children\":\"$23\"}]}]\n"])</script></body></html>

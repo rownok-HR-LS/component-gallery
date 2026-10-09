@@ -1,0 +1,1179 @@
+<!DOCTYPE html><!--6jA2vIGrO3aOlnYlKgPnQ--><html lang="en"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="/component-gallery/_next/static/css/68cce7808a08b910.css" data-precedence="next"/><link href="/component-gallery/_next/static/css/197da8cbd6229b48.css" rel="stylesheet" as="style" data-precedence="dynamic"/><link rel="preload" as="script" fetchPriority="low" href="/component-gallery/_next/static/chunks/webpack-1b912f870780f4ba.js"/><script src="/component-gallery/_next/static/chunks/4bd1b696-c023c6e3521b1417.js" async=""></script><script src="/component-gallery/_next/static/chunks/255-8e0af360b0021454.js" async=""></script><script src="/component-gallery/_next/static/chunks/main-app-97d5b91ae5ddb9c2.js" async=""></script><script src="/component-gallery/_next/static/chunks/619-ba102abea3e3d0e4.js" async=""></script><script src="/component-gallery/_next/static/chunks/app/components/%5Bslug%5D/page-7b18c14fa5ee9ace.js" async=""></script><link rel="preload" href="/component-gallery/_next/static/chunks/222.4bc7c75ae69715c8.js" as="script" fetchPriority="low"/><title>Document Scanner · Component Gallery</title><meta name="description" content="Turn a phone photo of a page into a flat, clean scan: auto-detected corners, perspective correction, shadow-removing B&amp;W filter and multi-page PDF export, all in the browser."/><script src="/component-gallery/_next/static/chunks/polyfills-42372ed130431b0a.js" noModule=""></script></head><body><div hidden=""><!--$--><!--/$--></div><header class="site-header"><div class="container"><a class="brand" href="/component-gallery/">Component Gallery</a><nav><a href="https://github.com/rownok-HR-LS/component-gallery">GitHub</a></nav></div></header><main class="container"><a class="back" href="/component-gallery/">← All components</a><header class="detail-head"><span class="tag">Week <!-- -->5<!-- --> · <!-- -->2026-10-08</span><h1>Document Scanner</h1><p>Turn a phone photo of a page into a flat, clean scan: auto-detected corners, perspective correction, shadow-removing B&amp;W filter and multi-page PDF export, all in the browser.</p></header><section class="stage" aria-label="Live demo"><div class="DocScanner_card___QcmV"><header class="DocScanner_head__1pDnd"><h3 class="DocScanner_title__9e_Xv">Document scanner</h3><p class="DocScanner_subtitle__QjC2N">Turn a phone photo of a page into a flat, clean scan. Nothing leaves your device.</p></header><label class="DocScanner_dropzone__T7H38" data-over="false"><input type="file" accept="image/*" class="DocScanner_fileInput__1hkWO"/><svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true" class="DocScanner_dropIcon__bNbJI"><path d="M4 8V5a1 1 0 0 1 1-1h3M16 4h3a1 1 0 0 1 1 1v3M20 16v3a1 1 0 0 1-1 1h-3M8 20H5a1 1 0 0 1-1-1v-3M7 12h10"></path></svg><span class="DocScanner_dropTitle__QtkoO">Drop a photo of a document, or click to choose</span><span class="DocScanner_dropNote__DfoBm">Letters, receipts, certificates, ID cards</span><button type="button" class="DocScanner_sampleLink__TTIxh">Try a sample photo</button></label></div></section><section class="source"><h2>Source</h2><div class="file"><div class="file-head"><span>Demo.tsx</span><button type="button" class="copy">Copy</button></div><pre><code>import DocScanner from &quot;./DocScanner&quot;;
+
+export default function Demo() {
+  return &lt;DocScanner /&gt;;
+}
+</code></pre></div><div class="file"><div class="file-head"><span>DocScanner.module.css</span><button type="button" class="copy">Copy</button></div><pre><code>.card {
+  --surface: #fcfcfb;
+  --ink: #0b0b0b;
+  --ink-2: #52514e;
+  --muted: #898781;
+  --border: rgba(11, 11, 11, 0.1);
+  --field: #f4f3f0;
+  --accent: #2a78d6;
+  --handle: #4cc9f0;
+
+  width: 100%;
+  max-width: 900px;
+  padding: 22px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: var(--surface);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 12px 32px -12px rgba(0, 0, 0, 0.18);
+  color: var(--ink);
+  font-family: system-ui, -apple-system, &quot;Segoe UI&quot;, sans-serif;
+  container-type: inline-size;
+}
+
+@media (prefers-color-scheme: dark) {
+  .card {
+    --surface: #1a1a19;
+    --ink: #ffffff;
+    --ink-2: #c3c2b7;
+    --border: rgba(255, 255, 255, 0.1);
+    --field: #232321;
+    --accent: #3987e5;
+    box-shadow: 0 12px 32px -12px rgba(0, 0, 0, 0.6);
+  }
+}
+
+.head { margin-bottom: 16px; }
+.title { margin: 0; font-size: 17px; font-weight: 650; }
+.subtitle { margin: 2px 0 0; color: var(--ink-2); font-size: 13px; }
+
+/* Empty state */
+.dropzone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 44px 16px;
+  border: 1.5px dashed color-mix(in srgb, var(--ink) 22%, transparent);
+  border-radius: 14px;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.dropzone:hover,
+.dropzone[data-over=&quot;true&quot;] { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 6%, transparent); }
+.dropzone:focus-within { outline: 2px solid var(--accent); outline-offset: 2px; }
+.fileInput { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+.dropIcon { fill: none; stroke: var(--accent); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.dropTitle { font-size: 14px; font-weight: 600; }
+.dropNote { color: var(--muted); font-size: 12px; }
+.sampleLink {
+  margin-top: 6px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--accent);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+/* Two panels */
+.body { display: grid; grid-template-columns: 1fr 1fr; align-items: start; gap: 22px; }
+@container (max-width: 680px) {
+  .body { grid-template-columns: 1fr; }
+}
+.panel { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.panelHead { display: flex; align-items: center; gap: 8px; font-size: 13.5px; font-weight: 600; }
+.step {
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--surface);
+  font-size: 11px;
+}
+.meta { margin-left: auto; color: var(--muted); font-size: 12px; font-weight: 400; font-variant-numeric: tabular-nums; }
+
+/* Corner editor */
+.editor {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  overflow: visible;
+  border-radius: 8px;
+  touch-action: none;
+  user-select: none;
+}
+.photo { display: block; width: 100%; height: 100%; border-radius: 8px; }
+.overlay { position: absolute; inset: 0; width: 100%; height: 100%; border-radius: 8px; pointer-events: none; }
+.shade { fill: rgba(0, 0, 0, 0.5); }
+.outline { fill: rgba(76, 201, 240, 0.08); stroke: var(--handle); stroke-width: 2; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
+
+.handle {
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  background: var(--handle);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3), 0 4px 10px rgba(0, 0, 0, 0.35);
+  cursor: grab;
+  transform: translate(-50%, -50%);
+  touch-action: none;
+  transition: transform 0.12s ease;
+}
+.handle:hover,
+.handle[data-active=&quot;true&quot;] { transform: translate(-50%, -50%) scale(1.15); }
+.handle[data-active=&quot;true&quot;] { cursor: grabbing; }
+.handle:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+.loupe {
+  position: absolute;
+  z-index: 3;
+  width: 120px;
+  height: 120px;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45);
+  pointer-events: none;
+  transform: translate(-50%, calc(-100% - 26px));
+}
+.loupe[data-below=&quot;true&quot;] { transform: translate(-50%, 26px); }
+
+.row { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.chip {
+  padding: 6px 11px;
+  border: 1px solid var(--border);
+  border-radius: 99px;
+  background: none;
+  color: var(--ink-2);
+  font: inherit;
+  font-size: 12.5px;
+  cursor: pointer;
+}
+.chip:hover { background: var(--field); color: var(--ink); }
+.chip:focus-visible,
+.segmented button:focus-visible,
+.actions button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* Result */
+.resultBox {
+  display: grid;
+  place-items: center;
+  min-height: 220px;
+  padding: 12px;
+  border-radius: 10px;
+  background: repeating-linear-gradient(45deg, var(--field) 0 10px, transparent 10px 20px);
+  transition: opacity 0.2s ease;
+}
+.resultBox[data-busy=&quot;true&quot;] { opacity: 0.55; }
+.result {
+  display: block;
+  max-width: 100%;
+  max-height: 420px;
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1), 0 8px 24px -8px rgba(0, 0, 0, 0.35);
+}
+
+.segmented { display: inline-flex; flex-wrap: wrap; gap: 2px; padding: 3px; border-radius: 10px; background: var(--field); }
+.segmented button {
+  padding: 5px 10px;
+  border: 0;
+  border-radius: 8px;
+  background: none;
+  color: var(--ink-2);
+  font: inherit;
+  font-size: 12.5px;
+  cursor: pointer;
+}
+.segmented button[aria-checked=&quot;true&quot;] { background: var(--surface); box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15); color: var(--ink); font-weight: 600; }
+
+.actions { display: flex; flex-wrap: wrap; gap: 6px; }
+.actions button { height: 38px; padding: 0 14px; border-radius: 10px; font: inherit; font-size: 13.5px; font-weight: 600; cursor: pointer; }
+.actions button:disabled { opacity: 0.5; cursor: default; }
+.secondary { border: 1px solid var(--border); background: none; color: var(--ink); }
+.secondary:hover:not(:disabled) { background: var(--field); }
+.primary { flex: 1; border: 0; background: var(--ink); color: var(--surface); }
+.primary:hover:not(:disabled) { opacity: 0.88; }
+
+.pages { display: flex; gap: 8px; margin: 0; padding: 2px 0 4px; overflow-x: auto; list-style: none; }
+.pages li { position: relative; flex: none; }
+.pages img { display: block; height: 76px; border-radius: 4px; background: #fff; box-shadow: 0 0 0 1px var(--border); }
+.pages span {
+  position: absolute;
+  bottom: 4px;
+  left: 4px;
+  padding: 0 5px;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.65);
+  color: #fff;
+  font-size: 10.5px;
+}
+.pages button {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  border: 2px solid var(--surface);
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--surface);
+  font-size: 12px;
+  line-height: 1;
+  cursor: pointer;
+}
+</code></pre></div><div class="file"><div class="file-head"><span>DocScanner.tsx</span><button type="button" class="copy">Copy</button></div><pre><code>&quot;use client&quot;;
+
+import { useEffect, useRef, useState, type KeyboardEvent, type PointerEvent } from &quot;react&quot;;
+import { applyFilter, type Filter } from &quot;./filters&quot;;
+import { detectPage, flatten, quadSize, type Quad } from &quot;./geometry&quot;;
+import { makePdf } from &quot;./pdf&quot;;
+import { drawSamplePhoto } from &quot;./sample&quot;;
+import styles from &quot;./DocScanner.module.css&quot;;
+
+type Work = { canvas: HTMLCanvasElement; data: ImageData; w: number; h: number; url: string };
+type Page = { blob: Blob; url: string; width: number; height: number };
+type Shape = &quot;auto&quot; | &quot;a4&quot; | &quot;id&quot;;
+
+const MAX_WORK = 2000; // longest side of the working copy
+const MAX_OUTPUT = 1600; // longest side of the scan
+const LOUPE = 120;
+const LOUPE_ZOOM = 3;
+
+const FILTERS: { key: Filter; label: string }[] = [
+  { key: &quot;original&quot;, label: &quot;Original&quot; },
+  { key: &quot;enhanced&quot;, label: &quot;Enhanced&quot; },
+  { key: &quot;grayscale&quot;, label: &quot;Grayscale&quot; },
+  { key: &quot;bw&quot;, label: &quot;B&amp;W scan&quot; },
+];
+const SHAPES: { key: Shape; label: string }[] = [
+  { key: &quot;auto&quot;, label: &quot;Auto&quot; },
+  { key: &quot;a4&quot;, label: &quot;A4&quot; },
+  { key: &quot;id&quot;, label: &quot;ID card&quot; },
+];
+
+const clamp = (v: number, lo: number, hi: number) =&gt; Math.max(lo, Math.min(hi, v));
+
+function insetQuad(w: number, h: number, f = 0.06): Quad {
+  return [
+    { x: w * f, y: h * f },
+    { x: w * (1 - f), y: h * f },
+    { x: w * (1 - f), y: h * (1 - f) },
+    { x: w * f, y: h * (1 - f) },
+  ];
+}
+
+function guessCorners(work: Work): Quad {
+  const s = Math.min(1, 240 / Math.max(work.w, work.h));
+  const small = document.createElement(&quot;canvas&quot;);
+  small.width = Math.round(work.w * s);
+  small.height = Math.round(work.h * s);
+  const ctx = small.getContext(&quot;2d&quot;, { willReadFrequently: true })!;
+  ctx.drawImage(work.canvas, 0, 0, small.width, small.height);
+  const quad = detectPage(ctx.getImageData(0, 0, small.width, small.height));
+  return quad ? (quad.map((p) =&gt; ({ x: p.x / s, y: p.y / s })) as Quad) : insetQuad(work.w, work.h);
+}
+
+function outputSize(quad: Quad, shape: Shape, imageW: number, imageH: number) {
+  let { w, h } = quadSize(quad, imageW, imageH);
+  const landscape = w &gt;= h;
+  if (shape === &quot;a4&quot;) {
+    const r = Math.SQRT2;
+    if (landscape) h = w / r;
+    else h = w * r;
+  }
+  if (shape === &quot;id&quot;) {
+    const r = 85.6 / 53.98;
+    if (landscape) h = w / r;
+    else h = w * r;
+  }
+  const s = Math.min(1, MAX_OUTPUT / Math.max(w, h));
+  return { w: Math.max(1, Math.round(w * s)), h: Math.max(1, Math.round(h * s)) };
+}
+
+function download(blob: Blob, name: string) {
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement(&quot;a&quot;);
+  a.href = url;
+  a.download = name;
+  a.click();
+  setTimeout(() =&gt; URL.revokeObjectURL(url), 1000);
+}
+
+const toBlob = (canvas: HTMLCanvasElement, type: string, quality?: number) =&gt;
+  new Promise&lt;Blob&gt;((resolve) =&gt; canvas.toBlob((b) =&gt; resolve(b!), type, quality));
+
+export default function DocScanner() {
+  const [work, setWork] = useState&lt;Work | null&gt;(null);
+  const [corners, setCorners] = useState&lt;Quad | null&gt;(null);
+  const [dragging, setDragging] = useState&lt;number | null&gt;(null);
+  const [filter, setFilter] = useState&lt;Filter&gt;(&quot;bw&quot;);
+  const [shape, setShape] = useState&lt;Shape&gt;(&quot;auto&quot;);
+  const [rotation, setRotation] = useState(0);
+  const [processing, setProcessing] = useState(false);
+  const [resultSize, setResultSize] = useState&lt;{ w: number; h: number } | null&gt;(null);
+  const [pages, setPages] = useState&lt;Page[]&gt;([]);
+  const [dragOver, setDragOver] = useState(false);
+
+  const editor = useRef&lt;HTMLDivElement&gt;(null);
+  const result = useRef&lt;HTMLCanvasElement&gt;(null);
+  const loupe = useRef&lt;HTMLCanvasElement&gt;(null);
+
+  async function load(file: Blob) {
+    const url = URL.createObjectURL(file);
+    const img = new Image();
+    // onload rather than img.decode(): decode() can stall in background tabs.
+    await new Promise&lt;void&gt;((resolve, reject) =&gt; {
+      img.onload = () =&gt; resolve();
+      img.onerror = () =&gt; reject(new Error(&quot;Could not read that image&quot;));
+      img.src = url;
+    });
+    const s = Math.min(1, MAX_WORK / Math.max(img.naturalWidth, img.naturalHeight));
+    const canvas = document.createElement(&quot;canvas&quot;);
+    canvas.width = Math.round(img.naturalWidth * s);
+    canvas.height = Math.round(img.naturalHeight * s);
+    const ctx = canvas.getContext(&quot;2d&quot;, { willReadFrequently: true })!;
+    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+    const next: Work = { canvas, data: ctx.getImageData(0, 0, canvas.width, canvas.height), w: canvas.width, h: canvas.height, url };
+    setWork((prev) =&gt; {
+      if (prev) URL.revokeObjectURL(prev.url);
+      return next;
+    });
+    setCorners(guessCorners(next));
+    setRotation(0);
+  }
+
+  // Flatten + filter whenever the inputs settle (not while a corner is being dragged).
+  useEffect(() =&gt; {
+    if (!work || !corners || dragging !== null) return;
+    setProcessing(true);
+    const timer = setTimeout(() =&gt; {
+      const { w, h } = outputSize(corners, shape, work.w, work.h);
+      const flat = applyFilter(flatten(work.data, corners, w, h), filter);
+      const tmp = document.createElement(&quot;canvas&quot;);
+      tmp.width = w;
+      tmp.height = h;
+      tmp.getContext(&quot;2d&quot;)!.putImageData(flat, 0, 0);
+
+      const out = result.current;
+      if (!out) return;
+      const quarter = rotation % 2 === 1;
+      out.width = quarter ? h : w;
+      out.height = quarter ? w : h;
+      const ctx = out.getContext(&quot;2d&quot;)!;
+      ctx.save();
+      ctx.translate(out.width / 2, out.height / 2);
+      ctx.rotate((rotation * Math.PI) / 2);
+      ctx.drawImage(tmp, -w / 2, -h / 2);
+      ctx.restore();
+      setResultSize({ w: out.width, h: out.height });
+      setProcessing(false);
+    }, 30);
+    return () =&gt; clearTimeout(timer);
+  }, [work, corners, dragging, filter, shape, rotation]);
+
+  // Magnifier around the corner being dragged.
+  useEffect(() =&gt; {
+    if (dragging === null || !work || !corners || !loupe.current || !editor.current) return;
+    const ctx = loupe.current.getContext(&quot;2d&quot;)!;
+    const scale = editor.current.getBoundingClientRect().width / work.w;
+    const r = LOUPE / 2 / (scale * LOUPE_ZOOM);
+    const { x, y } = corners[dragging];
+    ctx.fillStyle = &quot;#000&quot;;
+    ctx.fillRect(0, 0, LOUPE, LOUPE);
+    ctx.drawImage(work.canvas, x - r, y - r, r * 2, r * 2, 0, 0, LOUPE, LOUPE);
+    ctx.strokeStyle = &quot;rgba(76, 201, 240, 0.95)&quot;;
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    ctx.moveTo(LOUPE / 2, 0);
+    ctx.lineTo(LOUPE / 2, LOUPE);
+    ctx.moveTo(0, LOUPE / 2);
+    ctx.lineTo(LOUPE, LOUPE / 2);
+    ctx.stroke();
+  }, [dragging, corners, work]);
+
+  useEffect(() =&gt; () =&gt; pages.forEach((p) =&gt; URL.revokeObjectURL(p.url)), []); // eslint-disable-line react-hooks/exhaustive-deps
+
+  function pointToImage(e: PointerEvent) {
+    const rect = editor.current!.getBoundingClientRect();
+    return {
+      x: clamp(((e.clientX - rect.left) / rect.width) * work!.w, 0, work!.w),
+      y: clamp(((e.clientY - rect.top) / rect.height) * work!.h, 0, work!.h),
+    };
+  }
+
+  function moveCorner(i: number, p: { x: number; y: number }) {
+    setCorners((q) =&gt; (q ? (q.map((c, j) =&gt; (j === i ? p : c)) as Quad) : q));
+  }
+
+  function onHandleKey(i: number, e: KeyboardEvent) {
+    const steps: Record&lt;string, [number, number]&gt; = { ArrowLeft: [-1, 0], ArrowRight: [1, 0], ArrowUp: [0, -1], ArrowDown: [0, 1] };
+    const step = steps[e.key];
+    if (!step || !work || !corners || !editor.current) return;
+    e.preventDefault();
+    const px = (work.w / editor.current.getBoundingClientRect().width) * (e.shiftKey ? 10 : 1);
+    moveCorner(i, { x: clamp(corners[i].x + step[0] * px, 0, work.w), y: clamp(corners[i].y + step[1] * px, 0, work.h) });
+  }
+
+  async function addPage() {
+    if (!result.current || processing) return;
+    const blob = await toBlob(result.current, &quot;image/jpeg&quot;, 0.9);
+    setPages((p) =&gt; [...p, { blob, url: URL.createObjectURL(blob), width: result.current!.width, height: result.current!.height }]);
+  }
+
+  async function exportPdf() {
+    if (!result.current) return;
+    const source: Page[] = pages.length
+      ? pages
+      : [{ blob: await toBlob(result.current, &quot;image/jpeg&quot;, 0.9), url: &quot;&quot;, width: result.current.width, height: result.current.height }];
+    const pdf = makePdf(
+      await Promise.all(source.map(async (p) =&gt; ({ jpeg: new Uint8Array(await p.blob.arrayBuffer()), width: p.width, height: p.height }))),
+    );
+    download(pdf, `scan-${new Date().toISOString().slice(0, 10)}.pdf`);
+  }
+
+  async function exportPng() {
+    if (result.current) download(await toBlob(result.current, &quot;image/png&quot;), &quot;scan.png&quot;);
+  }
+
+  const quadPath = corners?.map((p, i) =&gt; `${i ? &quot;L&quot; : &quot;M&quot;}${p.x},${p.y}`).join(&quot; &quot;) + &quot; Z&quot;;
+  const active = dragging !== null &amp;&amp; corners ? corners[dragging] : null;
+
+  return (
+    &lt;div className={styles.card}&gt;
+      &lt;header className={styles.head}&gt;
+        &lt;h3 className={styles.title}&gt;Document scanner&lt;/h3&gt;
+        &lt;p className={styles.subtitle}&gt;Turn a phone photo of a page into a flat, clean scan. Nothing leaves your device.&lt;/p&gt;
+      &lt;/header&gt;
+
+      {!work || !corners ? (
+        &lt;label
+          className={styles.dropzone}
+          data-over={dragOver}
+          onDragOver={(e) =&gt; {
+            e.preventDefault();
+            setDragOver(true);
+          }}
+          onDragLeave={() =&gt; setDragOver(false)}
+          onDrop={(e) =&gt; {
+            e.preventDefault();
+            setDragOver(false);
+            const file = e.dataTransfer.files[0];
+            if (file?.type.startsWith(&quot;image/&quot;)) load(file);
+          }}
+        &gt;
+          &lt;input type=&quot;file&quot; accept=&quot;image/*&quot; className={styles.fileInput} onChange={(e) =&gt; e.target.files?.[0] &amp;&amp; load(e.target.files[0])} /&gt;
+          &lt;svg viewBox=&quot;0 0 24 24&quot; width=&quot;30&quot; height=&quot;30&quot; aria-hidden=&quot;true&quot; className={styles.dropIcon}&gt;
+            &lt;path d=&quot;M4 8V5a1 1 0 0 1 1-1h3M16 4h3a1 1 0 0 1 1 1v3M20 16v3a1 1 0 0 1-1 1h-3M8 20H5a1 1 0 0 1-1-1v-3M7 12h10&quot; /&gt;
+          &lt;/svg&gt;
+          &lt;span className={styles.dropTitle}&gt;Drop a photo of a document, or click to choose&lt;/span&gt;
+          &lt;span className={styles.dropNote}&gt;Letters, receipts, certificates, ID cards&lt;/span&gt;
+          &lt;button
+            type=&quot;button&quot;
+            className={styles.sampleLink}
+            onClick={async (e) =&gt; {
+              e.preventDefault();
+              load(await drawSamplePhoto());
+            }}
+          &gt;
+            Try a sample photo
+          &lt;/button&gt;
+        &lt;/label&gt;
+      ) : (
+        &lt;div className={styles.body}&gt;
+          &lt;section className={styles.panel} aria-label=&quot;Adjust corners&quot;&gt;
+            &lt;div className={styles.panelHead}&gt;
+              &lt;span className={styles.step}&gt;1&lt;/span&gt;
+              &lt;span&gt;Adjust the corners&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div
+              ref={editor}
+              className={styles.editor}
+              style={{ aspectRatio: `${work.w} / ${work.h}`, maxWidth: `calc(420px * ${work.w / work.h})` }}
+            &gt;
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              &lt;img src={work.url} alt=&quot;Original photo&quot; className={styles.photo} draggable={false} /&gt;
+              &lt;svg className={styles.overlay} viewBox={`0 0 ${work.w} ${work.h}`} preserveAspectRatio=&quot;none&quot; aria-hidden=&quot;true&quot;&gt;
+                &lt;path d={`M0,0 H${work.w} V${work.h} H0 Z ${quadPath}`} fillRule=&quot;evenodd&quot; className={styles.shade} /&gt;
+                &lt;path d={quadPath} className={styles.outline} /&gt;
+              &lt;/svg&gt;
+              {corners.map((p, i) =&gt; (
+                &lt;button
+                  key={i}
+                  type=&quot;button&quot;
+                  className={styles.handle}
+                  data-active={dragging === i}
+                  style={{ left: `${(p.x / work.w) * 100}%`, top: `${(p.y / work.h) * 100}%` }}
+                  aria-label={`${[&quot;Top-left&quot;, &quot;Top-right&quot;, &quot;Bottom-right&quot;, &quot;Bottom-left&quot;][i]} corner. Use arrow keys to move.`}
+                  onPointerDown={(e) =&gt; {
+                    e.currentTarget.setPointerCapture(e.pointerId);
+                    setDragging(i);
+                  }}
+                  onPointerMove={(e) =&gt; dragging === i &amp;&amp; moveCorner(i, pointToImage(e))}
+                  onPointerUp={() =&gt; setDragging(null)}
+                  onPointerCancel={() =&gt; setDragging(null)}
+                  onKeyDown={(e) =&gt; onHandleKey(i, e)}
+                /&gt;
+              ))}
+              {active &amp;&amp; (
+                &lt;canvas
+                  ref={loupe}
+                  width={LOUPE}
+                  height={LOUPE}
+                  className={styles.loupe}
+                  data-below={active.y / work.h &lt; 0.3}
+                  style={{ left: `${(active.x / work.w) * 100}%`, top: `${(active.y / work.h) * 100}%` }}
+                /&gt;
+              )}
+            &lt;/div&gt;
+            &lt;div className={styles.row}&gt;
+              &lt;button type=&quot;button&quot; className={styles.chip} onClick={() =&gt; setCorners(guessCorners(work))}&gt;
+                Auto-detect
+              &lt;/button&gt;
+              &lt;button type=&quot;button&quot; className={styles.chip} onClick={() =&gt; setCorners(insetQuad(work.w, work.h, 0))}&gt;
+                Whole photo
+              &lt;/button&gt;
+              &lt;button
+                type=&quot;button&quot;
+                className={styles.chip}
+                onClick={() =&gt; {
+                  setWork(null);
+                  setCorners(null);
+                }}
+              &gt;
+                New photo
+              &lt;/button&gt;
+            &lt;/div&gt;
+          &lt;/section&gt;
+
+          &lt;section className={styles.panel} aria-label=&quot;Scan result&quot;&gt;
+            &lt;div className={styles.panelHead}&gt;
+              &lt;span className={styles.step}&gt;2&lt;/span&gt;
+              &lt;span&gt;Your scan&lt;/span&gt;
+              {resultSize &amp;&amp; (
+                &lt;span className={styles.meta}&gt;
+                  {processing ? &quot;Processing…&quot; : `${resultSize.w} × ${resultSize.h} px`}
+                &lt;/span&gt;
+              )}
+            &lt;/div&gt;
+            &lt;div className={styles.resultBox} data-busy={processing}&gt;
+              &lt;canvas ref={result} className={styles.result} role=&quot;img&quot; aria-label=&quot;Flattened scan&quot; /&gt;
+            &lt;/div&gt;
+
+            &lt;div className={styles.segmented} role=&quot;radiogroup&quot; aria-label=&quot;Filter&quot;&gt;
+              {FILTERS.map((f) =&gt; (
+                &lt;button key={f.key} type=&quot;button&quot; role=&quot;radio&quot; aria-checked={filter === f.key} onClick={() =&gt; setFilter(f.key)}&gt;
+                  {f.label}
+                &lt;/button&gt;
+              ))}
+            &lt;/div&gt;
+            &lt;div className={styles.row}&gt;
+              &lt;div className={styles.segmented} role=&quot;radiogroup&quot; aria-label=&quot;Page shape&quot;&gt;
+                {SHAPES.map((s) =&gt; (
+                  &lt;button key={s.key} type=&quot;button&quot; role=&quot;radio&quot; aria-checked={shape === s.key} onClick={() =&gt; setShape(s.key)}&gt;
+                    {s.label}
+                  &lt;/button&gt;
+                ))}
+              &lt;/div&gt;
+              &lt;button type=&quot;button&quot; className={styles.chip} onClick={() =&gt; setRotation((r) =&gt; (r + 1) % 4)} aria-label=&quot;Rotate 90 degrees&quot;&gt;
+                ↻ Rotate
+              &lt;/button&gt;
+            &lt;/div&gt;
+
+            &lt;div className={styles.actions}&gt;
+              &lt;button type=&quot;button&quot; className={styles.secondary} onClick={addPage} disabled={processing}&gt;
+                + Add page{pages.length ? ` (${pages.length})` : &quot;&quot;}
+              &lt;/button&gt;
+              &lt;button type=&quot;button&quot; className={styles.secondary} onClick={exportPng} disabled={processing}&gt;
+                PNG
+              &lt;/button&gt;
+              &lt;button type=&quot;button&quot; className={styles.primary} onClick={exportPdf} disabled={processing}&gt;
+                Download PDF{pages.length &gt; 1 ? ` · ${pages.length} pages` : &quot;&quot;}
+              &lt;/button&gt;
+            &lt;/div&gt;
+
+            {pages.length &gt; 0 &amp;&amp; (
+              &lt;ol className={styles.pages} aria-label=&quot;Pages in the PDF&quot;&gt;
+                {pages.map((p, i) =&gt; (
+                  &lt;li key={p.url}&gt;
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    &lt;img src={p.url} alt={`Page ${i + 1}`} /&gt;
+                    &lt;span&gt;{i + 1}&lt;/span&gt;
+                    &lt;button
+                      type=&quot;button&quot;
+                      aria-label={`Remove page ${i + 1}`}
+                      onClick={() =&gt; {
+                        URL.revokeObjectURL(p.url);
+                        setPages((all) =&gt; all.filter((x) =&gt; x !== p));
+                      }}
+                    &gt;
+                      ×
+                    &lt;/button&gt;
+                  &lt;/li&gt;
+                ))}
+              &lt;/ol&gt;
+            )}
+          &lt;/section&gt;
+        &lt;/div&gt;
+      )}
+    &lt;/div&gt;
+  );
+}
+</code></pre></div><div class="file"><div class="file-head"><span>filters.ts</span><button type="button" class="copy">Copy</button></div><pre><code>export type Filter = &quot;original&quot; | &quot;enhanced&quot; | &quot;grayscale&quot; | &quot;bw&quot;;
+
+const luma = (d: Uint8ClampedArray, i: number) =&gt; d[i] * 0.299 + d[i + 1] * 0.587 + d[i + 2] * 0.114;
+
+/** Stretches contrast so the darkest 1% become black and the brightest 1% become white. */
+function autoLevels(img: ImageData) {
+  const d = img.data;
+  const hist = new Array&lt;number&gt;(256).fill(0);
+  for (let i = 0; i &lt; d.length; i += 4) hist[luma(d, i) | 0]++;
+  const total = d.length / 4;
+  let lo = 0;
+  let hi = 255;
+  for (let acc = 0; lo &lt; 255 &amp;&amp; (acc += hist[lo]) &lt; total * 0.01; lo++);
+  for (let acc = 0; hi &gt; 0 &amp;&amp; (acc += hist[hi]) &lt; total * 0.01; hi--);
+  const range = Math.max(1, hi - lo);
+  for (let i = 0; i &lt; d.length; i += 4) {
+    for (let c = 0; c &lt; 3; c++) d[i + c] = ((d[i + c] - lo) * 255) / range;
+  }
+}
+
+/** Sum of luma over every rectangle in O(1): integral[(y)*(w+1)+x] = sum above-left of (x, y). */
+function lumaIntegral(img: ImageData) {
+  const { width: w, height: h, data: d } = img;
+  const integral = new Float64Array((w + 1) * (h + 1));
+  for (let y = 0; y &lt; h; y++) {
+    let row = 0;
+    for (let x = 0; x &lt; w; x++) {
+      row += luma(d, (y * w + x) * 4);
+      integral[(y + 1) * (w + 1) + x + 1] = integral[y * (w + 1) + x + 1] + row;
+    }
+  }
+  return integral;
+}
+
+function localMean(integral: Float64Array, w: number, h: number, x: number, y: number, half: number) {
+  const x0 = Math.max(0, x - half);
+  const x1 = Math.min(w, x + half + 1);
+  const y0 = Math.max(0, y - half);
+  const y1 = Math.min(h, y + half + 1);
+  const sum = integral[y1 * (w + 1) + x1] - integral[y0 * (w + 1) + x1] - integral[y1 * (w + 1) + x0] + integral[y0 * (w + 1) + x0];
+  return sum / ((x1 - x0) * (y1 - y0));
+}
+
+/**
+ * &quot;Magic colour&quot;: estimate the bare paper colour everywhere (lighting + tint), then divide it out,
+ * so the paper becomes evenly white while coloured ink like signatures and stamps keeps its colour.
+ * The estimate is a tiny copy of the page, &quot;dilated&quot; with lighten-blending so dark ink drops out,
+ * then scaled back up smoothly.
+ */
+function whitenPaper(img: ImageData) {
+  const { width: w, height: h, data: d } = img;
+  const full = document.createElement(&quot;canvas&quot;);
+  full.width = w;
+  full.height = h;
+  full.getContext(&quot;2d&quot;)!.putImageData(img, 0, 0);
+
+  const sw = Math.max(4, Math.round(w / 20));
+  const sh = Math.max(4, Math.round(h / 20));
+  const small = document.createElement(&quot;canvas&quot;);
+  small.width = sw;
+  small.height = sh;
+  const sctx = small.getContext(&quot;2d&quot;, { willReadFrequently: true })!;
+  sctx.drawImage(full, 0, 0, sw, sh);
+  // Local maximum (paper is the brightest thing nearby): blend shifted copies with &quot;lighten&quot;.
+  sctx.globalCompositeOperation = &quot;lighten&quot;;
+  for (let pass = 0; pass &lt; 2; pass++) {
+    const copy = document.createElement(&quot;canvas&quot;);
+    copy.width = sw;
+    copy.height = sh;
+    copy.getContext(&quot;2d&quot;)!.drawImage(small, 0, 0);
+    for (const [dx, dy] of [[1, 0], [-1, 0], [0, 1], [0, -1]]) sctx.drawImage(copy, dx, dy);
+  }
+
+  const bg = document.createElement(&quot;canvas&quot;);
+  bg.width = w;
+  bg.height = h;
+  const bctx = bg.getContext(&quot;2d&quot;, { willReadFrequently: true })!;
+  bctx.imageSmoothingQuality = &quot;high&quot;;
+  bctx.filter = &quot;blur(4px)&quot;;
+  bctx.drawImage(small, 0, 0, w, h);
+  const paper = bctx.getImageData(0, 0, w, h).data;
+
+  for (let i = 0; i &lt; d.length; i += 4) {
+    for (let c = 0; c &lt; 3; c++) d[i + c] = (d[i + c] / Math.max(30, paper[i + c])) * 255;
+  }
+}
+
+function grayscale(img: ImageData) {
+  const d = img.data;
+  for (let i = 0; i &lt; d.length; i += 4) d[i] = d[i + 1] = d[i + 2] = luma(d, i);
+}
+
+/**
+ * Bradley adaptive threshold: each pixel is compared with the average of its neighbourhood
+ * (from an integral image), so uneven lighting and shadows disappear.
+ */
+function adaptiveThreshold(img: ImageData) {
+  const { width: w, height: h, data: d } = img;
+  const integral = lumaIntegral(img);
+  const half = Math.max(8, Math.round(w / 32));
+  for (let y = 0; y &lt; h; y++) {
+    for (let x = 0; x &lt; w; x++) {
+      const i = (y * w + x) * 4;
+      d[i] = d[i + 1] = d[i + 2] = luma(d, i) &lt; localMean(integral, w, h, x, y, half) * 0.86 ? 0 : 255;
+    }
+  }
+}
+
+export function applyFilter(img: ImageData, filter: Filter) {
+  if (filter === &quot;enhanced&quot;) whitenPaper(img);
+  if (filter === &quot;grayscale&quot;) {
+    grayscale(img);
+    autoLevels(img);
+  }
+  if (filter === &quot;bw&quot;) adaptiveThreshold(img);
+  return img;
+}
+</code></pre></div><div class="file"><div class="file-head"><span>geometry.ts</span><button type="button" class="copy">Copy</button></div><pre><code>export type Point = { x: number; y: number };
+/** Corners in order: top-left, top-right, bottom-right, bottom-left. */
+export type Quad = [Point, Point, Point, Point];
+
+/** Solves A·x = b with Gaussian elimination and partial pivoting. */
+function solve(A: number[][], b: number[]) {
+  const n = b.length;
+  const M = A.map((row, i) =&gt; [...row, b[i]]);
+  for (let col = 0; col &lt; n; col++) {
+    let pivot = col;
+    for (let r = col + 1; r &lt; n; r++) if (Math.abs(M[r][col]) &gt; Math.abs(M[pivot][col])) pivot = r;
+    [M[col], M[pivot]] = [M[pivot], M[col]];
+    for (let r = col + 1; r &lt; n; r++) {
+      const f = M[r][col] / M[col][col];
+      for (let c = col; c &lt;= n; c++) M[r][c] -= f * M[col][c];
+    }
+  }
+  const x = Array&lt;number&gt;(n).fill(0);
+  for (let r = n - 1; r &gt;= 0; r--) {
+    let sum = M[r][n];
+    for (let c = r + 1; c &lt; n; c++) sum -= M[r][c] * x[c];
+    x[r] = sum / M[r][r];
+  }
+  return x;
+}
+
+/** 3×3 perspective transform (row-major, h33 = 1) mapping each `from[i]` onto `to[i]`. */
+export function homography(from: Point[], to: Point[]) {
+  const A: number[][] = [];
+  const b: number[] = [];
+  for (let i = 0; i &lt; 4; i++) {
+    const { x, y } = from[i];
+    const { x: u, y: v } = to[i];
+    A.push([x, y, 1, 0, 0, 0, -u * x, -u * y]);
+    b.push(u);
+    A.push([0, 0, 0, x, y, 1, -v * x, -v * y]);
+    b.push(v);
+  }
+  return [...solve(A, b), 1];
+}
+
+/**
+ * For every pixel in the region of `dst`, looks up where it comes from in `src` through `H`
+ * (dst → src) and samples bilinearly. Pixels that map outside `src` are left alone, or painted
+ * white when `whiteOutside` is set.
+ */
+export function warp(
+  src: ImageData,
+  dst: ImageData,
+  H: number[],
+  region = { x0: 0, y0: 0, x1: dst.width, y1: dst.height },
+  whiteOutside = true,
+) {
+  const s = src.data;
+  const d = dst.data;
+  const sw = src.width;
+  const sh = src.height;
+  for (let y = region.y0; y &lt; region.y1; y++) {
+    for (let x = region.x0; x &lt; region.x1; x++) {
+      const px = x + 0.5;
+      const py = y + 0.5;
+      const w = H[6] * px + H[7] * py + H[8];
+      const sx = (H[0] * px + H[1] * py + H[2]) / w - 0.5;
+      const sy = (H[3] * px + H[4] * py + H[5]) / w - 0.5;
+      const o = (y * dst.width + x) * 4;
+      if (sx &lt; 0 || sy &lt; 0 || sx &gt;= sw - 1 || sy &gt;= sh - 1) {
+        if (whiteOutside) d[o] = d[o + 1] = d[o + 2] = d[o + 3] = 255;
+        continue;
+      }
+      const x0 = sx | 0;
+      const y0 = sy | 0;
+      const fx = sx - x0;
+      const fy = sy - y0;
+      const i00 = (y0 * sw + x0) * 4;
+      const i10 = i00 + 4;
+      const i01 = i00 + sw * 4;
+      const i11 = i01 + 4;
+      for (let c = 0; c &lt; 3; c++) {
+        const top = s[i00 + c] + (s[i10 + c] - s[i00 + c]) * fx;
+        const bottom = s[i01 + c] + (s[i11 + c] - s[i01 + c]) * fx;
+        d[o + c] = top + (bottom - top) * fy;
+      }
+      d[o + 3] = 255;
+    }
+  }
+  return dst;
+}
+
+const dist = (a: Point, b: Point) =&gt; Math.hypot(a.x - b.x, a.y - b.y);
+
+type V3 = [number, number, number];
+const cross = (a: V3, b: V3): V3 =&gt; [a[1] * b[2] - a[2] * b[1], a[2] * b[0] - a[0] * b[2], a[0] * b[1] - a[1] * b[0]];
+const dot = (a: V3, b: V3) =&gt; a[0] * b[0] + a[1] * b[1] + a[2] * b[2];
+
+/**
+ * Real width ÷ height of the photographed rectangle, recovered from perspective
+ * (Zhang &amp; He, &quot;Whiteboard scanning and image enhancement&quot;, 2006): estimate the camera&#x27;s focal
+ * length from the quad&#x27;s vanishing geometry, assuming the optical centre is the image centre.
+ * Returns null when the photo is too square-on for the maths to be stable.
+ */
+function perspectiveAspect([tl, tr, br, bl]: Quad, imageW: number, imageH: number) {
+  const cx = imageW / 2;
+  const cy = imageH / 2;
+  const h = (p: Point): V3 =&gt; [p.x - cx, p.y - cy, 1];
+  const m1 = h(tl);
+  const m2 = h(tr);
+  const m3 = h(bl);
+  const m4 = h(br);
+  const k2 = dot(cross(m1, m4), m3) / dot(cross(m2, m4), m3);
+  const k3 = dot(cross(m1, m4), m2) / dot(cross(m3, m4), m2);
+  const n2: V3 = [k2 * m2[0] - m1[0], k2 * m2[1] - m1[1], k2 * m2[2] - m1[2]];
+  const n3: V3 = [k3 * m3[0] - m1[0], k3 * m3[1] - m1[1], k3 * m3[2] - m1[2]];
+  if (Math.abs(n2[2]) &lt; 1e-6 || Math.abs(n3[2]) &lt; 1e-6) return null;
+  const f2 = -(n2[0] * n3[0] + n2[1] * n3[1]) / (n2[2] * n3[2]);
+  if (!(f2 &gt; 0)) return null;
+  const len = (n: V3) =&gt; (n[0] * n[0] + n[1] * n[1]) / f2 + n[2] * n[2];
+  const ratio = Math.sqrt(len(n2) / len(n3));
+  return Number.isFinite(ratio) &amp;&amp; ratio &gt; 0.1 &amp;&amp; ratio &lt; 10 ? ratio : null;
+}
+
+/**
+ * Size of the flattened page. Width comes from the longer horizontal edge; height comes from the
+ * perspective-recovered aspect ratio when available, otherwise from the longer vertical edge.
+ */
+export function quadSize(quad: Quad, imageW = 0, imageH = 0) {
+  const [tl, tr, br, bl] = quad;
+  const w = Math.max(dist(tl, tr), dist(bl, br));
+  const h = Math.max(dist(tl, bl), dist(tr, br));
+  const ratio = imageW &amp;&amp; imageH ? perspectiveAspect(quad, imageW, imageH) : null;
+  return ratio ? { w, h: w / ratio } : { w, h };
+}
+
+/** Flattens the area inside `quad` into a w×h image. */
+export function flatten(src: ImageData, quad: Quad, w: number, h: number) {
+  const rect = [
+    { x: 0, y: 0 },
+    { x: w, y: 0 },
+    { x: w, y: h },
+    { x: 0, y: h },
+  ];
+  return warp(src, new ImageData(w, h), homography(rect, quad));
+}
+
+/**
+ * Guesses the page corners: Otsu-threshold a small greyscale copy, keep the largest bright blob,
+ * then take its extreme points along the two diagonals. Returns null if nothing page-like is found.
+ */
+export function detectPage(img: ImageData): Quad | null {
+  const { width: w, height: h, data } = img;
+  const gray = new Uint8Array(w * h);
+  const hist = new Array&lt;number&gt;(256).fill(0);
+  for (let i = 0; i &lt; w * h; i++) {
+    const g = (data[i * 4] * 0.299 + data[i * 4 + 1] * 0.587 + data[i * 4 + 2] * 0.114) | 0;
+    gray[i] = g;
+    hist[g]++;
+  }
+
+  // Otsu: the threshold that best separates two brightness classes.
+  let sumAll = 0;
+  for (let t = 0; t &lt; 256; t++) sumAll += t * hist[t];
+  let sumB = 0;
+  let wB = 0;
+  let best = 0;
+  let threshold = 128;
+  for (let t = 0; t &lt; 256; t++) {
+    wB += hist[t];
+    if (!wB) continue;
+    const wF = w * h - wB;
+    if (!wF) break;
+    sumB += t * hist[t];
+    const mB = sumB / wB;
+    const mF = (sumAll - sumB) / wF;
+    const between = wB * wF * (mB - mF) ** 2;
+    if (between &gt; best) {
+      best = between;
+      threshold = t;
+    }
+  }
+
+  // Largest 4-connected bright component.
+  const label = new Int32Array(w * h).fill(-1);
+  const queue = new Int32Array(w * h);
+  let bestId = -1;
+  let bestSize = 0;
+  let id = 0;
+  for (let start = 0; start &lt; w * h; start++) {
+    if (gray[start] &lt;= threshold || label[start] !== -1) continue;
+    let head = 0;
+    let tail = 0;
+    queue[tail++] = start;
+    label[start] = id;
+    while (head &lt; tail) {
+      const p = queue[head++];
+      const px = p % w;
+      const neighbours = [px &gt; 0 ? p - 1 : -1, px &lt; w - 1 ? p + 1 : -1, p - w, p + w];
+      for (const q of neighbours) {
+        if (q &lt; 0 || q &gt;= w * h || label[q] !== -1 || gray[q] &lt;= threshold) continue;
+        label[q] = id;
+        queue[tail++] = q;
+      }
+    }
+    if (tail &gt; bestSize) {
+      bestSize = tail;
+      bestId = id;
+    }
+    id++;
+  }
+  if (bestId &lt; 0 || bestSize &lt; w * h * 0.12) return null;
+
+  let tl = { x: 0, y: 0, s: Infinity };
+  let br = { x: 0, y: 0, s: -Infinity };
+  let tr = { x: 0, y: 0, s: -Infinity };
+  let bl = { x: 0, y: 0, s: Infinity };
+  for (let p = 0; p &lt; w * h; p++) {
+    if (label[p] !== bestId) continue;
+    const x = p % w;
+    const y = (p / w) | 0;
+    if (x + y &lt; tl.s) tl = { x, y, s: x + y };
+    if (x + y &gt; br.s) br = { x, y, s: x + y };
+    if (x - y &gt; tr.s) tr = { x, y, s: x - y };
+    if (x - y &lt; bl.s) bl = { x, y, s: x - y };
+  }
+  return [tl, tr, br, bl].map(({ x, y }) =&gt; ({ x, y })) as Quad;
+}
+</code></pre></div><div class="file"><div class="file-head"><span>pdf.ts</span><button type="button" class="copy">Copy</button></div><pre><code>export type PdfPage = { jpeg: Uint8Array; width: number; height: number };
+
+const A4 = { w: 595.28, h: 841.89 }; // points
+
+/** Writes a minimal PDF with one JPEG per A4 page (portrait or landscape to match the image). */
+export function makePdf(pages: PdfPage[]) {
+  const enc = new TextEncoder();
+  const chunks: Uint8Array[] = [];
+  const offsets: number[] = [];
+  let length = 0;
+  const push = (part: string | Uint8Array) =&gt; {
+    const bytes = typeof part === &quot;string&quot; ? enc.encode(part) : part;
+    chunks.push(bytes);
+    length += bytes.length;
+  };
+  const object = (id: number, body: () =&gt; void) =&gt; {
+    offsets[id] = length;
+    push(`${id} 0 obj\n`);
+    body();
+    push(&quot;\nendobj\n&quot;);
+  };
+
+  // Object ids: 1 catalog, 2 page tree, then three per page (page, content, image).
+  const pageId = (i: number) =&gt; 3 + i * 3;
+  push(&quot;%PDF-1.4\n%\xE2\xE3\xCF\xD3\n&quot;);
+  object(1, () =&gt; push(&quot;&lt;&lt; /Type /Catalog /Pages 2 0 R &gt;&gt;&quot;));
+  object(2, () =&gt;
+    push(`&lt;&lt; /Type /Pages /Count ${pages.length} /Kids [${pages.map((_, i) =&gt; `${pageId(i)} 0 R`).join(&quot; &quot;)}] &gt;&gt;`),
+  );
+
+  pages.forEach((page, i) =&gt; {
+    const landscape = page.width &gt; page.height;
+    const pw = landscape ? A4.h : A4.w;
+    const ph = landscape ? A4.w : A4.h;
+    const scale = Math.min(pw / page.width, ph / page.height);
+    const w = page.width * scale;
+    const h = page.height * scale;
+    const content = `q ${w.toFixed(2)} 0 0 ${h.toFixed(2)} ${((pw - w) / 2).toFixed(2)} ${((ph - h) / 2).toFixed(2)} cm /Im0 Do Q`;
+    const id = pageId(i);
+
+    object(id, () =&gt;
+      push(
+        `&lt;&lt; /Type /Page /Parent 2 0 R /MediaBox [0 0 ${pw.toFixed(2)} ${ph.toFixed(2)}] /Resources &lt;&lt; /XObject &lt;&lt; /Im0 ${id + 2} 0 R &gt;&gt; &gt;&gt; /Contents ${id + 1} 0 R &gt;&gt;`,
+      ),
+    );
+    object(id + 1, () =&gt; push(`&lt;&lt; /Length ${content.length} &gt;&gt;\nstream\n${content}\nendstream`));
+    object(id + 2, () =&gt; {
+      push(
+        `&lt;&lt; /Type /XObject /Subtype /Image /Width ${page.width} /Height ${page.height} /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter /DCTDecode /Length ${page.jpeg.length} &gt;&gt;\nstream\n`,
+      );
+      push(page.jpeg);
+      push(&quot;\nendstream&quot;);
+    });
+  });
+
+  const count = 3 + pages.length * 3;
+  const xref = length;
+  push(`xref\n0 ${count}\n0000000000 65535 f \n`);
+  for (let id = 1; id &lt; count; id++) push(`${String(offsets[id]).padStart(10, &quot;0&quot;)} 00000 n \n`);
+  push(`trailer\n&lt;&lt; /Size ${count} /Root 1 0 R &gt;&gt;\nstartxref\n${xref}\n%%EOF`);
+
+  return new Blob(chunks as BlobPart[], { type: &quot;application/pdf&quot; });
+}
+</code></pre></div><div class="file"><div class="file-head"><span>sample.ts</span><button type="button" class="copy">Copy</button></div><pre><code>import { homography, warp } from &quot;./geometry&quot;;
+
+const PAGE = { w: 850, h: 1100 };
+
+function drawLetter() {
+  const c = document.createElement(&quot;canvas&quot;);
+  c.width = PAGE.w;
+  c.height = PAGE.h;
+  const ctx = c.getContext(&quot;2d&quot;)!;
+  ctx.fillStyle = &quot;#fbfaf6&quot;;
+  ctx.fillRect(0, 0, PAGE.w, PAGE.h);
+
+  ctx.fillStyle = &quot;#1c3557&quot;;
+  ctx.font = &quot;bold 40px Georgia, serif&quot;;
+  ctx.fillText(&quot;ACME LTD.&quot;, 70, 110);
+  ctx.font = &quot;18px Georgia, serif&quot;;
+  ctx.fillStyle = &quot;#555&quot;;
+  ctx.fillText(&quot;House 12, Road 7, Gulshan, Dhaka&quot;, 70, 140);
+  ctx.fillStyle = &quot;#1c3557&quot;;
+  ctx.fillRect(70, 160, 710, 3);
+
+  ctx.fillStyle = &quot;#222&quot;;
+  ctx.font = &quot;bold 30px Georgia, serif&quot;;
+  ctx.fillText(&quot;Salary Certificate&quot;, 70, 240);
+  ctx.font = &quot;20px Georgia, serif&quot;;
+  ctx.fillText(&quot;Date: 15 October 2026&quot;, 70, 285);
+
+  const body = [
+    &quot;This is to certify that Ms. Nusrat Jahan has been working&quot;,
+    &quot;with Acme Ltd. as HR Executive since 1 March 2024.&quot;,
+    &quot;&quot;,
+    &quot;Her current monthly salary is as follows:&quot;,
+  ];
+  body.forEach((line, i) =&gt; ctx.fillText(line, 70, 350 + i * 36));
+
+  const rows = [
+    [&quot;Basic salary&quot;, &quot;BDT 30,000&quot;],
+    [&quot;House rent&quot;, &quot;BDT 15,000&quot;],
+    [&quot;Medical allowance&quot;, &quot;BDT 3,500&quot;],
+    [&quot;Transport&quot;, &quot;BDT 3,500&quot;],
+    [&quot;Gross monthly salary&quot;, &quot;BDT 52,000&quot;],
+  ];
+  ctx.strokeStyle = &quot;#333&quot;;
+  ctx.lineWidth = 1.5;
+  rows.forEach(([label, value], i) =&gt; {
+    const y = 520 + i * 48;
+    ctx.strokeRect(70, y, 710, 48);
+    ctx.font = i === rows.length - 1 ? &quot;bold 20px Georgia, serif&quot; : &quot;20px Georgia, serif&quot;;
+    ctx.fillText(label, 90, y + 31);
+    ctx.fillText(value, 600, y + 31);
+  });
+  ctx.beginPath();
+  ctx.moveTo(560, 520);
+  ctx.lineTo(560, 520 + rows.length * 48);
+  ctx.stroke();
+
+  ctx.font = &quot;20px Georgia, serif&quot;;
+  ctx.fillText(&quot;This certificate is issued at her request.&quot;, 70, 820);
+
+  // Signature and stamp
+  ctx.strokeStyle = &quot;#1d3a8a&quot;;
+  ctx.lineWidth = 3;
+  ctx.beginPath();
+  ctx.moveTo(80, 940);
+  ctx.bezierCurveTo(120, 880, 150, 980, 190, 920);
+  ctx.bezierCurveTo(220, 880, 240, 970, 290, 925);
+  ctx.stroke();
+  ctx.fillStyle = &quot;#222&quot;;
+  ctx.fillText(&quot;Head of People&quot;, 80, 985);
+  ctx.strokeStyle = &quot;rgba(190, 40, 40, 0.75)&quot;;
+  ctx.lineWidth = 4;
+  ctx.beginPath();
+  ctx.arc(640, 930, 70, 0, Math.PI * 2);
+  ctx.stroke();
+  ctx.fillStyle = &quot;rgba(190, 40, 40, 0.8)&quot;;
+  ctx.font = &quot;bold 18px Georgia, serif&quot;;
+  ctx.fillText(&quot;ACME LTD.&quot;, 590, 937);
+  return ctx.getImageData(0, 0, PAGE.w, PAGE.h);
+}
+
+/** A phone-style photo of the letter lying at an angle on a desk, with uneven lighting. */
+export function drawSamplePhoto() {
+  const W = 1400;
+  const H = 1050;
+  const c = document.createElement(&quot;canvas&quot;);
+  c.width = W;
+  c.height = H;
+  const ctx = c.getContext(&quot;2d&quot;)!;
+
+  const desk = ctx.createLinearGradient(0, 0, W, H);
+  desk.addColorStop(0, &quot;#6b4a32&quot;);
+  desk.addColorStop(1, &quot;#3e2a1c&quot;);
+  ctx.fillStyle = desk;
+  ctx.fillRect(0, 0, W, H);
+  ctx.globalAlpha = 0.08;
+  for (let y = 0; y &lt; H; y += 6) {
+    ctx.fillStyle = y % 12 ? &quot;#000&quot; : &quot;#fff&quot;;
+    ctx.fillRect(0, y + Math.sin(y / 40) * 3, W, 2);
+  }
+  ctx.globalAlpha = 1;
+
+  // A true pinhole-camera projection of the 850×1100 page (tilted back ~23°, f = 1500px),
+  // so the scanner&#x27;s perspective maths can recover its real proportions.
+  const quad = [
+    { x: 500, y: 191 },
+    { x: 1061, y: 219 },
+    { x: 1028, y: 994 },
+    { x: 344, y: 912 },
+  ];
+
+  // Soft shadow under the paper
+  ctx.save();
+  ctx.shadowColor = &quot;rgba(0, 0, 0, 0.55)&quot;;
+  ctx.shadowBlur = 40;
+  ctx.shadowOffsetX = 18;
+  ctx.shadowOffsetY = 22;
+  ctx.fillStyle = &quot;#000&quot;;
+  ctx.beginPath();
+  quad.forEach((p, i) =&gt; (i ? ctx.lineTo(p.x, p.y) : ctx.moveTo(p.x, p.y)));
+  ctx.closePath();
+  ctx.fill();
+  ctx.restore();
+
+  // Map the letter into the tilted quad with the same perspective maths the scanner uses.
+  const photo = ctx.getImageData(0, 0, W, H);
+  const pageRect = [
+    { x: 0, y: 0 },
+    { x: PAGE.w, y: 0 },
+    { x: PAGE.w, y: PAGE.h },
+    { x: 0, y: PAGE.h },
+  ];
+  const xs = quad.map((p) =&gt; p.x);
+  const ys = quad.map((p) =&gt; p.y);
+  warp(drawLetter(), photo, homography(quad, pageRect), {
+    x0: Math.floor(Math.min(...xs)),
+    y0: Math.floor(Math.min(...ys)),
+    x1: Math.ceil(Math.max(...xs)),
+    y1: Math.ceil(Math.max(...ys)),
+  }, false);
+  ctx.putImageData(photo, 0, 0);
+
+  // Uneven room lighting: bright top-left, shadowed bottom-right.
+  const light = ctx.createRadialGradient(350, 150, 100, 700, 600, 1100);
+  light.addColorStop(0, &quot;rgba(255, 245, 225, 0.18)&quot;);
+  light.addColorStop(1, &quot;rgba(0, 0, 0, 0.38)&quot;);
+  ctx.fillStyle = light;
+  ctx.fillRect(0, 0, W, H);
+
+  return new Promise&lt;Blob&gt;((resolve) =&gt; c.toBlob((b) =&gt; resolve(b!), &quot;image/jpeg&quot;, 0.9));
+}
+</code></pre></div></section><nav class="pager"><a href="/component-gallery/components/stacking-toasts/">← <!-- -->Stacking Toast Notifications</a><a href="/component-gallery/components/text-diff/">Text Diff Checker<!-- --> →</a></nav></main><!--$--><!--/$--><footer class="site-footer"><div class="container"><span>Built by <!-- -->rownok-HR-LS<!-- --> · LofiStack 90-day challenge</span><a href="https://github.com/rownok-HR-LS/component-gallery">Source on GitHub</a></div></footer><script src="/component-gallery/_next/static/chunks/webpack-1b912f870780f4ba.js" id="_R_" async=""></script><script>(self.__next_f=self.__next_f||[]).push([0])</script><script>self.__next_f.push([1,"1:\"$Sreact.fragment\"\n2:I[2619,[\"619\",\"static/chunks/619-ba102abea3e3d0e4.js\",\"449\",\"static/chunks/app/components/%5Bslug%5D/page-7b18c14fa5ee9ace.js\"],\"\"]\n3:I[9766,[],\"\"]\n4:I[8924,[],\"\"]\n6:I[4431,[],\"OutletBoundary\"]\n8:I[5278,[],\"AsyncMetadataOutlet\"]\na:I[4431,[],\"ViewportBoundary\"]\nc:I[4431,[],\"MetadataBoundary\"]\nd:\"$Sreact.suspense\"\nf:I[7150,[],\"\"]\n:HL[\"/component-gallery/_next/static/css/68cce7808a08b910.css\",\"style\"]\n"])</script><script>self.__next_f.push([1,"0:{\"P\":null,\"b\":\"6jA2vIGrO3aOlnYlKgPnQ\",\"p\":\"/component-gallery\",\"c\":[\"\",\"components\",\"document-scanner\",\"\"],\"i\":false,\"f\":[[[\"\",{\"children\":[\"components\",{\"children\":[[\"slug\",\"document-scanner\",\"d\"],{\"children\":[\"__PAGE__\",{}]}]}]},\"$undefined\",\"$undefined\",true],[\"\",[\"$\",\"$1\",\"c\",{\"children\":[[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/component-gallery/_next/static/css/68cce7808a08b910.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}]],[\"$\",\"html\",null,{\"lang\":\"en\",\"children\":[\"$\",\"body\",null,{\"children\":[[\"$\",\"header\",null,{\"className\":\"site-header\",\"children\":[\"$\",\"div\",null,{\"className\":\"container\",\"children\":[[\"$\",\"$L2\",null,{\"href\":\"/\",\"className\":\"brand\",\"children\":\"Component Gallery\"}],[\"$\",\"nav\",null,{\"children\":[\"$\",\"a\",null,{\"href\":\"https://github.com/rownok-HR-LS/component-gallery\",\"children\":\"GitHub\"}]}]]}]}],[\"$\",\"$L3\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L4\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":[[\"$\",\"main\",null,{\"className\":\"container\",\"children\":[\"$\",\"header\",null,{\"className\":\"hero\",\"children\":[[\"$\",\"h1\",null,{\"children\":\"Not found\"}],[\"$\",\"p\",null,{\"className\":\"lede\",\"children\":\"That component doesn't exist (yet).\"}],[\"$\",\"$L2\",null,{\"href\":\"/\",\"children\":\"← Back to the gallery\"}]]}]}],[]],\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}],[\"$\",\"footer\",null,{\"className\":\"site-footer\",\"children\":[\"$\",\"div\",null,{\"className\":\"container\",\"children\":[[\"$\",\"span\",null,{\"children\":[\"Built by \",\"rownok-HR-LS\",\" · LofiStack 90-day challenge\"]}],[\"$\",\"a\",null,{\"href\":\"https://github.com/rownok-HR-LS/component-gallery\",\"children\":\"Source on GitHub\"}]]}]}]]}]}]]}],{\"children\":[\"components\",[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"$L3\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L4\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]]}],{\"children\":[[\"slug\",\"document-scanner\",\"d\"],[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"$L3\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L4\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]]}],{\"children\":[\"__PAGE__\",[\"$\",\"$1\",\"c\",{\"children\":[\"$L5\",null,[\"$\",\"$L6\",null,{\"children\":[\"$L7\",[\"$\",\"$L8\",null,{\"promise\":\"$@9\"}]]}]]}],{},null,false]},null,false]},null,false]},null,false],[\"$\",\"$1\",\"h\",{\"children\":[null,[[\"$\",\"$La\",null,{\"children\":\"$Lb\"}],null],[\"$\",\"$Lc\",null,{\"children\":[\"$\",\"div\",null,{\"hidden\":true,\"children\":[\"$\",\"$d\",null,{\"fallback\":null,\"children\":\"$Le\"}]}]}]]}],false]],\"m\":\"$undefined\",\"G\":[\"$f\",[]],\"s\":false,\"S\":true}\n"])</script><script>self.__next_f.push([1,"b:[[\"$\",\"meta\",\"0\",{\"charSet\":\"utf-8\"}],[\"$\",\"meta\",\"1\",{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"}]]\n7:null\n"])</script><script>self.__next_f.push([1,"9:{\"metadata\":[[\"$\",\"title\",\"0\",{\"children\":\"Document Scanner · Component Gallery\"}],[\"$\",\"meta\",\"1\",{\"name\":\"description\",\"content\":\"Turn a phone photo of a page into a flat, clean scan: auto-detected corners, perspective correction, shadow-removing B\u0026W filter and multi-page PDF export, all in the browser.\"}]],\"error\":null,\"digest\":\"$undefined\"}\n"])</script><script>self.__next_f.push([1,"e:\"$9:metadata\"\n"])</script><script>self.__next_f.push([1,"10:I[2325,[\"619\",\"static/chunks/619-ba102abea3e3d0e4.js\",\"449\",\"static/chunks/app/components/%5Bslug%5D/page-7b18c14fa5ee9ace.js\"],\"Demo\"]\n11:I[7333,[\"619\",\"static/chunks/619-ba102abea3e3d0e4.js\",\"449\",\"static/chunks/app/components/%5Bslug%5D/page-7b18c14fa5ee9ace.js\"],\"CopyButton\"]\n12:T1a7c,"])</script><script>self.__next_f.push([1,".card {\n  --surface: #fcfcfb;\n  --ink: #0b0b0b;\n  --ink-2: #52514e;\n  --muted: #898781;\n  --border: rgba(11, 11, 11, 0.1);\n  --field: #f4f3f0;\n  --accent: #2a78d6;\n  --handle: #4cc9f0;\n\n  width: 100%;\n  max-width: 900px;\n  padding: 22px;\n  border: 1px solid var(--border);\n  border-radius: 20px;\n  background: var(--surface);\n  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 12px 32px -12px rgba(0, 0, 0, 0.18);\n  color: var(--ink);\n  font-family: system-ui, -apple-system, \"Segoe UI\", sans-serif;\n  container-type: inline-size;\n}\n\n@media (prefers-color-scheme: dark) {\n  .card {\n    --surface: #1a1a19;\n    --ink: #ffffff;\n    --ink-2: #c3c2b7;\n    --border: rgba(255, 255, 255, 0.1);\n    --field: #232321;\n    --accent: #3987e5;\n    box-shadow: 0 12px 32px -12px rgba(0, 0, 0, 0.6);\n  }\n}\n\n.head { margin-bottom: 16px; }\n.title { margin: 0; font-size: 17px; font-weight: 650; }\n.subtitle { margin: 2px 0 0; color: var(--ink-2); font-size: 13px; }\n\n/* Empty state */\n.dropzone {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  gap: 6px;\n  padding: 44px 16px;\n  border: 1.5px dashed color-mix(in srgb, var(--ink) 22%, transparent);\n  border-radius: 14px;\n  text-align: center;\n  cursor: pointer;\n  transition: border-color 0.15s ease, background 0.15s ease;\n}\n.dropzone:hover,\n.dropzone[data-over=\"true\"] { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 6%, transparent); }\n.dropzone:focus-within { outline: 2px solid var(--accent); outline-offset: 2px; }\n.fileInput { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }\n.dropIcon { fill: none; stroke: var(--accent); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }\n.dropTitle { font-size: 14px; font-weight: 600; }\n.dropNote { color: var(--muted); font-size: 12px; }\n.sampleLink {\n  margin-top: 6px;\n  padding: 0;\n  border: 0;\n  background: none;\n  color: var(--accent);\n  font: inherit;\n  font-size: 13px;\n  font-weight: 600;\n  text-decoration: underline;\n  text-underline-offset: 3px;\n  cursor: pointer;\n}\n\n/* Two panels */\n.body { display: grid; grid-template-columns: 1fr 1fr; align-items: start; gap: 22px; }\n@container (max-width: 680px) {\n  .body { grid-template-columns: 1fr; }\n}\n.panel { display: flex; flex-direction: column; gap: 12px; min-width: 0; }\n.panelHead { display: flex; align-items: center; gap: 8px; font-size: 13.5px; font-weight: 600; }\n.step {\n  display: grid;\n  place-items: center;\n  width: 20px;\n  height: 20px;\n  border-radius: 50%;\n  background: var(--ink);\n  color: var(--surface);\n  font-size: 11px;\n}\n.meta { margin-left: auto; color: var(--muted); font-size: 12px; font-weight: 400; font-variant-numeric: tabular-nums; }\n\n/* Corner editor */\n.editor {\n  position: relative;\n  width: 100%;\n  margin: 0 auto;\n  overflow: visible;\n  border-radius: 8px;\n  touch-action: none;\n  user-select: none;\n}\n.photo { display: block; width: 100%; height: 100%; border-radius: 8px; }\n.overlay { position: absolute; inset: 0; width: 100%; height: 100%; border-radius: 8px; pointer-events: none; }\n.shade { fill: rgba(0, 0, 0, 0.5); }\n.outline { fill: rgba(76, 201, 240, 0.08); stroke: var(--handle); stroke-width: 2; stroke-linejoin: round; vector-effect: non-scaling-stroke; }\n\n.handle {\n  position: absolute;\n  width: 26px;\n  height: 26px;\n  padding: 0;\n  border: 3px solid #fff;\n  border-radius: 50%;\n  background: var(--handle);\n  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3), 0 4px 10px rgba(0, 0, 0, 0.35);\n  cursor: grab;\n  transform: translate(-50%, -50%);\n  touch-action: none;\n  transition: transform 0.12s ease;\n}\n.handle:hover,\n.handle[data-active=\"true\"] { transform: translate(-50%, -50%) scale(1.15); }\n.handle[data-active=\"true\"] { cursor: grabbing; }\n.handle:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }\n\n.loupe {\n  position: absolute;\n  z-index: 3;\n  width: 120px;\n  height: 120px;\n  border: 3px solid #fff;\n  border-radius: 50%;\n  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45);\n  pointer-events: none;\n  transform: translate(-50%, calc(-100% - 26px));\n}\n.loupe[data-below=\"true\"] { transform: translate(-50%, 26px); }\n\n.row { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }\n.chip {\n  padding: 6px 11px;\n  border: 1px solid var(--border);\n  border-radius: 99px;\n  background: none;\n  color: var(--ink-2);\n  font: inherit;\n  font-size: 12.5px;\n  cursor: pointer;\n}\n.chip:hover { background: var(--field); color: var(--ink); }\n.chip:focus-visible,\n.segmented button:focus-visible,\n.actions button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }\n\n/* Result */\n.resultBox {\n  display: grid;\n  place-items: center;\n  min-height: 220px;\n  padding: 12px;\n  border-radius: 10px;\n  background: repeating-linear-gradient(45deg, var(--field) 0 10px, transparent 10px 20px);\n  transition: opacity 0.2s ease;\n}\n.resultBox[data-busy=\"true\"] { opacity: 0.55; }\n.result {\n  display: block;\n  max-width: 100%;\n  max-height: 420px;\n  background: #fff;\n  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1), 0 8px 24px -8px rgba(0, 0, 0, 0.35);\n}\n\n.segmented { display: inline-flex; flex-wrap: wrap; gap: 2px; padding: 3px; border-radius: 10px; background: var(--field); }\n.segmented button {\n  padding: 5px 10px;\n  border: 0;\n  border-radius: 8px;\n  background: none;\n  color: var(--ink-2);\n  font: inherit;\n  font-size: 12.5px;\n  cursor: pointer;\n}\n.segmented button[aria-checked=\"true\"] { background: var(--surface); box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15); color: var(--ink); font-weight: 600; }\n\n.actions { display: flex; flex-wrap: wrap; gap: 6px; }\n.actions button { height: 38px; padding: 0 14px; border-radius: 10px; font: inherit; font-size: 13.5px; font-weight: 600; cursor: pointer; }\n.actions button:disabled { opacity: 0.5; cursor: default; }\n.secondary { border: 1px solid var(--border); background: none; color: var(--ink); }\n.secondary:hover:not(:disabled) { background: var(--field); }\n.primary { flex: 1; border: 0; background: var(--ink); color: var(--surface); }\n.primary:hover:not(:disabled) { opacity: 0.88; }\n\n.pages { display: flex; gap: 8px; margin: 0; padding: 2px 0 4px; overflow-x: auto; list-style: none; }\n.pages li { position: relative; flex: none; }\n.pages img { display: block; height: 76px; border-radius: 4px; background: #fff; box-shadow: 0 0 0 1px var(--border); }\n.pages span {\n  position: absolute;\n  bottom: 4px;\n  left: 4px;\n  padding: 0 5px;\n  border-radius: 4px;\n  background: rgba(0, 0, 0, 0.65);\n  color: #fff;\n  font-size: 10.5px;\n}\n.pages button {\n  position: absolute;\n  top: -6px;\n  right: -6px;\n  width: 20px;\n  height: 20px;\n  padding: 0;\n  border: 2px solid var(--surface);\n  border-radius: 50%;\n  background: var(--ink);\n  color: var(--surface);\n  font-size: 12px;\n  line-height: 1;\n  cursor: pointer;\n}\n"])</script><script>self.__next_f.push([1,"5:[\"$\",\"main\",null,{\"className\":\"container\",\"children\":[[\"$\",\"$L2\",null,{\"href\":\"/\",\"className\":\"back\",\"children\":\"← All components\"}],[\"$\",\"header\",null,{\"className\":\"detail-head\",\"children\":[[\"$\",\"span\",null,{\"className\":\"tag\",\"children\":[\"Week \",5,\" · \",\"2026-10-08\"]}],[\"$\",\"h1\",null,{\"children\":\"Document Scanner\"}],[\"$\",\"p\",null,{\"children\":\"Turn a phone photo of a page into a flat, clean scan: auto-detected corners, perspective correction, shadow-removing B\u0026W filter and multi-page PDF export, all in the browser.\"}]]}],[\"$\",\"section\",null,{\"className\":\"stage\",\"aria-label\":\"Live demo\",\"children\":[\"$\",\"$L10\",null,{\"slug\":\"document-scanner\"}]}],[\"$\",\"section\",null,{\"className\":\"source\",\"children\":[[\"$\",\"h2\",null,{\"children\":\"Source\"}],[[\"$\",\"div\",\"Demo.tsx\",{\"className\":\"file\",\"children\":[[\"$\",\"div\",null,{\"className\":\"file-head\",\"children\":[[\"$\",\"span\",null,{\"children\":\"Demo.tsx\"}],[\"$\",\"$L11\",null,{\"text\":\"import DocScanner from \\\"./DocScanner\\\";\\n\\nexport default function Demo() {\\n  return \u003cDocScanner /\u003e;\\n}\\n\"}]]}],[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"children\":\"import DocScanner from \\\"./DocScanner\\\";\\n\\nexport default function Demo() {\\n  return \u003cDocScanner /\u003e;\\n}\\n\"}]}]]}],[\"$\",\"div\",\"DocScanner.module.css\",{\"className\":\"file\",\"children\":[[\"$\",\"div\",null,{\"className\":\"file-head\",\"children\":[[\"$\",\"span\",null,{\"children\":\"DocScanner.module.css\"}],[\"$\",\"$L11\",null,{\"text\":\"$12\"}]]}],\"$L13\"]}],\"$L14\",\"$L15\",\"$L16\",\"$L17\",\"$L18\"]]}],\"$L19\"]}]\n"])</script><script>self.__next_f.push([1,"1a:T1a7c,"])</script><script>self.__next_f.push([1,".card {\n  --surface: #fcfcfb;\n  --ink: #0b0b0b;\n  --ink-2: #52514e;\n  --muted: #898781;\n  --border: rgba(11, 11, 11, 0.1);\n  --field: #f4f3f0;\n  --accent: #2a78d6;\n  --handle: #4cc9f0;\n\n  width: 100%;\n  max-width: 900px;\n  padding: 22px;\n  border: 1px solid var(--border);\n  border-radius: 20px;\n  background: var(--surface);\n  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 12px 32px -12px rgba(0, 0, 0, 0.18);\n  color: var(--ink);\n  font-family: system-ui, -apple-system, \"Segoe UI\", sans-serif;\n  container-type: inline-size;\n}\n\n@media (prefers-color-scheme: dark) {\n  .card {\n    --surface: #1a1a19;\n    --ink: #ffffff;\n    --ink-2: #c3c2b7;\n    --border: rgba(255, 255, 255, 0.1);\n    --field: #232321;\n    --accent: #3987e5;\n    box-shadow: 0 12px 32px -12px rgba(0, 0, 0, 0.6);\n  }\n}\n\n.head { margin-bottom: 16px; }\n.title { margin: 0; font-size: 17px; font-weight: 650; }\n.subtitle { margin: 2px 0 0; color: var(--ink-2); font-size: 13px; }\n\n/* Empty state */\n.dropzone {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  gap: 6px;\n  padding: 44px 16px;\n  border: 1.5px dashed color-mix(in srgb, var(--ink) 22%, transparent);\n  border-radius: 14px;\n  text-align: center;\n  cursor: pointer;\n  transition: border-color 0.15s ease, background 0.15s ease;\n}\n.dropzone:hover,\n.dropzone[data-over=\"true\"] { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 6%, transparent); }\n.dropzone:focus-within { outline: 2px solid var(--accent); outline-offset: 2px; }\n.fileInput { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }\n.dropIcon { fill: none; stroke: var(--accent); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }\n.dropTitle { font-size: 14px; font-weight: 600; }\n.dropNote { color: var(--muted); font-size: 12px; }\n.sampleLink {\n  margin-top: 6px;\n  padding: 0;\n  border: 0;\n  background: none;\n  color: var(--accent);\n  font: inherit;\n  font-size: 13px;\n  font-weight: 600;\n  text-decoration: underline;\n  text-underline-offset: 3px;\n  cursor: pointer;\n}\n\n/* Two panels */\n.body { display: grid; grid-template-columns: 1fr 1fr; align-items: start; gap: 22px; }\n@container (max-width: 680px) {\n  .body { grid-template-columns: 1fr; }\n}\n.panel { display: flex; flex-direction: column; gap: 12px; min-width: 0; }\n.panelHead { display: flex; align-items: center; gap: 8px; font-size: 13.5px; font-weight: 600; }\n.step {\n  display: grid;\n  place-items: center;\n  width: 20px;\n  height: 20px;\n  border-radius: 50%;\n  background: var(--ink);\n  color: var(--surface);\n  font-size: 11px;\n}\n.meta { margin-left: auto; color: var(--muted); font-size: 12px; font-weight: 400; font-variant-numeric: tabular-nums; }\n\n/* Corner editor */\n.editor {\n  position: relative;\n  width: 100%;\n  margin: 0 auto;\n  overflow: visible;\n  border-radius: 8px;\n  touch-action: none;\n  user-select: none;\n}\n.photo { display: block; width: 100%; height: 100%; border-radius: 8px; }\n.overlay { position: absolute; inset: 0; width: 100%; height: 100%; border-radius: 8px; pointer-events: none; }\n.shade { fill: rgba(0, 0, 0, 0.5); }\n.outline { fill: rgba(76, 201, 240, 0.08); stroke: var(--handle); stroke-width: 2; stroke-linejoin: round; vector-effect: non-scaling-stroke; }\n\n.handle {\n  position: absolute;\n  width: 26px;\n  height: 26px;\n  padding: 0;\n  border: 3px solid #fff;\n  border-radius: 50%;\n  background: var(--handle);\n  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3), 0 4px 10px rgba(0, 0, 0, 0.35);\n  cursor: grab;\n  transform: translate(-50%, -50%);\n  touch-action: none;\n  transition: transform 0.12s ease;\n}\n.handle:hover,\n.handle[data-active=\"true\"] { transform: translate(-50%, -50%) scale(1.15); }\n.handle[data-active=\"true\"] { cursor: grabbing; }\n.handle:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }\n\n.loupe {\n  position: absolute;\n  z-index: 3;\n  width: 120px;\n  height: 120px;\n  border: 3px solid #fff;\n  border-radius: 50%;\n  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45);\n  pointer-events: none;\n  transform: translate(-50%, calc(-100% - 26px));\n}\n.loupe[data-below=\"true\"] { transform: translate(-50%, 26px); }\n\n.row { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }\n.chip {\n  padding: 6px 11px;\n  border: 1px solid var(--border);\n  border-radius: 99px;\n  background: none;\n  color: var(--ink-2);\n  font: inherit;\n  font-size: 12.5px;\n  cursor: pointer;\n}\n.chip:hover { background: var(--field); color: var(--ink); }\n.chip:focus-visible,\n.segmented button:focus-visible,\n.actions button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }\n\n/* Result */\n.resultBox {\n  display: grid;\n  place-items: center;\n  min-height: 220px;\n  padding: 12px;\n  border-radius: 10px;\n  background: repeating-linear-gradient(45deg, var(--field) 0 10px, transparent 10px 20px);\n  transition: opacity 0.2s ease;\n}\n.resultBox[data-busy=\"true\"] { opacity: 0.55; }\n.result {\n  display: block;\n  max-width: 100%;\n  max-height: 420px;\n  background: #fff;\n  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1), 0 8px 24px -8px rgba(0, 0, 0, 0.35);\n}\n\n.segmented { display: inline-flex; flex-wrap: wrap; gap: 2px; padding: 3px; border-radius: 10px; background: var(--field); }\n.segmented button {\n  padding: 5px 10px;\n  border: 0;\n  border-radius: 8px;\n  background: none;\n  color: var(--ink-2);\n  font: inherit;\n  font-size: 12.5px;\n  cursor: pointer;\n}\n.segmented button[aria-checked=\"true\"] { background: var(--surface); box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15); color: var(--ink); font-weight: 600; }\n\n.actions { display: flex; flex-wrap: wrap; gap: 6px; }\n.actions button { height: 38px; padding: 0 14px; border-radius: 10px; font: inherit; font-size: 13.5px; font-weight: 600; cursor: pointer; }\n.actions button:disabled { opacity: 0.5; cursor: default; }\n.secondary { border: 1px solid var(--border); background: none; color: var(--ink); }\n.secondary:hover:not(:disabled) { background: var(--field); }\n.primary { flex: 1; border: 0; background: var(--ink); color: var(--surface); }\n.primary:hover:not(:disabled) { opacity: 0.88; }\n\n.pages { display: flex; gap: 8px; margin: 0; padding: 2px 0 4px; overflow-x: auto; list-style: none; }\n.pages li { position: relative; flex: none; }\n.pages img { display: block; height: 76px; border-radius: 4px; background: #fff; box-shadow: 0 0 0 1px var(--border); }\n.pages span {\n  position: absolute;\n  bottom: 4px;\n  left: 4px;\n  padding: 0 5px;\n  border-radius: 4px;\n  background: rgba(0, 0, 0, 0.65);\n  color: #fff;\n  font-size: 10.5px;\n}\n.pages button {\n  position: absolute;\n  top: -6px;\n  right: -6px;\n  width: 20px;\n  height: 20px;\n  padding: 0;\n  border: 2px solid var(--surface);\n  border-radius: 50%;\n  background: var(--ink);\n  color: var(--surface);\n  font-size: 12px;\n  line-height: 1;\n  cursor: pointer;\n}\n"])</script><script>self.__next_f.push([1,"13:[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"children\":\"$1a\"}]}]\n1b:T404e,"])</script><script>self.__next_f.push([1,"\"use client\";\n\nimport { useEffect, useRef, useState, type KeyboardEvent, type PointerEvent } from \"react\";\nimport { applyFilter, type Filter } from \"./filters\";\nimport { detectPage, flatten, quadSize, type Quad } from \"./geometry\";\nimport { makePdf } from \"./pdf\";\nimport { drawSamplePhoto } from \"./sample\";\nimport styles from \"./DocScanner.module.css\";\n\ntype Work = { canvas: HTMLCanvasElement; data: ImageData; w: number; h: number; url: string };\ntype Page = { blob: Blob; url: string; width: number; height: number };\ntype Shape = \"auto\" | \"a4\" | \"id\";\n\nconst MAX_WORK = 2000; // longest side of the working copy\nconst MAX_OUTPUT = 1600; // longest side of the scan\nconst LOUPE = 120;\nconst LOUPE_ZOOM = 3;\n\nconst FILTERS: { key: Filter; label: string }[] = [\n  { key: \"original\", label: \"Original\" },\n  { key: \"enhanced\", label: \"Enhanced\" },\n  { key: \"grayscale\", label: \"Grayscale\" },\n  { key: \"bw\", label: \"B\u0026W scan\" },\n];\nconst SHAPES: { key: Shape; label: string }[] = [\n  { key: \"auto\", label: \"Auto\" },\n  { key: \"a4\", label: \"A4\" },\n  { key: \"id\", label: \"ID card\" },\n];\n\nconst clamp = (v: number, lo: number, hi: number) =\u003e Math.max(lo, Math.min(hi, v));\n\nfunction insetQuad(w: number, h: number, f = 0.06): Quad {\n  return [\n    { x: w * f, y: h * f },\n    { x: w * (1 - f), y: h * f },\n    { x: w * (1 - f), y: h * (1 - f) },\n    { x: w * f, y: h * (1 - f) },\n  ];\n}\n\nfunction guessCorners(work: Work): Quad {\n  const s = Math.min(1, 240 / Math.max(work.w, work.h));\n  const small = document.createElement(\"canvas\");\n  small.width = Math.round(work.w * s);\n  small.height = Math.round(work.h * s);\n  const ctx = small.getContext(\"2d\", { willReadFrequently: true })!;\n  ctx.drawImage(work.canvas, 0, 0, small.width, small.height);\n  const quad = detectPage(ctx.getImageData(0, 0, small.width, small.height));\n  return quad ? (quad.map((p) =\u003e ({ x: p.x / s, y: p.y / s })) as Quad) : insetQuad(work.w, work.h);\n}\n\nfunction outputSize(quad: Quad, shape: Shape, imageW: number, imageH: number) {\n  let { w, h } = quadSize(quad, imageW, imageH);\n  const landscape = w \u003e= h;\n  if (shape === \"a4\") {\n    const r = Math.SQRT2;\n    if (landscape) h = w / r;\n    else h = w * r;\n  }\n  if (shape === \"id\") {\n    const r = 85.6 / 53.98;\n    if (landscape) h = w / r;\n    else h = w * r;\n  }\n  const s = Math.min(1, MAX_OUTPUT / Math.max(w, h));\n  return { w: Math.max(1, Math.round(w * s)), h: Math.max(1, Math.round(h * s)) };\n}\n\nfunction download(blob: Blob, name: string) {\n  const url = URL.createObjectURL(blob);\n  const a = document.createElement(\"a\");\n  a.href = url;\n  a.download = name;\n  a.click();\n  setTimeout(() =\u003e URL.revokeObjectURL(url), 1000);\n}\n\nconst toBlob = (canvas: HTMLCanvasElement, type: string, quality?: number) =\u003e\n  new Promise\u003cBlob\u003e((resolve) =\u003e canvas.toBlob((b) =\u003e resolve(b!), type, quality));\n\nexport default function DocScanner() {\n  const [work, setWork] = useState\u003cWork | null\u003e(null);\n  const [corners, setCorners] = useState\u003cQuad | null\u003e(null);\n  const [dragging, setDragging] = useState\u003cnumber | null\u003e(null);\n  const [filter, setFilter] = useState\u003cFilter\u003e(\"bw\");\n  const [shape, setShape] = useState\u003cShape\u003e(\"auto\");\n  const [rotation, setRotation] = useState(0);\n  const [processing, setProcessing] = useState(false);\n  const [resultSize, setResultSize] = useState\u003c{ w: number; h: number } | null\u003e(null);\n  const [pages, setPages] = useState\u003cPage[]\u003e([]);\n  const [dragOver, setDragOver] = useState(false);\n\n  const editor = useRef\u003cHTMLDivElement\u003e(null);\n  const result = useRef\u003cHTMLCanvasElement\u003e(null);\n  const loupe = useRef\u003cHTMLCanvasElement\u003e(null);\n\n  async function load(file: Blob) {\n    const url = URL.createObjectURL(file);\n    const img = new Image();\n    // onload rather than img.decode(): decode() can stall in background tabs.\n    await new Promise\u003cvoid\u003e((resolve, reject) =\u003e {\n      img.onload = () =\u003e resolve();\n      img.onerror = () =\u003e reject(new Error(\"Could not read that image\"));\n      img.src = url;\n    });\n    const s = Math.min(1, MAX_WORK / Math.max(img.naturalWidth, img.naturalHeight));\n    const canvas = document.createElement(\"canvas\");\n    canvas.width = Math.round(img.naturalWidth * s);\n    canvas.height = Math.round(img.naturalHeight * s);\n    const ctx = canvas.getContext(\"2d\", { willReadFrequently: true })!;\n    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);\n    const next: Work = { canvas, data: ctx.getImageData(0, 0, canvas.width, canvas.height), w: canvas.width, h: canvas.height, url };\n    setWork((prev) =\u003e {\n      if (prev) URL.revokeObjectURL(prev.url);\n      return next;\n    });\n    setCorners(guessCorners(next));\n    setRotation(0);\n  }\n\n  // Flatten + filter whenever the inputs settle (not while a corner is being dragged).\n  useEffect(() =\u003e {\n    if (!work || !corners || dragging !== null) return;\n    setProcessing(true);\n    const timer = setTimeout(() =\u003e {\n      const { w, h } = outputSize(corners, shape, work.w, work.h);\n      const flat = applyFilter(flatten(work.data, corners, w, h), filter);\n      const tmp = document.createElement(\"canvas\");\n      tmp.width = w;\n      tmp.height = h;\n      tmp.getContext(\"2d\")!.putImageData(flat, 0, 0);\n\n      const out = result.current;\n      if (!out) return;\n      const quarter = rotation % 2 === 1;\n      out.width = quarter ? h : w;\n      out.height = quarter ? w : h;\n      const ctx = out.getContext(\"2d\")!;\n      ctx.save();\n      ctx.translate(out.width / 2, out.height / 2);\n      ctx.rotate((rotation * Math.PI) / 2);\n      ctx.drawImage(tmp, -w / 2, -h / 2);\n      ctx.restore();\n      setResultSize({ w: out.width, h: out.height });\n      setProcessing(false);\n    }, 30);\n    return () =\u003e clearTimeout(timer);\n  }, [work, corners, dragging, filter, shape, rotation]);\n\n  // Magnifier around the corner being dragged.\n  useEffect(() =\u003e {\n    if (dragging === null || !work || !corners || !loupe.current || !editor.current) return;\n    const ctx = loupe.current.getContext(\"2d\")!;\n    const scale = editor.current.getBoundingClientRect().width / work.w;\n    const r = LOUPE / 2 / (scale * LOUPE_ZOOM);\n    const { x, y } = corners[dragging];\n    ctx.fillStyle = \"#000\";\n    ctx.fillRect(0, 0, LOUPE, LOUPE);\n    ctx.drawImage(work.canvas, x - r, y - r, r * 2, r * 2, 0, 0, LOUPE, LOUPE);\n    ctx.strokeStyle = \"rgba(76, 201, 240, 0.95)\";\n    ctx.lineWidth = 1.5;\n    ctx.beginPath();\n    ctx.moveTo(LOUPE / 2, 0);\n    ctx.lineTo(LOUPE / 2, LOUPE);\n    ctx.moveTo(0, LOUPE / 2);\n    ctx.lineTo(LOUPE, LOUPE / 2);\n    ctx.stroke();\n  }, [dragging, corners, work]);\n\n  useEffect(() =\u003e () =\u003e pages.forEach((p) =\u003e URL.revokeObjectURL(p.url)), []); // eslint-disable-line react-hooks/exhaustive-deps\n\n  function pointToImage(e: PointerEvent) {\n    const rect = editor.current!.getBoundingClientRect();\n    return {\n      x: clamp(((e.clientX - rect.left) / rect.width) * work!.w, 0, work!.w),\n      y: clamp(((e.clientY - rect.top) / rect.height) * work!.h, 0, work!.h),\n    };\n  }\n\n  function moveCorner(i: number, p: { x: number; y: number }) {\n    setCorners((q) =\u003e (q ? (q.map((c, j) =\u003e (j === i ? p : c)) as Quad) : q));\n  }\n\n  function onHandleKey(i: number, e: KeyboardEvent) {\n    const steps: Record\u003cstring, [number, number]\u003e = { ArrowLeft: [-1, 0], ArrowRight: [1, 0], ArrowUp: [0, -1], ArrowDown: [0, 1] };\n    const step = steps[e.key];\n    if (!step || !work || !corners || !editor.current) return;\n    e.preventDefault();\n    const px = (work.w / editor.current.getBoundingClientRect().width) * (e.shiftKey ? 10 : 1);\n    moveCorner(i, { x: clamp(corners[i].x + step[0] * px, 0, work.w), y: clamp(corners[i].y + step[1] * px, 0, work.h) });\n  }\n\n  async function addPage() {\n    if (!result.current || processing) return;\n    const blob = await toBlob(result.current, \"image/jpeg\", 0.9);\n    setPages((p) =\u003e [...p, { blob, url: URL.createObjectURL(blob), width: result.current!.width, height: result.current!.height }]);\n  }\n\n  async function exportPdf() {\n    if (!result.current) return;\n    const source: Page[] = pages.length\n      ? pages\n      : [{ blob: await toBlob(result.current, \"image/jpeg\", 0.9), url: \"\", width: result.current.width, height: result.current.height }];\n    const pdf = makePdf(\n      await Promise.all(source.map(async (p) =\u003e ({ jpeg: new Uint8Array(await p.blob.arrayBuffer()), width: p.width, height: p.height }))),\n    );\n    download(pdf, `scan-${new Date().toISOString().slice(0, 10)}.pdf`);\n  }\n\n  async function exportPng() {\n    if (result.current) download(await toBlob(result.current, \"image/png\"), \"scan.png\");\n  }\n\n  const quadPath = corners?.map((p, i) =\u003e `${i ? \"L\" : \"M\"}${p.x},${p.y}`).join(\" \") + \" Z\";\n  const active = dragging !== null \u0026\u0026 corners ? corners[dragging] : null;\n\n  return (\n    \u003cdiv className={styles.card}\u003e\n      \u003cheader className={styles.head}\u003e\n        \u003ch3 className={styles.title}\u003eDocument scanner\u003c/h3\u003e\n        \u003cp className={styles.subtitle}\u003eTurn a phone photo of a page into a flat, clean scan. Nothing leaves your device.\u003c/p\u003e\n      \u003c/header\u003e\n\n      {!work || !corners ? (\n        \u003clabel\n          className={styles.dropzone}\n          data-over={dragOver}\n          onDragOver={(e) =\u003e {\n            e.preventDefault();\n            setDragOver(true);\n          }}\n          onDragLeave={() =\u003e setDragOver(false)}\n          onDrop={(e) =\u003e {\n            e.preventDefault();\n            setDragOver(false);\n            const file = e.dataTransfer.files[0];\n            if (file?.type.startsWith(\"image/\")) load(file);\n          }}\n        \u003e\n          \u003cinput type=\"file\" accept=\"image/*\" className={styles.fileInput} onChange={(e) =\u003e e.target.files?.[0] \u0026\u0026 load(e.target.files[0])} /\u003e\n          \u003csvg viewBox=\"0 0 24 24\" width=\"30\" height=\"30\" aria-hidden=\"true\" className={styles.dropIcon}\u003e\n            \u003cpath d=\"M4 8V5a1 1 0 0 1 1-1h3M16 4h3a1 1 0 0 1 1 1v3M20 16v3a1 1 0 0 1-1 1h-3M8 20H5a1 1 0 0 1-1-1v-3M7 12h10\" /\u003e\n          \u003c/svg\u003e\n          \u003cspan className={styles.dropTitle}\u003eDrop a photo of a document, or click to choose\u003c/span\u003e\n          \u003cspan className={styles.dropNote}\u003eLetters, receipts, certificates, ID cards\u003c/span\u003e\n          \u003cbutton\n            type=\"button\"\n            className={styles.sampleLink}\n            onClick={async (e) =\u003e {\n              e.preventDefault();\n              load(await drawSamplePhoto());\n            }}\n          \u003e\n            Try a sample photo\n          \u003c/button\u003e\n        \u003c/label\u003e\n      ) : (\n        \u003cdiv className={styles.body}\u003e\n          \u003csection className={styles.panel} aria-label=\"Adjust corners\"\u003e\n            \u003cdiv className={styles.panelHead}\u003e\n              \u003cspan className={styles.step}\u003e1\u003c/span\u003e\n              \u003cspan\u003eAdjust the corners\u003c/span\u003e\n            \u003c/div\u003e\n            \u003cdiv\n              ref={editor}\n              className={styles.editor}\n              style={{ aspectRatio: `${work.w} / ${work.h}`, maxWidth: `calc(420px * ${work.w / work.h})` }}\n            \u003e\n              {/* eslint-disable-next-line @next/next/no-img-element */}\n              \u003cimg src={work.url} alt=\"Original photo\" className={styles.photo} draggable={false} /\u003e\n              \u003csvg className={styles.overlay} viewBox={`0 0 ${work.w} ${work.h}`} preserveAspectRatio=\"none\" aria-hidden=\"true\"\u003e\n                \u003cpath d={`M0,0 H${work.w} V${work.h} H0 Z ${quadPath}`} fillRule=\"evenodd\" className={styles.shade} /\u003e\n                \u003cpath d={quadPath} className={styles.outline} /\u003e\n              \u003c/svg\u003e\n              {corners.map((p, i) =\u003e (\n                \u003cbutton\n                  key={i}\n                  type=\"button\"\n                  className={styles.handle}\n                  data-active={dragging === i}\n                  style={{ left: `${(p.x / work.w) * 100}%`, top: `${(p.y / work.h) * 100}%` }}\n                  aria-label={`${[\"Top-left\", \"Top-right\", \"Bottom-right\", \"Bottom-left\"][i]} corner. Use arrow keys to move.`}\n                  onPointerDown={(e) =\u003e {\n                    e.currentTarget.setPointerCapture(e.pointerId);\n                    setDragging(i);\n                  }}\n                  onPointerMove={(e) =\u003e dragging === i \u0026\u0026 moveCorner(i, pointToImage(e))}\n                  onPointerUp={() =\u003e setDragging(null)}\n                  onPointerCancel={() =\u003e setDragging(null)}\n                  onKeyDown={(e) =\u003e onHandleKey(i, e)}\n                /\u003e\n              ))}\n              {active \u0026\u0026 (\n                \u003ccanvas\n                  ref={loupe}\n                  width={LOUPE}\n                  height={LOUPE}\n                  className={styles.loupe}\n                  data-below={active.y / work.h \u003c 0.3}\n                  style={{ left: `${(active.x / work.w) * 100}%`, top: `${(active.y / work.h) * 100}%` }}\n                /\u003e\n              )}\n            \u003c/div\u003e\n            \u003cdiv className={styles.row}\u003e\n              \u003cbutton type=\"button\" className={styles.chip} onClick={() =\u003e setCorners(guessCorners(work))}\u003e\n                Auto-detect\n              \u003c/button\u003e\n              \u003cbutton type=\"button\" className={styles.chip} onClick={() =\u003e setCorners(insetQuad(work.w, work.h, 0))}\u003e\n                Whole photo\n              \u003c/button\u003e\n              \u003cbutton\n                type=\"button\"\n                className={styles.chip}\n                onClick={() =\u003e {\n                  setWork(null);\n                  setCorners(null);\n                }}\n              \u003e\n                New photo\n              \u003c/button\u003e\n            \u003c/div\u003e\n          \u003c/section\u003e\n\n          \u003csection className={styles.panel} aria-label=\"Scan result\"\u003e\n            \u003cdiv className={styles.panelHead}\u003e\n              \u003cspan className={styles.step}\u003e2\u003c/span\u003e\n              \u003cspan\u003eYour scan\u003c/span\u003e\n              {resultSize \u0026\u0026 (\n                \u003cspan className={styles.meta}\u003e\n                  {processing ? \"Processing…\" : `${resultSize.w} × ${resultSize.h} px`}\n                \u003c/span\u003e\n              )}\n            \u003c/div\u003e\n            \u003cdiv className={styles.resultBox} data-busy={processing}\u003e\n              \u003ccanvas ref={result} className={styles.result} role=\"img\" aria-label=\"Flattened scan\" /\u003e\n            \u003c/div\u003e\n\n            \u003cdiv className={styles.segmented} role=\"radiogroup\" aria-label=\"Filter\"\u003e\n              {FILTERS.map((f) =\u003e (\n                \u003cbutton key={f.key} type=\"button\" role=\"radio\" aria-checked={filter === f.key} onClick={() =\u003e setFilter(f.key)}\u003e\n                  {f.label}\n                \u003c/button\u003e\n              ))}\n            \u003c/div\u003e\n            \u003cdiv className={styles.row}\u003e\n              \u003cdiv className={styles.segmented} role=\"radiogroup\" aria-label=\"Page shape\"\u003e\n                {SHAPES.map((s) =\u003e (\n                  \u003cbutton key={s.key} type=\"button\" role=\"radio\" aria-checked={shape === s.key} onClick={() =\u003e setShape(s.key)}\u003e\n                    {s.label}\n                  \u003c/button\u003e\n                ))}\n              \u003c/div\u003e\n              \u003cbutton type=\"button\" className={styles.chip} onClick={() =\u003e setRotation((r) =\u003e (r + 1) % 4)} aria-label=\"Rotate 90 degrees\"\u003e\n                ↻ Rotate\n              \u003c/button\u003e\n            \u003c/div\u003e\n\n            \u003cdiv className={styles.actions}\u003e\n              \u003cbutton type=\"button\" className={styles.secondary} onClick={addPage} disabled={processing}\u003e\n                + Add page{pages.length ? ` (${pages.length})` : \"\"}\n              \u003c/button\u003e\n              \u003cbutton type=\"button\" className={styles.secondary} onClick={exportPng} disabled={processing}\u003e\n                PNG\n              \u003c/button\u003e\n              \u003cbutton type=\"button\" className={styles.primary} onClick={exportPdf} disabled={processing}\u003e\n                Download PDF{pages.length \u003e 1 ? ` · ${pages.length} pages` : \"\"}\n              \u003c/button\u003e\n            \u003c/div\u003e\n\n            {pages.length \u003e 0 \u0026\u0026 (\n              \u003col className={styles.pages} aria-label=\"Pages in the PDF\"\u003e\n                {pages.map((p, i) =\u003e (\n                  \u003cli key={p.url}\u003e\n                    {/* eslint-disable-next-line @next/next/no-img-element */}\n                    \u003cimg src={p.url} alt={`Page ${i + 1}`} /\u003e\n                    \u003cspan\u003e{i + 1}\u003c/span\u003e\n                    \u003cbutton\n                      type=\"button\"\n                      aria-label={`Remove page ${i + 1}`}\n                      onClick={() =\u003e {\n                        URL.revokeObjectURL(p.url);\n                        setPages((all) =\u003e all.filter((x) =\u003e x !== p));\n                      }}\n                    \u003e\n                      ×\n                    \u003c/button\u003e\n                  \u003c/li\u003e\n                ))}\n              \u003c/ol\u003e\n            )}\n          \u003c/section\u003e\n        \u003c/div\u003e\n      )}\n    \u003c/div\u003e\n  );\n}\n"])</script><script>self.__next_f.push([1,"14:[\"$\",\"div\",\"DocScanner.tsx\",{\"className\":\"file\",\"children\":[[\"$\",\"div\",null,{\"className\":\"file-head\",\"children\":[[\"$\",\"span\",null,{\"children\":\"DocScanner.tsx\"}],[\"$\",\"$L11\",null,{\"text\":\"$1b\"}]]}],\"$L1c\"]}]\n1d:T1128,"])</script><script>self.__next_f.push([1,"export type Filter = \"original\" | \"enhanced\" | \"grayscale\" | \"bw\";\n\nconst luma = (d: Uint8ClampedArray, i: number) =\u003e d[i] * 0.299 + d[i + 1] * 0.587 + d[i + 2] * 0.114;\n\n/** Stretches contrast so the darkest 1% become black and the brightest 1% become white. */\nfunction autoLevels(img: ImageData) {\n  const d = img.data;\n  const hist = new Array\u003cnumber\u003e(256).fill(0);\n  for (let i = 0; i \u003c d.length; i += 4) hist[luma(d, i) | 0]++;\n  const total = d.length / 4;\n  let lo = 0;\n  let hi = 255;\n  for (let acc = 0; lo \u003c 255 \u0026\u0026 (acc += hist[lo]) \u003c total * 0.01; lo++);\n  for (let acc = 0; hi \u003e 0 \u0026\u0026 (acc += hist[hi]) \u003c total * 0.01; hi--);\n  const range = Math.max(1, hi - lo);\n  for (let i = 0; i \u003c d.length; i += 4) {\n    for (let c = 0; c \u003c 3; c++) d[i + c] = ((d[i + c] - lo) * 255) / range;\n  }\n}\n\n/** Sum of luma over every rectangle in O(1): integral[(y)*(w+1)+x] = sum above-left of (x, y). */\nfunction lumaIntegral(img: ImageData) {\n  const { width: w, height: h, data: d } = img;\n  const integral = new Float64Array((w + 1) * (h + 1));\n  for (let y = 0; y \u003c h; y++) {\n    let row = 0;\n    for (let x = 0; x \u003c w; x++) {\n      row += luma(d, (y * w + x) * 4);\n      integral[(y + 1) * (w + 1) + x + 1] = integral[y * (w + 1) + x + 1] + row;\n    }\n  }\n  return integral;\n}\n\nfunction localMean(integral: Float64Array, w: number, h: number, x: number, y: number, half: number) {\n  const x0 = Math.max(0, x - half);\n  const x1 = Math.min(w, x + half + 1);\n  const y0 = Math.max(0, y - half);\n  const y1 = Math.min(h, y + half + 1);\n  const sum = integral[y1 * (w + 1) + x1] - integral[y0 * (w + 1) + x1] - integral[y1 * (w + 1) + x0] + integral[y0 * (w + 1) + x0];\n  return sum / ((x1 - x0) * (y1 - y0));\n}\n\n/**\n * \"Magic colour\": estimate the bare paper colour everywhere (lighting + tint), then divide it out,\n * so the paper becomes evenly white while coloured ink like signatures and stamps keeps its colour.\n * The estimate is a tiny copy of the page, \"dilated\" with lighten-blending so dark ink drops out,\n * then scaled back up smoothly.\n */\nfunction whitenPaper(img: ImageData) {\n  const { width: w, height: h, data: d } = img;\n  const full = document.createElement(\"canvas\");\n  full.width = w;\n  full.height = h;\n  full.getContext(\"2d\")!.putImageData(img, 0, 0);\n\n  const sw = Math.max(4, Math.round(w / 20));\n  const sh = Math.max(4, Math.round(h / 20));\n  const small = document.createElement(\"canvas\");\n  small.width = sw;\n  small.height = sh;\n  const sctx = small.getContext(\"2d\", { willReadFrequently: true })!;\n  sctx.drawImage(full, 0, 0, sw, sh);\n  // Local maximum (paper is the brightest thing nearby): blend shifted copies with \"lighten\".\n  sctx.globalCompositeOperation = \"lighten\";\n  for (let pass = 0; pass \u003c 2; pass++) {\n    const copy = document.createElement(\"canvas\");\n    copy.width = sw;\n    copy.height = sh;\n    copy.getContext(\"2d\")!.drawImage(small, 0, 0);\n    for (const [dx, dy] of [[1, 0], [-1, 0], [0, 1], [0, -1]]) sctx.drawImage(copy, dx, dy);\n  }\n\n  const bg = document.createElement(\"canvas\");\n  bg.width = w;\n  bg.height = h;\n  const bctx = bg.getContext(\"2d\", { willReadFrequently: true })!;\n  bctx.imageSmoothingQuality = \"high\";\n  bctx.filter = \"blur(4px)\";\n  bctx.drawImage(small, 0, 0, w, h);\n  const paper = bctx.getImageData(0, 0, w, h).data;\n\n  for (let i = 0; i \u003c d.length; i += 4) {\n    for (let c = 0; c \u003c 3; c++) d[i + c] = (d[i + c] / Math.max(30, paper[i + c])) * 255;\n  }\n}\n\nfunction grayscale(img: ImageData) {\n  const d = img.data;\n  for (let i = 0; i \u003c d.length; i += 4) d[i] = d[i + 1] = d[i + 2] = luma(d, i);\n}\n\n/**\n * Bradley adaptive threshold: each pixel is compared with the average of its neighbourhood\n * (from an integral image), so uneven lighting and shadows disappear.\n */\nfunction adaptiveThreshold(img: ImageData) {\n  const { width: w, height: h, data: d } = img;\n  const integral = lumaIntegral(img);\n  const half = Math.max(8, Math.round(w / 32));\n  for (let y = 0; y \u003c h; y++) {\n    for (let x = 0; x \u003c w; x++) {\n      const i = (y * w + x) * 4;\n      d[i] = d[i + 1] = d[i + 2] = luma(d, i) \u003c localMean(integral, w, h, x, y, half) * 0.86 ? 0 : 255;\n    }\n  }\n}\n\nexport function applyFilter(img: ImageData, filter: Filter) {\n  if (filter === \"enhanced\") whitenPaper(img);\n  if (filter === \"grayscale\") {\n    grayscale(img);\n    autoLevels(img);\n  }\n  if (filter === \"bw\") adaptiveThreshold(img);\n  return img;\n}\n"])</script><script>self.__next_f.push([1,"15:[\"$\",\"div\",\"filters.ts\",{\"className\":\"file\",\"children\":[[\"$\",\"div\",null,{\"className\":\"file-head\",\"children\":[[\"$\",\"span\",null,{\"children\":\"filters.ts\"}],[\"$\",\"$L11\",null,{\"text\":\"$1d\"}]]}],\"$L1e\"]}]\n1f:T1e8f,"])</script><script>self.__next_f.push([1,"export type Point = { x: number; y: number };\n/** Corners in order: top-left, top-right, bottom-right, bottom-left. */\nexport type Quad = [Point, Point, Point, Point];\n\n/** Solves A·x = b with Gaussian elimination and partial pivoting. */\nfunction solve(A: number[][], b: number[]) {\n  const n = b.length;\n  const M = A.map((row, i) =\u003e [...row, b[i]]);\n  for (let col = 0; col \u003c n; col++) {\n    let pivot = col;\n    for (let r = col + 1; r \u003c n; r++) if (Math.abs(M[r][col]) \u003e Math.abs(M[pivot][col])) pivot = r;\n    [M[col], M[pivot]] = [M[pivot], M[col]];\n    for (let r = col + 1; r \u003c n; r++) {\n      const f = M[r][col] / M[col][col];\n      for (let c = col; c \u003c= n; c++) M[r][c] -= f * M[col][c];\n    }\n  }\n  const x = Array\u003cnumber\u003e(n).fill(0);\n  for (let r = n - 1; r \u003e= 0; r--) {\n    let sum = M[r][n];\n    for (let c = r + 1; c \u003c n; c++) sum -= M[r][c] * x[c];\n    x[r] = sum / M[r][r];\n  }\n  return x;\n}\n\n/** 3×3 perspective transform (row-major, h33 = 1) mapping each `from[i]` onto `to[i]`. */\nexport function homography(from: Point[], to: Point[]) {\n  const A: number[][] = [];\n  const b: number[] = [];\n  for (let i = 0; i \u003c 4; i++) {\n    const { x, y } = from[i];\n    const { x: u, y: v } = to[i];\n    A.push([x, y, 1, 0, 0, 0, -u * x, -u * y]);\n    b.push(u);\n    A.push([0, 0, 0, x, y, 1, -v * x, -v * y]);\n    b.push(v);\n  }\n  return [...solve(A, b), 1];\n}\n\n/**\n * For every pixel in the region of `dst`, looks up where it comes from in `src` through `H`\n * (dst → src) and samples bilinearly. Pixels that map outside `src` are left alone, or painted\n * white when `whiteOutside` is set.\n */\nexport function warp(\n  src: ImageData,\n  dst: ImageData,\n  H: number[],\n  region = { x0: 0, y0: 0, x1: dst.width, y1: dst.height },\n  whiteOutside = true,\n) {\n  const s = src.data;\n  const d = dst.data;\n  const sw = src.width;\n  const sh = src.height;\n  for (let y = region.y0; y \u003c region.y1; y++) {\n    for (let x = region.x0; x \u003c region.x1; x++) {\n      const px = x + 0.5;\n      const py = y + 0.5;\n      const w = H[6] * px + H[7] * py + H[8];\n      const sx = (H[0] * px + H[1] * py + H[2]) / w - 0.5;\n      const sy = (H[3] * px + H[4] * py + H[5]) / w - 0.5;\n      const o = (y * dst.width + x) * 4;\n      if (sx \u003c 0 || sy \u003c 0 || sx \u003e= sw - 1 || sy \u003e= sh - 1) {\n        if (whiteOutside) d[o] = d[o + 1] = d[o + 2] = d[o + 3] = 255;\n        continue;\n      }\n      const x0 = sx | 0;\n      const y0 = sy | 0;\n      const fx = sx - x0;\n      const fy = sy - y0;\n      const i00 = (y0 * sw + x0) * 4;\n      const i10 = i00 + 4;\n      const i01 = i00 + sw * 4;\n      const i11 = i01 + 4;\n      for (let c = 0; c \u003c 3; c++) {\n        const top = s[i00 + c] + (s[i10 + c] - s[i00 + c]) * fx;\n        const bottom = s[i01 + c] + (s[i11 + c] - s[i01 + c]) * fx;\n        d[o + c] = top + (bottom - top) * fy;\n      }\n      d[o + 3] = 255;\n    }\n  }\n  return dst;\n}\n\nconst dist = (a: Point, b: Point) =\u003e Math.hypot(a.x - b.x, a.y - b.y);\n\ntype V3 = [number, number, number];\nconst cross = (a: V3, b: V3): V3 =\u003e [a[1] * b[2] - a[2] * b[1], a[2] * b[0] - a[0] * b[2], a[0] * b[1] - a[1] * b[0]];\nconst dot = (a: V3, b: V3) =\u003e a[0] * b[0] + a[1] * b[1] + a[2] * b[2];\n\n/**\n * Real width ÷ height of the photographed rectangle, recovered from perspective\n * (Zhang \u0026 He, \"Whiteboard scanning and image enhancement\", 2006): estimate the camera's focal\n * length from the quad's vanishing geometry, assuming the optical centre is the image centre.\n * Returns null when the photo is too square-on for the maths to be stable.\n */\nfunction perspectiveAspect([tl, tr, br, bl]: Quad, imageW: number, imageH: number) {\n  const cx = imageW / 2;\n  const cy = imageH / 2;\n  const h = (p: Point): V3 =\u003e [p.x - cx, p.y - cy, 1];\n  const m1 = h(tl);\n  const m2 = h(tr);\n  const m3 = h(bl);\n  const m4 = h(br);\n  const k2 = dot(cross(m1, m4), m3) / dot(cross(m2, m4), m3);\n  const k3 = dot(cross(m1, m4), m2) / dot(cross(m3, m4), m2);\n  const n2: V3 = [k2 * m2[0] - m1[0], k2 * m2[1] - m1[1], k2 * m2[2] - m1[2]];\n  const n3: V3 = [k3 * m3[0] - m1[0], k3 * m3[1] - m1[1], k3 * m3[2] - m1[2]];\n  if (Math.abs(n2[2]) \u003c 1e-6 || Math.abs(n3[2]) \u003c 1e-6) return null;\n  const f2 = -(n2[0] * n3[0] + n2[1] * n3[1]) / (n2[2] * n3[2]);\n  if (!(f2 \u003e 0)) return null;\n  const len = (n: V3) =\u003e (n[0] * n[0] + n[1] * n[1]) / f2 + n[2] * n[2];\n  const ratio = Math.sqrt(len(n2) / len(n3));\n  return Number.isFinite(ratio) \u0026\u0026 ratio \u003e 0.1 \u0026\u0026 ratio \u003c 10 ? ratio : null;\n}\n\n/**\n * Size of the flattened page. Width comes from the longer horizontal edge; height comes from the\n * perspective-recovered aspect ratio when available, otherwise from the longer vertical edge.\n */\nexport function quadSize(quad: Quad, imageW = 0, imageH = 0) {\n  const [tl, tr, br, bl] = quad;\n  const w = Math.max(dist(tl, tr), dist(bl, br));\n  const h = Math.max(dist(tl, bl), dist(tr, br));\n  const ratio = imageW \u0026\u0026 imageH ? perspectiveAspect(quad, imageW, imageH) : null;\n  return ratio ? { w, h: w / ratio } : { w, h };\n}\n\n/** Flattens the area inside `quad` into a w×h image. */\nexport function flatten(src: ImageData, quad: Quad, w: number, h: number) {\n  const rect = [\n    { x: 0, y: 0 },\n    { x: w, y: 0 },\n    { x: w, y: h },\n    { x: 0, y: h },\n  ];\n  return warp(src, new ImageData(w, h), homography(rect, quad));\n}\n\n/**\n * Guesses the page corners: Otsu-threshold a small greyscale copy, keep the largest bright blob,\n * then take its extreme points along the two diagonals. Returns null if nothing page-like is found.\n */\nexport function detectPage(img: ImageData): Quad | null {\n  const { width: w, height: h, data } = img;\n  const gray = new Uint8Array(w * h);\n  const hist = new Array\u003cnumber\u003e(256).fill(0);\n  for (let i = 0; i \u003c w * h; i++) {\n    const g = (data[i * 4] * 0.299 + data[i * 4 + 1] * 0.587 + data[i * 4 + 2] * 0.114) | 0;\n    gray[i] = g;\n    hist[g]++;\n  }\n\n  // Otsu: the threshold that best separates two brightness classes.\n  let sumAll = 0;\n  for (let t = 0; t \u003c 256; t++) sumAll += t * hist[t];\n  let sumB = 0;\n  let wB = 0;\n  let best = 0;\n  let threshold = 128;\n  for (let t = 0; t \u003c 256; t++) {\n    wB += hist[t];\n    if (!wB) continue;\n    const wF = w * h - wB;\n    if (!wF) break;\n    sumB += t * hist[t];\n    const mB = sumB / wB;\n    const mF = (sumAll - sumB) / wF;\n    const between = wB * wF * (mB - mF) ** 2;\n    if (between \u003e best) {\n      best = between;\n      threshold = t;\n    }\n  }\n\n  // Largest 4-connected bright component.\n  const label = new Int32Array(w * h).fill(-1);\n  const queue = new Int32Array(w * h);\n  let bestId = -1;\n  let bestSize = 0;\n  let id = 0;\n  for (let start = 0; start \u003c w * h; start++) {\n    if (gray[start] \u003c= threshold || label[start] !== -1) continue;\n    let head = 0;\n    let tail = 0;\n    queue[tail++] = start;\n    label[start] = id;\n    while (head \u003c tail) {\n      const p = queue[head++];\n      const px = p % w;\n      const neighbours = [px \u003e 0 ? p - 1 : -1, px \u003c w - 1 ? p + 1 : -1, p - w, p + w];\n      for (const q of neighbours) {\n        if (q \u003c 0 || q \u003e= w * h || label[q] !== -1 || gray[q] \u003c= threshold) continue;\n        label[q] = id;\n        queue[tail++] = q;\n      }\n    }\n    if (tail \u003e bestSize) {\n      bestSize = tail;\n      bestId = id;\n    }\n    id++;\n  }\n  if (bestId \u003c 0 || bestSize \u003c w * h * 0.12) return null;\n\n  let tl = { x: 0, y: 0, s: Infinity };\n  let br = { x: 0, y: 0, s: -Infinity };\n  let tr = { x: 0, y: 0, s: -Infinity };\n  let bl = { x: 0, y: 0, s: Infinity };\n  for (let p = 0; p \u003c w * h; p++) {\n    if (label[p] !== bestId) continue;\n    const x = p % w;\n    const y = (p / w) | 0;\n    if (x + y \u003c tl.s) tl = { x, y, s: x + y };\n    if (x + y \u003e br.s) br = { x, y, s: x + y };\n    if (x - y \u003e tr.s) tr = { x, y, s: x - y };\n    if (x - y \u003c bl.s) bl = { x, y, s: x - y };\n  }\n  return [tl, tr, br, bl].map(({ x, y }) =\u003e ({ x, y })) as Quad;\n}\n"])</script><script>self.__next_f.push([1,"16:[\"$\",\"div\",\"geometry.ts\",{\"className\":\"file\",\"children\":[[\"$\",\"div\",null,{\"className\":\"file-head\",\"children\":[[\"$\",\"span\",null,{\"children\":\"geometry.ts\"}],[\"$\",\"$L11\",null,{\"text\":\"$1f\"}]]}],\"$L20\"]}]\n21:T9cf,"])</script><script>self.__next_f.push([1,"export type PdfPage = { jpeg: Uint8Array; width: number; height: number };\n\nconst A4 = { w: 595.28, h: 841.89 }; // points\n\n/** Writes a minimal PDF with one JPEG per A4 page (portrait or landscape to match the image). */\nexport function makePdf(pages: PdfPage[]) {\n  const enc = new TextEncoder();\n  const chunks: Uint8Array[] = [];\n  const offsets: number[] = [];\n  let length = 0;\n  const push = (part: string | Uint8Array) =\u003e {\n    const bytes = typeof part === \"string\" ? enc.encode(part) : part;\n    chunks.push(bytes);\n    length += bytes.length;\n  };\n  const object = (id: number, body: () =\u003e void) =\u003e {\n    offsets[id] = length;\n    push(`${id} 0 obj\\n`);\n    body();\n    push(\"\\nendobj\\n\");\n  };\n\n  // Object ids: 1 catalog, 2 page tree, then three per page (page, content, image).\n  const pageId = (i: number) =\u003e 3 + i * 3;\n  push(\"%PDF-1.4\\n%\\xE2\\xE3\\xCF\\xD3\\n\");\n  object(1, () =\u003e push(\"\u003c\u003c /Type /Catalog /Pages 2 0 R \u003e\u003e\"));\n  object(2, () =\u003e\n    push(`\u003c\u003c /Type /Pages /Count ${pages.length} /Kids [${pages.map((_, i) =\u003e `${pageId(i)} 0 R`).join(\" \")}] \u003e\u003e`),\n  );\n\n  pages.forEach((page, i) =\u003e {\n    const landscape = page.width \u003e page.height;\n    const pw = landscape ? A4.h : A4.w;\n    const ph = landscape ? A4.w : A4.h;\n    const scale = Math.min(pw / page.width, ph / page.height);\n    const w = page.width * scale;\n    const h = page.height * scale;\n    const content = `q ${w.toFixed(2)} 0 0 ${h.toFixed(2)} ${((pw - w) / 2).toFixed(2)} ${((ph - h) / 2).toFixed(2)} cm /Im0 Do Q`;\n    const id = pageId(i);\n\n    object(id, () =\u003e\n      push(\n        `\u003c\u003c /Type /Page /Parent 2 0 R /MediaBox [0 0 ${pw.toFixed(2)} ${ph.toFixed(2)}] /Resources \u003c\u003c /XObject \u003c\u003c /Im0 ${id + 2} 0 R \u003e\u003e \u003e\u003e /Contents ${id + 1} 0 R \u003e\u003e`,\n      ),\n    );\n    object(id + 1, () =\u003e push(`\u003c\u003c /Length ${content.length} \u003e\u003e\\nstream\\n${content}\\nendstream`));\n    object(id + 2, () =\u003e {\n      push(\n        `\u003c\u003c /Type /XObject /Subtype /Image /Width ${page.width} /Height ${page.height} /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter /DCTDecode /Length ${page.jpeg.length} \u003e\u003e\\nstream\\n`,\n      );\n      push(page.jpeg);\n      push(\"\\nendstream\");\n    });\n  });\n\n  const count = 3 + pages.length * 3;\n  const xref = length;\n  push(`xref\\n0 ${count}\\n0000000000 65535 f \\n`);\n  for (let id = 1; id \u003c count; id++) push(`${String(offsets[id]).padStart(10, \"0\")} 00000 n \\n`);\n  push(`trailer\\n\u003c\u003c /Size ${count} /Root 1 0 R \u003e\u003e\\nstartxref\\n${xref}\\n%%EOF`);\n\n  return new Blob(chunks as BlobPart[], { type: \"application/pdf\" });\n}\n"])</script><script>self.__next_f.push([1,"22:T9cf,"])</script><script>self.__next_f.push([1,"export type PdfPage = { jpeg: Uint8Array; width: number; height: number };\n\nconst A4 = { w: 595.28, h: 841.89 }; // points\n\n/** Writes a minimal PDF with one JPEG per A4 page (portrait or landscape to match the image). */\nexport function makePdf(pages: PdfPage[]) {\n  const enc = new TextEncoder();\n  const chunks: Uint8Array[] = [];\n  const offsets: number[] = [];\n  let length = 0;\n  const push = (part: string | Uint8Array) =\u003e {\n    const bytes = typeof part === \"string\" ? enc.encode(part) : part;\n    chunks.push(bytes);\n    length += bytes.length;\n  };\n  const object = (id: number, body: () =\u003e void) =\u003e {\n    offsets[id] = length;\n    push(`${id} 0 obj\\n`);\n    body();\n    push(\"\\nendobj\\n\");\n  };\n\n  // Object ids: 1 catalog, 2 page tree, then three per page (page, content, image).\n  const pageId = (i: number) =\u003e 3 + i * 3;\n  push(\"%PDF-1.4\\n%\\xE2\\xE3\\xCF\\xD3\\n\");\n  object(1, () =\u003e push(\"\u003c\u003c /Type /Catalog /Pages 2 0 R \u003e\u003e\"));\n  object(2, () =\u003e\n    push(`\u003c\u003c /Type /Pages /Count ${pages.length} /Kids [${pages.map((_, i) =\u003e `${pageId(i)} 0 R`).join(\" \")}] \u003e\u003e`),\n  );\n\n  pages.forEach((page, i) =\u003e {\n    const landscape = page.width \u003e page.height;\n    const pw = landscape ? A4.h : A4.w;\n    const ph = landscape ? A4.w : A4.h;\n    const scale = Math.min(pw / page.width, ph / page.height);\n    const w = page.width * scale;\n    const h = page.height * scale;\n    const content = `q ${w.toFixed(2)} 0 0 ${h.toFixed(2)} ${((pw - w) / 2).toFixed(2)} ${((ph - h) / 2).toFixed(2)} cm /Im0 Do Q`;\n    const id = pageId(i);\n\n    object(id, () =\u003e\n      push(\n        `\u003c\u003c /Type /Page /Parent 2 0 R /MediaBox [0 0 ${pw.toFixed(2)} ${ph.toFixed(2)}] /Resources \u003c\u003c /XObject \u003c\u003c /Im0 ${id + 2} 0 R \u003e\u003e \u003e\u003e /Contents ${id + 1} 0 R \u003e\u003e`,\n      ),\n    );\n    object(id + 1, () =\u003e push(`\u003c\u003c /Length ${content.length} \u003e\u003e\\nstream\\n${content}\\nendstream`));\n    object(id + 2, () =\u003e {\n      push(\n        `\u003c\u003c /Type /XObject /Subtype /Image /Width ${page.width} /Height ${page.height} /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter /DCTDecode /Length ${page.jpeg.length} \u003e\u003e\\nstream\\n`,\n      );\n      push(page.jpeg);\n      push(\"\\nendstream\");\n    });\n  });\n\n  const count = 3 + pages.length * 3;\n  const xref = length;\n  push(`xref\\n0 ${count}\\n0000000000 65535 f \\n`);\n  for (let id = 1; id \u003c count; id++) push(`${String(offsets[id]).padStart(10, \"0\")} 00000 n \\n`);\n  push(`trailer\\n\u003c\u003c /Size ${count} /Root 1 0 R \u003e\u003e\\nstartxref\\n${xref}\\n%%EOF`);\n\n  return new Blob(chunks as BlobPart[], { type: \"application/pdf\" });\n}\n"])</script><script>self.__next_f.push([1,"17:[\"$\",\"div\",\"pdf.ts\",{\"className\":\"file\",\"children\":[[\"$\",\"div\",null,{\"className\":\"file-head\",\"children\":[[\"$\",\"span\",null,{\"children\":\"pdf.ts\"}],[\"$\",\"$L11\",null,{\"text\":\"$21\"}]]}],[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"children\":\"$22\"}]}]]}]\n23:T1240,"])</script><script>self.__next_f.push([1,"import { homography, warp } from \"./geometry\";\n\nconst PAGE = { w: 850, h: 1100 };\n\nfunction drawLetter() {\n  const c = document.createElement(\"canvas\");\n  c.width = PAGE.w;\n  c.height = PAGE.h;\n  const ctx = c.getContext(\"2d\")!;\n  ctx.fillStyle = \"#fbfaf6\";\n  ctx.fillRect(0, 0, PAGE.w, PAGE.h);\n\n  ctx.fillStyle = \"#1c3557\";\n  ctx.font = \"bold 40px Georgia, serif\";\n  ctx.fillText(\"ACME LTD.\", 70, 110);\n  ctx.font = \"18px Georgia, serif\";\n  ctx.fillStyle = \"#555\";\n  ctx.fillText(\"House 12, Road 7, Gulshan, Dhaka\", 70, 140);\n  ctx.fillStyle = \"#1c3557\";\n  ctx.fillRect(70, 160, 710, 3);\n\n  ctx.fillStyle = \"#222\";\n  ctx.font = \"bold 30px Georgia, serif\";\n  ctx.fillText(\"Salary Certificate\", 70, 240);\n  ctx.font = \"20px Georgia, serif\";\n  ctx.fillText(\"Date: 15 October 2026\", 70, 285);\n\n  const body = [\n    \"This is to certify that Ms. Nusrat Jahan has been working\",\n    \"with Acme Ltd. as HR Executive since 1 March 2024.\",\n    \"\",\n    \"Her current monthly salary is as follows:\",\n  ];\n  body.forEach((line, i) =\u003e ctx.fillText(line, 70, 350 + i * 36));\n\n  const rows = [\n    [\"Basic salary\", \"BDT 30,000\"],\n    [\"House rent\", \"BDT 15,000\"],\n    [\"Medical allowance\", \"BDT 3,500\"],\n    [\"Transport\", \"BDT 3,500\"],\n    [\"Gross monthly salary\", \"BDT 52,000\"],\n  ];\n  ctx.strokeStyle = \"#333\";\n  ctx.lineWidth = 1.5;\n  rows.forEach(([label, value], i) =\u003e {\n    const y = 520 + i * 48;\n    ctx.strokeRect(70, y, 710, 48);\n    ctx.font = i === rows.length - 1 ? \"bold 20px Georgia, serif\" : \"20px Georgia, serif\";\n    ctx.fillText(label, 90, y + 31);\n    ctx.fillText(value, 600, y + 31);\n  });\n  ctx.beginPath();\n  ctx.moveTo(560, 520);\n  ctx.lineTo(560, 520 + rows.length * 48);\n  ctx.stroke();\n\n  ctx.font = \"20px Georgia, serif\";\n  ctx.fillText(\"This certificate is issued at her request.\", 70, 820);\n\n  // Signature and stamp\n  ctx.strokeStyle = \"#1d3a8a\";\n  ctx.lineWidth = 3;\n  ctx.beginPath();\n  ctx.moveTo(80, 940);\n  ctx.bezierCurveTo(120, 880, 150, 980, 190, 920);\n  ctx.bezierCurveTo(220, 880, 240, 970, 290, 925);\n  ctx.stroke();\n  ctx.fillStyle = \"#222\";\n  ctx.fillText(\"Head of People\", 80, 985);\n  ctx.strokeStyle = \"rgba(190, 40, 40, 0.75)\";\n  ctx.lineWidth = 4;\n  ctx.beginPath();\n  ctx.arc(640, 930, 70, 0, Math.PI * 2);\n  ctx.stroke();\n  ctx.fillStyle = \"rgba(190, 40, 40, 0.8)\";\n  ctx.font = \"bold 18px Georgia, serif\";\n  ctx.fillText(\"ACME LTD.\", 590, 937);\n  return ctx.getImageData(0, 0, PAGE.w, PAGE.h);\n}\n\n/** A phone-style photo of the letter lying at an angle on a desk, with uneven lighting. */\nexport function drawSamplePhoto() {\n  const W = 1400;\n  const H = 1050;\n  const c = document.createElement(\"canvas\");\n  c.width = W;\n  c.height = H;\n  const ctx = c.getContext(\"2d\")!;\n\n  const desk = ctx.createLinearGradient(0, 0, W, H);\n  desk.addColorStop(0, \"#6b4a32\");\n  desk.addColorStop(1, \"#3e2a1c\");\n  ctx.fillStyle = desk;\n  ctx.fillRect(0, 0, W, H);\n  ctx.globalAlpha = 0.08;\n  for (let y = 0; y \u003c H; y += 6) {\n    ctx.fillStyle = y % 12 ? \"#000\" : \"#fff\";\n    ctx.fillRect(0, y + Math.sin(y / 40) * 3, W, 2);\n  }\n  ctx.globalAlpha = 1;\n\n  // A true pinhole-camera projection of the 850×1100 page (tilted back ~23°, f = 1500px),\n  // so the scanner's perspective maths can recover its real proportions.\n  const quad = [\n    { x: 500, y: 191 },\n    { x: 1061, y: 219 },\n    { x: 1028, y: 994 },\n    { x: 344, y: 912 },\n  ];\n\n  // Soft shadow under the paper\n  ctx.save();\n  ctx.shadowColor = \"rgba(0, 0, 0, 0.55)\";\n  ctx.shadowBlur = 40;\n  ctx.shadowOffsetX = 18;\n  ctx.shadowOffsetY = 22;\n  ctx.fillStyle = \"#000\";\n  ctx.beginPath();\n  quad.forEach((p, i) =\u003e (i ? ctx.lineTo(p.x, p.y) : ctx.moveTo(p.x, p.y)));\n  ctx.closePath();\n  ctx.fill();\n  ctx.restore();\n\n  // Map the letter into the tilted quad with the same perspective maths the scanner uses.\n  const photo = ctx.getImageData(0, 0, W, H);\n  const pageRect = [\n    { x: 0, y: 0 },\n    { x: PAGE.w, y: 0 },\n    { x: PAGE.w, y: PAGE.h },\n    { x: 0, y: PAGE.h },\n  ];\n  const xs = quad.map((p) =\u003e p.x);\n  const ys = quad.map((p) =\u003e p.y);\n  warp(drawLetter(), photo, homography(quad, pageRect), {\n    x0: Math.floor(Math.min(...xs)),\n    y0: Math.floor(Math.min(...ys)),\n    x1: Math.ceil(Math.max(...xs)),\n    y1: Math.ceil(Math.max(...ys)),\n  }, false);\n  ctx.putImageData(photo, 0, 0);\n\n  // Uneven room lighting: bright top-left, shadowed bottom-right.\n  const light = ctx.createRadialGradient(350, 150, 100, 700, 600, 1100);\n  light.addColorStop(0, \"rgba(255, 245, 225, 0.18)\");\n  light.addColorStop(1, \"rgba(0, 0, 0, 0.38)\");\n  ctx.fillStyle = light;\n  ctx.fillRect(0, 0, W, H);\n\n  return new Promise\u003cBlob\u003e((resolve) =\u003e c.toBlob((b) =\u003e resolve(b!), \"image/jpeg\", 0.9));\n}\n"])</script><script>self.__next_f.push([1,"18:[\"$\",\"div\",\"sample.ts\",{\"className\":\"file\",\"children\":[[\"$\",\"div\",null,{\"className\":\"file-head\",\"children\":[[\"$\",\"span\",null,{\"children\":\"sample.ts\"}],[\"$\",\"$L11\",null,{\"text\":\"$23\"}]]}],\"$L24\"]}]\n19:[\"$\",\"nav\",null,{\"className\":\"pager\",\"children\":[[\"$\",\"$L2\",null,{\"href\":\"/components/stacking-toasts\",\"children\":[\"← \",\"Stacking Toast Notifications\"]}],[\"$\",\"$L2\",null,{\"href\":\"/components/text-diff\",\"children\":[\"Text Diff Checker\",\" →\"]}]]}]\n"])</script><script>self.__next_f.push([1,"25:T404e,"])</script><script>self.__next_f.push([1,"\"use client\";\n\nimport { useEffect, useRef, useState, type KeyboardEvent, type PointerEvent } from \"react\";\nimport { applyFilter, type Filter } from \"./filters\";\nimport { detectPage, flatten, quadSize, type Quad } from \"./geometry\";\nimport { makePdf } from \"./pdf\";\nimport { drawSamplePhoto } from \"./sample\";\nimport styles from \"./DocScanner.module.css\";\n\ntype Work = { canvas: HTMLCanvasElement; data: ImageData; w: number; h: number; url: string };\ntype Page = { blob: Blob; url: string; width: number; height: number };\ntype Shape = \"auto\" | \"a4\" | \"id\";\n\nconst MAX_WORK = 2000; // longest side of the working copy\nconst MAX_OUTPUT = 1600; // longest side of the scan\nconst LOUPE = 120;\nconst LOUPE_ZOOM = 3;\n\nconst FILTERS: { key: Filter; label: string }[] = [\n  { key: \"original\", label: \"Original\" },\n  { key: \"enhanced\", label: \"Enhanced\" },\n  { key: \"grayscale\", label: \"Grayscale\" },\n  { key: \"bw\", label: \"B\u0026W scan\" },\n];\nconst SHAPES: { key: Shape; label: string }[] = [\n  { key: \"auto\", label: \"Auto\" },\n  { key: \"a4\", label: \"A4\" },\n  { key: \"id\", label: \"ID card\" },\n];\n\nconst clamp = (v: number, lo: number, hi: number) =\u003e Math.max(lo, Math.min(hi, v));\n\nfunction insetQuad(w: number, h: number, f = 0.06): Quad {\n  return [\n    { x: w * f, y: h * f },\n    { x: w * (1 - f), y: h * f },\n    { x: w * (1 - f), y: h * (1 - f) },\n    { x: w * f, y: h * (1 - f) },\n  ];\n}\n\nfunction guessCorners(work: Work): Quad {\n  const s = Math.min(1, 240 / Math.max(work.w, work.h));\n  const small = document.createElement(\"canvas\");\n  small.width = Math.round(work.w * s);\n  small.height = Math.round(work.h * s);\n  const ctx = small.getContext(\"2d\", { willReadFrequently: true })!;\n  ctx.drawImage(work.canvas, 0, 0, small.width, small.height);\n  const quad = detectPage(ctx.getImageData(0, 0, small.width, small.height));\n  return quad ? (quad.map((p) =\u003e ({ x: p.x / s, y: p.y / s })) as Quad) : insetQuad(work.w, work.h);\n}\n\nfunction outputSize(quad: Quad, shape: Shape, imageW: number, imageH: number) {\n  let { w, h } = quadSize(quad, imageW, imageH);\n  const landscape = w \u003e= h;\n  if (shape === \"a4\") {\n    const r = Math.SQRT2;\n    if (landscape) h = w / r;\n    else h = w * r;\n  }\n  if (shape === \"id\") {\n    const r = 85.6 / 53.98;\n    if (landscape) h = w / r;\n    else h = w * r;\n  }\n  const s = Math.min(1, MAX_OUTPUT / Math.max(w, h));\n  return { w: Math.max(1, Math.round(w * s)), h: Math.max(1, Math.round(h * s)) };\n}\n\nfunction download(blob: Blob, name: string) {\n  const url = URL.createObjectURL(blob);\n  const a = document.createElement(\"a\");\n  a.href = url;\n  a.download = name;\n  a.click();\n  setTimeout(() =\u003e URL.revokeObjectURL(url), 1000);\n}\n\nconst toBlob = (canvas: HTMLCanvasElement, type: string, quality?: number) =\u003e\n  new Promise\u003cBlob\u003e((resolve) =\u003e canvas.toBlob((b) =\u003e resolve(b!), type, quality));\n\nexport default function DocScanner() {\n  const [work, setWork] = useState\u003cWork | null\u003e(null);\n  const [corners, setCorners] = useState\u003cQuad | null\u003e(null);\n  const [dragging, setDragging] = useState\u003cnumber | null\u003e(null);\n  const [filter, setFilter] = useState\u003cFilter\u003e(\"bw\");\n  const [shape, setShape] = useState\u003cShape\u003e(\"auto\");\n  const [rotation, setRotation] = useState(0);\n  const [processing, setProcessing] = useState(false);\n  const [resultSize, setResultSize] = useState\u003c{ w: number; h: number } | null\u003e(null);\n  const [pages, setPages] = useState\u003cPage[]\u003e([]);\n  const [dragOver, setDragOver] = useState(false);\n\n  const editor = useRef\u003cHTMLDivElement\u003e(null);\n  const result = useRef\u003cHTMLCanvasElement\u003e(null);\n  const loupe = useRef\u003cHTMLCanvasElement\u003e(null);\n\n  async function load(file: Blob) {\n    const url = URL.createObjectURL(file);\n    const img = new Image();\n    // onload rather than img.decode(): decode() can stall in background tabs.\n    await new Promise\u003cvoid\u003e((resolve, reject) =\u003e {\n      img.onload = () =\u003e resolve();\n      img.onerror = () =\u003e reject(new Error(\"Could not read that image\"));\n      img.src = url;\n    });\n    const s = Math.min(1, MAX_WORK / Math.max(img.naturalWidth, img.naturalHeight));\n    const canvas = document.createElement(\"canvas\");\n    canvas.width = Math.round(img.naturalWidth * s);\n    canvas.height = Math.round(img.naturalHeight * s);\n    const ctx = canvas.getContext(\"2d\", { willReadFrequently: true })!;\n    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);\n    const next: Work = { canvas, data: ctx.getImageData(0, 0, canvas.width, canvas.height), w: canvas.width, h: canvas.height, url };\n    setWork((prev) =\u003e {\n      if (prev) URL.revokeObjectURL(prev.url);\n      return next;\n    });\n    setCorners(guessCorners(next));\n    setRotation(0);\n  }\n\n  // Flatten + filter whenever the inputs settle (not while a corner is being dragged).\n  useEffect(() =\u003e {\n    if (!work || !corners || dragging !== null) return;\n    setProcessing(true);\n    const timer = setTimeout(() =\u003e {\n      const { w, h } = outputSize(corners, shape, work.w, work.h);\n      const flat = applyFilter(flatten(work.data, corners, w, h), filter);\n      const tmp = document.createElement(\"canvas\");\n      tmp.width = w;\n      tmp.height = h;\n      tmp.getContext(\"2d\")!.putImageData(flat, 0, 0);\n\n      const out = result.current;\n      if (!out) return;\n      const quarter = rotation % 2 === 1;\n      out.width = quarter ? h : w;\n      out.height = quarter ? w : h;\n      const ctx = out.getContext(\"2d\")!;\n      ctx.save();\n      ctx.translate(out.width / 2, out.height / 2);\n      ctx.rotate((rotation * Math.PI) / 2);\n      ctx.drawImage(tmp, -w / 2, -h / 2);\n      ctx.restore();\n      setResultSize({ w: out.width, h: out.height });\n      setProcessing(false);\n    }, 30);\n    return () =\u003e clearTimeout(timer);\n  }, [work, corners, dragging, filter, shape, rotation]);\n\n  // Magnifier around the corner being dragged.\n  useEffect(() =\u003e {\n    if (dragging === null || !work || !corners || !loupe.current || !editor.current) return;\n    const ctx = loupe.current.getContext(\"2d\")!;\n    const scale = editor.current.getBoundingClientRect().width / work.w;\n    const r = LOUPE / 2 / (scale * LOUPE_ZOOM);\n    const { x, y } = corners[dragging];\n    ctx.fillStyle = \"#000\";\n    ctx.fillRect(0, 0, LOUPE, LOUPE);\n    ctx.drawImage(work.canvas, x - r, y - r, r * 2, r * 2, 0, 0, LOUPE, LOUPE);\n    ctx.strokeStyle = \"rgba(76, 201, 240, 0.95)\";\n    ctx.lineWidth = 1.5;\n    ctx.beginPath();\n    ctx.moveTo(LOUPE / 2, 0);\n    ctx.lineTo(LOUPE / 2, LOUPE);\n    ctx.moveTo(0, LOUPE / 2);\n    ctx.lineTo(LOUPE, LOUPE / 2);\n    ctx.stroke();\n  }, [dragging, corners, work]);\n\n  useEffect(() =\u003e () =\u003e pages.forEach((p) =\u003e URL.revokeObjectURL(p.url)), []); // eslint-disable-line react-hooks/exhaustive-deps\n\n  function pointToImage(e: PointerEvent) {\n    const rect = editor.current!.getBoundingClientRect();\n    return {\n      x: clamp(((e.clientX - rect.left) / rect.width) * work!.w, 0, work!.w),\n      y: clamp(((e.clientY - rect.top) / rect.height) * work!.h, 0, work!.h),\n    };\n  }\n\n  function moveCorner(i: number, p: { x: number; y: number }) {\n    setCorners((q) =\u003e (q ? (q.map((c, j) =\u003e (j === i ? p : c)) as Quad) : q));\n  }\n\n  function onHandleKey(i: number, e: KeyboardEvent) {\n    const steps: Record\u003cstring, [number, number]\u003e = { ArrowLeft: [-1, 0], ArrowRight: [1, 0], ArrowUp: [0, -1], ArrowDown: [0, 1] };\n    const step = steps[e.key];\n    if (!step || !work || !corners || !editor.current) return;\n    e.preventDefault();\n    const px = (work.w / editor.current.getBoundingClientRect().width) * (e.shiftKey ? 10 : 1);\n    moveCorner(i, { x: clamp(corners[i].x + step[0] * px, 0, work.w), y: clamp(corners[i].y + step[1] * px, 0, work.h) });\n  }\n\n  async function addPage() {\n    if (!result.current || processing) return;\n    const blob = await toBlob(result.current, \"image/jpeg\", 0.9);\n    setPages((p) =\u003e [...p, { blob, url: URL.createObjectURL(blob), width: result.current!.width, height: result.current!.height }]);\n  }\n\n  async function exportPdf() {\n    if (!result.current) return;\n    const source: Page[] = pages.length\n      ? pages\n      : [{ blob: await toBlob(result.current, \"image/jpeg\", 0.9), url: \"\", width: result.current.width, height: result.current.height }];\n    const pdf = makePdf(\n      await Promise.all(source.map(async (p) =\u003e ({ jpeg: new Uint8Array(await p.blob.arrayBuffer()), width: p.width, height: p.height }))),\n    );\n    download(pdf, `scan-${new Date().toISOString().slice(0, 10)}.pdf`);\n  }\n\n  async function exportPng() {\n    if (result.current) download(await toBlob(result.current, \"image/png\"), \"scan.png\");\n  }\n\n  const quadPath = corners?.map((p, i) =\u003e `${i ? \"L\" : \"M\"}${p.x},${p.y}`).join(\" \") + \" Z\";\n  const active = dragging !== null \u0026\u0026 corners ? corners[dragging] : null;\n\n  return (\n    \u003cdiv className={styles.card}\u003e\n      \u003cheader className={styles.head}\u003e\n        \u003ch3 className={styles.title}\u003eDocument scanner\u003c/h3\u003e\n        \u003cp className={styles.subtitle}\u003eTurn a phone photo of a page into a flat, clean scan. Nothing leaves your device.\u003c/p\u003e\n      \u003c/header\u003e\n\n      {!work || !corners ? (\n        \u003clabel\n          className={styles.dropzone}\n          data-over={dragOver}\n          onDragOver={(e) =\u003e {\n            e.preventDefault();\n            setDragOver(true);\n          }}\n          onDragLeave={() =\u003e setDragOver(false)}\n          onDrop={(e) =\u003e {\n            e.preventDefault();\n            setDragOver(false);\n            const file = e.dataTransfer.files[0];\n            if (file?.type.startsWith(\"image/\")) load(file);\n          }}\n        \u003e\n          \u003cinput type=\"file\" accept=\"image/*\" className={styles.fileInput} onChange={(e) =\u003e e.target.files?.[0] \u0026\u0026 load(e.target.files[0])} /\u003e\n          \u003csvg viewBox=\"0 0 24 24\" width=\"30\" height=\"30\" aria-hidden=\"true\" className={styles.dropIcon}\u003e\n            \u003cpath d=\"M4 8V5a1 1 0 0 1 1-1h3M16 4h3a1 1 0 0 1 1 1v3M20 16v3a1 1 0 0 1-1 1h-3M8 20H5a1 1 0 0 1-1-1v-3M7 12h10\" /\u003e\n          \u003c/svg\u003e\n          \u003cspan className={styles.dropTitle}\u003eDrop a photo of a document, or click to choose\u003c/span\u003e\n          \u003cspan className={styles.dropNote}\u003eLetters, receipts, certificates, ID cards\u003c/span\u003e\n          \u003cbutton\n            type=\"button\"\n            className={styles.sampleLink}\n            onClick={async (e) =\u003e {\n              e.preventDefault();\n              load(await drawSamplePhoto());\n            }}\n          \u003e\n            Try a sample photo\n          \u003c/button\u003e\n        \u003c/label\u003e\n      ) : (\n        \u003cdiv className={styles.body}\u003e\n          \u003csection className={styles.panel} aria-label=\"Adjust corners\"\u003e\n            \u003cdiv className={styles.panelHead}\u003e\n              \u003cspan className={styles.step}\u003e1\u003c/span\u003e\n              \u003cspan\u003eAdjust the corners\u003c/span\u003e\n            \u003c/div\u003e\n            \u003cdiv\n              ref={editor}\n              className={styles.editor}\n              style={{ aspectRatio: `${work.w} / ${work.h}`, maxWidth: `calc(420px * ${work.w / work.h})` }}\n            \u003e\n              {/* eslint-disable-next-line @next/next/no-img-element */}\n              \u003cimg src={work.url} alt=\"Original photo\" className={styles.photo} draggable={false} /\u003e\n              \u003csvg className={styles.overlay} viewBox={`0 0 ${work.w} ${work.h}`} preserveAspectRatio=\"none\" aria-hidden=\"true\"\u003e\n                \u003cpath d={`M0,0 H${work.w} V${work.h} H0 Z ${quadPath}`} fillRule=\"evenodd\" className={styles.shade} /\u003e\n                \u003cpath d={quadPath} className={styles.outline} /\u003e\n              \u003c/svg\u003e\n              {corners.map((p, i) =\u003e (\n                \u003cbutton\n                  key={i}\n                  type=\"button\"\n                  className={styles.handle}\n                  data-active={dragging === i}\n                  style={{ left: `${(p.x / work.w) * 100}%`, top: `${(p.y / work.h) * 100}%` }}\n                  aria-label={`${[\"Top-left\", \"Top-right\", \"Bottom-right\", \"Bottom-left\"][i]} corner. Use arrow keys to move.`}\n                  onPointerDown={(e) =\u003e {\n                    e.currentTarget.setPointerCapture(e.pointerId);\n                    setDragging(i);\n                  }}\n                  onPointerMove={(e) =\u003e dragging === i \u0026\u0026 moveCorner(i, pointToImage(e))}\n                  onPointerUp={() =\u003e setDragging(null)}\n                  onPointerCancel={() =\u003e setDragging(null)}\n                  onKeyDown={(e) =\u003e onHandleKey(i, e)}\n                /\u003e\n              ))}\n              {active \u0026\u0026 (\n                \u003ccanvas\n                  ref={loupe}\n                  width={LOUPE}\n                  height={LOUPE}\n                  className={styles.loupe}\n                  data-below={active.y / work.h \u003c 0.3}\n                  style={{ left: `${(active.x / work.w) * 100}%`, top: `${(active.y / work.h) * 100}%` }}\n                /\u003e\n              )}\n            \u003c/div\u003e\n            \u003cdiv className={styles.row}\u003e\n              \u003cbutton type=\"button\" className={styles.chip} onClick={() =\u003e setCorners(guessCorners(work))}\u003e\n                Auto-detect\n              \u003c/button\u003e\n              \u003cbutton type=\"button\" className={styles.chip} onClick={() =\u003e setCorners(insetQuad(work.w, work.h, 0))}\u003e\n                Whole photo\n              \u003c/button\u003e\n              \u003cbutton\n                type=\"button\"\n                className={styles.chip}\n                onClick={() =\u003e {\n                  setWork(null);\n                  setCorners(null);\n                }}\n              \u003e\n                New photo\n              \u003c/button\u003e\n            \u003c/div\u003e\n          \u003c/section\u003e\n\n          \u003csection className={styles.panel} aria-label=\"Scan result\"\u003e\n            \u003cdiv className={styles.panelHead}\u003e\n              \u003cspan className={styles.step}\u003e2\u003c/span\u003e\n              \u003cspan\u003eYour scan\u003c/span\u003e\n              {resultSize \u0026\u0026 (\n                \u003cspan className={styles.meta}\u003e\n                  {processing ? \"Processing…\" : `${resultSize.w} × ${resultSize.h} px`}\n                \u003c/span\u003e\n              )}\n            \u003c/div\u003e\n            \u003cdiv className={styles.resultBox} data-busy={processing}\u003e\n              \u003ccanvas ref={result} className={styles.result} role=\"img\" aria-label=\"Flattened scan\" /\u003e\n            \u003c/div\u003e\n\n            \u003cdiv className={styles.segmented} role=\"radiogroup\" aria-label=\"Filter\"\u003e\n              {FILTERS.map((f) =\u003e (\n                \u003cbutton key={f.key} type=\"button\" role=\"radio\" aria-checked={filter === f.key} onClick={() =\u003e setFilter(f.key)}\u003e\n                  {f.label}\n                \u003c/button\u003e\n              ))}\n            \u003c/div\u003e\n            \u003cdiv className={styles.row}\u003e\n              \u003cdiv className={styles.segmented} role=\"radiogroup\" aria-label=\"Page shape\"\u003e\n                {SHAPES.map((s) =\u003e (\n                  \u003cbutton key={s.key} type=\"button\" role=\"radio\" aria-checked={shape === s.key} onClick={() =\u003e setShape(s.key)}\u003e\n                    {s.label}\n                  \u003c/button\u003e\n                ))}\n              \u003c/div\u003e\n              \u003cbutton type=\"button\" className={styles.chip} onClick={() =\u003e setRotation((r) =\u003e (r + 1) % 4)} aria-label=\"Rotate 90 degrees\"\u003e\n                ↻ Rotate\n              \u003c/button\u003e\n            \u003c/div\u003e\n\n            \u003cdiv className={styles.actions}\u003e\n              \u003cbutton type=\"button\" className={styles.secondary} onClick={addPage} disabled={processing}\u003e\n                + Add page{pages.length ? ` (${pages.length})` : \"\"}\n              \u003c/button\u003e\n              \u003cbutton type=\"button\" className={styles.secondary} onClick={exportPng} disabled={processing}\u003e\n                PNG\n              \u003c/button\u003e\n              \u003cbutton type=\"button\" className={styles.primary} onClick={exportPdf} disabled={processing}\u003e\n                Download PDF{pages.length \u003e 1 ? ` · ${pages.length} pages` : \"\"}\n              \u003c/button\u003e\n            \u003c/div\u003e\n\n            {pages.length \u003e 0 \u0026\u0026 (\n              \u003col className={styles.pages} aria-label=\"Pages in the PDF\"\u003e\n                {pages.map((p, i) =\u003e (\n                  \u003cli key={p.url}\u003e\n                    {/* eslint-disable-next-line @next/next/no-img-element */}\n                    \u003cimg src={p.url} alt={`Page ${i + 1}`} /\u003e\n                    \u003cspan\u003e{i + 1}\u003c/span\u003e\n                    \u003cbutton\n                      type=\"button\"\n                      aria-label={`Remove page ${i + 1}`}\n                      onClick={() =\u003e {\n                        URL.revokeObjectURL(p.url);\n                        setPages((all) =\u003e all.filter((x) =\u003e x !== p));\n                      }}\n                    \u003e\n                      ×\n                    \u003c/button\u003e\n                  \u003c/li\u003e\n                ))}\n              \u003c/ol\u003e\n            )}\n          \u003c/section\u003e\n        \u003c/div\u003e\n      )}\n    \u003c/div\u003e\n  );\n}\n"])</script><script>self.__next_f.push([1,"1c:[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"children\":\"$25\"}]}]\n26:T1128,"])</script><script>self.__next_f.push([1,"export type Filter = \"original\" | \"enhanced\" | \"grayscale\" | \"bw\";\n\nconst luma = (d: Uint8ClampedArray, i: number) =\u003e d[i] * 0.299 + d[i + 1] * 0.587 + d[i + 2] * 0.114;\n\n/** Stretches contrast so the darkest 1% become black and the brightest 1% become white. */\nfunction autoLevels(img: ImageData) {\n  const d = img.data;\n  const hist = new Array\u003cnumber\u003e(256).fill(0);\n  for (let i = 0; i \u003c d.length; i += 4) hist[luma(d, i) | 0]++;\n  const total = d.length / 4;\n  let lo = 0;\n  let hi = 255;\n  for (let acc = 0; lo \u003c 255 \u0026\u0026 (acc += hist[lo]) \u003c total * 0.01; lo++);\n  for (let acc = 0; hi \u003e 0 \u0026\u0026 (acc += hist[hi]) \u003c total * 0.01; hi--);\n  const range = Math.max(1, hi - lo);\n  for (let i = 0; i \u003c d.length; i += 4) {\n    for (let c = 0; c \u003c 3; c++) d[i + c] = ((d[i + c] - lo) * 255) / range;\n  }\n}\n\n/** Sum of luma over every rectangle in O(1): integral[(y)*(w+1)+x] = sum above-left of (x, y). */\nfunction lumaIntegral(img: ImageData) {\n  const { width: w, height: h, data: d } = img;\n  const integral = new Float64Array((w + 1) * (h + 1));\n  for (let y = 0; y \u003c h; y++) {\n    let row = 0;\n    for (let x = 0; x \u003c w; x++) {\n      row += luma(d, (y * w + x) * 4);\n      integral[(y + 1) * (w + 1) + x + 1] = integral[y * (w + 1) + x + 1] + row;\n    }\n  }\n  return integral;\n}\n\nfunction localMean(integral: Float64Array, w: number, h: number, x: number, y: number, half: number) {\n  const x0 = Math.max(0, x - half);\n  const x1 = Math.min(w, x + half + 1);\n  const y0 = Math.max(0, y - half);\n  const y1 = Math.min(h, y + half + 1);\n  const sum = integral[y1 * (w + 1) + x1] - integral[y0 * (w + 1) + x1] - integral[y1 * (w + 1) + x0] + integral[y0 * (w + 1) + x0];\n  return sum / ((x1 - x0) * (y1 - y0));\n}\n\n/**\n * \"Magic colour\": estimate the bare paper colour everywhere (lighting + tint), then divide it out,\n * so the paper becomes evenly white while coloured ink like signatures and stamps keeps its colour.\n * The estimate is a tiny copy of the page, \"dilated\" with lighten-blending so dark ink drops out,\n * then scaled back up smoothly.\n */\nfunction whitenPaper(img: ImageData) {\n  const { width: w, height: h, data: d } = img;\n  const full = document.createElement(\"canvas\");\n  full.width = w;\n  full.height = h;\n  full.getContext(\"2d\")!.putImageData(img, 0, 0);\n\n  const sw = Math.max(4, Math.round(w / 20));\n  const sh = Math.max(4, Math.round(h / 20));\n  const small = document.createElement(\"canvas\");\n  small.width = sw;\n  small.height = sh;\n  const sctx = small.getContext(\"2d\", { willReadFrequently: true })!;\n  sctx.drawImage(full, 0, 0, sw, sh);\n  // Local maximum (paper is the brightest thing nearby): blend shifted copies with \"lighten\".\n  sctx.globalCompositeOperation = \"lighten\";\n  for (let pass = 0; pass \u003c 2; pass++) {\n    const copy = document.createElement(\"canvas\");\n    copy.width = sw;\n    copy.height = sh;\n    copy.getContext(\"2d\")!.drawImage(small, 0, 0);\n    for (const [dx, dy] of [[1, 0], [-1, 0], [0, 1], [0, -1]]) sctx.drawImage(copy, dx, dy);\n  }\n\n  const bg = document.createElement(\"canvas\");\n  bg.width = w;\n  bg.height = h;\n  const bctx = bg.getContext(\"2d\", { willReadFrequently: true })!;\n  bctx.imageSmoothingQuality = \"high\";\n  bctx.filter = \"blur(4px)\";\n  bctx.drawImage(small, 0, 0, w, h);\n  const paper = bctx.getImageData(0, 0, w, h).data;\n\n  for (let i = 0; i \u003c d.length; i += 4) {\n    for (let c = 0; c \u003c 3; c++) d[i + c] = (d[i + c] / Math.max(30, paper[i + c])) * 255;\n  }\n}\n\nfunction grayscale(img: ImageData) {\n  const d = img.data;\n  for (let i = 0; i \u003c d.length; i += 4) d[i] = d[i + 1] = d[i + 2] = luma(d, i);\n}\n\n/**\n * Bradley adaptive threshold: each pixel is compared with the average of its neighbourhood\n * (from an integral image), so uneven lighting and shadows disappear.\n */\nfunction adaptiveThreshold(img: ImageData) {\n  const { width: w, height: h, data: d } = img;\n  const integral = lumaIntegral(img);\n  const half = Math.max(8, Math.round(w / 32));\n  for (let y = 0; y \u003c h; y++) {\n    for (let x = 0; x \u003c w; x++) {\n      const i = (y * w + x) * 4;\n      d[i] = d[i + 1] = d[i + 2] = luma(d, i) \u003c localMean(integral, w, h, x, y, half) * 0.86 ? 0 : 255;\n    }\n  }\n}\n\nexport function applyFilter(img: ImageData, filter: Filter) {\n  if (filter === \"enhanced\") whitenPaper(img);\n  if (filter === \"grayscale\") {\n    grayscale(img);\n    autoLevels(img);\n  }\n  if (filter === \"bw\") adaptiveThreshold(img);\n  return img;\n}\n"])</script><script>self.__next_f.push([1,"1e:[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"children\":\"$26\"}]}]\n27:T1e8f,"])</script><script>self.__next_f.push([1,"export type Point = { x: number; y: number };\n/** Corners in order: top-left, top-right, bottom-right, bottom-left. */\nexport type Quad = [Point, Point, Point, Point];\n\n/** Solves A·x = b with Gaussian elimination and partial pivoting. */\nfunction solve(A: number[][], b: number[]) {\n  const n = b.length;\n  const M = A.map((row, i) =\u003e [...row, b[i]]);\n  for (let col = 0; col \u003c n; col++) {\n    let pivot = col;\n    for (let r = col + 1; r \u003c n; r++) if (Math.abs(M[r][col]) \u003e Math.abs(M[pivot][col])) pivot = r;\n    [M[col], M[pivot]] = [M[pivot], M[col]];\n    for (let r = col + 1; r \u003c n; r++) {\n      const f = M[r][col] / M[col][col];\n      for (let c = col; c \u003c= n; c++) M[r][c] -= f * M[col][c];\n    }\n  }\n  const x = Array\u003cnumber\u003e(n).fill(0);\n  for (let r = n - 1; r \u003e= 0; r--) {\n    let sum = M[r][n];\n    for (let c = r + 1; c \u003c n; c++) sum -= M[r][c] * x[c];\n    x[r] = sum / M[r][r];\n  }\n  return x;\n}\n\n/** 3×3 perspective transform (row-major, h33 = 1) mapping each `from[i]` onto `to[i]`. */\nexport function homography(from: Point[], to: Point[]) {\n  const A: number[][] = [];\n  const b: number[] = [];\n  for (let i = 0; i \u003c 4; i++) {\n    const { x, y } = from[i];\n    const { x: u, y: v } = to[i];\n    A.push([x, y, 1, 0, 0, 0, -u * x, -u * y]);\n    b.push(u);\n    A.push([0, 0, 0, x, y, 1, -v * x, -v * y]);\n    b.push(v);\n  }\n  return [...solve(A, b), 1];\n}\n\n/**\n * For every pixel in the region of `dst`, looks up where it comes from in `src` through `H`\n * (dst → src) and samples bilinearly. Pixels that map outside `src` are left alone, or painted\n * white when `whiteOutside` is set.\n */\nexport function warp(\n  src: ImageData,\n  dst: ImageData,\n  H: number[],\n  region = { x0: 0, y0: 0, x1: dst.width, y1: dst.height },\n  whiteOutside = true,\n) {\n  const s = src.data;\n  const d = dst.data;\n  const sw = src.width;\n  const sh = src.height;\n  for (let y = region.y0; y \u003c region.y1; y++) {\n    for (let x = region.x0; x \u003c region.x1; x++) {\n      const px = x + 0.5;\n      const py = y + 0.5;\n      const w = H[6] * px + H[7] * py + H[8];\n      const sx = (H[0] * px + H[1] * py + H[2]) / w - 0.5;\n      const sy = (H[3] * px + H[4] * py + H[5]) / w - 0.5;\n      const o = (y * dst.width + x) * 4;\n      if (sx \u003c 0 || sy \u003c 0 || sx \u003e= sw - 1 || sy \u003e= sh - 1) {\n        if (whiteOutside) d[o] = d[o + 1] = d[o + 2] = d[o + 3] = 255;\n        continue;\n      }\n      const x0 = sx | 0;\n      const y0 = sy | 0;\n      const fx = sx - x0;\n      const fy = sy - y0;\n      const i00 = (y0 * sw + x0) * 4;\n      const i10 = i00 + 4;\n      const i01 = i00 + sw * 4;\n      const i11 = i01 + 4;\n      for (let c = 0; c \u003c 3; c++) {\n        const top = s[i00 + c] + (s[i10 + c] - s[i00 + c]) * fx;\n        const bottom = s[i01 + c] + (s[i11 + c] - s[i01 + c]) * fx;\n        d[o + c] = top + (bottom - top) * fy;\n      }\n      d[o + 3] = 255;\n    }\n  }\n  return dst;\n}\n\nconst dist = (a: Point, b: Point) =\u003e Math.hypot(a.x - b.x, a.y - b.y);\n\ntype V3 = [number, number, number];\nconst cross = (a: V3, b: V3): V3 =\u003e [a[1] * b[2] - a[2] * b[1], a[2] * b[0] - a[0] * b[2], a[0] * b[1] - a[1] * b[0]];\nconst dot = (a: V3, b: V3) =\u003e a[0] * b[0] + a[1] * b[1] + a[2] * b[2];\n\n/**\n * Real width ÷ height of the photographed rectangle, recovered from perspective\n * (Zhang \u0026 He, \"Whiteboard scanning and image enhancement\", 2006): estimate the camera's focal\n * length from the quad's vanishing geometry, assuming the optical centre is the image centre.\n * Returns null when the photo is too square-on for the maths to be stable.\n */\nfunction perspectiveAspect([tl, tr, br, bl]: Quad, imageW: number, imageH: number) {\n  const cx = imageW / 2;\n  const cy = imageH / 2;\n  const h = (p: Point): V3 =\u003e [p.x - cx, p.y - cy, 1];\n  const m1 = h(tl);\n  const m2 = h(tr);\n  const m3 = h(bl);\n  const m4 = h(br);\n  const k2 = dot(cross(m1, m4), m3) / dot(cross(m2, m4), m3);\n  const k3 = dot(cross(m1, m4), m2) / dot(cross(m3, m4), m2);\n  const n2: V3 = [k2 * m2[0] - m1[0], k2 * m2[1] - m1[1], k2 * m2[2] - m1[2]];\n  const n3: V3 = [k3 * m3[0] - m1[0], k3 * m3[1] - m1[1], k3 * m3[2] - m1[2]];\n  if (Math.abs(n2[2]) \u003c 1e-6 || Math.abs(n3[2]) \u003c 1e-6) return null;\n  const f2 = -(n2[0] * n3[0] + n2[1] * n3[1]) / (n2[2] * n3[2]);\n  if (!(f2 \u003e 0)) return null;\n  const len = (n: V3) =\u003e (n[0] * n[0] + n[1] * n[1]) / f2 + n[2] * n[2];\n  const ratio = Math.sqrt(len(n2) / len(n3));\n  return Number.isFinite(ratio) \u0026\u0026 ratio \u003e 0.1 \u0026\u0026 ratio \u003c 10 ? ratio : null;\n}\n\n/**\n * Size of the flattened page. Width comes from the longer horizontal edge; height comes from the\n * perspective-recovered aspect ratio when available, otherwise from the longer vertical edge.\n */\nexport function quadSize(quad: Quad, imageW = 0, imageH = 0) {\n  const [tl, tr, br, bl] = quad;\n  const w = Math.max(dist(tl, tr), dist(bl, br));\n  const h = Math.max(dist(tl, bl), dist(tr, br));\n  const ratio = imageW \u0026\u0026 imageH ? perspectiveAspect(quad, imageW, imageH) : null;\n  return ratio ? { w, h: w / ratio } : { w, h };\n}\n\n/** Flattens the area inside `quad` into a w×h image. */\nexport function flatten(src: ImageData, quad: Quad, w: number, h: number) {\n  const rect = [\n    { x: 0, y: 0 },\n    { x: w, y: 0 },\n    { x: w, y: h },\n    { x: 0, y: h },\n  ];\n  return warp(src, new ImageData(w, h), homography(rect, quad));\n}\n\n/**\n * Guesses the page corners: Otsu-threshold a small greyscale copy, keep the largest bright blob,\n * then take its extreme points along the two diagonals. Returns null if nothing page-like is found.\n */\nexport function detectPage(img: ImageData): Quad | null {\n  const { width: w, height: h, data } = img;\n  const gray = new Uint8Array(w * h);\n  const hist = new Array\u003cnumber\u003e(256).fill(0);\n  for (let i = 0; i \u003c w * h; i++) {\n    const g = (data[i * 4] * 0.299 + data[i * 4 + 1] * 0.587 + data[i * 4 + 2] * 0.114) | 0;\n    gray[i] = g;\n    hist[g]++;\n  }\n\n  // Otsu: the threshold that best separates two brightness classes.\n  let sumAll = 0;\n  for (let t = 0; t \u003c 256; t++) sumAll += t * hist[t];\n  let sumB = 0;\n  let wB = 0;\n  let best = 0;\n  let threshold = 128;\n  for (let t = 0; t \u003c 256; t++) {\n    wB += hist[t];\n    if (!wB) continue;\n    const wF = w * h - wB;\n    if (!wF) break;\n    sumB += t * hist[t];\n    const mB = sumB / wB;\n    const mF = (sumAll - sumB) / wF;\n    const between = wB * wF * (mB - mF) ** 2;\n    if (between \u003e best) {\n      best = between;\n      threshold = t;\n    }\n  }\n\n  // Largest 4-connected bright component.\n  const label = new Int32Array(w * h).fill(-1);\n  const queue = new Int32Array(w * h);\n  let bestId = -1;\n  let bestSize = 0;\n  let id = 0;\n  for (let start = 0; start \u003c w * h; start++) {\n    if (gray[start] \u003c= threshold || label[start] !== -1) continue;\n    let head = 0;\n    let tail = 0;\n    queue[tail++] = start;\n    label[start] = id;\n    while (head \u003c tail) {\n      const p = queue[head++];\n      const px = p % w;\n      const neighbours = [px \u003e 0 ? p - 1 : -1, px \u003c w - 1 ? p + 1 : -1, p - w, p + w];\n      for (const q of neighbours) {\n        if (q \u003c 0 || q \u003e= w * h || label[q] !== -1 || gray[q] \u003c= threshold) continue;\n        label[q] = id;\n        queue[tail++] = q;\n      }\n    }\n    if (tail \u003e bestSize) {\n      bestSize = tail;\n      bestId = id;\n    }\n    id++;\n  }\n  if (bestId \u003c 0 || bestSize \u003c w * h * 0.12) return null;\n\n  let tl = { x: 0, y: 0, s: Infinity };\n  let br = { x: 0, y: 0, s: -Infinity };\n  let tr = { x: 0, y: 0, s: -Infinity };\n  let bl = { x: 0, y: 0, s: Infinity };\n  for (let p = 0; p \u003c w * h; p++) {\n    if (label[p] !== bestId) continue;\n    const x = p % w;\n    const y = (p / w) | 0;\n    if (x + y \u003c tl.s) tl = { x, y, s: x + y };\n    if (x + y \u003e br.s) br = { x, y, s: x + y };\n    if (x - y \u003e tr.s) tr = { x, y, s: x - y };\n    if (x - y \u003c bl.s) bl = { x, y, s: x - y };\n  }\n  return [tl, tr, br, bl].map(({ x, y }) =\u003e ({ x, y })) as Quad;\n}\n"])</script><script>self.__next_f.push([1,"20:[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"children\":\"$27\"}]}]\n28:T1240,"])</script><script>self.__next_f.push([1,"import { homography, warp } from \"./geometry\";\n\nconst PAGE = { w: 850, h: 1100 };\n\nfunction drawLetter() {\n  const c = document.createElement(\"canvas\");\n  c.width = PAGE.w;\n  c.height = PAGE.h;\n  const ctx = c.getContext(\"2d\")!;\n  ctx.fillStyle = \"#fbfaf6\";\n  ctx.fillRect(0, 0, PAGE.w, PAGE.h);\n\n  ctx.fillStyle = \"#1c3557\";\n  ctx.font = \"bold 40px Georgia, serif\";\n  ctx.fillText(\"ACME LTD.\", 70, 110);\n  ctx.font = \"18px Georgia, serif\";\n  ctx.fillStyle = \"#555\";\n  ctx.fillText(\"House 12, Road 7, Gulshan, Dhaka\", 70, 140);\n  ctx.fillStyle = \"#1c3557\";\n  ctx.fillRect(70, 160, 710, 3);\n\n  ctx.fillStyle = \"#222\";\n  ctx.font = \"bold 30px Georgia, serif\";\n  ctx.fillText(\"Salary Certificate\", 70, 240);\n  ctx.font = \"20px Georgia, serif\";\n  ctx.fillText(\"Date: 15 October 2026\", 70, 285);\n\n  const body = [\n    \"This is to certify that Ms. Nusrat Jahan has been working\",\n    \"with Acme Ltd. as HR Executive since 1 March 2024.\",\n    \"\",\n    \"Her current monthly salary is as follows:\",\n  ];\n  body.forEach((line, i) =\u003e ctx.fillText(line, 70, 350 + i * 36));\n\n  const rows = [\n    [\"Basic salary\", \"BDT 30,000\"],\n    [\"House rent\", \"BDT 15,000\"],\n    [\"Medical allowance\", \"BDT 3,500\"],\n    [\"Transport\", \"BDT 3,500\"],\n    [\"Gross monthly salary\", \"BDT 52,000\"],\n  ];\n  ctx.strokeStyle = \"#333\";\n  ctx.lineWidth = 1.5;\n  rows.forEach(([label, value], i) =\u003e {\n    const y = 520 + i * 48;\n    ctx.strokeRect(70, y, 710, 48);\n    ctx.font = i === rows.length - 1 ? \"bold 20px Georgia, serif\" : \"20px Georgia, serif\";\n    ctx.fillText(label, 90, y + 31);\n    ctx.fillText(value, 600, y + 31);\n  });\n  ctx.beginPath();\n  ctx.moveTo(560, 520);\n  ctx.lineTo(560, 520 + rows.length * 48);\n  ctx.stroke();\n\n  ctx.font = \"20px Georgia, serif\";\n  ctx.fillText(\"This certificate is issued at her request.\", 70, 820);\n\n  // Signature and stamp\n  ctx.strokeStyle = \"#1d3a8a\";\n  ctx.lineWidth = 3;\n  ctx.beginPath();\n  ctx.moveTo(80, 940);\n  ctx.bezierCurveTo(120, 880, 150, 980, 190, 920);\n  ctx.bezierCurveTo(220, 880, 240, 970, 290, 925);\n  ctx.stroke();\n  ctx.fillStyle = \"#222\";\n  ctx.fillText(\"Head of People\", 80, 985);\n  ctx.strokeStyle = \"rgba(190, 40, 40, 0.75)\";\n  ctx.lineWidth = 4;\n  ctx.beginPath();\n  ctx.arc(640, 930, 70, 0, Math.PI * 2);\n  ctx.stroke();\n  ctx.fillStyle = \"rgba(190, 40, 40, 0.8)\";\n  ctx.font = \"bold 18px Georgia, serif\";\n  ctx.fillText(\"ACME LTD.\", 590, 937);\n  return ctx.getImageData(0, 0, PAGE.w, PAGE.h);\n}\n\n/** A phone-style photo of the letter lying at an angle on a desk, with uneven lighting. */\nexport function drawSamplePhoto() {\n  const W = 1400;\n  const H = 1050;\n  const c = document.createElement(\"canvas\");\n  c.width = W;\n  c.height = H;\n  const ctx = c.getContext(\"2d\")!;\n\n  const desk = ctx.createLinearGradient(0, 0, W, H);\n  desk.addColorStop(0, \"#6b4a32\");\n  desk.addColorStop(1, \"#3e2a1c\");\n  ctx.fillStyle = desk;\n  ctx.fillRect(0, 0, W, H);\n  ctx.globalAlpha = 0.08;\n  for (let y = 0; y \u003c H; y += 6) {\n    ctx.fillStyle = y % 12 ? \"#000\" : \"#fff\";\n    ctx.fillRect(0, y + Math.sin(y / 40) * 3, W, 2);\n  }\n  ctx.globalAlpha = 1;\n\n  // A true pinhole-camera projection of the 850×1100 page (tilted back ~23°, f = 1500px),\n  // so the scanner's perspective maths can recover its real proportions.\n  const quad = [\n    { x: 500, y: 191 },\n    { x: 1061, y: 219 },\n    { x: 1028, y: 994 },\n    { x: 344, y: 912 },\n  ];\n\n  // Soft shadow under the paper\n  ctx.save();\n  ctx.shadowColor = \"rgba(0, 0, 0, 0.55)\";\n  ctx.shadowBlur = 40;\n  ctx.shadowOffsetX = 18;\n  ctx.shadowOffsetY = 22;\n  ctx.fillStyle = \"#000\";\n  ctx.beginPath();\n  quad.forEach((p, i) =\u003e (i ? ctx.lineTo(p.x, p.y) : ctx.moveTo(p.x, p.y)));\n  ctx.closePath();\n  ctx.fill();\n  ctx.restore();\n\n  // Map the letter into the tilted quad with the same perspective maths the scanner uses.\n  const photo = ctx.getImageData(0, 0, W, H);\n  const pageRect = [\n    { x: 0, y: 0 },\n    { x: PAGE.w, y: 0 },\n    { x: PAGE.w, y: PAGE.h },\n    { x: 0, y: PAGE.h },\n  ];\n  const xs = quad.map((p) =\u003e p.x);\n  const ys = quad.map((p) =\u003e p.y);\n  warp(drawLetter(), photo, homography(quad, pageRect), {\n    x0: Math.floor(Math.min(...xs)),\n    y0: Math.floor(Math.min(...ys)),\n    x1: Math.ceil(Math.max(...xs)),\n    y1: Math.ceil(Math.max(...ys)),\n  }, false);\n  ctx.putImageData(photo, 0, 0);\n\n  // Uneven room lighting: bright top-left, shadowed bottom-right.\n  const light = ctx.createRadialGradient(350, 150, 100, 700, 600, 1100);\n  light.addColorStop(0, \"rgba(255, 245, 225, 0.18)\");\n  light.addColorStop(1, \"rgba(0, 0, 0, 0.38)\");\n  ctx.fillStyle = light;\n  ctx.fillRect(0, 0, W, H);\n\n  return new Promise\u003cBlob\u003e((resolve) =\u003e c.toBlob((b) =\u003e resolve(b!), \"image/jpeg\", 0.9));\n}\n"])</script><script>self.__next_f.push([1,"24:[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"children\":\"$28\"}]}]\n"])</script></body></html>

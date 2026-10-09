@@ -1,0 +1,1158 @@
+1:"$Sreact.fragment"
+2:I[2619,["619","static/chunks/619-ba102abea3e3d0e4.js","449","static/chunks/app/components/%5Bslug%5D/page-7b18c14fa5ee9ace.js"],""]
+3:I[9766,[],""]
+4:I[8924,[],""]
+6:I[4431,[],"OutletBoundary"]
+8:I[5278,[],"AsyncMetadataOutlet"]
+a:I[4431,[],"ViewportBoundary"]
+c:I[4431,[],"MetadataBoundary"]
+d:"$Sreact.suspense"
+f:I[7150,[],""]
+:HL["/component-gallery/_next/static/css/68cce7808a08b910.css","style"]
+0:{"P":null,"b":"6jA2vIGrO3aOlnYlKgPnQ","p":"/component-gallery","c":["","components","morphing-submit-button",""],"i":false,"f":[[["",{"children":["components",{"children":[["slug","morphing-submit-button","d"],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/component-gallery/_next/static/css/68cce7808a08b910.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","children":["$","body",null,{"children":[["$","header",null,{"className":"site-header","children":["$","div",null,{"className":"container","children":[["$","$L2",null,{"href":"/","className":"brand","children":"Component Gallery"}],["$","nav",null,{"children":["$","a",null,{"href":"https://github.com/rownok-HR-LS/component-gallery","children":"GitHub"}]}]]}]}],["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","main",null,{"className":"container","children":["$","header",null,{"className":"hero","children":[["$","h1",null,{"children":"Not found"}],["$","p",null,{"className":"lede","children":"That component doesn't exist (yet)."}],["$","$L2",null,{"href":"/","children":"← Back to the gallery"}]]}]}],[]],"forbidden":"$undefined","unauthorized":"$undefined"}],["$","footer",null,{"className":"site-footer","children":["$","div",null,{"className":"container","children":[["$","span",null,{"children":["Built by ","rownok-HR-LS"," · LofiStack 90-day challenge"]}],["$","a",null,{"href":"https://github.com/rownok-HR-LS/component-gallery","children":"Source on GitHub"}]]}]}]]}]}]]}],{"children":["components",["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["slug","morphing-submit-button","d"],["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L5",null,["$","$L6",null,{"children":["$L7",["$","$L8",null,{"promise":"$@9"}]]}]]}],{},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,[["$","$La",null,{"children":"$Lb"}],null],["$","$Lc",null,{"children":["$","div",null,{"hidden":true,"children":["$","$d",null,{"fallback":null,"children":"$Le"}]}]}]]}],false]],"m":"$undefined","G":["$f",[]],"s":false,"S":true}
+b:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+7:null
+9:{"metadata":[["$","title","0",{"children":"Morphing Submit Button · Component Gallery"}],["$","meta","1",{"name":"description","content":"A submit button that shrinks into a spinner, then bursts into a self-drawing checkmark with confetti, or shakes red on error."}]],"error":null,"digest":"$undefined"}
+e:"$9:metadata"
+10:I[2325,["619","static/chunks/619-ba102abea3e3d0e4.js","449","static/chunks/app/components/%5Bslug%5D/page-7b18c14fa5ee9ace.js"],"Demo"]
+11:I[7333,["619","static/chunks/619-ba102abea3e3d0e4.js","449","static/chunks/app/components/%5Bslug%5D/page-7b18c14fa5ee9ace.js"],"CopyButton"]
+12:Tefd,.demo {
+  --surface: #ffffff;
+  --ink: #0b0b0b;
+  --ink-2: #52514e;
+  --muted: #898781;
+  --border: rgba(11, 11, 11, 0.08);
+  --field: #f6f5f2;
+  --success: #079455;
+  --error: #d92d20;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  max-width: 360px;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  .demo {
+    --surface: #18181c;
+    --ink: #ffffff;
+    --ink-2: #c3c2b7;
+    --border: rgba(255, 255, 255, 0.09);
+    --field: #222228;
+    --success: #32d583;
+    --error: #f97066;
+  }
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 30px 24px 20px;
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  background: var(--surface);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 24px 48px -20px rgba(40, 30, 90, 0.35);
+  color: var(--ink);
+  text-align: center;
+}
+/* Soft colour wash at the top of the card (no overflow clipping, so confetti can spill out). */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background:
+    radial-gradient(60% 35% at 35% 0%, rgba(139, 125, 255, 0.2), transparent),
+    radial-gradient(50% 30% at 75% 0%, rgba(76, 201, 240, 0.16), transparent);
+  pointer-events: none;
+}
+.card > * { position: relative; }
+
+.badge {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 14px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #8b7dff, #4cc9f0);
+  box-shadow: 0 10px 24px -8px rgba(139, 125, 255, 0.7);
+}
+.badge svg { width: 24px; height: 24px; fill: none; stroke: #fff; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+.title { margin: 0; font-size: 19px; font-weight: 700; letter-spacing: -0.01em; }
+.subtitle { max-width: 34ch; margin: 6px 0 20px; color: var(--ink-2); font-size: 13.5px; line-height: 1.5; }
+
+.field {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  height: 50px;
+  margin-bottom: 14px;
+  padding: 0 14px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--field);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.field:focus-within { border-color: #8b7dff; box-shadow: 0 0 0 4px rgba(139, 125, 255, 0.18); }
+.field svg { flex: none; width: 18px; height: 18px; fill: none; stroke: var(--muted); stroke-width: 1.8; stroke-linecap: round; }
+.field input {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  border: 0;
+  outline: none;
+  background: none;
+  color: var(--ink);
+  font: inherit;
+  font-size: 15px;
+}
+.field input::placeholder { color: var(--muted); }
+
+.message { min-height: 20px; margin: 12px 0 0; font-size: 13px; font-weight: 500; }
+.message[data-tone="success"] { color: var(--success); }
+.message[data-tone="error"] { color: var(--error); }
+
+/* Demo-only control, kept outside the product card. */
+.simulate {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 4px 4px 12px;
+  border: 1px dashed color-mix(in srgb, var(--ink) 20%, transparent);
+  border-radius: 99px;
+  color: var(--muted);
+  font-size: 11.5px;
+}
+.simulate span { margin-right: 6px; }
+.simulate button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border: 0;
+  border-radius: 99px;
+  background: none;
+  color: var(--ink-2);
+  font: inherit;
+  cursor: pointer;
+}
+.simulate button::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--success); }
+.simulate button[data-tone="error"]::before { background: var(--error); }
+.simulate button[aria-checked="true"] { background: var(--surface); box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15); color: var(--ink); font-weight: 600; }
+.simulate button:focus-visible { outline: 2px solid #8b7dff; outline-offset: 1px; }
+5:["$","main",null,{"className":"container","children":[["$","$L2",null,{"href":"/","className":"back","children":"← All components"}],["$","header",null,{"className":"detail-head","children":[["$","span",null,{"className":"tag","children":["Week ",3," · ","2026-10-07"]}],["$","h1",null,{"children":"Morphing Submit Button"}],["$","p",null,{"children":"A submit button that shrinks into a spinner, then bursts into a self-drawing checkmark with confetti, or shakes red on error."}]]}],["$","section",null,{"className":"stage","aria-label":"Live demo","children":["$","$L10",null,{"slug":"morphing-submit-button"}]}],["$","section",null,{"className":"source","children":[["$","h2",null,{"children":"Source"}],[["$","div","Demo.module.css",{"className":"file","children":[["$","div",null,{"className":"file-head","children":[["$","span",null,{"children":"Demo.module.css"}],["$","$L11",null,{"text":"$12"}]]}],"$L13"]}],"$L14","$L15","$L16"]]}],"$L17"]}]
+18:Tefd,.demo {
+  --surface: #ffffff;
+  --ink: #0b0b0b;
+  --ink-2: #52514e;
+  --muted: #898781;
+  --border: rgba(11, 11, 11, 0.08);
+  --field: #f6f5f2;
+  --success: #079455;
+  --error: #d92d20;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  max-width: 360px;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  .demo {
+    --surface: #18181c;
+    --ink: #ffffff;
+    --ink-2: #c3c2b7;
+    --border: rgba(255, 255, 255, 0.09);
+    --field: #222228;
+    --success: #32d583;
+    --error: #f97066;
+  }
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 30px 24px 20px;
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  background: var(--surface);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 24px 48px -20px rgba(40, 30, 90, 0.35);
+  color: var(--ink);
+  text-align: center;
+}
+/* Soft colour wash at the top of the card (no overflow clipping, so confetti can spill out). */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background:
+    radial-gradient(60% 35% at 35% 0%, rgba(139, 125, 255, 0.2), transparent),
+    radial-gradient(50% 30% at 75% 0%, rgba(76, 201, 240, 0.16), transparent);
+  pointer-events: none;
+}
+.card > * { position: relative; }
+
+.badge {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 14px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #8b7dff, #4cc9f0);
+  box-shadow: 0 10px 24px -8px rgba(139, 125, 255, 0.7);
+}
+.badge svg { width: 24px; height: 24px; fill: none; stroke: #fff; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+.title { margin: 0; font-size: 19px; font-weight: 700; letter-spacing: -0.01em; }
+.subtitle { max-width: 34ch; margin: 6px 0 20px; color: var(--ink-2); font-size: 13.5px; line-height: 1.5; }
+
+.field {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  height: 50px;
+  margin-bottom: 14px;
+  padding: 0 14px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--field);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.field:focus-within { border-color: #8b7dff; box-shadow: 0 0 0 4px rgba(139, 125, 255, 0.18); }
+.field svg { flex: none; width: 18px; height: 18px; fill: none; stroke: var(--muted); stroke-width: 1.8; stroke-linecap: round; }
+.field input {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  border: 0;
+  outline: none;
+  background: none;
+  color: var(--ink);
+  font: inherit;
+  font-size: 15px;
+}
+.field input::placeholder { color: var(--muted); }
+
+.message { min-height: 20px; margin: 12px 0 0; font-size: 13px; font-weight: 500; }
+.message[data-tone="success"] { color: var(--success); }
+.message[data-tone="error"] { color: var(--error); }
+
+/* Demo-only control, kept outside the product card. */
+.simulate {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 4px 4px 12px;
+  border: 1px dashed color-mix(in srgb, var(--ink) 20%, transparent);
+  border-radius: 99px;
+  color: var(--muted);
+  font-size: 11.5px;
+}
+.simulate span { margin-right: 6px; }
+.simulate button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border: 0;
+  border-radius: 99px;
+  background: none;
+  color: var(--ink-2);
+  font: inherit;
+  cursor: pointer;
+}
+.simulate button::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--success); }
+.simulate button[data-tone="error"]::before { background: var(--error); }
+.simulate button[aria-checked="true"] { background: var(--surface); box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15); color: var(--ink); font-weight: 600; }
+.simulate button:focus-visible { outline: 2px solid #8b7dff; outline-offset: 1px; }
+13:["$","pre",null,{"children":["$","code",null,{"children":"$18"}]}]
+19:Tbf6,"use client";
+
+import { useEffect, useRef, useState, type FormEvent } from "react";
+import MorphButton, { type Status } from "./MorphButton";
+import styles from "./Demo.module.css";
+
+const wait = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+
+type Outcome = "success" | "error";
+
+// A newsletter form wired to the button. The switch below decides whether the fake request succeeds.
+export default function Demo() {
+  const [status, setStatus] = useState<Status>("idle");
+  const [outcome, setOutcome] = useState<Outcome>("success");
+  const [message, setMessage] = useState<{ tone: Outcome; text: string } | null>(null);
+  const mounted = useRef(true);
+  useEffect(() => {
+    mounted.current = true;
+    return () => {
+      mounted.current = false;
+    };
+  }, []);
+
+  async function onSubmit(e: FormEvent) {
+    e.preventDefault();
+    if (status !== "idle") return;
+    setMessage(null);
+    setStatus("loading");
+    await wait(1500);
+    if (!mounted.current) return;
+    setStatus(outcome);
+    setMessage(
+      outcome === "success"
+        ? { tone: "success", text: "You're in! Check your inbox to confirm." }
+        : { tone: "error", text: "Couldn't subscribe. Please try again." },
+    );
+    await wait(outcome === "success" ? 2000 : 1500);
+    if (!mounted.current) return;
+    setStatus("idle");
+  }
+
+  return (
+    <div className={styles.demo}>
+      <form className={styles.card} onSubmit={onSubmit}>
+        <div className={styles.badge} aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <rect x="3" y="5" width="18" height="14" rx="2.5" />
+            <path d="m3.5 6.5 8.5 6 8.5-6" />
+          </svg>
+        </div>
+        <h3 className={styles.title}>Get the weekly digest</h3>
+        <p className={styles.subtitle}>Hand-picked UI ideas every Friday. No spam, unsubscribe anytime.</p>
+
+        <label className={styles.field}>
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="4" />
+            <path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-4 8" />
+          </svg>
+          <input type="email" placeholder="you@example.com" aria-label="Email address" autoComplete="email" />
+        </label>
+
+        <MorphButton
+          type="submit"
+          block
+          status={status}
+          label={message?.tone === "error" && status === "idle" ? "Try again" : "Subscribe"}
+          messages={{ loading: "Subscribing…", success: "Subscribed!", error: "Something went wrong." }}
+        />
+
+        <p className={styles.message} data-tone={message?.tone} aria-live="polite">
+          {message?.text ?? ""}
+        </p>
+      </form>
+
+      <div className={styles.simulate} role="radiogroup" aria-label="Demo outcome">
+        <span>Demo outcome</span>
+        {(["success", "error"] as const).map((o) => (
+          <button key={o} type="button" role="radio" aria-checked={outcome === o} data-tone={o} onClick={() => setOutcome(o)}>
+            {o === "success" ? "Success" : "Error"}
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}
+1a:Tbf6,"use client";
+
+import { useEffect, useRef, useState, type FormEvent } from "react";
+import MorphButton, { type Status } from "./MorphButton";
+import styles from "./Demo.module.css";
+
+const wait = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+
+type Outcome = "success" | "error";
+
+// A newsletter form wired to the button. The switch below decides whether the fake request succeeds.
+export default function Demo() {
+  const [status, setStatus] = useState<Status>("idle");
+  const [outcome, setOutcome] = useState<Outcome>("success");
+  const [message, setMessage] = useState<{ tone: Outcome; text: string } | null>(null);
+  const mounted = useRef(true);
+  useEffect(() => {
+    mounted.current = true;
+    return () => {
+      mounted.current = false;
+    };
+  }, []);
+
+  async function onSubmit(e: FormEvent) {
+    e.preventDefault();
+    if (status !== "idle") return;
+    setMessage(null);
+    setStatus("loading");
+    await wait(1500);
+    if (!mounted.current) return;
+    setStatus(outcome);
+    setMessage(
+      outcome === "success"
+        ? { tone: "success", text: "You're in! Check your inbox to confirm." }
+        : { tone: "error", text: "Couldn't subscribe. Please try again." },
+    );
+    await wait(outcome === "success" ? 2000 : 1500);
+    if (!mounted.current) return;
+    setStatus("idle");
+  }
+
+  return (
+    <div className={styles.demo}>
+      <form className={styles.card} onSubmit={onSubmit}>
+        <div className={styles.badge} aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <rect x="3" y="5" width="18" height="14" rx="2.5" />
+            <path d="m3.5 6.5 8.5 6 8.5-6" />
+          </svg>
+        </div>
+        <h3 className={styles.title}>Get the weekly digest</h3>
+        <p className={styles.subtitle}>Hand-picked UI ideas every Friday. No spam, unsubscribe anytime.</p>
+
+        <label className={styles.field}>
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="4" />
+            <path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-4 8" />
+          </svg>
+          <input type="email" placeholder="you@example.com" aria-label="Email address" autoComplete="email" />
+        </label>
+
+        <MorphButton
+          type="submit"
+          block
+          status={status}
+          label={message?.tone === "error" && status === "idle" ? "Try again" : "Subscribe"}
+          messages={{ loading: "Subscribing…", success: "Subscribed!", error: "Something went wrong." }}
+        />
+
+        <p className={styles.message} data-tone={message?.tone} aria-live="polite">
+          {message?.text ?? ""}
+        </p>
+      </form>
+
+      <div className={styles.simulate} role="radiogroup" aria-label="Demo outcome">
+        <span>Demo outcome</span>
+        {(["success", "error"] as const).map((o) => (
+          <button key={o} type="button" role="radio" aria-checked={outcome === o} data-tone={o} onClick={() => setOutcome(o)}>
+            {o === "success" ? "Success" : "Error"}
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}
+14:["$","div","Demo.tsx",{"className":"file","children":[["$","div",null,{"className":"file-head","children":[["$","span",null,{"children":"Demo.tsx"}],["$","$L11",null,{"text":"$19"}]]}],["$","pre",null,{"children":["$","code",null,{"children":"$1a"}]}]]}]
+1b:T18e9,/* Animatable angle for the rotating gradient border. */
+@property --morph-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+.wrap {
+  --c1: #8b7dff;
+  --c2: #4cc9f0;
+  --c3: #f72585;
+  --success: #12b76a;
+  --error: #f04438;
+  --bg: #111116;
+  --ease: cubic-bezier(0.65, 0, 0.35, 1);
+  --glow: conic-gradient(from var(--morph-angle), var(--c1), var(--c2), var(--c3), var(--c1));
+
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+}
+.wrap[data-block="true"] { display: grid; width: 100%; }
+
+.confetti {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  width: 420px;
+  height: 340px;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+}
+
+.button {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  place-items: center;
+  width: 210px;
+  height: 54px;
+  padding: 0;
+  border: 0;
+  border-radius: 27px;
+  background: none;
+  color: #fff;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: width 0.55s var(--ease), transform 0.2s ease, box-shadow 0.4s ease;
+}
+.button > * { grid-area: 1 / 1; }
+.wrap[data-block="true"] .button { width: 100%; }
+.wrap .button:not([data-status="idle"]) { width: 54px; cursor: default; }
+
+.button[data-status="idle"]:hover { transform: translateY(-2px); }
+.button[data-status="idle"]:active { transform: translateY(0) scale(0.97); }
+.button:focus-visible { outline: 2px solid var(--c2); outline-offset: 4px; }
+
+/* Glow behind, gradient ring, dark surface */
+.halo,
+.ring,
+.surface,
+.fill,
+.pulse { position: absolute; border-radius: inherit; pointer-events: none; }
+
+.halo {
+  inset: 2px;
+  z-index: -1;
+  background: var(--glow);
+  filter: blur(16px);
+  opacity: 0.5;
+  animation: rotate 4s linear infinite;
+  transition: opacity 0.35s ease;
+}
+.button[data-status="idle"]:hover .halo { opacity: 0.85; }
+
+.ring {
+  inset: 0;
+  padding: 2px;
+  background: var(--glow);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: rotate 4s linear infinite;
+  transition: opacity 0.3s ease;
+}
+
+.surface {
+  inset: 2px;
+  background: radial-gradient(120% 140% at 50% 0%, #2c2b3a, var(--bg) 62%);
+}
+
+/* While loading, the ring turns into the spinner. */
+.button[data-status="loading"] .ring {
+  padding: 3px;
+  background: conic-gradient(from var(--morph-angle), transparent 0 62%, var(--c1) 80%, var(--c2) 100%);
+  animation-duration: 0.9s;
+}
+.button[data-status="loading"] .halo { opacity: 0.35; animation-duration: 0.9s; }
+
+.button[data-status="success"] .ring,
+.button[data-status="error"] .ring,
+.button[data-status="success"] .halo,
+.button[data-status="error"] .halo { opacity: 0; }
+
+/* Result colour floods out from the centre. */
+.fill { inset: 0; clip-path: circle(0% at 50% 50%); transition: clip-path 0.45s var(--ease); }
+.fill[data-tone="success"] { background: radial-gradient(circle at 50% 25%, #32d583, var(--success) 70%); }
+.fill[data-tone="error"] { background: radial-gradient(circle at 50% 25%, #f97066, var(--error) 70%); }
+.button[data-status="success"] .fill[data-tone="success"],
+.button[data-status="error"] .fill[data-tone="error"] { clip-path: circle(75% at 50% 50%); }
+
+.button[data-status="success"] { box-shadow: 0 12px 30px -8px color-mix(in srgb, var(--success) 75%, transparent); }
+.button[data-status="error"] {
+  box-shadow: 0 12px 30px -8px color-mix(in srgb, var(--error) 75%, transparent);
+  animation: shake 0.5s 0.3s var(--ease);
+}
+
+.pulse { inset: 0; border: 2px solid var(--success); opacity: 0; }
+.button[data-status="success"] .pulse { animation: pulse 0.9s 0.25s ease-out; }
+.button[data-status="error"] .pulse { border-color: var(--error); animation: pulse 0.9s 0.25s ease-out; }
+
+/* Label and paper plane */
+/* Out of the grid flow so the hidden label can't widen the collapsed 54px circle and push the icons off-centre. */
+.content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+  transform: translate(-50%, -50%);
+}
+.label { transition: opacity 0.25s ease 0.3s, transform 0.25s ease 0.3s; }
+.button:not([data-status="idle"]) .label { opacity: 0; transform: translateX(-10px); transition-delay: 0s; transition-duration: 0.15s; }
+
+.plane {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  /* Coming back: snap home while invisible, then fade in. */
+  transition: transform 0s 0.3s, opacity 0.3s ease 0.35s;
+}
+.button[data-status="idle"]:hover .plane { transform: translate(3px, -3px) rotate(-6deg); transition: transform 0.3s ease; }
+.button:not([data-status="idle"]) .plane {
+  opacity: 0;
+  transform: translate(70px, -46px) rotate(-18deg) scale(0.6);
+  transition: transform 0.5s cubic-bezier(0.5, 0, 0.75, 0), opacity 0.4s ease 0.1s;
+}
+
+/* Tick and cross draw themselves in. */
+.check,
+.cross {
+  position: relative;
+  width: 26px;
+  height: 26px;
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.check path { stroke-dasharray: 24; stroke-dashoffset: 24; transition: stroke-dashoffset 0.45s var(--ease) 0.3s; }
+.button[data-status="success"] .check path { stroke-dashoffset: 0; }
+.cross path { stroke-dasharray: 30; stroke-dashoffset: 30; transition: stroke-dashoffset 0.35s var(--ease) 0.25s; }
+.button[data-status="error"] .cross path { stroke-dashoffset: 0; }
+.button:not([data-status="success"]) .check path,
+.button:not([data-status="error"]) .cross path { transition-delay: 0s; transition-duration: 0.15s; }
+
+.srOnly { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+@keyframes rotate { to { --morph-angle: 360deg; } }
+@keyframes pulse {
+  from { opacity: 0.8; transform: scale(1); }
+  to { opacity: 0; transform: scale(2); }
+}
+@keyframes shake {
+  20%, 60% { transform: translateX(-7px); }
+  40%, 80% { transform: translateX(7px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button,
+  .plane,
+  .label { transition: none; }
+  .halo,
+  .ring { animation: none; }
+  .button[data-status="loading"] .ring { animation: rotate 2s linear infinite; }
+  .button[data-status="error"],
+  .pulse { animation: none !important; }
+}
+15:["$","div","MorphButton.module.css",{"className":"file","children":[["$","div",null,{"className":"file-head","children":[["$","span",null,{"children":"MorphButton.module.css"}],["$","$L11",null,{"text":"$1b"}]]}],"$L1c"]}]
+1d:T131e,"use client";
+
+import { useEffect, useRef, type ButtonHTMLAttributes } from "react";
+import styles from "./MorphButton.module.css";
+
+export type Status = "idle" | "loading" | "success" | "error";
+
+type Props = Omit<ButtonHTMLAttributes<HTMLButtonElement>, "children"> & {
+  status: Status;
+  label: string;
+  /** Stretch to the container's width while idle. */
+  block?: boolean;
+  /** Read out by screen readers for each state. */
+  messages?: Partial<Record<Exclude<Status, "idle">, string>>;
+};
+
+const COLORS = ["#8b7dff", "#4cc9f0", "#f72585", "#ffd166", "#06d6a0", "#ffffff"];
+const LIFETIME = 110;
+
+type Particle = {
+  x: number;
+  y: number;
+  vx: number;
+  vy: number;
+  w: number;
+  h: number;
+  spin: number;
+  angle: number;
+  flip: number;
+  flipSpeed: number;
+  color: string;
+  round: boolean;
+};
+
+function burst(canvas: HTMLCanvasElement) {
+  const ctx = canvas.getContext("2d");
+  if (!ctx) return () => {};
+  const dpr = window.devicePixelRatio || 1;
+  const { width, height } = canvas.getBoundingClientRect();
+  canvas.width = width * dpr;
+  canvas.height = height * dpr;
+  ctx.scale(dpr, dpr);
+
+  const particles: Particle[] = Array.from({ length: 110 }, () => {
+    // Two fans, up-left and up-right, so the burst frames the button.
+    const side = Math.random() < 0.5 ? -1 : 1;
+    const angle = -Math.PI / 2 + side * (0.25 + Math.random() * 0.75);
+    const speed = 5 + Math.random() * 7;
+    return {
+      x: width / 2,
+      y: height / 2,
+      vx: Math.cos(angle) * speed,
+      vy: Math.sin(angle) * speed,
+      w: 5 + Math.random() * 4,
+      h: 8 + Math.random() * 6,
+      spin: (Math.random() - 0.5) * 0.3,
+      angle: Math.random() * Math.PI,
+      flip: Math.random() * Math.PI,
+      flipSpeed: 0.15 + Math.random() * 0.2,
+      color: COLORS[Math.floor(Math.random() * COLORS.length)],
+      round: Math.random() < 0.25,
+    };
+  });
+
+  let frame = 0;
+  let raf = 0;
+  const tick = () => {
+    frame++;
+    ctx.clearRect(0, 0, width, height);
+    // Full strength for most of the flight, then fade out.
+    ctx.globalAlpha = frame < 75 ? 1 : Math.max(0, 1 - (frame - 75) / (LIFETIME - 75));
+    for (const p of particles) {
+      p.vy += 0.2;
+      p.vx *= 0.97;
+      p.vy *= 0.985;
+      p.x += p.vx;
+      p.y += p.vy;
+      p.angle += p.spin;
+      p.flip += p.flipSpeed;
+      ctx.save();
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.angle);
+      ctx.fillStyle = p.color;
+      if (p.round) {
+        ctx.beginPath();
+        ctx.arc(0, 0, p.w / 2, 0, Math.PI * 2);
+        ctx.fill();
+      } else {
+        // Squashing the height makes the paper look like it's flipping.
+        const h = p.h * Math.abs(Math.cos(p.flip));
+        ctx.fillRect(-p.w / 2, -h / 2, p.w, Math.max(1, h));
+      }
+      ctx.restore();
+    }
+    if (frame < LIFETIME) raf = requestAnimationFrame(tick);
+    else ctx.clearRect(0, 0, width, height);
+  };
+  raf = requestAnimationFrame(tick);
+  return () => cancelAnimationFrame(raf);
+}
+
+export default function MorphButton({ status, label, block = false, messages, className, ...rest }: Props) {
+  const confetti = useRef<HTMLCanvasElement>(null);
+
+  useEffect(() => {
+    if (status !== "success" || !confetti.current) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    return burst(confetti.current);
+  }, [status]);
+
+  const busy = status !== "idle";
+  const announce = status === "idle" ? "" : messages?.[status] ?? "";
+
+  return (
+    <span className={styles.wrap} data-block={block}>
+      <canvas ref={confetti} className={styles.confetti} aria-hidden="true" />
+      <button
+        {...rest}
+        className={`${styles.button} ${className ?? ""}`}
+        data-status={status}
+        aria-disabled={busy}
+        onClick={busy ? (e) => e.preventDefault() : rest.onClick}
+      >
+        <span className={styles.halo} aria-hidden="true" />
+        <span className={styles.ring} aria-hidden="true" />
+        <span className={styles.surface} aria-hidden="true" />
+        <span className={styles.fill} data-tone="success" aria-hidden="true" />
+        <span className={styles.fill} data-tone="error" aria-hidden="true" />
+        <span className={styles.pulse} aria-hidden="true" />
+        <span className={styles.content}>
+          <span className={styles.label}>{label}</span>
+          <svg className={styles.plane} viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M21 3 10.5 13.5M21 3l-6.5 18-4-7.5L3 9.5 21 3Z" />
+          </svg>
+        </span>
+        <svg className={styles.check} viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M5 12.5 10 17.5 19 7" />
+        </svg>
+        <svg className={styles.cross} viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M7 7l10 10M17 7 7 17" />
+        </svg>
+      </button>
+      <span className={styles.srOnly} aria-live="polite">
+        {announce}
+      </span>
+    </span>
+  );
+}
+16:["$","div","MorphButton.tsx",{"className":"file","children":[["$","div",null,{"className":"file-head","children":[["$","span",null,{"children":"MorphButton.tsx"}],["$","$L11",null,{"text":"$1d"}]]}],"$L1e"]}]
+17:["$","nav",null,{"className":"pager","children":[["$","$L2",null,{"href":"/components/photo-resizer","children":["← ","Photo Resizer for Official Forms"]}],["$","$L2",null,{"href":"/components/spin-the-wheel","children":["Spin-the-Wheel Picker"," →"]}]]}]
+1f:T18e9,/* Animatable angle for the rotating gradient border. */
+@property --morph-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+.wrap {
+  --c1: #8b7dff;
+  --c2: #4cc9f0;
+  --c3: #f72585;
+  --success: #12b76a;
+  --error: #f04438;
+  --bg: #111116;
+  --ease: cubic-bezier(0.65, 0, 0.35, 1);
+  --glow: conic-gradient(from var(--morph-angle), var(--c1), var(--c2), var(--c3), var(--c1));
+
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+}
+.wrap[data-block="true"] { display: grid; width: 100%; }
+
+.confetti {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  width: 420px;
+  height: 340px;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+}
+
+.button {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  place-items: center;
+  width: 210px;
+  height: 54px;
+  padding: 0;
+  border: 0;
+  border-radius: 27px;
+  background: none;
+  color: #fff;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: width 0.55s var(--ease), transform 0.2s ease, box-shadow 0.4s ease;
+}
+.button > * { grid-area: 1 / 1; }
+.wrap[data-block="true"] .button { width: 100%; }
+.wrap .button:not([data-status="idle"]) { width: 54px; cursor: default; }
+
+.button[data-status="idle"]:hover { transform: translateY(-2px); }
+.button[data-status="idle"]:active { transform: translateY(0) scale(0.97); }
+.button:focus-visible { outline: 2px solid var(--c2); outline-offset: 4px; }
+
+/* Glow behind, gradient ring, dark surface */
+.halo,
+.ring,
+.surface,
+.fill,
+.pulse { position: absolute; border-radius: inherit; pointer-events: none; }
+
+.halo {
+  inset: 2px;
+  z-index: -1;
+  background: var(--glow);
+  filter: blur(16px);
+  opacity: 0.5;
+  animation: rotate 4s linear infinite;
+  transition: opacity 0.35s ease;
+}
+.button[data-status="idle"]:hover .halo { opacity: 0.85; }
+
+.ring {
+  inset: 0;
+  padding: 2px;
+  background: var(--glow);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: rotate 4s linear infinite;
+  transition: opacity 0.3s ease;
+}
+
+.surface {
+  inset: 2px;
+  background: radial-gradient(120% 140% at 50% 0%, #2c2b3a, var(--bg) 62%);
+}
+
+/* While loading, the ring turns into the spinner. */
+.button[data-status="loading"] .ring {
+  padding: 3px;
+  background: conic-gradient(from var(--morph-angle), transparent 0 62%, var(--c1) 80%, var(--c2) 100%);
+  animation-duration: 0.9s;
+}
+.button[data-status="loading"] .halo { opacity: 0.35; animation-duration: 0.9s; }
+
+.button[data-status="success"] .ring,
+.button[data-status="error"] .ring,
+.button[data-status="success"] .halo,
+.button[data-status="error"] .halo { opacity: 0; }
+
+/* Result colour floods out from the centre. */
+.fill { inset: 0; clip-path: circle(0% at 50% 50%); transition: clip-path 0.45s var(--ease); }
+.fill[data-tone="success"] { background: radial-gradient(circle at 50% 25%, #32d583, var(--success) 70%); }
+.fill[data-tone="error"] { background: radial-gradient(circle at 50% 25%, #f97066, var(--error) 70%); }
+.button[data-status="success"] .fill[data-tone="success"],
+.button[data-status="error"] .fill[data-tone="error"] { clip-path: circle(75% at 50% 50%); }
+
+.button[data-status="success"] { box-shadow: 0 12px 30px -8px color-mix(in srgb, var(--success) 75%, transparent); }
+.button[data-status="error"] {
+  box-shadow: 0 12px 30px -8px color-mix(in srgb, var(--error) 75%, transparent);
+  animation: shake 0.5s 0.3s var(--ease);
+}
+
+.pulse { inset: 0; border: 2px solid var(--success); opacity: 0; }
+.button[data-status="success"] .pulse { animation: pulse 0.9s 0.25s ease-out; }
+.button[data-status="error"] .pulse { border-color: var(--error); animation: pulse 0.9s 0.25s ease-out; }
+
+/* Label and paper plane */
+/* Out of the grid flow so the hidden label can't widen the collapsed 54px circle and push the icons off-centre. */
+.content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+  transform: translate(-50%, -50%);
+}
+.label { transition: opacity 0.25s ease 0.3s, transform 0.25s ease 0.3s; }
+.button:not([data-status="idle"]) .label { opacity: 0; transform: translateX(-10px); transition-delay: 0s; transition-duration: 0.15s; }
+
+.plane {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  /* Coming back: snap home while invisible, then fade in. */
+  transition: transform 0s 0.3s, opacity 0.3s ease 0.35s;
+}
+.button[data-status="idle"]:hover .plane { transform: translate(3px, -3px) rotate(-6deg); transition: transform 0.3s ease; }
+.button:not([data-status="idle"]) .plane {
+  opacity: 0;
+  transform: translate(70px, -46px) rotate(-18deg) scale(0.6);
+  transition: transform 0.5s cubic-bezier(0.5, 0, 0.75, 0), opacity 0.4s ease 0.1s;
+}
+
+/* Tick and cross draw themselves in. */
+.check,
+.cross {
+  position: relative;
+  width: 26px;
+  height: 26px;
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.check path { stroke-dasharray: 24; stroke-dashoffset: 24; transition: stroke-dashoffset 0.45s var(--ease) 0.3s; }
+.button[data-status="success"] .check path { stroke-dashoffset: 0; }
+.cross path { stroke-dasharray: 30; stroke-dashoffset: 30; transition: stroke-dashoffset 0.35s var(--ease) 0.25s; }
+.button[data-status="error"] .cross path { stroke-dashoffset: 0; }
+.button:not([data-status="success"]) .check path,
+.button:not([data-status="error"]) .cross path { transition-delay: 0s; transition-duration: 0.15s; }
+
+.srOnly { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+@keyframes rotate { to { --morph-angle: 360deg; } }
+@keyframes pulse {
+  from { opacity: 0.8; transform: scale(1); }
+  to { opacity: 0; transform: scale(2); }
+}
+@keyframes shake {
+  20%, 60% { transform: translateX(-7px); }
+  40%, 80% { transform: translateX(7px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button,
+  .plane,
+  .label { transition: none; }
+  .halo,
+  .ring { animation: none; }
+  .button[data-status="loading"] .ring { animation: rotate 2s linear infinite; }
+  .button[data-status="error"],
+  .pulse { animation: none !important; }
+}
+1c:["$","pre",null,{"children":["$","code",null,{"children":"$1f"}]}]
+20:T131e,"use client";
+
+import { useEffect, useRef, type ButtonHTMLAttributes } from "react";
+import styles from "./MorphButton.module.css";
+
+export type Status = "idle" | "loading" | "success" | "error";
+
+type Props = Omit<ButtonHTMLAttributes<HTMLButtonElement>, "children"> & {
+  status: Status;
+  label: string;
+  /** Stretch to the container's width while idle. */
+  block?: boolean;
+  /** Read out by screen readers for each state. */
+  messages?: Partial<Record<Exclude<Status, "idle">, string>>;
+};
+
+const COLORS = ["#8b7dff", "#4cc9f0", "#f72585", "#ffd166", "#06d6a0", "#ffffff"];
+const LIFETIME = 110;
+
+type Particle = {
+  x: number;
+  y: number;
+  vx: number;
+  vy: number;
+  w: number;
+  h: number;
+  spin: number;
+  angle: number;
+  flip: number;
+  flipSpeed: number;
+  color: string;
+  round: boolean;
+};
+
+function burst(canvas: HTMLCanvasElement) {
+  const ctx = canvas.getContext("2d");
+  if (!ctx) return () => {};
+  const dpr = window.devicePixelRatio || 1;
+  const { width, height } = canvas.getBoundingClientRect();
+  canvas.width = width * dpr;
+  canvas.height = height * dpr;
+  ctx.scale(dpr, dpr);
+
+  const particles: Particle[] = Array.from({ length: 110 }, () => {
+    // Two fans, up-left and up-right, so the burst frames the button.
+    const side = Math.random() < 0.5 ? -1 : 1;
+    const angle = -Math.PI / 2 + side * (0.25 + Math.random() * 0.75);
+    const speed = 5 + Math.random() * 7;
+    return {
+      x: width / 2,
+      y: height / 2,
+      vx: Math.cos(angle) * speed,
+      vy: Math.sin(angle) * speed,
+      w: 5 + Math.random() * 4,
+      h: 8 + Math.random() * 6,
+      spin: (Math.random() - 0.5) * 0.3,
+      angle: Math.random() * Math.PI,
+      flip: Math.random() * Math.PI,
+      flipSpeed: 0.15 + Math.random() * 0.2,
+      color: COLORS[Math.floor(Math.random() * COLORS.length)],
+      round: Math.random() < 0.25,
+    };
+  });
+
+  let frame = 0;
+  let raf = 0;
+  const tick = () => {
+    frame++;
+    ctx.clearRect(0, 0, width, height);
+    // Full strength for most of the flight, then fade out.
+    ctx.globalAlpha = frame < 75 ? 1 : Math.max(0, 1 - (frame - 75) / (LIFETIME - 75));
+    for (const p of particles) {
+      p.vy += 0.2;
+      p.vx *= 0.97;
+      p.vy *= 0.985;
+      p.x += p.vx;
+      p.y += p.vy;
+      p.angle += p.spin;
+      p.flip += p.flipSpeed;
+      ctx.save();
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.angle);
+      ctx.fillStyle = p.color;
+      if (p.round) {
+        ctx.beginPath();
+        ctx.arc(0, 0, p.w / 2, 0, Math.PI * 2);
+        ctx.fill();
+      } else {
+        // Squashing the height makes the paper look like it's flipping.
+        const h = p.h * Math.abs(Math.cos(p.flip));
+        ctx.fillRect(-p.w / 2, -h / 2, p.w, Math.max(1, h));
+      }
+      ctx.restore();
+    }
+    if (frame < LIFETIME) raf = requestAnimationFrame(tick);
+    else ctx.clearRect(0, 0, width, height);
+  };
+  raf = requestAnimationFrame(tick);
+  return () => cancelAnimationFrame(raf);
+}
+
+export default function MorphButton({ status, label, block = false, messages, className, ...rest }: Props) {
+  const confetti = useRef<HTMLCanvasElement>(null);
+
+  useEffect(() => {
+    if (status !== "success" || !confetti.current) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    return burst(confetti.current);
+  }, [status]);
+
+  const busy = status !== "idle";
+  const announce = status === "idle" ? "" : messages?.[status] ?? "";
+
+  return (
+    <span className={styles.wrap} data-block={block}>
+      <canvas ref={confetti} className={styles.confetti} aria-hidden="true" />
+      <button
+        {...rest}
+        className={`${styles.button} ${className ?? ""}`}
+        data-status={status}
+        aria-disabled={busy}
+        onClick={busy ? (e) => e.preventDefault() : rest.onClick}
+      >
+        <span className={styles.halo} aria-hidden="true" />
+        <span className={styles.ring} aria-hidden="true" />
+        <span className={styles.surface} aria-hidden="true" />
+        <span className={styles.fill} data-tone="success" aria-hidden="true" />
+        <span className={styles.fill} data-tone="error" aria-hidden="true" />
+        <span className={styles.pulse} aria-hidden="true" />
+        <span className={styles.content}>
+          <span className={styles.label}>{label}</span>
+          <svg className={styles.plane} viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M21 3 10.5 13.5M21 3l-6.5 18-4-7.5L3 9.5 21 3Z" />
+          </svg>
+        </span>
+        <svg className={styles.check} viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M5 12.5 10 17.5 19 7" />
+        </svg>
+        <svg className={styles.cross} viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M7 7l10 10M17 7 7 17" />
+        </svg>
+      </button>
+      <span className={styles.srOnly} aria-live="polite">
+        {announce}
+      </span>
+    </span>
+  );
+}
+1e:["$","pre",null,{"children":["$","code",null,{"children":"$20"}]}]

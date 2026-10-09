@@ -1,0 +1,1085 @@
+1:"$Sreact.fragment"
+2:I[2619,["619","static/chunks/619-ba102abea3e3d0e4.js","449","static/chunks/app/components/%5Bslug%5D/page-7b18c14fa5ee9ace.js"],""]
+3:I[9766,[],""]
+4:I[8924,[],""]
+6:I[4431,[],"OutletBoundary"]
+8:I[5278,[],"AsyncMetadataOutlet"]
+a:I[4431,[],"ViewportBoundary"]
+c:I[4431,[],"MetadataBoundary"]
+d:"$Sreact.suspense"
+f:I[7150,[],""]
+:HL["/component-gallery/_next/static/css/68cce7808a08b910.css","style"]
+0:{"P":null,"b":"6jA2vIGrO3aOlnYlKgPnQ","p":"/component-gallery","c":["","components","spin-the-wheel",""],"i":false,"f":[[["",{"children":["components",{"children":[["slug","spin-the-wheel","d"],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/component-gallery/_next/static/css/68cce7808a08b910.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","children":["$","body",null,{"children":[["$","header",null,{"className":"site-header","children":["$","div",null,{"className":"container","children":[["$","$L2",null,{"href":"/","className":"brand","children":"Component Gallery"}],["$","nav",null,{"children":["$","a",null,{"href":"https://github.com/rownok-HR-LS/component-gallery","children":"GitHub"}]}]]}]}],["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","main",null,{"className":"container","children":["$","header",null,{"className":"hero","children":[["$","h1",null,{"children":"Not found"}],["$","p",null,{"className":"lede","children":"That component doesn't exist (yet)."}],["$","$L2",null,{"href":"/","children":"← Back to the gallery"}]]}]}],[]],"forbidden":"$undefined","unauthorized":"$undefined"}],["$","footer",null,{"className":"site-footer","children":["$","div",null,{"className":"container","children":[["$","span",null,{"children":["Built by ","rownok-HR-LS"," · LofiStack 90-day challenge"]}],["$","a",null,{"href":"https://github.com/rownok-HR-LS/component-gallery","children":"Source on GitHub"}]]}]}]]}]}]]}],{"children":["components",["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["slug","spin-the-wheel","d"],["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L5",null,["$","$L6",null,{"children":["$L7",["$","$L8",null,{"promise":"$@9"}]]}]]}],{},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,[["$","$La",null,{"children":"$Lb"}],null],["$","$Lc",null,{"children":["$","div",null,{"hidden":true,"children":["$","$d",null,{"fallback":null,"children":"$Le"}]}]}]]}],false]],"m":"$undefined","G":["$f",[]],"s":false,"S":true}
+b:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+7:null
+9:{"metadata":[["$","title","0",{"children":"Spin-the-Wheel Picker · Component Gallery"}],["$","meta","1",{"name":"description","content":"Paste names and spin a wheel that slows down realistically, with a ticking pointer, blinking rim lights and a fair, cryptographically random winner."}]],"error":null,"digest":"$undefined"}
+e:"$9:metadata"
+10:I[2325,["619","static/chunks/619-ba102abea3e3d0e4.js","449","static/chunks/app/components/%5Bslug%5D/page-7b18c14fa5ee9ace.js"],"Demo"]
+11:I[7333,["619","static/chunks/619-ba102abea3e3d0e4.js","449","static/chunks/app/components/%5Bslug%5D/page-7b18c14fa5ee9ace.js"],"CopyButton"]
+12:T1d8f,.card {
+  --surface: #fcfcfb;
+  --ink: #0b0b0b;
+  --ink-2: #52514e;
+  --muted: #898781;
+  --border: rgba(11, 11, 11, 0.1);
+  --field: #f4f3f0;
+  --accent: #4a3aa7;
+  --rim: #22212b;
+  --name-1: #2a78d6;
+  --name-2: #4a3aa7;
+  --name-3: #e34948;
+
+  width: 100%;
+  max-width: 760px;
+  padding: 22px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: var(--surface);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 12px 32px -12px rgba(0, 0, 0, 0.18);
+  color: var(--ink);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  container-type: inline-size;
+}
+
+@media (prefers-color-scheme: dark) {
+  .card {
+    --surface: #1a1a19;
+    --ink: #ffffff;
+    --ink-2: #c3c2b7;
+    --border: rgba(255, 255, 255, 0.1);
+    --field: #232321;
+    --accent: #9085e9;
+    --rim: #0e0e12;
+    --name-1: #6da7ec;
+    --name-2: #b0a8f5;
+    --name-3: #f08a8a;
+    box-shadow: 0 12px 32px -12px rgba(0, 0, 0, 0.6);
+  }
+}
+
+.head { margin-bottom: 16px; }
+.title { margin: 0; font-size: 17px; font-weight: 650; }
+.subtitle { margin: 2px 0 0; color: var(--ink-2); font-size: 13px; }
+
+.body { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); align-items: start; gap: 24px; }
+@container (max-width: 600px) {
+  .body { grid-template-columns: 1fr; }
+}
+
+/* Wheel */
+.stage { display: flex; justify-content: center; }
+.wheelWrap { position: relative; width: 100%; max-width: 380px; aspect-ratio: 1; }
+.wheel { display: block; width: 100%; height: 100%; overflow: visible; filter: drop-shadow(0 14px 24px rgba(0, 0, 0, 0.25)); }
+
+.rim { fill: var(--rim); }
+.bulb { fill: #ffe9a8; }
+.wheelWrap[data-spinning="true"] .bulb { animation: blink 0.5s steps(1) infinite; }
+.wheelWrap[data-spinning="true"] .bulb[data-odd="true"] { animation-delay: 0.25s; }
+
+.slice { transition: opacity 0.35s ease; }
+.slice path { stroke: rgba(255, 255, 255, 0.85); stroke-width: 1.5; }
+.slice[data-dim="true"] { opacity: 0.28; }
+.label { font-weight: 700; letter-spacing: 0.01em; pointer-events: none; }
+.peg { fill: #fff; stroke: rgba(0, 0, 0, 0.25); stroke-width: 1; }
+.empty { fill: var(--field); stroke: var(--border); stroke-width: 2; stroke-dasharray: 6 6; }
+
+.pointer { transform-box: fill-box; transform-origin: 50% 20%; }
+.pointer path { fill: #f04438; stroke: #fff; stroke-width: 3; stroke-linejoin: round; filter: drop-shadow(0 3px 3px rgba(0, 0, 0, 0.35)); }
+
+.hub {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: grid;
+  place-items: center;
+  width: 19%;
+  aspect-ratio: 1;
+  border: 4px solid #fff;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 30%, #3a3948, #15141c);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  color: #fff;
+  font: inherit;
+  font-size: clamp(11px, 3.4cqi, 15px);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transform: translate(-50%, -50%);
+  transition: transform 0.15s ease;
+}
+.hub:hover:not(:disabled) { transform: translate(-50%, -50%) scale(1.06); }
+.hub:active:not(:disabled) { transform: translate(-50%, -50%) scale(0.96); }
+.hub:disabled { cursor: default; }
+.hub:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+.emptyHint { position: absolute; top: 64%; left: 0; right: 0; margin: 0; color: var(--muted); font-size: 13px; text-align: center; }
+
+/* Winner reveal */
+.winner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  min-width: 62%;
+  max-width: 90%;
+  padding: 18px 20px 16px;
+  border-radius: 18px;
+  background: color-mix(in srgb, var(--surface) 88%, transparent);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 18px 40px -12px rgba(0, 0, 0, 0.45), 0 0 0 1px var(--border);
+  text-align: center;
+  transform: translate(-50%, -50%);
+  animation: pop 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.winnerKicker { color: var(--ink-2); font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; }
+.winnerName {
+  max-width: 100%;
+  overflow: hidden;
+  background: linear-gradient(90deg, var(--name-1), var(--name-2), var(--name-3));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 1.2;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.winnerActions { display: flex; gap: 8px; margin-top: 10px; }
+.winnerActions button,
+.tools button,
+.spinButton { font: inherit; cursor: pointer; }
+.ghost,
+.primary { padding: 7px 14px; border-radius: 9px; font-size: 13px; font-weight: 600; white-space: nowrap; }
+.ghost { border: 1px solid var(--border); background: transparent; color: var(--ink); }
+.primary { border: 0; background: var(--ink); color: var(--surface); }
+
+/* Entries panel */
+.panel { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.entriesLabel { display: flex; justify-content: space-between; align-items: baseline; font-size: 13px; font-weight: 600; }
+.count {
+  display: inline-grid;
+  place-items: center;
+  min-width: 22px;
+  margin-left: 4px;
+  padding: 0 6px;
+  border-radius: 99px;
+  background: var(--field);
+  color: var(--ink-2);
+  font-size: 11.5px;
+}
+.entriesHint { color: var(--muted); font-size: 11.5px; font-weight: 400; }
+.entries {
+  width: 100%;
+  min-height: 170px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  outline: none;
+  background: var(--field);
+  color: var(--ink);
+  font: inherit;
+  font-size: 14px;
+  line-height: 1.6;
+  resize: vertical;
+}
+.entries:focus { border-color: var(--accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 20%, transparent); }
+
+.tools { display: flex; gap: 6px; }
+.tools button {
+  flex: 1;
+  padding: 6px 8px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: none;
+  color: var(--ink-2);
+  font-size: 12.5px;
+}
+.tools button:hover:not(:disabled) { background: var(--field); color: var(--ink); }
+.tools button:disabled,
+.spinButton:disabled { opacity: 0.45; cursor: default; }
+
+.toggle { display: flex; align-items: center; gap: 8px; color: var(--ink-2); font-size: 13px; cursor: pointer; }
+.toggle input { width: 16px; height: 16px; accent-color: var(--accent); }
+
+.spinButton {
+  height: 44px;
+  margin-top: 4px;
+  border: 0;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #2a78d6, #4a3aa7);
+  box-shadow: 0 10px 20px -10px rgba(74, 58, 167, 0.8);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  transition: transform 0.15s ease;
+}
+.spinButton:hover:not(:disabled) { transform: translateY(-1px); }
+.spinButton:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+.history { display: flex; flex-direction: column; gap: 6px; font-size: 12px; }
+.history > span { color: var(--muted); }
+.history ol { display: flex; flex-wrap: wrap; gap: 6px; margin: 0; padding: 0; list-style: none; }
+.history li { padding: 2px 9px; border-radius: 99px; background: var(--field); color: var(--ink-2); }
+.history li:first-child { background: color-mix(in srgb, var(--accent) 18%, transparent); color: var(--ink); font-weight: 600; }
+
+.srOnly { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+@keyframes blink { 50% { fill: #ffffff; filter: drop-shadow(0 0 4px #ffd166); } }
+@keyframes pop {
+  from { opacity: 0; transform: translate(-50%, -50%) scale(0.6); }
+  to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .winner { animation: none; }
+  .wheelWrap[data-spinning="true"] .bulb { animation: none; }
+}
+5:["$","main",null,{"className":"container","children":[["$","$L2",null,{"href":"/","className":"back","children":"← All components"}],["$","header",null,{"className":"detail-head","children":[["$","span",null,{"className":"tag","children":["Week ",4," · ","2026-10-08"]}],["$","h1",null,{"children":"Spin-the-Wheel Picker"}],["$","p",null,{"children":"Paste names and spin a wheel that slows down realistically, with a ticking pointer, blinking rim lights and a fair, cryptographically random winner."}]]}],["$","section",null,{"className":"stage","aria-label":"Live demo","children":["$","$L10",null,{"slug":"spin-the-wheel"}]}],["$","section",null,{"className":"source","children":[["$","h2",null,{"children":"Source"}],[["$","div","Demo.tsx",{"className":"file","children":[["$","div",null,{"className":"file-head","children":[["$","span",null,{"children":"Demo.tsx"}],["$","$L11",null,{"text":"import SpinWheel from \"./SpinWheel\";\n\nexport default function Demo() {\n  return <SpinWheel />;\n}\n"}]]}],["$","pre",null,{"children":["$","code",null,{"children":"import SpinWheel from \"./SpinWheel\";\n\nexport default function Demo() {\n  return <SpinWheel />;\n}\n"}]}]]}],["$","div","SpinWheel.module.css",{"className":"file","children":[["$","div",null,{"className":"file-head","children":[["$","span",null,{"children":"SpinWheel.module.css"}],["$","$L11",null,{"text":"$12"}]]}],"$L13"]}],"$L14"]]}],"$L15"]}]
+16:T1d8f,.card {
+  --surface: #fcfcfb;
+  --ink: #0b0b0b;
+  --ink-2: #52514e;
+  --muted: #898781;
+  --border: rgba(11, 11, 11, 0.1);
+  --field: #f4f3f0;
+  --accent: #4a3aa7;
+  --rim: #22212b;
+  --name-1: #2a78d6;
+  --name-2: #4a3aa7;
+  --name-3: #e34948;
+
+  width: 100%;
+  max-width: 760px;
+  padding: 22px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: var(--surface);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 12px 32px -12px rgba(0, 0, 0, 0.18);
+  color: var(--ink);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  container-type: inline-size;
+}
+
+@media (prefers-color-scheme: dark) {
+  .card {
+    --surface: #1a1a19;
+    --ink: #ffffff;
+    --ink-2: #c3c2b7;
+    --border: rgba(255, 255, 255, 0.1);
+    --field: #232321;
+    --accent: #9085e9;
+    --rim: #0e0e12;
+    --name-1: #6da7ec;
+    --name-2: #b0a8f5;
+    --name-3: #f08a8a;
+    box-shadow: 0 12px 32px -12px rgba(0, 0, 0, 0.6);
+  }
+}
+
+.head { margin-bottom: 16px; }
+.title { margin: 0; font-size: 17px; font-weight: 650; }
+.subtitle { margin: 2px 0 0; color: var(--ink-2); font-size: 13px; }
+
+.body { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); align-items: start; gap: 24px; }
+@container (max-width: 600px) {
+  .body { grid-template-columns: 1fr; }
+}
+
+/* Wheel */
+.stage { display: flex; justify-content: center; }
+.wheelWrap { position: relative; width: 100%; max-width: 380px; aspect-ratio: 1; }
+.wheel { display: block; width: 100%; height: 100%; overflow: visible; filter: drop-shadow(0 14px 24px rgba(0, 0, 0, 0.25)); }
+
+.rim { fill: var(--rim); }
+.bulb { fill: #ffe9a8; }
+.wheelWrap[data-spinning="true"] .bulb { animation: blink 0.5s steps(1) infinite; }
+.wheelWrap[data-spinning="true"] .bulb[data-odd="true"] { animation-delay: 0.25s; }
+
+.slice { transition: opacity 0.35s ease; }
+.slice path { stroke: rgba(255, 255, 255, 0.85); stroke-width: 1.5; }
+.slice[data-dim="true"] { opacity: 0.28; }
+.label { font-weight: 700; letter-spacing: 0.01em; pointer-events: none; }
+.peg { fill: #fff; stroke: rgba(0, 0, 0, 0.25); stroke-width: 1; }
+.empty { fill: var(--field); stroke: var(--border); stroke-width: 2; stroke-dasharray: 6 6; }
+
+.pointer { transform-box: fill-box; transform-origin: 50% 20%; }
+.pointer path { fill: #f04438; stroke: #fff; stroke-width: 3; stroke-linejoin: round; filter: drop-shadow(0 3px 3px rgba(0, 0, 0, 0.35)); }
+
+.hub {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: grid;
+  place-items: center;
+  width: 19%;
+  aspect-ratio: 1;
+  border: 4px solid #fff;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 30%, #3a3948, #15141c);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  color: #fff;
+  font: inherit;
+  font-size: clamp(11px, 3.4cqi, 15px);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transform: translate(-50%, -50%);
+  transition: transform 0.15s ease;
+}
+.hub:hover:not(:disabled) { transform: translate(-50%, -50%) scale(1.06); }
+.hub:active:not(:disabled) { transform: translate(-50%, -50%) scale(0.96); }
+.hub:disabled { cursor: default; }
+.hub:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+.emptyHint { position: absolute; top: 64%; left: 0; right: 0; margin: 0; color: var(--muted); font-size: 13px; text-align: center; }
+
+/* Winner reveal */
+.winner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  min-width: 62%;
+  max-width: 90%;
+  padding: 18px 20px 16px;
+  border-radius: 18px;
+  background: color-mix(in srgb, var(--surface) 88%, transparent);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 18px 40px -12px rgba(0, 0, 0, 0.45), 0 0 0 1px var(--border);
+  text-align: center;
+  transform: translate(-50%, -50%);
+  animation: pop 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.winnerKicker { color: var(--ink-2); font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; }
+.winnerName {
+  max-width: 100%;
+  overflow: hidden;
+  background: linear-gradient(90deg, var(--name-1), var(--name-2), var(--name-3));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 1.2;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.winnerActions { display: flex; gap: 8px; margin-top: 10px; }
+.winnerActions button,
+.tools button,
+.spinButton { font: inherit; cursor: pointer; }
+.ghost,
+.primary { padding: 7px 14px; border-radius: 9px; font-size: 13px; font-weight: 600; white-space: nowrap; }
+.ghost { border: 1px solid var(--border); background: transparent; color: var(--ink); }
+.primary { border: 0; background: var(--ink); color: var(--surface); }
+
+/* Entries panel */
+.panel { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.entriesLabel { display: flex; justify-content: space-between; align-items: baseline; font-size: 13px; font-weight: 600; }
+.count {
+  display: inline-grid;
+  place-items: center;
+  min-width: 22px;
+  margin-left: 4px;
+  padding: 0 6px;
+  border-radius: 99px;
+  background: var(--field);
+  color: var(--ink-2);
+  font-size: 11.5px;
+}
+.entriesHint { color: var(--muted); font-size: 11.5px; font-weight: 400; }
+.entries {
+  width: 100%;
+  min-height: 170px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  outline: none;
+  background: var(--field);
+  color: var(--ink);
+  font: inherit;
+  font-size: 14px;
+  line-height: 1.6;
+  resize: vertical;
+}
+.entries:focus { border-color: var(--accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 20%, transparent); }
+
+.tools { display: flex; gap: 6px; }
+.tools button {
+  flex: 1;
+  padding: 6px 8px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: none;
+  color: var(--ink-2);
+  font-size: 12.5px;
+}
+.tools button:hover:not(:disabled) { background: var(--field); color: var(--ink); }
+.tools button:disabled,
+.spinButton:disabled { opacity: 0.45; cursor: default; }
+
+.toggle { display: flex; align-items: center; gap: 8px; color: var(--ink-2); font-size: 13px; cursor: pointer; }
+.toggle input { width: 16px; height: 16px; accent-color: var(--accent); }
+
+.spinButton {
+  height: 44px;
+  margin-top: 4px;
+  border: 0;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #2a78d6, #4a3aa7);
+  box-shadow: 0 10px 20px -10px rgba(74, 58, 167, 0.8);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  transition: transform 0.15s ease;
+}
+.spinButton:hover:not(:disabled) { transform: translateY(-1px); }
+.spinButton:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+.history { display: flex; flex-direction: column; gap: 6px; font-size: 12px; }
+.history > span { color: var(--muted); }
+.history ol { display: flex; flex-wrap: wrap; gap: 6px; margin: 0; padding: 0; list-style: none; }
+.history li { padding: 2px 9px; border-radius: 99px; background: var(--field); color: var(--ink-2); }
+.history li:first-child { background: color-mix(in srgb, var(--accent) 18%, transparent); color: var(--ink); font-weight: 600; }
+
+.srOnly { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+@keyframes blink { 50% { fill: #ffffff; filter: drop-shadow(0 0 4px #ffd166); } }
+@keyframes pop {
+  from { opacity: 0; transform: translate(-50%, -50%) scale(0.6); }
+  to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .winner { animation: none; }
+  .wheelWrap[data-spinning="true"] .bulb { animation: none; }
+}
+13:["$","pre",null,{"children":["$","code",null,{"children":"$16"}]}]
+17:T2d9e,"use client";
+
+import { useEffect, useMemo, useRef, useState } from "react";
+import styles from "./SpinWheel.module.css";
+
+const COLORS = ["#2a78d6", "#eb6834", "#1baf7a", "#eda100", "#e87ba4", "#4a3aa7", "#e34948", "#0e9aa7"];
+const SAMPLE = ["Ayesha", "Rahim", "Nusrat", "Tanvir", "Farhan", "Mitu", "Sadia", "Imran"];
+const MAX_ENTRIES = 40;
+const DURATION = 5200;
+
+// Wheel geometry in a 400×400 viewBox.
+const C = 200;
+const R_SEGMENT = 178;
+const R_BULBS = 190;
+const BULBS = 24;
+
+const randomFloat = () => crypto.getRandomValues(new Uint32Array(1))[0] / 2 ** 32;
+const mod = (n: number, m: number) => ((n % m) + m) % m;
+
+function point(angle: number, r: number) {
+  const a = (angle * Math.PI) / 180;
+  return [C + r * Math.sin(a), C - r * Math.cos(a)];
+}
+
+function slicePath(a0: number, a1: number) {
+  const [x0, y0] = point(a0, R_SEGMENT);
+  const [x1, y1] = point(a1, R_SEGMENT);
+  return `M${C},${C} L${x0},${y0} A${R_SEGMENT},${R_SEGMENT} 0 ${a1 - a0 > 180 ? 1 : 0} 1 ${x1},${y1} Z`;
+}
+
+// Avoid the last slice matching the first when the count wraps around the palette.
+function sliceColor(i: number, n: number) {
+  return n % COLORS.length === 1 && i === n - 1 ? COLORS[1] : COLORS[i % COLORS.length];
+}
+
+function textColor(hex: string) {
+  const [r, g, b] = [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16) / 255);
+  return 0.2126 * r + 0.7152 * g + 0.0722 * b > 0.55 ? "#1a1a1a" : "#ffffff";
+}
+
+/** Wheel angle currently under the top pointer, for a wheel rotated `rotation` degrees clockwise. */
+const angleUnderPointer = (rotation: number) => mod(-rotation, 360);
+
+export default function SpinWheel() {
+  const [text, setText] = useState(SAMPLE.join("\n"));
+  const [spinning, setSpinning] = useState(false);
+  const [winner, setWinner] = useState<{ index: number; name: string } | null>(null);
+  const [autoRemove, setAutoRemove] = useState(false);
+  const [sound, setSound] = useState(true);
+  const [history, setHistory] = useState<string[]>([]);
+
+  const wheel = useRef<SVGGElement>(null);
+  const pointer = useRef<SVGGElement>(null);
+  const rotation = useRef(0);
+  const raf = useRef(0);
+  const audio = useRef<AudioContext | null>(null);
+  const soundOn = useRef(sound);
+  soundOn.current = sound;
+
+  const names = useMemo(
+    () => text.split("\n").map((s) => s.trim()).filter(Boolean).slice(0, MAX_ENTRIES),
+    [text],
+  );
+  const n = names.length;
+  const seg = 360 / Math.max(n, 1);
+  const fontSize = n <= 8 ? 17 : n <= 14 ? 14 : n <= 24 ? 11 : 9;
+  const maxChars = n <= 14 ? 14 : 10;
+
+  useEffect(() => () => cancelAnimationFrame(raf.current), []);
+
+  function setWheelRotation(deg: number) {
+    rotation.current = deg;
+    wheel.current?.setAttribute("transform", `rotate(${deg} ${C} ${C})`);
+  }
+
+  function tick() {
+    pointer.current?.animate([{ transform: "rotate(-26deg)" }, { transform: "rotate(0deg)" }], { duration: 140, easing: "ease-out" });
+    const ctx = audio.current;
+    if (!soundOn.current || !ctx) return;
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.type = "triangle";
+    osc.frequency.value = 1500;
+    gain.gain.setValueAtTime(0.06, ctx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.04);
+    osc.connect(gain).connect(ctx.destination);
+    osc.start();
+    osc.stop(ctx.currentTime + 0.05);
+  }
+
+  function spin() {
+    if (spinning) return;
+    // Optionally drop the previous winner before the next spin.
+    const entries = autoRemove && winner ? names.filter((_, i) => i !== winner.index) : names;
+    if (entries.length < 2) return;
+    if (entries !== names) setText(entries.join("\n"));
+    setWinner(null);
+
+    if (soundOn.current) {
+      audio.current ??= new AudioContext();
+      void audio.current.resume();
+    }
+
+    const count = entries.length;
+    const slice = 360 / count;
+    // The winner is chosen first with a secure random number; the animation just lands on it.
+    const w = Math.floor(randomFloat() * count);
+    const target = (w + 0.15 + randomFloat() * 0.7) * slice;
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const turns = reduced ? 0 : 5 + Math.floor(randomFloat() * 3);
+    const start = rotation.current;
+    const delta = turns * 360 + mod(-target - start, 360);
+    const duration = reduced ? 500 : DURATION;
+    const t0 = performance.now();
+    let lastSlice = Math.floor(angleUnderPointer(start) / slice);
+
+    setSpinning(true);
+    const frame = (now: number) => {
+      const t = Math.min(1, (now - t0) / duration);
+      const r = start + delta * (1 - (1 - t) ** 4);
+      setWheelRotation(r);
+      const current = Math.floor(angleUnderPointer(r) / slice);
+      if (current !== lastSlice) {
+        lastSlice = current;
+        if (!reduced) tick();
+      }
+      if (t < 1) {
+        raf.current = requestAnimationFrame(frame);
+        return;
+      }
+      setSpinning(false);
+      setWinner({ index: w, name: entries[w] });
+      setHistory((h) => [entries[w], ...h].slice(0, 8));
+    };
+    raf.current = requestAnimationFrame(frame);
+  }
+
+  function editEntries(value: string) {
+    setText(value);
+    setWinner(null);
+  }
+
+  function shuffle() {
+    const copy = [...names];
+    for (let i = copy.length - 1; i > 0; i--) {
+      const j = Math.floor(randomFloat() * (i + 1));
+      [copy[i], copy[j]] = [copy[j], copy[i]];
+    }
+    editEntries(copy.join("\n"));
+  }
+
+  function removeWinner() {
+    if (!winner) return;
+    editEntries(names.filter((_, i) => i !== winner.index).join("\n"));
+  }
+
+  return (
+    <div className={styles.card}>
+      <header className={styles.head}>
+        <h3 className={styles.title}>Spin the wheel</h3>
+        <p className={styles.subtitle}>A fair random pick for raffles, turns and team decisions.</p>
+      </header>
+
+      <div className={styles.body}>
+        <div className={styles.stage}>
+          <div className={styles.wheelWrap} data-spinning={spinning}>
+            <svg viewBox="0 0 400 400" className={styles.wheel} aria-hidden="true">
+              <defs>
+                <radialGradient id="wheel-shade" cx="50%" cy="50%" r="50%">
+                  <stop offset="60%" stopColor="#000" stopOpacity="0" />
+                  <stop offset="100%" stopColor="#000" stopOpacity="0.22" />
+                </radialGradient>
+              </defs>
+              <circle cx={C} cy={C} r={198} className={styles.rim} />
+              {Array.from({ length: BULBS }, (_, i) => {
+                const [x, y] = point((360 / BULBS) * i, R_BULBS);
+                return <circle key={i} cx={x} cy={y} r={3.4} className={styles.bulb} data-odd={i % 2 === 1} />;
+              })}
+
+              <g ref={wheel}>
+                {n < 2 ? (
+                  <circle cx={C} cy={C} r={R_SEGMENT} className={styles.empty} />
+                ) : (
+                  names.map((name, i) => {
+                    const a0 = i * seg;
+                    const mid = a0 + seg / 2;
+                    const fill = sliceColor(i, n);
+                    const label = name.length > maxChars ? `${name.slice(0, maxChars - 1)}…` : name;
+                    return (
+                      <g key={`${i}-${name}`} className={styles.slice} data-dim={winner !== null && winner.index !== i}>
+                        <path d={slicePath(a0, a0 + seg)} fill={fill} />
+                        <text
+                          x={C + R_SEGMENT - 16}
+                          y={C}
+                          textAnchor="end"
+                          dominantBaseline="middle"
+                          fontSize={fontSize}
+                          fill={textColor(fill)}
+                          transform={`rotate(${mid - 90} ${C} ${C})`}
+                          className={styles.label}
+                        >
+                          {label}
+                        </text>
+                      </g>
+                    );
+                  })
+                )}
+                {n >= 2 &&
+                  names.map((_, i) => {
+                    const [x, y] = point(i * seg, R_SEGMENT - 3);
+                    return <circle key={`peg-${i}`} cx={x} cy={y} r={3} className={styles.peg} />;
+                  })}
+                <circle cx={C} cy={C} r={R_SEGMENT} fill="url(#wheel-shade)" pointerEvents="none" />
+              </g>
+
+              <g ref={pointer} className={styles.pointer}>
+                <path d="M200 30 L186 4 Q200 -4 214 4 Z" />
+              </g>
+            </svg>
+
+            <button
+              type="button"
+              className={styles.hub}
+              onClick={spin}
+              disabled={spinning || n < 2}
+              aria-label={n < 2 ? "Add at least two entries to spin" : "Spin the wheel"}
+            >
+              {spinning ? "…" : "SPIN"}
+            </button>
+
+            {n < 2 && <p className={styles.emptyHint}>Add at least 2 entries</p>}
+
+            {winner && (
+              <div className={styles.winner} role="dialog" aria-label="Winner">
+                <span className={styles.winnerKicker}>The wheel chose</span>
+                <strong className={styles.winnerName}>{winner.name}</strong>
+                <div className={styles.winnerActions}>
+                  <button type="button" onClick={removeWinner} className={styles.ghost}>
+                    Remove
+                  </button>
+                  <button type="button" onClick={spin} className={styles.primary}>
+                    Spin again
+                  </button>
+                </div>
+              </div>
+            )}
+          </div>
+          <p className={styles.srOnly} aria-live="polite">
+            {spinning ? "Spinning…" : winner ? `Winner: ${winner.name}` : ""}
+          </p>
+        </div>
+
+        <div className={styles.panel}>
+          <label className={styles.entriesLabel}>
+            <span>
+              Entries <span className={styles.count}>{n}</span>
+            </span>
+            <span className={styles.entriesHint}>one per line</span>
+          </label>
+          <textarea
+            className={styles.entries}
+            value={text}
+            rows={9}
+            spellCheck={false}
+            disabled={spinning}
+            onChange={(e) => editEntries(e.target.value)}
+            aria-label="Entries, one per line"
+          />
+          <div className={styles.tools}>
+            <button type="button" onClick={shuffle} disabled={spinning || n < 2}>
+              Shuffle
+            </button>
+            <button type="button" onClick={() => editEntries("")} disabled={spinning || n === 0}>
+              Clear
+            </button>
+            <button type="button" onClick={() => editEntries(SAMPLE.join("\n"))} disabled={spinning}>
+              Sample
+            </button>
+          </div>
+
+          <label className={styles.toggle}>
+            <input type="checkbox" checked={autoRemove} onChange={(e) => setAutoRemove(e.target.checked)} />
+            Remove the winner before the next spin
+          </label>
+          <label className={styles.toggle}>
+            <input type="checkbox" checked={sound} onChange={(e) => setSound(e.target.checked)} />
+            Tick sound
+          </label>
+
+          <button type="button" className={styles.spinButton} onClick={spin} disabled={spinning || n < 2}>
+            {spinning ? "Spinning…" : "Spin"}
+          </button>
+
+          {history.length > 0 && (
+            <div className={styles.history}>
+              <span>Recent picks</span>
+              <ol>
+                {history.map((name, i) => (
+                  <li key={i}>{name}</li>
+                ))}
+              </ol>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+14:["$","div","SpinWheel.tsx",{"className":"file","children":[["$","div",null,{"className":"file-head","children":[["$","span",null,{"children":"SpinWheel.tsx"}],["$","$L11",null,{"text":"$17"}]]}],"$L18"]}]
+15:["$","nav",null,{"className":"pager","children":[["$","$L2",null,{"href":"/components/morphing-submit-button","children":["← ","Morphing Submit Button"]}],["$","$L2",null,{"href":"/components/stacking-toasts","children":["Stacking Toast Notifications"," →"]}]]}]
+19:T2d9e,"use client";
+
+import { useEffect, useMemo, useRef, useState } from "react";
+import styles from "./SpinWheel.module.css";
+
+const COLORS = ["#2a78d6", "#eb6834", "#1baf7a", "#eda100", "#e87ba4", "#4a3aa7", "#e34948", "#0e9aa7"];
+const SAMPLE = ["Ayesha", "Rahim", "Nusrat", "Tanvir", "Farhan", "Mitu", "Sadia", "Imran"];
+const MAX_ENTRIES = 40;
+const DURATION = 5200;
+
+// Wheel geometry in a 400×400 viewBox.
+const C = 200;
+const R_SEGMENT = 178;
+const R_BULBS = 190;
+const BULBS = 24;
+
+const randomFloat = () => crypto.getRandomValues(new Uint32Array(1))[0] / 2 ** 32;
+const mod = (n: number, m: number) => ((n % m) + m) % m;
+
+function point(angle: number, r: number) {
+  const a = (angle * Math.PI) / 180;
+  return [C + r * Math.sin(a), C - r * Math.cos(a)];
+}
+
+function slicePath(a0: number, a1: number) {
+  const [x0, y0] = point(a0, R_SEGMENT);
+  const [x1, y1] = point(a1, R_SEGMENT);
+  return `M${C},${C} L${x0},${y0} A${R_SEGMENT},${R_SEGMENT} 0 ${a1 - a0 > 180 ? 1 : 0} 1 ${x1},${y1} Z`;
+}
+
+// Avoid the last slice matching the first when the count wraps around the palette.
+function sliceColor(i: number, n: number) {
+  return n % COLORS.length === 1 && i === n - 1 ? COLORS[1] : COLORS[i % COLORS.length];
+}
+
+function textColor(hex: string) {
+  const [r, g, b] = [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16) / 255);
+  return 0.2126 * r + 0.7152 * g + 0.0722 * b > 0.55 ? "#1a1a1a" : "#ffffff";
+}
+
+/** Wheel angle currently under the top pointer, for a wheel rotated `rotation` degrees clockwise. */
+const angleUnderPointer = (rotation: number) => mod(-rotation, 360);
+
+export default function SpinWheel() {
+  const [text, setText] = useState(SAMPLE.join("\n"));
+  const [spinning, setSpinning] = useState(false);
+  const [winner, setWinner] = useState<{ index: number; name: string } | null>(null);
+  const [autoRemove, setAutoRemove] = useState(false);
+  const [sound, setSound] = useState(true);
+  const [history, setHistory] = useState<string[]>([]);
+
+  const wheel = useRef<SVGGElement>(null);
+  const pointer = useRef<SVGGElement>(null);
+  const rotation = useRef(0);
+  const raf = useRef(0);
+  const audio = useRef<AudioContext | null>(null);
+  const soundOn = useRef(sound);
+  soundOn.current = sound;
+
+  const names = useMemo(
+    () => text.split("\n").map((s) => s.trim()).filter(Boolean).slice(0, MAX_ENTRIES),
+    [text],
+  );
+  const n = names.length;
+  const seg = 360 / Math.max(n, 1);
+  const fontSize = n <= 8 ? 17 : n <= 14 ? 14 : n <= 24 ? 11 : 9;
+  const maxChars = n <= 14 ? 14 : 10;
+
+  useEffect(() => () => cancelAnimationFrame(raf.current), []);
+
+  function setWheelRotation(deg: number) {
+    rotation.current = deg;
+    wheel.current?.setAttribute("transform", `rotate(${deg} ${C} ${C})`);
+  }
+
+  function tick() {
+    pointer.current?.animate([{ transform: "rotate(-26deg)" }, { transform: "rotate(0deg)" }], { duration: 140, easing: "ease-out" });
+    const ctx = audio.current;
+    if (!soundOn.current || !ctx) return;
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.type = "triangle";
+    osc.frequency.value = 1500;
+    gain.gain.setValueAtTime(0.06, ctx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.04);
+    osc.connect(gain).connect(ctx.destination);
+    osc.start();
+    osc.stop(ctx.currentTime + 0.05);
+  }
+
+  function spin() {
+    if (spinning) return;
+    // Optionally drop the previous winner before the next spin.
+    const entries = autoRemove && winner ? names.filter((_, i) => i !== winner.index) : names;
+    if (entries.length < 2) return;
+    if (entries !== names) setText(entries.join("\n"));
+    setWinner(null);
+
+    if (soundOn.current) {
+      audio.current ??= new AudioContext();
+      void audio.current.resume();
+    }
+
+    const count = entries.length;
+    const slice = 360 / count;
+    // The winner is chosen first with a secure random number; the animation just lands on it.
+    const w = Math.floor(randomFloat() * count);
+    const target = (w + 0.15 + randomFloat() * 0.7) * slice;
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const turns = reduced ? 0 : 5 + Math.floor(randomFloat() * 3);
+    const start = rotation.current;
+    const delta = turns * 360 + mod(-target - start, 360);
+    const duration = reduced ? 500 : DURATION;
+    const t0 = performance.now();
+    let lastSlice = Math.floor(angleUnderPointer(start) / slice);
+
+    setSpinning(true);
+    const frame = (now: number) => {
+      const t = Math.min(1, (now - t0) / duration);
+      const r = start + delta * (1 - (1 - t) ** 4);
+      setWheelRotation(r);
+      const current = Math.floor(angleUnderPointer(r) / slice);
+      if (current !== lastSlice) {
+        lastSlice = current;
+        if (!reduced) tick();
+      }
+      if (t < 1) {
+        raf.current = requestAnimationFrame(frame);
+        return;
+      }
+      setSpinning(false);
+      setWinner({ index: w, name: entries[w] });
+      setHistory((h) => [entries[w], ...h].slice(0, 8));
+    };
+    raf.current = requestAnimationFrame(frame);
+  }
+
+  function editEntries(value: string) {
+    setText(value);
+    setWinner(null);
+  }
+
+  function shuffle() {
+    const copy = [...names];
+    for (let i = copy.length - 1; i > 0; i--) {
+      const j = Math.floor(randomFloat() * (i + 1));
+      [copy[i], copy[j]] = [copy[j], copy[i]];
+    }
+    editEntries(copy.join("\n"));
+  }
+
+  function removeWinner() {
+    if (!winner) return;
+    editEntries(names.filter((_, i) => i !== winner.index).join("\n"));
+  }
+
+  return (
+    <div className={styles.card}>
+      <header className={styles.head}>
+        <h3 className={styles.title}>Spin the wheel</h3>
+        <p className={styles.subtitle}>A fair random pick for raffles, turns and team decisions.</p>
+      </header>
+
+      <div className={styles.body}>
+        <div className={styles.stage}>
+          <div className={styles.wheelWrap} data-spinning={spinning}>
+            <svg viewBox="0 0 400 400" className={styles.wheel} aria-hidden="true">
+              <defs>
+                <radialGradient id="wheel-shade" cx="50%" cy="50%" r="50%">
+                  <stop offset="60%" stopColor="#000" stopOpacity="0" />
+                  <stop offset="100%" stopColor="#000" stopOpacity="0.22" />
+                </radialGradient>
+              </defs>
+              <circle cx={C} cy={C} r={198} className={styles.rim} />
+              {Array.from({ length: BULBS }, (_, i) => {
+                const [x, y] = point((360 / BULBS) * i, R_BULBS);
+                return <circle key={i} cx={x} cy={y} r={3.4} className={styles.bulb} data-odd={i % 2 === 1} />;
+              })}
+
+              <g ref={wheel}>
+                {n < 2 ? (
+                  <circle cx={C} cy={C} r={R_SEGMENT} className={styles.empty} />
+                ) : (
+                  names.map((name, i) => {
+                    const a0 = i * seg;
+                    const mid = a0 + seg / 2;
+                    const fill = sliceColor(i, n);
+                    const label = name.length > maxChars ? `${name.slice(0, maxChars - 1)}…` : name;
+                    return (
+                      <g key={`${i}-${name}`} className={styles.slice} data-dim={winner !== null && winner.index !== i}>
+                        <path d={slicePath(a0, a0 + seg)} fill={fill} />
+                        <text
+                          x={C + R_SEGMENT - 16}
+                          y={C}
+                          textAnchor="end"
+                          dominantBaseline="middle"
+                          fontSize={fontSize}
+                          fill={textColor(fill)}
+                          transform={`rotate(${mid - 90} ${C} ${C})`}
+                          className={styles.label}
+                        >
+                          {label}
+                        </text>
+                      </g>
+                    );
+                  })
+                )}
+                {n >= 2 &&
+                  names.map((_, i) => {
+                    const [x, y] = point(i * seg, R_SEGMENT - 3);
+                    return <circle key={`peg-${i}`} cx={x} cy={y} r={3} className={styles.peg} />;
+                  })}
+                <circle cx={C} cy={C} r={R_SEGMENT} fill="url(#wheel-shade)" pointerEvents="none" />
+              </g>
+
+              <g ref={pointer} className={styles.pointer}>
+                <path d="M200 30 L186 4 Q200 -4 214 4 Z" />
+              </g>
+            </svg>
+
+            <button
+              type="button"
+              className={styles.hub}
+              onClick={spin}
+              disabled={spinning || n < 2}
+              aria-label={n < 2 ? "Add at least two entries to spin" : "Spin the wheel"}
+            >
+              {spinning ? "…" : "SPIN"}
+            </button>
+
+            {n < 2 && <p className={styles.emptyHint}>Add at least 2 entries</p>}
+
+            {winner && (
+              <div className={styles.winner} role="dialog" aria-label="Winner">
+                <span className={styles.winnerKicker}>The wheel chose</span>
+                <strong className={styles.winnerName}>{winner.name}</strong>
+                <div className={styles.winnerActions}>
+                  <button type="button" onClick={removeWinner} className={styles.ghost}>
+                    Remove
+                  </button>
+                  <button type="button" onClick={spin} className={styles.primary}>
+                    Spin again
+                  </button>
+                </div>
+              </div>
+            )}
+          </div>
+          <p className={styles.srOnly} aria-live="polite">
+            {spinning ? "Spinning…" : winner ? `Winner: ${winner.name}` : ""}
+          </p>
+        </div>
+
+        <div className={styles.panel}>
+          <label className={styles.entriesLabel}>
+            <span>
+              Entries <span className={styles.count}>{n}</span>
+            </span>
+            <span className={styles.entriesHint}>one per line</span>
+          </label>
+          <textarea
+            className={styles.entries}
+            value={text}
+            rows={9}
+            spellCheck={false}
+            disabled={spinning}
+            onChange={(e) => editEntries(e.target.value)}
+            aria-label="Entries, one per line"
+          />
+          <div className={styles.tools}>
+            <button type="button" onClick={shuffle} disabled={spinning || n < 2}>
+              Shuffle
+            </button>
+            <button type="button" onClick={() => editEntries("")} disabled={spinning || n === 0}>
+              Clear
+            </button>
+            <button type="button" onClick={() => editEntries(SAMPLE.join("\n"))} disabled={spinning}>
+              Sample
+            </button>
+          </div>
+
+          <label className={styles.toggle}>
+            <input type="checkbox" checked={autoRemove} onChange={(e) => setAutoRemove(e.target.checked)} />
+            Remove the winner before the next spin
+          </label>
+          <label className={styles.toggle}>
+            <input type="checkbox" checked={sound} onChange={(e) => setSound(e.target.checked)} />
+            Tick sound
+          </label>
+
+          <button type="button" className={styles.spinButton} onClick={spin} disabled={spinning || n < 2}>
+            {spinning ? "Spinning…" : "Spin"}
+          </button>
+
+          {history.length > 0 && (
+            <div className={styles.history}>
+              <span>Recent picks</span>
+              <ol>
+                {history.map((name, i) => (
+                  <li key={i}>{name}</li>
+                ))}
+              </ol>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+18:["$","pre",null,{"children":["$","code",null,{"children":"$19"}]}]

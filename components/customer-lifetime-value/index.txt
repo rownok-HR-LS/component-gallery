@@ -1,0 +1,998 @@
+1:"$Sreact.fragment"
+2:I[2619,["619","static/chunks/619-ba102abea3e3d0e4.js","449","static/chunks/app/components/%5Bslug%5D/page-7b18c14fa5ee9ace.js"],""]
+3:I[9766,[],""]
+4:I[8924,[],""]
+6:I[4431,[],"OutletBoundary"]
+8:I[5278,[],"AsyncMetadataOutlet"]
+a:I[4431,[],"ViewportBoundary"]
+c:I[4431,[],"MetadataBoundary"]
+d:"$Sreact.suspense"
+f:I[7150,[],""]
+:HL["/component-gallery/_next/static/css/68cce7808a08b910.css","style"]
+0:{"P":null,"b":"6jA2vIGrO3aOlnYlKgPnQ","p":"/component-gallery","c":["","components","customer-lifetime-value",""],"i":false,"f":[[["",{"children":["components",{"children":[["slug","customer-lifetime-value","d"],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/component-gallery/_next/static/css/68cce7808a08b910.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","children":["$","body",null,{"children":[["$","header",null,{"className":"site-header","children":["$","div",null,{"className":"container","children":[["$","$L2",null,{"href":"/","className":"brand","children":"Component Gallery"}],["$","nav",null,{"children":["$","a",null,{"href":"https://github.com/rownok-HR-LS/component-gallery","children":"GitHub"}]}]]}]}],["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","main",null,{"className":"container","children":["$","header",null,{"className":"hero","children":[["$","h1",null,{"children":"Not found"}],["$","p",null,{"className":"lede","children":"That component doesn't exist (yet)."}],["$","$L2",null,{"href":"/","children":"← Back to the gallery"}]]}]}],[]],"forbidden":"$undefined","unauthorized":"$undefined"}],["$","footer",null,{"className":"site-footer","children":["$","div",null,{"className":"container","children":[["$","span",null,{"children":["Built by ","rownok-HR-LS"," · LofiStack 90-day challenge"]}],["$","a",null,{"href":"https://github.com/rownok-HR-LS/component-gallery","children":"Source on GitHub"}]]}]}]]}]}]]}],{"children":["components",["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["slug","customer-lifetime-value","d"],["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L5",null,["$","$L6",null,{"children":["$L7",["$","$L8",null,{"promise":"$@9"}]]}]]}],{},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,[["$","$La",null,{"children":"$Lb"}],null],["$","$Lc",null,{"children":["$","div",null,{"hidden":true,"children":["$","$d",null,{"fallback":null,"children":"$Le"}]}]}]]}],false]],"m":"$undefined","G":["$f",[]],"s":false,"S":true}
+b:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+7:null
+9:{"metadata":[["$","title","0",{"children":"Customer Lifetime Value Calculator · Component Gallery"}],["$","meta","1",{"name":"description","content":"Compares what a customer earns you over their lifetime with what it costs to win them, charts when they pay back, and tells you which lever gets you to a healthy 3 : 1."}]],"error":null,"digest":"$undefined"}
+e:"$9:metadata"
+10:I[2325,["619","static/chunks/619-ba102abea3e3d0e4.js","449","static/chunks/app/components/%5Bslug%5D/page-7b18c14fa5ee9ace.js"],"Demo"]
+11:I[7333,["619","static/chunks/619-ba102abea3e3d0e4.js","449","static/chunks/app/components/%5Bslug%5D/page-7b18c14fa5ee9ace.js"],"CopyButton"]
+12:T1345,.card {
+  --surface: #fcfcfb;
+  --ink: #0b0b0b;
+  --ink-2: #52514e;
+  --muted: #898781;
+  --grid: #e1e0d9;
+  --axis: #c3c2b7;
+  --border: rgba(11, 11, 11, 0.1);
+  --field: #f4f3f0;
+  --series: #2a78d6;
+  --good: #0ca30c;
+  --warning: #fab219;
+  --critical: #d03b3b;
+  --tone: var(--good);
+
+  position: relative;
+  width: 100%;
+  max-width: 580px;
+  padding: 24px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: var(--surface);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 12px 32px -12px rgba(0, 0, 0, 0.18);
+  color: var(--ink);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  .card {
+    --surface: #1a1a19;
+    --ink: #ffffff;
+    --ink-2: #c3c2b7;
+    --grid: #2c2c2a;
+    --axis: #383835;
+    --border: rgba(255, 255, 255, 0.1);
+    --field: #232321;
+    --series: #3987e5;
+    box-shadow: 0 12px 32px -12px rgba(0, 0, 0, 0.6);
+  }
+}
+
+.card[data-tone="warning"] { --tone: var(--warning); }
+.card[data-tone="critical"] { --tone: var(--critical); }
+
+.head { margin-bottom: 18px; }
+.title { margin: 0; font-size: 17px; font-weight: 650; }
+.subtitle { margin: 2px 0 0; color: var(--ink-2); font-size: 13px; }
+
+/* Inputs */
+.fields { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+/* Bottom-aligned so inputs line up when a label wraps. */
+.field { display: flex; flex-direction: column; justify-content: flex-end; gap: 5px; min-width: 0; }
+.field label { color: var(--ink-2); font-size: 12px; }
+.inputWrap { position: relative; }
+.input {
+  width: 100%;
+  height: 42px;
+  padding: 0 40px 0 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  outline: none;
+  background: var(--field);
+  color: var(--ink);
+  font: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.input[data-prefix="true"] { padding-left: 26px; }
+.input:focus { border-color: var(--series); box-shadow: 0 0 0 3px color-mix(in srgb, var(--series) 20%, transparent); }
+.prefix,
+.suffix {
+  position: absolute;
+  top: 50%;
+  color: var(--muted);
+  font-size: 14px;
+  pointer-events: none;
+  transform: translateY(-50%);
+}
+.prefix { left: 12px; }
+.suffix { right: 12px; }
+
+/* Stat tiles */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 10px;
+  margin: 20px 0 8px;
+}
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+.statLabel { color: var(--ink-2); font-size: 12px; }
+.statValue { font-size: 22px; font-weight: 650; line-height: 1.2; letter-spacing: -0.01em; }
+.statSub { color: var(--muted); font-size: 11.5px; }
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 1px 8px 1px 3px;
+  border-radius: 99px;
+  background: color-mix(in srgb, var(--tone) 16%, transparent);
+  font-size: 11.5px;
+  font-weight: 600;
+}
+.badgeIcon {
+  display: grid;
+  place-items: center;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: var(--tone);
+  color: #fff;
+  font-size: 9px;
+  font-weight: 800;
+}
+.card[data-tone="warning"] .badgeIcon { color: #0b0b0b; }
+
+/* Chart */
+.chart { position: relative; width: 100%; margin-top: 8px; touch-action: pan-y; }
+.chart svg { display: block; overflow: visible; }
+.grid { stroke: var(--grid); stroke-width: 1; }
+.baseline { stroke: var(--axis); stroke-width: 1; }
+.axisLabel { fill: var(--muted); font-size: 11px; font-variant-numeric: tabular-nums; }
+.area { fill: color-mix(in srgb, var(--series) 12%, transparent); }
+.line { fill: none; stroke: var(--series); stroke-width: 2; stroke-linejoin: round; }
+.refLtv { stroke: var(--ink-2); stroke-width: 1; stroke-dasharray: 2 3; }
+.refCac { stroke: var(--ink); stroke-width: 1.5; stroke-dasharray: 6 4; }
+.refLabel { fill: var(--ink-2); font-size: 11px; font-weight: 600; }
+.marker { fill: var(--series); stroke: var(--surface); stroke-width: 2; }
+.markerLabel { fill: var(--ink); font-size: 11px; font-weight: 600; }
+.crosshair { stroke: var(--ink-2); stroke-width: 1; stroke-dasharray: 3 3; }
+
+.tooltip {
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 150px;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface);
+  box-shadow: 0 8px 24px -8px rgba(0, 0, 0, 0.3);
+  font-size: 12px;
+  pointer-events: none;
+  transform: translate(-50%, calc(-100% - 12px));
+}
+.tooltip strong { font-size: 12px; }
+.tooltip span { color: var(--ink-2); }
+
+.advice {
+  margin: 12px 0 0;
+  padding: 10px 12px;
+  border-left: 3px solid var(--tone);
+  border-radius: 4px 10px 10px 4px;
+  background: var(--field);
+  font-size: 13px;
+  line-height: 1.5;
+}
+.advice strong { font-weight: 600; }
+
+@media (max-width: 420px) {
+  .card { padding: 18px; }
+  .fields { gap: 10px; }
+}
+5:["$","main",null,{"className":"container","children":[["$","$L2",null,{"href":"/","className":"back","children":"← All components"}],["$","header",null,{"className":"detail-head","children":[["$","span",null,{"className":"tag","children":["Week ",2," · ","2026-09-30"]}],["$","h1",null,{"children":"Customer Lifetime Value Calculator"}],["$","p",null,{"children":"Compares what a customer earns you over their lifetime with what it costs to win them, charts when they pay back, and tells you which lever gets you to a healthy 3 : 1."}]]}],["$","section",null,{"className":"stage","aria-label":"Live demo","children":["$","$L10",null,{"slug":"customer-lifetime-value"}]}],["$","section",null,{"className":"source","children":[["$","h2",null,{"children":"Source"}],[["$","div","Demo.tsx",{"className":"file","children":[["$","div",null,{"className":"file-head","children":[["$","span",null,{"children":"Demo.tsx"}],["$","$L11",null,{"text":"import LtvCalculator from \"./LtvCalculator\";\n\nexport default function Demo() {\n  return <LtvCalculator />;\n}\n"}]]}],["$","pre",null,{"children":["$","code",null,{"children":"import LtvCalculator from \"./LtvCalculator\";\n\nexport default function Demo() {\n  return <LtvCalculator />;\n}\n"}]}]]}],["$","div","LtvCalculator.module.css",{"className":"file","children":[["$","div",null,{"className":"file-head","children":[["$","span",null,{"children":"LtvCalculator.module.css"}],["$","$L11",null,{"text":"$12"}]]}],"$L13"]}],"$L14","$L15","$L16"]]}],"$L17"]}]
+18:T1345,.card {
+  --surface: #fcfcfb;
+  --ink: #0b0b0b;
+  --ink-2: #52514e;
+  --muted: #898781;
+  --grid: #e1e0d9;
+  --axis: #c3c2b7;
+  --border: rgba(11, 11, 11, 0.1);
+  --field: #f4f3f0;
+  --series: #2a78d6;
+  --good: #0ca30c;
+  --warning: #fab219;
+  --critical: #d03b3b;
+  --tone: var(--good);
+
+  position: relative;
+  width: 100%;
+  max-width: 580px;
+  padding: 24px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: var(--surface);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 12px 32px -12px rgba(0, 0, 0, 0.18);
+  color: var(--ink);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  .card {
+    --surface: #1a1a19;
+    --ink: #ffffff;
+    --ink-2: #c3c2b7;
+    --grid: #2c2c2a;
+    --axis: #383835;
+    --border: rgba(255, 255, 255, 0.1);
+    --field: #232321;
+    --series: #3987e5;
+    box-shadow: 0 12px 32px -12px rgba(0, 0, 0, 0.6);
+  }
+}
+
+.card[data-tone="warning"] { --tone: var(--warning); }
+.card[data-tone="critical"] { --tone: var(--critical); }
+
+.head { margin-bottom: 18px; }
+.title { margin: 0; font-size: 17px; font-weight: 650; }
+.subtitle { margin: 2px 0 0; color: var(--ink-2); font-size: 13px; }
+
+/* Inputs */
+.fields { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+/* Bottom-aligned so inputs line up when a label wraps. */
+.field { display: flex; flex-direction: column; justify-content: flex-end; gap: 5px; min-width: 0; }
+.field label { color: var(--ink-2); font-size: 12px; }
+.inputWrap { position: relative; }
+.input {
+  width: 100%;
+  height: 42px;
+  padding: 0 40px 0 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  outline: none;
+  background: var(--field);
+  color: var(--ink);
+  font: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.input[data-prefix="true"] { padding-left: 26px; }
+.input:focus { border-color: var(--series); box-shadow: 0 0 0 3px color-mix(in srgb, var(--series) 20%, transparent); }
+.prefix,
+.suffix {
+  position: absolute;
+  top: 50%;
+  color: var(--muted);
+  font-size: 14px;
+  pointer-events: none;
+  transform: translateY(-50%);
+}
+.prefix { left: 12px; }
+.suffix { right: 12px; }
+
+/* Stat tiles */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 10px;
+  margin: 20px 0 8px;
+}
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+.statLabel { color: var(--ink-2); font-size: 12px; }
+.statValue { font-size: 22px; font-weight: 650; line-height: 1.2; letter-spacing: -0.01em; }
+.statSub { color: var(--muted); font-size: 11.5px; }
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 1px 8px 1px 3px;
+  border-radius: 99px;
+  background: color-mix(in srgb, var(--tone) 16%, transparent);
+  font-size: 11.5px;
+  font-weight: 600;
+}
+.badgeIcon {
+  display: grid;
+  place-items: center;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: var(--tone);
+  color: #fff;
+  font-size: 9px;
+  font-weight: 800;
+}
+.card[data-tone="warning"] .badgeIcon { color: #0b0b0b; }
+
+/* Chart */
+.chart { position: relative; width: 100%; margin-top: 8px; touch-action: pan-y; }
+.chart svg { display: block; overflow: visible; }
+.grid { stroke: var(--grid); stroke-width: 1; }
+.baseline { stroke: var(--axis); stroke-width: 1; }
+.axisLabel { fill: var(--muted); font-size: 11px; font-variant-numeric: tabular-nums; }
+.area { fill: color-mix(in srgb, var(--series) 12%, transparent); }
+.line { fill: none; stroke: var(--series); stroke-width: 2; stroke-linejoin: round; }
+.refLtv { stroke: var(--ink-2); stroke-width: 1; stroke-dasharray: 2 3; }
+.refCac { stroke: var(--ink); stroke-width: 1.5; stroke-dasharray: 6 4; }
+.refLabel { fill: var(--ink-2); font-size: 11px; font-weight: 600; }
+.marker { fill: var(--series); stroke: var(--surface); stroke-width: 2; }
+.markerLabel { fill: var(--ink); font-size: 11px; font-weight: 600; }
+.crosshair { stroke: var(--ink-2); stroke-width: 1; stroke-dasharray: 3 3; }
+
+.tooltip {
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 150px;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface);
+  box-shadow: 0 8px 24px -8px rgba(0, 0, 0, 0.3);
+  font-size: 12px;
+  pointer-events: none;
+  transform: translate(-50%, calc(-100% - 12px));
+}
+.tooltip strong { font-size: 12px; }
+.tooltip span { color: var(--ink-2); }
+
+.advice {
+  margin: 12px 0 0;
+  padding: 10px 12px;
+  border-left: 3px solid var(--tone);
+  border-radius: 4px 10px 10px 4px;
+  background: var(--field);
+  font-size: 13px;
+  line-height: 1.5;
+}
+.advice strong { font-weight: 600; }
+
+@media (max-width: 420px) {
+  .card { padding: 18px; }
+  .fields { gap: 10px; }
+}
+13:["$","pre",null,{"children":["$","code",null,{"children":"$18"}]}]
+19:T1699,"use client";
+
+import { useId, useMemo, useState } from "react";
+import { analyse, type Analysis } from "./ltv";
+import ProfitChart from "./ProfitChart";
+import styles from "./LtvCalculator.module.css";
+
+type Props = {
+  currency?: string;
+  locale?: string;
+};
+
+type FieldKey = "arpu" | "margin" | "churn" | "cac";
+
+const NUMBER = /^\d*\.?\d*$/;
+
+function verdict(ratio: number) {
+  if (ratio < 1) return { tone: "critical", icon: "✕", label: "Losing money", text: "Each customer costs more to win than they will ever earn." };
+  if (ratio < 3) return { tone: "warning", icon: "!", label: "Thin", text: "Profitable, but with little room for mistakes." };
+  if (ratio <= 5) return { tone: "good", icon: "✓", label: "Healthy", text: "Right in the usual 3–5 : 1 target range." };
+  return { tone: "good", icon: "✓", label: "Room to grow", text: "Very profitable per customer." };
+}
+
+function advice(a: Analysis, cac: number, money: (v: number) => string, moneyExact: (v: number) => string) {
+  if (a.ratio >= 3 && a.ratio <= 5) return "Keep churn and acquisition cost where they are; this is a sustainable balance.";
+  if (a.ratio > 5) return `You earn ${a.ratio.toFixed(1)}× what each customer costs, so there is room to spend more on marketing and grow faster.`;
+  const levers = [
+    `lower monthly churn to ${a.target.churnPct.toFixed(1)}%`,
+    a.target.arpu !== null ? `raise revenue per customer to ${moneyExact(a.target.arpu)}/mo` : null,
+    `cut acquisition cost to ${money(a.target.cac)}`,
+  ].filter(Boolean);
+  const lead = cac > 0 ? `Every ${money(1)} spent winning a customer returns ${moneyExact(a.ratio)}.` : "";
+  return `${lead} To reach a healthy 3 : 1, ${levers.join(", or ")}.`.trim();
+}
+
+export default function LtvCalculator({ currency = "USD", locale = "en-US" }: Props) {
+  const [values, setValues] = useState<Record<FieldKey, string>>({ arpu: "50", margin: "70", churn: "3", cac: "450" });
+  const id = useId();
+
+  const { money, moneyExact, compactMoney, symbol } = useMemo(() => {
+    const whole = new Intl.NumberFormat(locale, { style: "currency", currency, maximumFractionDigits: 0 });
+    const exact = new Intl.NumberFormat(locale, { style: "currency", currency, minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    const compact = new Intl.NumberFormat(locale, { style: "currency", currency, notation: "compact", maximumFractionDigits: 1 });
+    return {
+      money: whole.format,
+      moneyExact: exact.format,
+      compactMoney: compact.format,
+      symbol: whole.formatToParts(0).find((p) => p.type === "currency")?.value ?? "",
+    };
+  }, [locale, currency]);
+
+  const num = (key: FieldKey) => Number(values[key]) || 0;
+  const cac = num("cac");
+  const a = analyse(num("arpu"), Math.min(num("margin"), 100), Math.min(num("churn"), 100), cac);
+  const v = verdict(a.ratio);
+
+  const fields: { key: FieldKey; label: string; prefix?: string; suffix?: string }[] = [
+    { key: "arpu", label: "Revenue per customer", prefix: symbol, suffix: "/mo" },
+    { key: "margin", label: "Gross margin", suffix: "%" },
+    { key: "churn", label: "Customers lost per month", suffix: "%" },
+    { key: "cac", label: "Cost to win a customer", prefix: symbol },
+  ];
+
+  return (
+    <div className={styles.card} data-tone={v.tone}>
+      <header className={styles.head}>
+        <h3 className={styles.title}>Customer lifetime value</h3>
+        <p className={styles.subtitle}>Is each customer worth what you pay to win them?</p>
+      </header>
+
+      <div className={styles.fields}>
+        {fields.map((f) => (
+          <div key={f.key} className={styles.field}>
+            <label htmlFor={`${id}-${f.key}`}>{f.label}</label>
+            <div className={styles.inputWrap}>
+              {f.prefix && <span className={styles.prefix}>{f.prefix}</span>}
+              <input
+                id={`${id}-${f.key}`}
+                className={styles.input}
+                data-prefix={Boolean(f.prefix)}
+                inputMode="decimal"
+                autoComplete="off"
+                value={values[f.key]}
+                onChange={(e) => {
+                  if (NUMBER.test(e.target.value)) setValues((prev) => ({ ...prev, [f.key]: e.target.value }));
+                }}
+              />
+              {f.suffix && <span className={styles.suffix}>{f.suffix}</span>}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div className={styles.stats}>
+        <div className={styles.stat}>
+          <span className={styles.statLabel}>Lifetime value</span>
+          <span className={styles.statValue}>{money(a.ltv)}</span>
+          <span className={styles.statSub}>over a {Math.round(a.lifetime)}-month average lifetime</span>
+        </div>
+        <div className={styles.stat}>
+          <span className={styles.statLabel}>Value : cost</span>
+          <span className={styles.statValue}>{Number.isFinite(a.ratio) ? `${a.ratio.toFixed(1)} : 1` : "∞"}</span>
+          <span className={styles.badge}>
+            <span className={styles.badgeIcon} aria-hidden="true">
+              {v.icon}
+            </span>
+            {v.label}
+          </span>
+        </div>
+        <div className={styles.stat}>
+          <span className={styles.statLabel}>Pays back its cost</span>
+          <span className={styles.statValue}>{a.payback === null ? "Never" : `${a.payback.toFixed(1)} mo`}</span>
+          <span className={styles.statSub}>
+            {a.simplePayback === null ? "No profit per month" : `${a.simplePayback.toFixed(1)} mo if nobody left`}
+          </span>
+        </div>
+      </div>
+
+      <ProfitChart analysis={a} cac={cac} money={money} compactMoney={compactMoney} />
+
+      <p className={styles.advice}>
+        <strong>{v.text}</strong> {advice(a, cac, money, moneyExact)}
+      </p>
+    </div>
+  );
+}
+14:["$","div","LtvCalculator.tsx",{"className":"file","children":[["$","div",null,{"className":"file-head","children":[["$","span",null,{"children":"LtvCalculator.tsx"}],["$","$L11",null,{"text":"$19"}]]}],"$L1a"]}]
+1b:T178e,"use client";
+
+import { useEffect, useRef, useState, type PointerEvent } from "react";
+import { earnedBy, stillActive, type Analysis } from "./ltv";
+import styles from "./LtvCalculator.module.css";
+
+type Props = {
+  analysis: Analysis;
+  cac: number;
+  money: (value: number) => string;
+  compactMoney: (value: number) => string;
+};
+
+const HEIGHT = 210;
+const M = { top: 20, right: 14, bottom: 26, left: 46 };
+const MONTH_STEPS = [1, 2, 3, 6, 12, 24, 36, 60];
+
+function niceStep(raw: number) {
+  const exp = 10 ** Math.floor(Math.log10(raw));
+  const f = raw / exp;
+  return (f <= 1 ? 1 : f <= 2 ? 2 : f <= 2.5 ? 2.5 : f <= 5 ? 5 : 10) * exp;
+}
+
+const clamp = (v: number, lo: number, hi: number) => Math.max(lo, Math.min(hi, v));
+
+function useWidth(fallback: number) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [width, setWidth] = useState(fallback);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new ResizeObserver(([entry]) => setWidth(entry.contentRect.width));
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+  return [ref, width] as const;
+}
+
+export default function ProfitChart({ analysis, cac, money, compactMoney }: Props) {
+  const [ref, width] = useWidth(500);
+  const [hover, setHover] = useState<number | null>(null);
+  const { monthlyProfit, churn, ltv, payback } = analysis;
+
+  // Three average lifetimes covers ~95% of the profit a customer will ever bring in.
+  let horizon = clamp(Math.round(3 / churn), 12, 120);
+  if (payback !== null) horizon = clamp(Math.max(horizon, Math.ceil(payback * 1.25)), 12, 120);
+
+  const innerW = Math.max(1, width - M.left - M.right);
+  const innerH = HEIGHT - M.top - M.bottom;
+  const yStep = niceStep(Math.max(ltv, cac, 1) / 4);
+  const yMax = Math.ceil((Math.max(ltv, cac, 1) * 1.08) / yStep) * yStep;
+  const x = (month: number) => M.left + (month / horizon) * innerW;
+  const y = (value: number) => M.top + innerH - (value / yMax) * innerH;
+
+  const points = Array.from({ length: horizon + 1 }, (_, m) => `${x(m).toFixed(1)},${y(earnedBy(m, monthlyProfit, churn)).toFixed(1)}`);
+  const line = `M${points.join("L")}`;
+  const area = `${line}L${x(horizon)},${y(0)}L${x(0)},${y(0)}Z`;
+
+  const yTicks = Array.from({ length: Math.round(yMax / yStep) + 1 }, (_, i) => i * yStep);
+  const xStep = MONTH_STEPS.find((s) => s >= horizon / 6) ?? 60;
+  const xTicks = Array.from({ length: Math.floor(horizon / xStep) + 1 }, (_, i) => i * xStep);
+
+  const cacY = y(cac);
+  const ltvY = y(ltv);
+  const labelsCollide = Math.abs(cacY - ltvY) < 16;
+  const breakEven = payback !== null && payback > 0 && payback <= horizon ? payback : null;
+
+  function onPointerMove(e: PointerEvent<SVGSVGElement>) {
+    const px = e.clientX - e.currentTarget.getBoundingClientRect().left;
+    setHover(clamp(Math.round(((px - M.left) / innerW) * horizon), 0, horizon));
+  }
+
+  const hovered = hover === null ? null : { month: hover, value: earnedBy(hover, monthlyProfit, churn) };
+
+  return (
+    <div ref={ref} className={styles.chart}>
+      {/* Percentage width keeps the SVG from forcing its container wider before it is measured. */}
+      <svg
+        width="100%"
+        height={HEIGHT}
+        viewBox={`0 0 ${width} ${HEIGHT}`}
+        role="img"
+        aria-label={`Expected profit per customer rises to ${money(ltv)}; acquisition cost is ${money(cac)}${
+          breakEven ? `; break-even around month ${Math.ceil(breakEven)}` : "; it never breaks even"
+        }.`}
+        onPointerMove={onPointerMove}
+        onPointerLeave={() => setHover(null)}
+      >
+        {yTicks.map((t) => (
+          <g key={t}>
+            <line x1={M.left} x2={width - M.right} y1={y(t)} y2={y(t)} className={t === 0 ? styles.baseline : styles.grid} />
+            <text x={M.left - 8} y={y(t)} dy="0.32em" textAnchor="end" className={styles.axisLabel}>
+              {compactMoney(t)}
+            </text>
+          </g>
+        ))}
+        {xTicks.map((t, i) => (
+          <text key={t} x={x(t)} y={HEIGHT - 8} textAnchor={i === 0 ? "start" : "middle"} className={styles.axisLabel}>
+            {i === xTicks.length - 1 ? `${t} mo` : t}
+          </text>
+        ))}
+
+        <path d={area} className={styles.area} />
+        <path d={line} className={styles.line} />
+
+        <line x1={M.left} x2={width - M.right} y1={ltvY} y2={ltvY} className={styles.refLtv} />
+        <text x={width - M.right} y={ltvY - 6} textAnchor="end" className={styles.refLabel}>
+          LTV {money(ltv)}
+        </text>
+        <line x1={M.left} x2={width - M.right} y1={cacY} y2={cacY} className={styles.refCac} />
+        <text x={width - M.right} y={labelsCollide ? cacY + 14 : cacY - 6} textAnchor="end" className={styles.refLabel}>
+          Cost to acquire {money(cac)}
+        </text>
+
+        {breakEven !== null && (
+          <g>
+            <circle cx={x(breakEven)} cy={cacY} r={5} className={styles.marker} />
+            <text
+              x={x(breakEven) + (x(breakEven) > width / 2 ? -10 : 10)}
+              y={cacY + 16}
+              textAnchor={x(breakEven) > width / 2 ? "end" : "start"}
+              className={styles.markerLabel}
+            >
+              Break-even ≈ month {Math.ceil(breakEven)}
+            </text>
+          </g>
+        )}
+
+        {hovered && (
+          <g pointerEvents="none">
+            <line x1={x(hovered.month)} x2={x(hovered.month)} y1={M.top} y2={y(0)} className={styles.crosshair} />
+            <circle cx={x(hovered.month)} cy={y(hovered.value)} r={4.5} className={styles.marker} />
+          </g>
+        )}
+      </svg>
+
+      {hovered && (
+        <div
+          className={styles.tooltip}
+          style={{ left: clamp(x(hovered.month), 80, width - 80), top: y(hovered.value) }}
+          aria-hidden="true"
+        >
+          <strong>Month {hovered.month}</strong>
+          <span>{money(hovered.value)} profit so far</span>
+          <span>{Math.round(stillActive(hovered.month, churn) * 100)}% of customers still active</span>
+        </div>
+      )}
+    </div>
+  );
+}
+15:["$","div","ProfitChart.tsx",{"className":"file","children":[["$","div",null,{"className":"file-head","children":[["$","span",null,{"children":"ProfitChart.tsx"}],["$","$L11",null,{"text":"$1b"}]]}],"$L1c"]}]
+1d:T5aa,// Customer lifetime value with a constant monthly churn rate.
+// Expected profit after t months is a geometric series: m · (1 − (1 − c)^t) / c,
+// which levels off at LTV = m / c.
+
+export function analyse(arpu: number, marginPct: number, churnPct: number, cac: number) {
+  const monthlyProfit = arpu * (marginPct / 100);
+  const churn = Math.min(Math.max(churnPct / 100, 0.0001), 0.9999);
+  const ltv = monthlyProfit / churn;
+  const ratio = cac > 0 ? ltv / cac : Infinity;
+
+  // Months until expected profit covers the acquisition cost; null if it never does.
+  const payback =
+    cac <= 0 ? 0 : cac >= ltv ? null : Math.log(1 - (cac * churn) / monthlyProfit) / Math.log(1 - churn);
+  // The common shortcut that assumes nobody churns.
+  const simplePayback = monthlyProfit > 0 ? cac / monthlyProfit : null;
+
+  // What each lever would need to be, on its own, to reach a 3 : 1 ratio.
+  const target = {
+    churnPct: (monthlyProfit / (3 * cac)) * 100,
+    arpu: marginPct > 0 ? (3 * cac * churn) / (marginPct / 100) : null,
+    cac: ltv / 3,
+  };
+
+  return { monthlyProfit, churn, ltv, ratio, payback, simplePayback, lifetime: 1 / churn, target };
+}
+
+export type Analysis = ReturnType<typeof analyse>;
+
+export function earnedBy(month: number, monthlyProfit: number, churn: number) {
+  return (monthlyProfit * (1 - (1 - churn) ** month)) / churn;
+}
+
+export function stillActive(month: number, churn: number) {
+  return (1 - churn) ** month;
+}
+1e:T5aa,// Customer lifetime value with a constant monthly churn rate.
+// Expected profit after t months is a geometric series: m · (1 − (1 − c)^t) / c,
+// which levels off at LTV = m / c.
+
+export function analyse(arpu: number, marginPct: number, churnPct: number, cac: number) {
+  const monthlyProfit = arpu * (marginPct / 100);
+  const churn = Math.min(Math.max(churnPct / 100, 0.0001), 0.9999);
+  const ltv = monthlyProfit / churn;
+  const ratio = cac > 0 ? ltv / cac : Infinity;
+
+  // Months until expected profit covers the acquisition cost; null if it never does.
+  const payback =
+    cac <= 0 ? 0 : cac >= ltv ? null : Math.log(1 - (cac * churn) / monthlyProfit) / Math.log(1 - churn);
+  // The common shortcut that assumes nobody churns.
+  const simplePayback = monthlyProfit > 0 ? cac / monthlyProfit : null;
+
+  // What each lever would need to be, on its own, to reach a 3 : 1 ratio.
+  const target = {
+    churnPct: (monthlyProfit / (3 * cac)) * 100,
+    arpu: marginPct > 0 ? (3 * cac * churn) / (marginPct / 100) : null,
+    cac: ltv / 3,
+  };
+
+  return { monthlyProfit, churn, ltv, ratio, payback, simplePayback, lifetime: 1 / churn, target };
+}
+
+export type Analysis = ReturnType<typeof analyse>;
+
+export function earnedBy(month: number, monthlyProfit: number, churn: number) {
+  return (monthlyProfit * (1 - (1 - churn) ** month)) / churn;
+}
+
+export function stillActive(month: number, churn: number) {
+  return (1 - churn) ** month;
+}
+16:["$","div","ltv.ts",{"className":"file","children":[["$","div",null,{"className":"file-head","children":[["$","span",null,{"children":"ltv.ts"}],["$","$L11",null,{"text":"$1d"}]]}],["$","pre",null,{"children":["$","code",null,{"children":"$1e"}]}]]}]
+17:["$","nav",null,{"className":"pager","children":[["$","$L2",null,{"href":"/components/password-strength-meter","children":["← ","Password Strength Meter"]}],["$","$L2",null,{"href":"/components/photo-resizer","children":["Photo Resizer for Official Forms"," →"]}]]}]
+1f:T1699,"use client";
+
+import { useId, useMemo, useState } from "react";
+import { analyse, type Analysis } from "./ltv";
+import ProfitChart from "./ProfitChart";
+import styles from "./LtvCalculator.module.css";
+
+type Props = {
+  currency?: string;
+  locale?: string;
+};
+
+type FieldKey = "arpu" | "margin" | "churn" | "cac";
+
+const NUMBER = /^\d*\.?\d*$/;
+
+function verdict(ratio: number) {
+  if (ratio < 1) return { tone: "critical", icon: "✕", label: "Losing money", text: "Each customer costs more to win than they will ever earn." };
+  if (ratio < 3) return { tone: "warning", icon: "!", label: "Thin", text: "Profitable, but with little room for mistakes." };
+  if (ratio <= 5) return { tone: "good", icon: "✓", label: "Healthy", text: "Right in the usual 3–5 : 1 target range." };
+  return { tone: "good", icon: "✓", label: "Room to grow", text: "Very profitable per customer." };
+}
+
+function advice(a: Analysis, cac: number, money: (v: number) => string, moneyExact: (v: number) => string) {
+  if (a.ratio >= 3 && a.ratio <= 5) return "Keep churn and acquisition cost where they are; this is a sustainable balance.";
+  if (a.ratio > 5) return `You earn ${a.ratio.toFixed(1)}× what each customer costs, so there is room to spend more on marketing and grow faster.`;
+  const levers = [
+    `lower monthly churn to ${a.target.churnPct.toFixed(1)}%`,
+    a.target.arpu !== null ? `raise revenue per customer to ${moneyExact(a.target.arpu)}/mo` : null,
+    `cut acquisition cost to ${money(a.target.cac)}`,
+  ].filter(Boolean);
+  const lead = cac > 0 ? `Every ${money(1)} spent winning a customer returns ${moneyExact(a.ratio)}.` : "";
+  return `${lead} To reach a healthy 3 : 1, ${levers.join(", or ")}.`.trim();
+}
+
+export default function LtvCalculator({ currency = "USD", locale = "en-US" }: Props) {
+  const [values, setValues] = useState<Record<FieldKey, string>>({ arpu: "50", margin: "70", churn: "3", cac: "450" });
+  const id = useId();
+
+  const { money, moneyExact, compactMoney, symbol } = useMemo(() => {
+    const whole = new Intl.NumberFormat(locale, { style: "currency", currency, maximumFractionDigits: 0 });
+    const exact = new Intl.NumberFormat(locale, { style: "currency", currency, minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    const compact = new Intl.NumberFormat(locale, { style: "currency", currency, notation: "compact", maximumFractionDigits: 1 });
+    return {
+      money: whole.format,
+      moneyExact: exact.format,
+      compactMoney: compact.format,
+      symbol: whole.formatToParts(0).find((p) => p.type === "currency")?.value ?? "",
+    };
+  }, [locale, currency]);
+
+  const num = (key: FieldKey) => Number(values[key]) || 0;
+  const cac = num("cac");
+  const a = analyse(num("arpu"), Math.min(num("margin"), 100), Math.min(num("churn"), 100), cac);
+  const v = verdict(a.ratio);
+
+  const fields: { key: FieldKey; label: string; prefix?: string; suffix?: string }[] = [
+    { key: "arpu", label: "Revenue per customer", prefix: symbol, suffix: "/mo" },
+    { key: "margin", label: "Gross margin", suffix: "%" },
+    { key: "churn", label: "Customers lost per month", suffix: "%" },
+    { key: "cac", label: "Cost to win a customer", prefix: symbol },
+  ];
+
+  return (
+    <div className={styles.card} data-tone={v.tone}>
+      <header className={styles.head}>
+        <h3 className={styles.title}>Customer lifetime value</h3>
+        <p className={styles.subtitle}>Is each customer worth what you pay to win them?</p>
+      </header>
+
+      <div className={styles.fields}>
+        {fields.map((f) => (
+          <div key={f.key} className={styles.field}>
+            <label htmlFor={`${id}-${f.key}`}>{f.label}</label>
+            <div className={styles.inputWrap}>
+              {f.prefix && <span className={styles.prefix}>{f.prefix}</span>}
+              <input
+                id={`${id}-${f.key}`}
+                className={styles.input}
+                data-prefix={Boolean(f.prefix)}
+                inputMode="decimal"
+                autoComplete="off"
+                value={values[f.key]}
+                onChange={(e) => {
+                  if (NUMBER.test(e.target.value)) setValues((prev) => ({ ...prev, [f.key]: e.target.value }));
+                }}
+              />
+              {f.suffix && <span className={styles.suffix}>{f.suffix}</span>}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div className={styles.stats}>
+        <div className={styles.stat}>
+          <span className={styles.statLabel}>Lifetime value</span>
+          <span className={styles.statValue}>{money(a.ltv)}</span>
+          <span className={styles.statSub}>over a {Math.round(a.lifetime)}-month average lifetime</span>
+        </div>
+        <div className={styles.stat}>
+          <span className={styles.statLabel}>Value : cost</span>
+          <span className={styles.statValue}>{Number.isFinite(a.ratio) ? `${a.ratio.toFixed(1)} : 1` : "∞"}</span>
+          <span className={styles.badge}>
+            <span className={styles.badgeIcon} aria-hidden="true">
+              {v.icon}
+            </span>
+            {v.label}
+          </span>
+        </div>
+        <div className={styles.stat}>
+          <span className={styles.statLabel}>Pays back its cost</span>
+          <span className={styles.statValue}>{a.payback === null ? "Never" : `${a.payback.toFixed(1)} mo`}</span>
+          <span className={styles.statSub}>
+            {a.simplePayback === null ? "No profit per month" : `${a.simplePayback.toFixed(1)} mo if nobody left`}
+          </span>
+        </div>
+      </div>
+
+      <ProfitChart analysis={a} cac={cac} money={money} compactMoney={compactMoney} />
+
+      <p className={styles.advice}>
+        <strong>{v.text}</strong> {advice(a, cac, money, moneyExact)}
+      </p>
+    </div>
+  );
+}
+1a:["$","pre",null,{"children":["$","code",null,{"children":"$1f"}]}]
+20:T178e,"use client";
+
+import { useEffect, useRef, useState, type PointerEvent } from "react";
+import { earnedBy, stillActive, type Analysis } from "./ltv";
+import styles from "./LtvCalculator.module.css";
+
+type Props = {
+  analysis: Analysis;
+  cac: number;
+  money: (value: number) => string;
+  compactMoney: (value: number) => string;
+};
+
+const HEIGHT = 210;
+const M = { top: 20, right: 14, bottom: 26, left: 46 };
+const MONTH_STEPS = [1, 2, 3, 6, 12, 24, 36, 60];
+
+function niceStep(raw: number) {
+  const exp = 10 ** Math.floor(Math.log10(raw));
+  const f = raw / exp;
+  return (f <= 1 ? 1 : f <= 2 ? 2 : f <= 2.5 ? 2.5 : f <= 5 ? 5 : 10) * exp;
+}
+
+const clamp = (v: number, lo: number, hi: number) => Math.max(lo, Math.min(hi, v));
+
+function useWidth(fallback: number) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [width, setWidth] = useState(fallback);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new ResizeObserver(([entry]) => setWidth(entry.contentRect.width));
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+  return [ref, width] as const;
+}
+
+export default function ProfitChart({ analysis, cac, money, compactMoney }: Props) {
+  const [ref, width] = useWidth(500);
+  const [hover, setHover] = useState<number | null>(null);
+  const { monthlyProfit, churn, ltv, payback } = analysis;
+
+  // Three average lifetimes covers ~95% of the profit a customer will ever bring in.
+  let horizon = clamp(Math.round(3 / churn), 12, 120);
+  if (payback !== null) horizon = clamp(Math.max(horizon, Math.ceil(payback * 1.25)), 12, 120);
+
+  const innerW = Math.max(1, width - M.left - M.right);
+  const innerH = HEIGHT - M.top - M.bottom;
+  const yStep = niceStep(Math.max(ltv, cac, 1) / 4);
+  const yMax = Math.ceil((Math.max(ltv, cac, 1) * 1.08) / yStep) * yStep;
+  const x = (month: number) => M.left + (month / horizon) * innerW;
+  const y = (value: number) => M.top + innerH - (value / yMax) * innerH;
+
+  const points = Array.from({ length: horizon + 1 }, (_, m) => `${x(m).toFixed(1)},${y(earnedBy(m, monthlyProfit, churn)).toFixed(1)}`);
+  const line = `M${points.join("L")}`;
+  const area = `${line}L${x(horizon)},${y(0)}L${x(0)},${y(0)}Z`;
+
+  const yTicks = Array.from({ length: Math.round(yMax / yStep) + 1 }, (_, i) => i * yStep);
+  const xStep = MONTH_STEPS.find((s) => s >= horizon / 6) ?? 60;
+  const xTicks = Array.from({ length: Math.floor(horizon / xStep) + 1 }, (_, i) => i * xStep);
+
+  const cacY = y(cac);
+  const ltvY = y(ltv);
+  const labelsCollide = Math.abs(cacY - ltvY) < 16;
+  const breakEven = payback !== null && payback > 0 && payback <= horizon ? payback : null;
+
+  function onPointerMove(e: PointerEvent<SVGSVGElement>) {
+    const px = e.clientX - e.currentTarget.getBoundingClientRect().left;
+    setHover(clamp(Math.round(((px - M.left) / innerW) * horizon), 0, horizon));
+  }
+
+  const hovered = hover === null ? null : { month: hover, value: earnedBy(hover, monthlyProfit, churn) };
+
+  return (
+    <div ref={ref} className={styles.chart}>
+      {/* Percentage width keeps the SVG from forcing its container wider before it is measured. */}
+      <svg
+        width="100%"
+        height={HEIGHT}
+        viewBox={`0 0 ${width} ${HEIGHT}`}
+        role="img"
+        aria-label={`Expected profit per customer rises to ${money(ltv)}; acquisition cost is ${money(cac)}${
+          breakEven ? `; break-even around month ${Math.ceil(breakEven)}` : "; it never breaks even"
+        }.`}
+        onPointerMove={onPointerMove}
+        onPointerLeave={() => setHover(null)}
+      >
+        {yTicks.map((t) => (
+          <g key={t}>
+            <line x1={M.left} x2={width - M.right} y1={y(t)} y2={y(t)} className={t === 0 ? styles.baseline : styles.grid} />
+            <text x={M.left - 8} y={y(t)} dy="0.32em" textAnchor="end" className={styles.axisLabel}>
+              {compactMoney(t)}
+            </text>
+          </g>
+        ))}
+        {xTicks.map((t, i) => (
+          <text key={t} x={x(t)} y={HEIGHT - 8} textAnchor={i === 0 ? "start" : "middle"} className={styles.axisLabel}>
+            {i === xTicks.length - 1 ? `${t} mo` : t}
+          </text>
+        ))}
+
+        <path d={area} className={styles.area} />
+        <path d={line} className={styles.line} />
+
+        <line x1={M.left} x2={width - M.right} y1={ltvY} y2={ltvY} className={styles.refLtv} />
+        <text x={width - M.right} y={ltvY - 6} textAnchor="end" className={styles.refLabel}>
+          LTV {money(ltv)}
+        </text>
+        <line x1={M.left} x2={width - M.right} y1={cacY} y2={cacY} className={styles.refCac} />
+        <text x={width - M.right} y={labelsCollide ? cacY + 14 : cacY - 6} textAnchor="end" className={styles.refLabel}>
+          Cost to acquire {money(cac)}
+        </text>
+
+        {breakEven !== null && (
+          <g>
+            <circle cx={x(breakEven)} cy={cacY} r={5} className={styles.marker} />
+            <text
+              x={x(breakEven) + (x(breakEven) > width / 2 ? -10 : 10)}
+              y={cacY + 16}
+              textAnchor={x(breakEven) > width / 2 ? "end" : "start"}
+              className={styles.markerLabel}
+            >
+              Break-even ≈ month {Math.ceil(breakEven)}
+            </text>
+          </g>
+        )}
+
+        {hovered && (
+          <g pointerEvents="none">
+            <line x1={x(hovered.month)} x2={x(hovered.month)} y1={M.top} y2={y(0)} className={styles.crosshair} />
+            <circle cx={x(hovered.month)} cy={y(hovered.value)} r={4.5} className={styles.marker} />
+          </g>
+        )}
+      </svg>
+
+      {hovered && (
+        <div
+          className={styles.tooltip}
+          style={{ left: clamp(x(hovered.month), 80, width - 80), top: y(hovered.value) }}
+          aria-hidden="true"
+        >
+          <strong>Month {hovered.month}</strong>
+          <span>{money(hovered.value)} profit so far</span>
+          <span>{Math.round(stillActive(hovered.month, churn) * 100)}% of customers still active</span>
+        </div>
+      )}
+    </div>
+  );
+}
+1c:["$","pre",null,{"children":["$","code",null,{"children":"$20"}]}]

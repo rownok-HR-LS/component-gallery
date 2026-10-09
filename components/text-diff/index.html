@@ -1,0 +1,823 @@
+<!DOCTYPE html><!--6jA2vIGrO3aOlnYlKgPnQ--><html lang="en"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="/component-gallery/_next/static/css/68cce7808a08b910.css" data-precedence="next"/><link href="/component-gallery/_next/static/css/b5bcef1a37db2ba0.css" rel="stylesheet" as="style" data-precedence="dynamic"/><link rel="preload" as="script" fetchPriority="low" href="/component-gallery/_next/static/chunks/webpack-1b912f870780f4ba.js"/><script src="/component-gallery/_next/static/chunks/4bd1b696-c023c6e3521b1417.js" async=""></script><script src="/component-gallery/_next/static/chunks/255-8e0af360b0021454.js" async=""></script><script src="/component-gallery/_next/static/chunks/main-app-97d5b91ae5ddb9c2.js" async=""></script><script src="/component-gallery/_next/static/chunks/619-ba102abea3e3d0e4.js" async=""></script><script src="/component-gallery/_next/static/chunks/app/components/%5Bslug%5D/page-7b18c14fa5ee9ace.js" async=""></script><link rel="preload" href="/component-gallery/_next/static/chunks/644.7d16ab94b2757b51.js" as="script" fetchPriority="low"/><title>Text Diff Checker · Component Gallery</title><meta name="description" content="Compare two versions of a contract, policy or document with the Myers diff algorithm: line and word-level highlights, split or unified view, and jump between changes."/><script src="/component-gallery/_next/static/chunks/polyfills-42372ed130431b0a.js" noModule=""></script></head><body><div hidden=""><!--$--><!--/$--></div><header class="site-header"><div class="container"><a class="brand" href="/component-gallery/">Component Gallery</a><nav><a href="https://github.com/rownok-HR-LS/component-gallery">GitHub</a></nav></div></header><main class="container"><a class="back" href="/component-gallery/">← All components</a><header class="detail-head"><span class="tag">Week <!-- -->5<!-- --> · <!-- -->2026-10-08</span><h1>Text Diff Checker</h1><p>Compare two versions of a contract, policy or document with the Myers diff algorithm: line and word-level highlights, split or unified view, and jump between changes.</p></header><section class="stage" aria-label="Live demo"><div class="DiffChecker_card__pvMNK"><header class="DiffChecker_head__vBscB"><div><h3 class="DiffChecker_title__nsrM7">Text diff checker</h3><p class="DiffChecker_subtitle__ThGY0">See exactly what changed between two versions of a contract, policy or document.</p></div><button type="button" class="DiffChecker_chip__UxbCN">⇄ Swap</button></header><div class="DiffChecker_inputs__DQtMb"><div class="DiffChecker_input__cpRzF"><div class="DiffChecker_inputHead__DgmfV"><span>Original</span><span class="DiffChecker_inputTools__9Q_77"><label class="DiffChecker_link__cI4Os">Open file<input type="file" accept=".txt,.md,.csv,.json,.html,.xml,text/*"/></label><button type="button" class="DiffChecker_link__cI4Os">Clear</button></span></div><textarea spellCheck="false" rows="8" placeholder="Paste the original text, or drop a file here" aria-label="Original text">EMPLOYMENT AGREEMENT
+
+This Agreement is made on 1 March 2026 between Acme Ltd. (&quot;the Company&quot;) and Nusrat Jahan (&quot;the Employee&quot;).
+
+1. Position
+The Employee is appointed as HR Executive, reporting to the Head of People.
+
+2. Salary
+The Employee will receive a gross monthly salary of BDT 45,000, paid on the last working day of each month.
+
+3. Working Hours
+Normal working hours are 9:00 am to 6:00 pm, Sunday to Thursday.
+
+4. Leave
+The Employee is entitled to 14 days of annual leave and 10 days of sick leave per year.
+
+5. Probation
+The first 6 months of employment are a probation period.
+
+6. Confidentiality
+The Employee must not share confidential company information during or after employment.
+
+7. Notice Period
+Either party may end this agreement by giving 30 days&#x27; written notice.</textarea></div><div class="DiffChecker_input__cpRzF"><div class="DiffChecker_inputHead__DgmfV"><span>Changed</span><span class="DiffChecker_inputTools__9Q_77"><label class="DiffChecker_link__cI4Os">Open file<input type="file" accept=".txt,.md,.csv,.json,.html,.xml,text/*"/></label><button type="button" class="DiffChecker_link__cI4Os">Clear</button></span></div><textarea spellCheck="false" rows="8" placeholder="Paste the changed text, or drop a file here" aria-label="Changed text">EMPLOYMENT AGREEMENT
+
+This Agreement is made on 15 March 2026 between Acme Ltd. (&quot;the Company&quot;) and Nusrat Jahan (&quot;the Employee&quot;).
+
+1. Position
+The Employee is appointed as Senior HR Executive, reporting to the Head of People.
+
+2. Salary
+The Employee will receive a gross monthly salary of BDT 52,000, paid on the last working day of each month.
+
+3. Working Hours
+Normal working hours are 9:30 am to 6:30 pm, Sunday to Thursday, with a one-hour lunch break.
+
+4. Leave
+The Employee is entitled to 18 days of annual leave and 10 days of sick leave per year.
+
+5. Probation
+The first 3 months of employment are a probation period.
+
+6. Remote Work
+The Employee may work remotely up to 2 days per week with manager approval.
+
+7. Confidentiality
+The Employee must not share confidential company information during or after employment.
+
+8. Notice Period
+Either party may end this agreement by giving 60 days&#x27; written notice.</textarea></div></div><div class="DiffChecker_toolbar__cwzdJ"><div class="DiffChecker_segmented__q7GeY" role="radiogroup" aria-label="View"><button type="button" role="radio" aria-checked="true">Split</button><button type="button" role="radio" aria-checked="false">Unified</button></div><label class="DiffChecker_toggle__c_liv"><input type="checkbox" checked=""/>Only changes</label><label class="DiffChecker_toggle__c_liv"><input type="checkbox"/>Ignore case</label><label class="DiffChecker_toggle__c_liv"><input type="checkbox"/>Ignore spaces</label></div><div class="DiffChecker_summary__MwF98"><span class="DiffChecker_stat__k4Ygs" data-tone="add">+<!-- -->3<!-- --> added</span><span class="DiffChecker_stat__k4Ygs" data-tone="del">−<!-- -->0<!-- --> removed</span><span class="DiffChecker_stat__k4Ygs" data-tone="mod">~<!-- -->9<!-- --> changed</span><span class="DiffChecker_similarity__oUSHs">59<!-- -->% of lines unchanged</span><span class="DiffChecker_spacer__NgV8R"></span><span class="DiffChecker_nav__dX_4w"><button type="button" aria-label="Previous change">‹</button><span aria-live="polite">Change <!-- -->1<!-- --> of <!-- -->8</span><button type="button" aria-label="Next change">›</button></span><button type="button" class="DiffChecker_chip__UxbCN">Copy diff</button></div><div class="DiffChecker_result__YFrcR" data-view="split"><div class="DiffChecker_splitRow__kJOfq" data-kind="equal" data-active="false"><span class="DiffChecker_num__lrtrb">1</span><span class="DiffChecker_cell__2p8vL" data-side="left" data-empty="false">EMPLOYMENT AGREEMENT</span><span class="DiffChecker_num__lrtrb">1</span><span class="DiffChecker_cell__2p8vL" data-side="right" data-empty="false">EMPLOYMENT AGREEMENT</span></div><div class="DiffChecker_splitRow__kJOfq" data-kind="equal" data-active="false"><span class="DiffChecker_num__lrtrb">2</span><span class="DiffChecker_cell__2p8vL" data-side="left" data-empty="false"> </span><span class="DiffChecker_num__lrtrb">2</span><span class="DiffChecker_cell__2p8vL" data-side="right" data-empty="false"> </span></div><div class="DiffChecker_splitRow__kJOfq" data-kind="modify" data-active="true" data-change="0"><span class="DiffChecker_num__lrtrb">3</span><span class="DiffChecker_cell__2p8vL" data-side="left" data-empty="false"><span>This Agreement is made on </span><mark class="DiffChecker_mark__K1JEu">1</mark><span> March 2026 between Acme Ltd. (&quot;the Company&quot;) and Nusrat Jahan (&quot;the Employee&quot;).</span></span><span class="DiffChecker_num__lrtrb">3</span><span class="DiffChecker_cell__2p8vL" data-side="right" data-empty="false"><span>This Agreement is made on </span><mark class="DiffChecker_mark__K1JEu">15</mark><span> March 2026 between Acme Ltd. (&quot;the Company&quot;) and Nusrat Jahan (&quot;the Employee&quot;).</span></span></div><div class="DiffChecker_splitRow__kJOfq" data-kind="equal" data-active="false"><span class="DiffChecker_num__lrtrb">4</span><span class="DiffChecker_cell__2p8vL" data-side="left" data-empty="false"> </span><span class="DiffChecker_num__lrtrb">4</span><span class="DiffChecker_cell__2p8vL" data-side="right" data-empty="false"> </span></div><div class="DiffChecker_splitRow__kJOfq" data-kind="equal" data-active="false"><span class="DiffChecker_num__lrtrb">5</span><span class="DiffChecker_cell__2p8vL" data-side="left" data-empty="false">1. Position</span><span class="DiffChecker_num__lrtrb">5</span><span class="DiffChecker_cell__2p8vL" data-side="right" data-empty="false">1. Position</span></div><div class="DiffChecker_splitRow__kJOfq" data-kind="modify" data-active="false" data-change="1"><span class="DiffChecker_num__lrtrb">6</span><span class="DiffChecker_cell__2p8vL" data-side="left" data-empty="false"><span>The Employee is appointed as HR Executive, reporting to the Head of People.</span></span><span class="DiffChecker_num__lrtrb">6</span><span class="DiffChecker_cell__2p8vL" data-side="right" data-empty="false"><span>The Employee is appointed as </span><mark class="DiffChecker_mark__K1JEu">Senior </mark><span>HR Executive, reporting to the Head of People.</span></span></div><div class="DiffChecker_splitRow__kJOfq" data-kind="equal" data-active="false"><span class="DiffChecker_num__lrtrb">7</span><span class="DiffChecker_cell__2p8vL" data-side="left" data-empty="false"> </span><span class="DiffChecker_num__lrtrb">7</span><span class="DiffChecker_cell__2p8vL" data-side="right" data-empty="false"> </span></div><div class="DiffChecker_splitRow__kJOfq" data-kind="equal" data-active="false"><span class="DiffChecker_num__lrtrb">8</span><span class="DiffChecker_cell__2p8vL" data-side="left" data-empty="false">2. Salary</span><span class="DiffChecker_num__lrtrb">8</span><span class="DiffChecker_cell__2p8vL" data-side="right" data-empty="false">2. Salary</span></div><div class="DiffChecker_splitRow__kJOfq" data-kind="modify" data-active="false" data-change="2"><span class="DiffChecker_num__lrtrb">9</span><span class="DiffChecker_cell__2p8vL" data-side="left" data-empty="false"><span>The Employee will receive a gross monthly salary of BDT </span><mark class="DiffChecker_mark__K1JEu">45</mark><span>,000, paid on the last working day of each month.</span></span><span class="DiffChecker_num__lrtrb">9</span><span class="DiffChecker_cell__2p8vL" data-side="right" data-empty="false"><span>The Employee will receive a gross monthly salary of BDT </span><mark class="DiffChecker_mark__K1JEu">52</mark><span>,000, paid on the last working day of each month.</span></span></div><div class="DiffChecker_splitRow__kJOfq" data-kind="equal" data-active="false"><span class="DiffChecker_num__lrtrb">10</span><span class="DiffChecker_cell__2p8vL" data-side="left" data-empty="false"> </span><span class="DiffChecker_num__lrtrb">10</span><span class="DiffChecker_cell__2p8vL" data-side="right" data-empty="false"> </span></div><div class="DiffChecker_splitRow__kJOfq" data-kind="equal" data-active="false"><span class="DiffChecker_num__lrtrb">11</span><span class="DiffChecker_cell__2p8vL" data-side="left" data-empty="false">3. Working Hours</span><span class="DiffChecker_num__lrtrb">11</span><span class="DiffChecker_cell__2p8vL" data-side="right" data-empty="false">3. Working Hours</span></div><div class="DiffChecker_splitRow__kJOfq" data-kind="modify" data-active="false" data-change="3"><span class="DiffChecker_num__lrtrb">12</span><span class="DiffChecker_cell__2p8vL" data-side="left" data-empty="false"><span>Normal working hours are 9:</span><mark class="DiffChecker_mark__K1JEu">00</mark><span> am to 6:</span><mark class="DiffChecker_mark__K1JEu">00</mark><span> pm, Sunday to Thursday.</span></span><span class="DiffChecker_num__lrtrb">12</span><span class="DiffChecker_cell__2p8vL" data-side="right" data-empty="false"><span>Normal working hours are 9:</span><mark class="DiffChecker_mark__K1JEu">30</mark><span> am to 6:</span><mark class="DiffChecker_mark__K1JEu">30</mark><span> pm, Sunday to Thursday</span><mark class="DiffChecker_mark__K1JEu">, with a one-hour lunch break</mark><span>.</span></span></div><div class="DiffChecker_splitRow__kJOfq" data-kind="equal" data-active="false"><span class="DiffChecker_num__lrtrb">13</span><span class="DiffChecker_cell__2p8vL" data-side="left" data-empty="false"> </span><span class="DiffChecker_num__lrtrb">13</span><span class="DiffChecker_cell__2p8vL" data-side="right" data-empty="false"> </span></div><div class="DiffChecker_splitRow__kJOfq" data-kind="equal" data-active="false"><span class="DiffChecker_num__lrtrb">14</span><span class="DiffChecker_cell__2p8vL" data-side="left" data-empty="false">4. Leave</span><span class="DiffChecker_num__lrtrb">14</span><span class="DiffChecker_cell__2p8vL" data-side="right" data-empty="false">4. Leave</span></div><div class="DiffChecker_splitRow__kJOfq" data-kind="modify" data-active="false" data-change="4"><span class="DiffChecker_num__lrtrb">15</span><span class="DiffChecker_cell__2p8vL" data-side="left" data-empty="false"><span>The Employee is entitled to </span><mark class="DiffChecker_mark__K1JEu">14</mark><span> days of annual leave and 10 days of sick leave per year.</span></span><span class="DiffChecker_num__lrtrb">15</span><span class="DiffChecker_cell__2p8vL" data-side="right" data-empty="false"><span>The Employee is entitled to </span><mark class="DiffChecker_mark__K1JEu">18</mark><span> days of annual leave and 10 days of sick leave per year.</span></span></div><div class="DiffChecker_splitRow__kJOfq" data-kind="equal" data-active="false"><span class="DiffChecker_num__lrtrb">16</span><span class="DiffChecker_cell__2p8vL" data-side="left" data-empty="false"> </span><span class="DiffChecker_num__lrtrb">16</span><span class="DiffChecker_cell__2p8vL" data-side="right" data-empty="false"> </span></div><div class="DiffChecker_splitRow__kJOfq" data-kind="equal" data-active="false"><span class="DiffChecker_num__lrtrb">17</span><span class="DiffChecker_cell__2p8vL" data-side="left" data-empty="false">5. Probation</span><span class="DiffChecker_num__lrtrb">17</span><span class="DiffChecker_cell__2p8vL" data-side="right" data-empty="false">5. Probation</span></div><div class="DiffChecker_splitRow__kJOfq" data-kind="modify" data-active="false" data-change="5"><span class="DiffChecker_num__lrtrb">18</span><span class="DiffChecker_cell__2p8vL" data-side="left" data-empty="false"><span>The first </span><mark class="DiffChecker_mark__K1JEu">6</mark><span> months of employment are a probation period.</span></span><span class="DiffChecker_num__lrtrb">18</span><span class="DiffChecker_cell__2p8vL" data-side="right" data-empty="false"><span>The first </span><mark class="DiffChecker_mark__K1JEu">3</mark><span> months of employment are a probation period.</span></span></div><div class="DiffChecker_splitRow__kJOfq" data-kind="equal" data-active="false"><span class="DiffChecker_num__lrtrb">19</span><span class="DiffChecker_cell__2p8vL" data-side="left" data-empty="false"> </span><span class="DiffChecker_num__lrtrb">19</span><span class="DiffChecker_cell__2p8vL" data-side="right" data-empty="false"> </span></div><div class="DiffChecker_splitRow__kJOfq" data-kind="insert" data-active="false" data-change="6"><span class="DiffChecker_num__lrtrb"></span><span class="DiffChecker_cell__2p8vL" data-side="left" data-empty="true"></span><span class="DiffChecker_num__lrtrb">20</span><span class="DiffChecker_cell__2p8vL" data-side="right" data-empty="false">6. Remote Work</span></div><div class="DiffChecker_splitRow__kJOfq" data-kind="insert" data-active="false"><span class="DiffChecker_num__lrtrb"></span><span class="DiffChecker_cell__2p8vL" data-side="left" data-empty="true"></span><span class="DiffChecker_num__lrtrb">21</span><span class="DiffChecker_cell__2p8vL" data-side="right" data-empty="false">The Employee may work remotely up to 2 days per week with manager approval.</span></div><div class="DiffChecker_splitRow__kJOfq" data-kind="insert" data-active="false"><span class="DiffChecker_num__lrtrb"></span><span class="DiffChecker_cell__2p8vL" data-side="left" data-empty="true"></span><span class="DiffChecker_num__lrtrb">22</span><span class="DiffChecker_cell__2p8vL" data-side="right" data-empty="false"> </span></div><div class="DiffChecker_splitRow__kJOfq" data-kind="modify" data-active="false"><span class="DiffChecker_num__lrtrb">20</span><span class="DiffChecker_cell__2p8vL" data-side="left" data-empty="false"><mark class="DiffChecker_mark__K1JEu">6</mark><span>. Confidentiality</span></span><span class="DiffChecker_num__lrtrb">23</span><span class="DiffChecker_cell__2p8vL" data-side="right" data-empty="false"><mark class="DiffChecker_mark__K1JEu">7</mark><span>. Confidentiality</span></span></div><div class="DiffChecker_splitRow__kJOfq" data-kind="equal" data-active="false"><span class="DiffChecker_num__lrtrb">21</span><span class="DiffChecker_cell__2p8vL" data-side="left" data-empty="false">The Employee must not share confidential company information during or after employment.</span><span class="DiffChecker_num__lrtrb">24</span><span class="DiffChecker_cell__2p8vL" data-side="right" data-empty="false">The Employee must not share confidential company information during or after employment.</span></div><div class="DiffChecker_splitRow__kJOfq" data-kind="equal" data-active="false"><span class="DiffChecker_num__lrtrb">22</span><span class="DiffChecker_cell__2p8vL" data-side="left" data-empty="false"> </span><span class="DiffChecker_num__lrtrb">25</span><span class="DiffChecker_cell__2p8vL" data-side="right" data-empty="false"> </span></div><div class="DiffChecker_splitRow__kJOfq" data-kind="modify" data-active="false" data-change="7"><span class="DiffChecker_num__lrtrb">23</span><span class="DiffChecker_cell__2p8vL" data-side="left" data-empty="false"><mark class="DiffChecker_mark__K1JEu">7</mark><span>. Notice Period</span></span><span class="DiffChecker_num__lrtrb">26</span><span class="DiffChecker_cell__2p8vL" data-side="right" data-empty="false"><mark class="DiffChecker_mark__K1JEu">8</mark><span>. Notice Period</span></span></div><div class="DiffChecker_splitRow__kJOfq" data-kind="modify" data-active="false"><span class="DiffChecker_num__lrtrb">24</span><span class="DiffChecker_cell__2p8vL" data-side="left" data-empty="false"><span>Either party may end this agreement by giving </span><mark class="DiffChecker_mark__K1JEu">30</mark><span> days&#x27; written notice.</span></span><span class="DiffChecker_num__lrtrb">27</span><span class="DiffChecker_cell__2p8vL" data-side="right" data-empty="false"><span>Either party may end this agreement by giving </span><mark class="DiffChecker_mark__K1JEu">60</mark><span> days&#x27; written notice.</span></span></div></div></div></section><section class="source"><h2>Source</h2><div class="file"><div class="file-head"><span>Demo.tsx</span><button type="button" class="copy">Copy</button></div><pre><code>import DiffChecker from &quot;./DiffChecker&quot;;
+
+export default function Demo() {
+  return &lt;DiffChecker /&gt;;
+}
+</code></pre></div><div class="file"><div class="file-head"><span>DiffChecker.module.css</span><button type="button" class="copy">Copy</button></div><pre><code>.card {
+  --surface: #fcfcfb;
+  --ink: #0b0b0b;
+  --ink-2: #52514e;
+  --muted: #898781;
+  --border: rgba(11, 11, 11, 0.1);
+  --field: #f4f3f0;
+  --accent: #2a78d6;
+  --add-bg: #e7f6ec;
+  --add-mark: #a6e3b8;
+  --add-ink: #067647;
+  --del-bg: #fdecec;
+  --del-mark: #f7b4ae;
+  --del-ink: #b42318;
+  --mod: #b54708;
+
+  width: 100%;
+  max-width: 980px;
+  padding: 22px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: var(--surface);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 12px 32px -12px rgba(0, 0, 0, 0.18);
+  color: var(--ink);
+  font-family: system-ui, -apple-system, &quot;Segoe UI&quot;, sans-serif;
+  container-type: inline-size;
+}
+
+@media (prefers-color-scheme: dark) {
+  .card {
+    --surface: #1a1a19;
+    --ink: #ffffff;
+    --ink-2: #c3c2b7;
+    --border: rgba(255, 255, 255, 0.1);
+    --field: #232321;
+    --accent: #3987e5;
+    --add-bg: rgba(18, 183, 106, 0.12);
+    --add-mark: rgba(18, 183, 106, 0.42);
+    --add-ink: #47cd89;
+    --del-bg: rgba(240, 68, 56, 0.12);
+    --del-mark: rgba(240, 68, 56, 0.45);
+    --del-ink: #f97066;
+    --mod: #fdb022;
+    box-shadow: 0 12px 32px -12px rgba(0, 0, 0, 0.6);
+  }
+}
+
+.head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 14px; }
+.title { margin: 0; font-size: 17px; font-weight: 650; }
+.subtitle { margin: 2px 0 0; color: var(--ink-2); font-size: 13px; }
+
+/* Inputs */
+.inputs { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+@container (max-width: 620px) {
+  .inputs { grid-template-columns: 1fr; }
+}
+.input { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.inputHead { display: flex; justify-content: space-between; align-items: baseline; font-size: 13px; font-weight: 600; }
+.inputTools { display: flex; gap: 10px; }
+.link {
+  position: relative;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--accent);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.link input { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+.link:focus-within,
+.link:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 3px; }
+.input textarea {
+  width: 100%;
+  min-height: 150px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  outline: none;
+  background: var(--field);
+  color: var(--ink);
+  font: 12.5px/1.55 ui-monospace, &quot;Cascadia Code&quot;, Menlo, monospace;
+  resize: vertical;
+}
+.input textarea:focus { border-color: var(--accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 18%, transparent); }
+
+/* Toolbar */
+.toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; margin: 16px 0 10px; }
+.segmented { display: inline-flex; gap: 2px; padding: 3px; border-radius: 10px; background: var(--field); }
+.segmented button {
+  padding: 5px 12px;
+  border: 0;
+  border-radius: 8px;
+  background: none;
+  color: var(--ink-2);
+  font: inherit;
+  font-size: 12.5px;
+  cursor: pointer;
+}
+.segmented button[aria-checked=&quot;true&quot;] { background: var(--surface); box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15); color: var(--ink); font-weight: 600; }
+.segmented button:disabled { opacity: 0.45; cursor: not-allowed; }
+.toggle { display: flex; align-items: center; gap: 6px; color: var(--ink-2); font-size: 13px; cursor: pointer; }
+.toggle input { width: 15px; height: 15px; accent-color: var(--accent); }
+
+.summary { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 10px; font-size: 12.5px; }
+.stat { padding: 2px 9px; border-radius: 99px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.stat[data-tone=&quot;add&quot;] { background: var(--add-bg); color: var(--add-ink); }
+.stat[data-tone=&quot;del&quot;] { background: var(--del-bg); color: var(--del-ink); }
+.stat[data-tone=&quot;mod&quot;] { background: color-mix(in srgb, var(--mod) 14%, transparent); color: var(--mod); }
+.similarity { color: var(--muted); }
+.spacer { flex: 1; }
+.nav { display: inline-flex; align-items: center; gap: 6px; color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.nav button {
+  width: 26px;
+  height: 26px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: none;
+  color: var(--ink);
+  font: inherit;
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+}
+.nav button:hover,
+.chip:hover { background: var(--field); }
+.chip {
+  padding: 5px 11px;
+  border: 1px solid var(--border);
+  border-radius: 99px;
+  background: none;
+  color: var(--ink-2);
+  font: inherit;
+  font-size: 12.5px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.nav button:focus-visible,
+.chip:focus-visible,
+.segmented button:focus-visible,
+.fold:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* Result */
+.result {
+  position: relative;
+  max-height: 480px;
+  overflow: auto;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  font: 12.5px/1.6 ui-monospace, &quot;Cascadia Code&quot;, Menlo, monospace;
+}
+.notice { margin: 0; padding: 28px 16px; color: var(--ink-2); font-family: system-ui, sans-serif; font-size: 13px; text-align: center; }
+
+.num {
+  padding: 1px 8px 1px 0;
+  color: var(--muted);
+  font-size: 11px;
+  text-align: right;
+  user-select: none;
+  font-variant-numeric: tabular-nums;
+}
+.cell { padding: 1px 10px; white-space: pre-wrap; overflow-wrap: anywhere; }
+.mark { border-radius: 3px; color: inherit; }
+
+.splitRow { display: grid; grid-template-columns: 40px minmax(0, 1fr) 40px minmax(0, 1fr); }
+.splitRow .num:nth-of-type(3) { border-left: 1px solid var(--border); }
+.splitRow[data-kind=&quot;delete&quot;] .cell[data-side=&quot;left&quot;],
+.splitRow[data-kind=&quot;modify&quot;] .cell[data-side=&quot;left&quot;] { background: var(--del-bg); }
+.splitRow[data-kind=&quot;insert&quot;] .cell[data-side=&quot;right&quot;],
+.splitRow[data-kind=&quot;modify&quot;] .cell[data-side=&quot;right&quot;] { background: var(--add-bg); }
+.splitRow .cell[data-side=&quot;left&quot;] .mark { background: var(--del-mark); }
+.splitRow .cell[data-side=&quot;right&quot;] .mark { background: var(--add-mark); }
+.cell[data-empty=&quot;true&quot;] { background: repeating-linear-gradient(-45deg, transparent 0 6px, color-mix(in srgb, var(--ink) 5%, transparent) 6px 7px); }
+
+.unifiedRow { display: grid; grid-template-columns: 36px 36px 18px minmax(0, 1fr); }
+.unifiedRow[data-tone=&quot;add&quot;] { background: var(--add-bg); }
+.unifiedRow[data-tone=&quot;del&quot;] { background: var(--del-bg); }
+.unifiedRow[data-tone=&quot;add&quot;] .mark { background: var(--add-mark); }
+.unifiedRow[data-tone=&quot;del&quot;] .mark { background: var(--del-mark); }
+.sign { color: var(--muted); text-align: center; user-select: none; }
+.unifiedRow[data-tone=&quot;add&quot;] .sign { color: var(--add-ink); font-weight: 700; }
+.unifiedRow[data-tone=&quot;del&quot;] .sign { color: var(--del-ink); font-weight: 700; }
+
+/* Current change gets a marker in the gutter. */
+.splitRow[data-active=&quot;true&quot;],
+.unifiedGroup[data-active=&quot;true&quot;] { box-shadow: inset 3px 0 0 var(--accent); }
+
+.fold {
+  display: block;
+  width: 100%;
+  padding: 4px 12px;
+  border: 0;
+  border-top: 1px dashed var(--border);
+  border-bottom: 1px dashed var(--border);
+  background: var(--field);
+  color: var(--ink-2);
+  font: 12px system-ui, sans-serif;
+  text-align: left;
+  cursor: pointer;
+}
+.fold:hover { color: var(--ink); }
+</code></pre></div><div class="file"><div class="file-head"><span>DiffChecker.tsx</span><button type="button" class="copy">Copy</button></div><pre><code>&quot;use client&quot;;
+
+import { useDeferredValue, useEffect, useMemo, useRef, useState, type ChangeEvent, type DragEvent } from &quot;react&quot;;
+import { compare, type Part, type Row, type Side } from &quot;./diff&quot;;
+import { CHANGED, ORIGINAL } from &quot;./samples&quot;;
+import styles from &quot;./DiffChecker.module.css&quot;;
+
+type View = &quot;split&quot; | &quot;unified&quot;;
+type Item = { type: &quot;row&quot;; row: Row; index: number } | { type: &quot;fold&quot;; id: number; count: number };
+
+const CONTEXT = 2; // unchanged lines kept around each change when folding
+const MAX_LINES = 5000;
+
+function Text({ side }: { side: Side }) {
+  if (!side.parts) return &lt;&gt;{side.text || &quot; &quot;}&lt;/&gt;;
+  return (
+    &lt;&gt;
+      {side.parts.map((p: Part, i) =&gt;
+        p.changed ? (
+          &lt;mark key={i} className={styles.mark}&gt;
+            {p.text}
+          &lt;/mark&gt;
+        ) : (
+          &lt;span key={i}&gt;{p.text}&lt;/span&gt;
+        ),
+      )}
+    &lt;/&gt;
+  );
+}
+
+export default function DiffChecker() {
+  const [original, setOriginal] = useState(ORIGINAL);
+  const [changed, setChanged] = useState(CHANGED);
+  const [view, setView] = useState&lt;View&gt;(&quot;split&quot;);
+  const [onlyChanges, setOnlyChanges] = useState(true);
+  const [ignoreCase, setIgnoreCase] = useState(false);
+  const [ignoreWhitespace, setIgnoreWhitespace] = useState(false);
+  const [expanded, setExpanded] = useState&lt;Set&lt;number&gt;&gt;(new Set());
+  const [current, setCurrent] = useState(0);
+  const [narrow, setNarrow] = useState(false);
+  const [copied, setCopied] = useState(false);
+
+  const card = useRef&lt;HTMLDivElement&gt;(null);
+  const panel = useRef&lt;HTMLDivElement&gt;(null);
+
+  // Split view needs room; fall back to unified on narrow containers.
+  useEffect(() =&gt; {
+    const el = card.current;
+    if (!el) return;
+    setNarrow(el.getBoundingClientRect().width &lt; 620);
+    const observer = new ResizeObserver(([entry]) =&gt; setNarrow(entry.contentRect.width &lt; 620));
+    observer.observe(el);
+    return () =&gt; observer.disconnect();
+  }, []);
+  const mode: View = narrow ? &quot;unified&quot; : view;
+
+  const a = useDeferredValue(original);
+  const b = useDeferredValue(changed);
+  const tooLong = a.split(&quot;\n&quot;).length &gt; MAX_LINES || b.split(&quot;\n&quot;).length &gt; MAX_LINES;
+  const result = useMemo(
+    () =&gt; (tooLong ? null : compare(a, b, { ignoreCase, ignoreWhitespace })),
+    [a, b, ignoreCase, ignoreWhitespace, tooLong],
+  );
+
+  useEffect(() =&gt; {
+    setExpanded(new Set());
+    setCurrent(0);
+  }, [result]);
+
+  // Collapse long runs of unchanged lines into clickable folds.
+  const items = useMemo&lt;Item[]&gt;(() =&gt; {
+    if (!result) return [];
+    const { rows } = result;
+    const keep = rows.map(() =&gt; !onlyChanges);
+    if (onlyChanges) {
+      rows.forEach((r, i) =&gt; {
+        if (r.kind === &quot;equal&quot;) return;
+        for (let j = Math.max(0, i - CONTEXT); j &lt;= Math.min(rows.length - 1, i + CONTEXT); j++) keep[j] = true;
+      });
+    }
+    const out: Item[] = [];
+    let i = 0;
+    while (i &lt; rows.length) {
+      if (keep[i]) {
+        out.push({ type: &quot;row&quot;, row: rows[i], index: i });
+        i++;
+        continue;
+      }
+      const start = i;
+      while (i &lt; rows.length &amp;&amp; !keep[i]) i++;
+      if (expanded.has(start)) for (let j = start; j &lt; i; j++) out.push({ type: &quot;row&quot;, row: rows[j], index: j });
+      else out.push({ type: &quot;fold&quot;, id: start, count: i - start });
+    }
+    return out;
+  }, [result, onlyChanges, expanded]);
+
+  function goTo(n: number) {
+    if (!result || !result.changes) return;
+    const next = (n + result.changes) % result.changes;
+    setCurrent(next);
+    const target = panel.current?.querySelector&lt;HTMLElement&gt;(`[data-change=&quot;${next}&quot;]`);
+    if (target &amp;&amp; panel.current) {
+      panel.current.scrollTo({ top: target.offsetTop - panel.current.clientHeight / 3, behavior: &quot;smooth&quot; });
+    }
+  }
+
+  function loadFile(e: ChangeEvent&lt;HTMLInputElement&gt;, set: (v: string) =&gt; void) {
+    e.target.files?.[0]?.text().then(set);
+    e.target.value = &quot;&quot;;
+  }
+  function dropFile(e: DragEvent, set: (v: string) =&gt; void) {
+    const file = e.dataTransfer.files[0];
+    if (!file) return;
+    e.preventDefault();
+    file.text().then(set);
+  }
+
+  async function copyDiff() {
+    if (!result) return;
+    const lines: string[] = [];
+    for (const r of result.rows) {
+      if (r.kind === &quot;equal&quot;) lines.push(`  ${r.left!.text}`);
+      if (r.left &amp;&amp; r.kind !== &quot;equal&quot;) lines.push(`- ${r.left.text}`);
+      if (r.right &amp;&amp; r.kind !== &quot;equal&quot;) lines.push(`+ ${r.right.text}`);
+    }
+    await navigator.clipboard.writeText(lines.join(&quot;\n&quot;));
+    setCopied(true);
+    setTimeout(() =&gt; setCopied(false), 1500);
+  }
+
+  const identical = result &amp;&amp; result.changes === 0;
+  const firstOfChange = (item: Item, idx: number) =&gt;
+    item.type === &quot;row&quot; &amp;&amp;
+    item.row.change !== undefined &amp;&amp;
+    !items.slice(0, idx).some((it) =&gt; it.type === &quot;row&quot; &amp;&amp; it.row.change === item.row.change);
+
+  const inputs = [
+    { label: &quot;Original&quot;, value: original, set: setOriginal },
+    { label: &quot;Changed&quot;, value: changed, set: setChanged },
+  ];
+
+  return (
+    &lt;div ref={card} className={styles.card}&gt;
+      &lt;header className={styles.head}&gt;
+        &lt;div&gt;
+          &lt;h3 className={styles.title}&gt;Text diff checker&lt;/h3&gt;
+          &lt;p className={styles.subtitle}&gt;See exactly what changed between two versions of a contract, policy or document.&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;button
+          type=&quot;button&quot;
+          className={styles.chip}
+          onClick={() =&gt; {
+            setOriginal(changed);
+            setChanged(original);
+          }}
+        &gt;
+          ⇄ Swap
+        &lt;/button&gt;
+      &lt;/header&gt;
+
+      &lt;div className={styles.inputs}&gt;
+        {inputs.map((input) =&gt; (
+          &lt;div key={input.label} className={styles.input}&gt;
+            &lt;div className={styles.inputHead}&gt;
+              &lt;span&gt;{input.label}&lt;/span&gt;
+              &lt;span className={styles.inputTools}&gt;
+                &lt;label className={styles.link}&gt;
+                  Open file
+                  &lt;input type=&quot;file&quot; accept=&quot;.txt,.md,.csv,.json,.html,.xml,text/*&quot; onChange={(e) =&gt; loadFile(e, input.set)} /&gt;
+                &lt;/label&gt;
+                &lt;button type=&quot;button&quot; className={styles.link} onClick={() =&gt; input.set(&quot;&quot;)}&gt;
+                  Clear
+                &lt;/button&gt;
+              &lt;/span&gt;
+            &lt;/div&gt;
+            &lt;textarea
+              value={input.value}
+              spellCheck={false}
+              rows={8}
+              placeholder={`Paste the ${input.label.toLowerCase()} text, or drop a file here`}
+              onChange={(e) =&gt; input.set(e.target.value)}
+              onDrop={(e) =&gt; dropFile(e, input.set)}
+              aria-label={`${input.label} text`}
+            /&gt;
+          &lt;/div&gt;
+        ))}
+      &lt;/div&gt;
+
+      &lt;div className={styles.toolbar}&gt;
+        &lt;div className={styles.segmented} role=&quot;radiogroup&quot; aria-label=&quot;View&quot;&gt;
+          {([&quot;split&quot;, &quot;unified&quot;] as const).map((v) =&gt; (
+            &lt;button
+              key={v}
+              type=&quot;button&quot;
+              role=&quot;radio&quot;
+              aria-checked={mode === v}
+              disabled={v === &quot;split&quot; &amp;&amp; narrow}
+              title={v === &quot;split&quot; &amp;&amp; narrow ? &quot;Split view needs a wider screen&quot; : undefined}
+              onClick={() =&gt; setView(v)}
+            &gt;
+              {v === &quot;split&quot; ? &quot;Split&quot; : &quot;Unified&quot;}
+            &lt;/button&gt;
+          ))}
+        &lt;/div&gt;
+        &lt;label className={styles.toggle}&gt;
+          &lt;input type=&quot;checkbox&quot; checked={onlyChanges} onChange={(e) =&gt; setOnlyChanges(e.target.checked)} /&gt;
+          Only changes
+        &lt;/label&gt;
+        &lt;label className={styles.toggle}&gt;
+          &lt;input type=&quot;checkbox&quot; checked={ignoreCase} onChange={(e) =&gt; setIgnoreCase(e.target.checked)} /&gt;
+          Ignore case
+        &lt;/label&gt;
+        &lt;label className={styles.toggle}&gt;
+          &lt;input type=&quot;checkbox&quot; checked={ignoreWhitespace} onChange={(e) =&gt; setIgnoreWhitespace(e.target.checked)} /&gt;
+          Ignore spaces
+        &lt;/label&gt;
+      &lt;/div&gt;
+
+      {result &amp;&amp; (
+        &lt;div className={styles.summary}&gt;
+          &lt;span className={styles.stat} data-tone=&quot;add&quot;&gt;+{result.stats.added} added&lt;/span&gt;
+          &lt;span className={styles.stat} data-tone=&quot;del&quot;&gt;−{result.stats.removed} removed&lt;/span&gt;
+          &lt;span className={styles.stat} data-tone=&quot;mod&quot;&gt;~{result.stats.modified} changed&lt;/span&gt;
+          &lt;span className={styles.similarity}&gt;{Math.round(result.stats.similarity * 100)}% of lines unchanged&lt;/span&gt;
+          &lt;span className={styles.spacer} /&gt;
+          {result.changes &gt; 0 &amp;&amp; (
+            &lt;span className={styles.nav}&gt;
+              &lt;button type=&quot;button&quot; onClick={() =&gt; goTo(current - 1)} aria-label=&quot;Previous change&quot;&gt;
+                ‹
+              &lt;/button&gt;
+              &lt;span aria-live=&quot;polite&quot;&gt;
+                Change {current + 1} of {result.changes}
+              &lt;/span&gt;
+              &lt;button type=&quot;button&quot; onClick={() =&gt; goTo(current + 1)} aria-label=&quot;Next change&quot;&gt;
+                ›
+              &lt;/button&gt;
+            &lt;/span&gt;
+          )}
+          &lt;button type=&quot;button&quot; className={styles.chip} onClick={copyDiff}&gt;
+            {copied ? &quot;Copied ✓&quot; : &quot;Copy diff&quot;}
+          &lt;/button&gt;
+        &lt;/div&gt;
+      )}
+
+      &lt;div ref={panel} className={styles.result} data-view={mode}&gt;
+        {tooLong &amp;&amp; &lt;p className={styles.notice}&gt;Texts over {MAX_LINES.toLocaleString()} lines aren&amp;apos;t compared here.&lt;/p&gt;}
+        {!tooLong &amp;&amp; !original &amp;&amp; !changed &amp;&amp; &lt;p className={styles.notice}&gt;Paste two versions above to compare them.&lt;/p&gt;}
+        {identical &amp;&amp; (original || changed) &amp;&amp; &lt;p className={styles.notice}&gt;No differences: the texts are identical.&lt;/p&gt;}
+        {!identical &amp;&amp;
+          items.map((item, idx) =&gt; {
+            if (item.type === &quot;fold&quot;) {
+              return (
+                &lt;button
+                  key={`fold-${item.id}`}
+                  type=&quot;button&quot;
+                  className={styles.fold}
+                  onClick={() =&gt; setExpanded((s) =&gt; new Set(s).add(item.id))}
+                &gt;
+                  ⋯ Show {item.count} unchanged line{item.count === 1 ? &quot;&quot; : &quot;s&quot;}
+                &lt;/button&gt;
+              );
+            }
+            const { row } = item;
+            const anchor = firstOfChange(item, idx) ? { &quot;data-change&quot;: row.change } : {};
+            const active = row.change === current &amp;&amp; row.kind !== &quot;equal&quot;;
+
+            if (mode === &quot;split&quot;) {
+              return (
+                &lt;div key={item.index} className={styles.splitRow} data-kind={row.kind} data-active={active} {...anchor}&gt;
+                  &lt;span className={styles.num}&gt;{row.left?.num ?? &quot;&quot;}&lt;/span&gt;
+                  &lt;span className={styles.cell} data-side=&quot;left&quot; data-empty={!row.left}&gt;
+                    {row.left &amp;&amp; &lt;Text side={row.left} /&gt;}
+                  &lt;/span&gt;
+                  &lt;span className={styles.num}&gt;{row.right?.num ?? &quot;&quot;}&lt;/span&gt;
+                  &lt;span className={styles.cell} data-side=&quot;right&quot; data-empty={!row.right}&gt;
+                    {row.right &amp;&amp; &lt;Text side={row.right} /&gt;}
+                  &lt;/span&gt;
+                &lt;/div&gt;
+              );
+            }
+
+            const lines: { sign: string; side: Side; tone: string; a?: number; b?: number }[] = [];
+            if (row.kind === &quot;equal&quot;) lines.push({ sign: &quot; &quot;, side: row.left!, tone: &quot;equal&quot;, a: row.left!.num, b: row.right!.num });
+            else {
+              if (row.left) lines.push({ sign: &quot;−&quot;, side: row.left, tone: &quot;del&quot;, a: row.left.num });
+              if (row.right) lines.push({ sign: &quot;+&quot;, side: row.right, tone: &quot;add&quot;, b: row.right.num });
+            }
+            return (
+              &lt;div key={item.index} className={styles.unifiedGroup} data-active={active} {...anchor}&gt;
+                {lines.map((l, k) =&gt; (
+                  &lt;div key={k} className={styles.unifiedRow} data-tone={l.tone}&gt;
+                    &lt;span className={styles.num}&gt;{l.a ?? &quot;&quot;}&lt;/span&gt;
+                    &lt;span className={styles.num}&gt;{l.b ?? &quot;&quot;}&lt;/span&gt;
+                    &lt;span className={styles.sign}&gt;{l.sign}&lt;/span&gt;
+                    &lt;span className={styles.cell}&gt;
+                      &lt;Text side={l.side} /&gt;
+                    &lt;/span&gt;
+                  &lt;/div&gt;
+                ))}
+              &lt;/div&gt;
+            );
+          })}
+      &lt;/div&gt;
+    &lt;/div&gt;
+  );
+}
+</code></pre></div><div class="file"><div class="file-head"><span>diff.ts</span><button type="button" class="copy">Copy</button></div><pre><code>export type Op = &quot;equal&quot; | &quot;insert&quot; | &quot;delete&quot;;
+export type Edit = { op: Op; ai: number; bi: number };
+
+/**
+ * Myers&#x27; O((N+M)·D) shortest-edit-script diff (the algorithm behind `git diff`).
+ * Inputs are compared with ===, so callers map lines or words to keys first.
+ * Common prefix and suffix are trimmed before the search to keep it fast.
+ */
+export function myers&lt;K&gt;(a: K[], b: K[]): Edit[] {
+  let start = 0;
+  while (start &lt; a.length &amp;&amp; start &lt; b.length &amp;&amp; a[start] === b[start]) start++;
+  let endA = a.length;
+  let endB = b.length;
+  while (endA &gt; start &amp;&amp; endB &gt; start &amp;&amp; a[endA - 1] === b[endB - 1]) {
+    endA--;
+    endB--;
+  }
+
+  const out: Edit[] = [];
+  for (let i = 0; i &lt; start; i++) out.push({ op: &quot;equal&quot;, ai: i, bi: i });
+  for (const e of core(a.slice(start, endA), b.slice(start, endB))) {
+    out.push({ op: e.op, ai: e.ai &lt; 0 ? -1 : e.ai + start, bi: e.bi &lt; 0 ? -1 : e.bi + start });
+  }
+  for (let j = 0; endA + j &lt; a.length; j++) out.push({ op: &quot;equal&quot;, ai: endA + j, bi: endB + j });
+  return out;
+}
+
+function core&lt;K&gt;(a: K[], b: K[]): Edit[] {
+  const n = a.length;
+  const m = b.length;
+  const max = n + m;
+  if (max === 0) return [];
+
+  // v[k] = furthest x reached on diagonal k; snapshots (k in -d..d) are kept for backtracking.
+  const off = max + 1;
+  const v = new Int32Array(2 * max + 3);
+  const trace: Int32Array[] = [];
+  let D = 0;
+  search: for (let d = 0; d &lt;= max; d++) {
+    trace.push(v.slice(off - d, off + d + 1));
+    for (let k = -d; k &lt;= d; k += 2) {
+      let x = k === -d || (k !== d &amp;&amp; v[off + k - 1] &lt; v[off + k + 1]) ? v[off + k + 1] : v[off + k - 1] + 1;
+      let y = x - k;
+      while (x &lt; n &amp;&amp; y &lt; m &amp;&amp; a[x] === b[y]) {
+        x++;
+        y++;
+      }
+      v[off + k] = x;
+      if (x &gt;= n &amp;&amp; y &gt;= m) {
+        D = d;
+        break search;
+      }
+    }
+  }
+
+  const edits: Edit[] = [];
+  let x = n;
+  let y = m;
+  for (let d = D; d &gt; 0; d--) {
+    const snap = trace[d];
+    const at = (k: number) =&gt; snap[k + d];
+    const k = x - y;
+    const prevK = k === -d || (k !== d &amp;&amp; at(k - 1) &lt; at(k + 1)) ? k + 1 : k - 1;
+    const prevX = at(prevK);
+    const prevY = prevX - prevK;
+    while (x &gt; prevX &amp;&amp; y &gt; prevY) edits.push({ op: &quot;equal&quot;, ai: --x, bi: --y });
+    if (x === prevX) edits.push({ op: &quot;insert&quot;, ai: -1, bi: --y });
+    else edits.push({ op: &quot;delete&quot;, ai: --x, bi: -1 });
+  }
+  while (x &gt; 0 &amp;&amp; y &gt; 0) edits.push({ op: &quot;equal&quot;, ai: --x, bi: --y });
+  return edits.reverse();
+}
+
+export type Options = { ignoreCase: boolean; ignoreWhitespace: boolean };
+export type Part = { text: string; changed: boolean };
+export type Side = { num: number; text: string; parts?: Part[] };
+export type Row = { kind: &quot;equal&quot; | &quot;delete&quot; | &quot;insert&quot; | &quot;modify&quot;; left?: Side; right?: Side; change?: number };
+export type Result = {
+  rows: Row[];
+  changes: number;
+  stats: { added: number; removed: number; modified: number; similarity: number };
+};
+
+// Words (letters incl. Bangla combining marks, digits), runs of whitespace, or single symbols.
+const TOKEN = /\s+|[\p{L}\p{M}\p{N}_]+|[^\s\p{L}\p{M}\p{N}_]/gu;
+
+function normalise(s: string, o: Options) {
+  let t = o.ignoreWhitespace ? s.trim().replace(/\s+/g, &quot; &quot;) : s;
+  if (o.ignoreCase) t = t.toLowerCase();
+  return t;
+}
+
+function merge(parts: Part[]) {
+  const out: Part[] = [];
+  for (const p of parts) {
+    const last = out[out.length - 1];
+    if (last &amp;&amp; last.changed === p.changed) last.text += p.text;
+    else out.push({ ...p });
+  }
+  return out;
+}
+
+/** Word-level diff of two lines, plus how similar they are (0–1, by characters kept). */
+function wordDiff(a: string, b: string, o: Options) {
+  const ta = a.match(TOKEN) ?? [];
+  const tb = b.match(TOKEN) ?? [];
+  const key = (t: string) =&gt; (o.ignoreWhitespace &amp;&amp; /^\s+$/.test(t) ? &quot; &quot; : o.ignoreCase ? t.toLowerCase() : t);
+  const left: Part[] = [];
+  const right: Part[] = [];
+  let same = 0;
+  for (const e of myers(ta.map(key), tb.map(key))) {
+    if (e.op === &quot;equal&quot;) {
+      left.push({ text: ta[e.ai], changed: false });
+      right.push({ text: tb[e.bi], changed: false });
+      if (!/^\s+$/.test(ta[e.ai])) same += ta[e.ai].length;
+    } else if (e.op === &quot;delete&quot;) left.push({ text: ta[e.ai], changed: true });
+    else right.push({ text: tb[e.bi], changed: true });
+  }
+  // A lone space between two changes reads better highlighted with them.
+  for (const parts of [left, right]) {
+    for (let i = 1; i &lt; parts.length - 1; i++) {
+      if (!parts[i].changed &amp;&amp; /^\s+$/.test(parts[i].text) &amp;&amp; parts[i - 1].changed &amp;&amp; parts[i + 1].changed) parts[i].changed = true;
+    }
+  }
+  const chars = a.replace(/\s/g, &quot;&quot;).length + b.replace(/\s/g, &quot;&quot;).length;
+  return { left: merge(left), right: merge(right), similarity: chars ? (2 * same) / chars : 1 };
+}
+
+export function compare(original: string, changed: string, o: Options): Result {
+  const A = original.split(/\r?\n/);
+  const B = changed.split(/\r?\n/);
+  const ids = new Map&lt;string, number&gt;();
+  const id = (s: string) =&gt; {
+    const k = normalise(s, o);
+    let v = ids.get(k);
+    if (v === undefined) ids.set(k, (v = ids.size));
+    return v;
+  };
+
+  const rows: Row[] = [];
+  let removed: number[] = [];
+  let added: number[] = [];
+  let modified = 0;
+
+  const insertRow = (i: number) =&gt; rows.push({ kind: &quot;insert&quot;, right: { num: i + 1, text: B[i] } });
+
+  // Within a block of removed + added lines, pair each removed line with the most similar added
+  // line still ahead of it (so &quot;6. Confidentiality&quot; pairs with &quot;7. Confidentiality&quot;, not with a new
+  // clause heading). Paired lines become &quot;modified&quot; rows with word-level highlights.
+  const flush = () =&gt; {
+    let next = 0;
+    for (const r of removed) {
+      let best = -1;
+      let bestDiff: ReturnType&lt;typeof wordDiff&gt; | null = null;
+      for (let k = next; k &lt; Math.min(added.length, next + 20); k++) {
+        const w = wordDiff(A[r], B[added[k]], o);
+        if (w.similarity &gt;= 0.5 &amp;&amp; (!bestDiff || w.similarity &gt; bestDiff.similarity)) {
+          best = k;
+          bestDiff = w;
+        }
+      }
+      if (best &lt; 0 || !bestDiff) {
+        rows.push({ kind: &quot;delete&quot;, left: { num: r + 1, text: A[r] } });
+        continue;
+      }
+      for (; next &lt; best; next++) insertRow(added[next]);
+      rows.push({
+        kind: &quot;modify&quot;,
+        left: { num: r + 1, text: A[r], parts: bestDiff.left },
+        right: { num: added[best] + 1, text: B[added[best]], parts: bestDiff.right },
+      });
+      modified++;
+      next = best + 1;
+    }
+    for (; next &lt; added.length; next++) insertRow(added[next]);
+    removed = [];
+    added = [];
+  };
+
+  for (const e of myers(A.map(id), B.map(id))) {
+    if (e.op === &quot;equal&quot;) {
+      flush();
+      rows.push({ kind: &quot;equal&quot;, left: { num: e.ai + 1, text: A[e.ai] }, right: { num: e.bi + 1, text: B[e.bi] } });
+    } else if (e.op === &quot;delete&quot;) removed.push(e.ai);
+    else added.push(e.bi);
+  }
+  flush();
+
+  // Number each block of consecutive changed rows for navigation.
+  let changes = 0;
+  for (let i = 0; i &lt; rows.length; i++) {
+    if (rows[i].kind === &quot;equal&quot;) continue;
+    if (i === 0 || rows[i - 1].kind === &quot;equal&quot;) changes++;
+    rows[i].change = changes - 1;
+  }
+
+  const equal = rows.filter((r) =&gt; r.kind === &quot;equal&quot;).length;
+  return {
+    rows,
+    changes,
+    stats: {
+      added: rows.filter((r) =&gt; r.kind === &quot;insert&quot;).length,
+      removed: rows.filter((r) =&gt; r.kind === &quot;delete&quot;).length,
+      modified,
+      similarity: A.length + B.length ? (2 * equal) / (A.length + B.length) : 1,
+    },
+  };
+}
+</code></pre></div><div class="file"><div class="file-head"><span>samples.ts</span><button type="button" class="copy">Copy</button></div><pre><code>export const ORIGINAL = `EMPLOYMENT AGREEMENT
+
+This Agreement is made on 1 March 2026 between Acme Ltd. (&quot;the Company&quot;) and Nusrat Jahan (&quot;the Employee&quot;).
+
+1. Position
+The Employee is appointed as HR Executive, reporting to the Head of People.
+
+2. Salary
+The Employee will receive a gross monthly salary of BDT 45,000, paid on the last working day of each month.
+
+3. Working Hours
+Normal working hours are 9:00 am to 6:00 pm, Sunday to Thursday.
+
+4. Leave
+The Employee is entitled to 14 days of annual leave and 10 days of sick leave per year.
+
+5. Probation
+The first 6 months of employment are a probation period.
+
+6. Confidentiality
+The Employee must not share confidential company information during or after employment.
+
+7. Notice Period
+Either party may end this agreement by giving 30 days&#x27; written notice.`;
+
+export const CHANGED = `EMPLOYMENT AGREEMENT
+
+This Agreement is made on 15 March 2026 between Acme Ltd. (&quot;the Company&quot;) and Nusrat Jahan (&quot;the Employee&quot;).
+
+1. Position
+The Employee is appointed as Senior HR Executive, reporting to the Head of People.
+
+2. Salary
+The Employee will receive a gross monthly salary of BDT 52,000, paid on the last working day of each month.
+
+3. Working Hours
+Normal working hours are 9:30 am to 6:30 pm, Sunday to Thursday, with a one-hour lunch break.
+
+4. Leave
+The Employee is entitled to 18 days of annual leave and 10 days of sick leave per year.
+
+5. Probation
+The first 3 months of employment are a probation period.
+
+6. Remote Work
+The Employee may work remotely up to 2 days per week with manager approval.
+
+7. Confidentiality
+The Employee must not share confidential company information during or after employment.
+
+8. Notice Period
+Either party may end this agreement by giving 60 days&#x27; written notice.`;
+</code></pre></div></section><nav class="pager"><a href="/component-gallery/components/document-scanner/">← <!-- -->Document Scanner</a><a href="/component-gallery/components/collaborative-whiteboard/">Collaborative Whiteboard<!-- --> →</a></nav></main><!--$--><!--/$--><footer class="site-footer"><div class="container"><span>Built by <!-- -->rownok-HR-LS<!-- --> · LofiStack 90-day challenge</span><a href="https://github.com/rownok-HR-LS/component-gallery">Source on GitHub</a></div></footer><script src="/component-gallery/_next/static/chunks/webpack-1b912f870780f4ba.js" id="_R_" async=""></script><script>(self.__next_f=self.__next_f||[]).push([0])</script><script>self.__next_f.push([1,"1:\"$Sreact.fragment\"\n2:I[2619,[\"619\",\"static/chunks/619-ba102abea3e3d0e4.js\",\"449\",\"static/chunks/app/components/%5Bslug%5D/page-7b18c14fa5ee9ace.js\"],\"\"]\n3:I[9766,[],\"\"]\n4:I[8924,[],\"\"]\n6:I[4431,[],\"OutletBoundary\"]\n8:I[5278,[],\"AsyncMetadataOutlet\"]\na:I[4431,[],\"ViewportBoundary\"]\nc:I[4431,[],\"MetadataBoundary\"]\nd:\"$Sreact.suspense\"\nf:I[7150,[],\"\"]\n:HL[\"/component-gallery/_next/static/css/68cce7808a08b910.css\",\"style\"]\n"])</script><script>self.__next_f.push([1,"0:{\"P\":null,\"b\":\"6jA2vIGrO3aOlnYlKgPnQ\",\"p\":\"/component-gallery\",\"c\":[\"\",\"components\",\"text-diff\",\"\"],\"i\":false,\"f\":[[[\"\",{\"children\":[\"components\",{\"children\":[[\"slug\",\"text-diff\",\"d\"],{\"children\":[\"__PAGE__\",{}]}]}]},\"$undefined\",\"$undefined\",true],[\"\",[\"$\",\"$1\",\"c\",{\"children\":[[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/component-gallery/_next/static/css/68cce7808a08b910.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}]],[\"$\",\"html\",null,{\"lang\":\"en\",\"children\":[\"$\",\"body\",null,{\"children\":[[\"$\",\"header\",null,{\"className\":\"site-header\",\"children\":[\"$\",\"div\",null,{\"className\":\"container\",\"children\":[[\"$\",\"$L2\",null,{\"href\":\"/\",\"className\":\"brand\",\"children\":\"Component Gallery\"}],[\"$\",\"nav\",null,{\"children\":[\"$\",\"a\",null,{\"href\":\"https://github.com/rownok-HR-LS/component-gallery\",\"children\":\"GitHub\"}]}]]}]}],[\"$\",\"$L3\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L4\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":[[\"$\",\"main\",null,{\"className\":\"container\",\"children\":[\"$\",\"header\",null,{\"className\":\"hero\",\"children\":[[\"$\",\"h1\",null,{\"children\":\"Not found\"}],[\"$\",\"p\",null,{\"className\":\"lede\",\"children\":\"That component doesn't exist (yet).\"}],[\"$\",\"$L2\",null,{\"href\":\"/\",\"children\":\"← Back to the gallery\"}]]}]}],[]],\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}],[\"$\",\"footer\",null,{\"className\":\"site-footer\",\"children\":[\"$\",\"div\",null,{\"className\":\"container\",\"children\":[[\"$\",\"span\",null,{\"children\":[\"Built by \",\"rownok-HR-LS\",\" · LofiStack 90-day challenge\"]}],[\"$\",\"a\",null,{\"href\":\"https://github.com/rownok-HR-LS/component-gallery\",\"children\":\"Source on GitHub\"}]]}]}]]}]}]]}],{\"children\":[\"components\",[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"$L3\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L4\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]]}],{\"children\":[[\"slug\",\"text-diff\",\"d\"],[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"$L3\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L4\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]]}],{\"children\":[\"__PAGE__\",[\"$\",\"$1\",\"c\",{\"children\":[\"$L5\",null,[\"$\",\"$L6\",null,{\"children\":[\"$L7\",[\"$\",\"$L8\",null,{\"promise\":\"$@9\"}]]}]]}],{},null,false]},null,false]},null,false]},null,false],[\"$\",\"$1\",\"h\",{\"children\":[null,[[\"$\",\"$La\",null,{\"children\":\"$Lb\"}],null],[\"$\",\"$Lc\",null,{\"children\":[\"$\",\"div\",null,{\"hidden\":true,\"children\":[\"$\",\"$d\",null,{\"fallback\":null,\"children\":\"$Le\"}]}]}]]}],false]],\"m\":\"$undefined\",\"G\":[\"$f\",[]],\"s\":false,\"S\":true}\n"])</script><script>self.__next_f.push([1,"b:[[\"$\",\"meta\",\"0\",{\"charSet\":\"utf-8\"}],[\"$\",\"meta\",\"1\",{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"}]]\n7:null\n"])</script><script>self.__next_f.push([1,"9:{\"metadata\":[[\"$\",\"title\",\"0\",{\"children\":\"Text Diff Checker · Component Gallery\"}],[\"$\",\"meta\",\"1\",{\"name\":\"description\",\"content\":\"Compare two versions of a contract, policy or document with the Myers diff algorithm: line and word-level highlights, split or unified view, and jump between changes.\"}]],\"error\":null,\"digest\":\"$undefined\"}\n"])</script><script>self.__next_f.push([1,"e:\"$9:metadata\"\n"])</script><script>self.__next_f.push([1,"10:I[2325,[\"619\",\"static/chunks/619-ba102abea3e3d0e4.js\",\"449\",\"static/chunks/app/components/%5Bslug%5D/page-7b18c14fa5ee9ace.js\"],\"Demo\"]\n11:I[7333,[\"619\",\"static/chunks/619-ba102abea3e3d0e4.js\",\"449\",\"static/chunks/app/components/%5Bslug%5D/page-7b18c14fa5ee9ace.js\"],\"CopyButton\"]\n12:T1bef,"])</script><script>self.__next_f.push([1,".card {\n  --surface: #fcfcfb;\n  --ink: #0b0b0b;\n  --ink-2: #52514e;\n  --muted: #898781;\n  --border: rgba(11, 11, 11, 0.1);\n  --field: #f4f3f0;\n  --accent: #2a78d6;\n  --add-bg: #e7f6ec;\n  --add-mark: #a6e3b8;\n  --add-ink: #067647;\n  --del-bg: #fdecec;\n  --del-mark: #f7b4ae;\n  --del-ink: #b42318;\n  --mod: #b54708;\n\n  width: 100%;\n  max-width: 980px;\n  padding: 22px;\n  border: 1px solid var(--border);\n  border-radius: 20px;\n  background: var(--surface);\n  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 12px 32px -12px rgba(0, 0, 0, 0.18);\n  color: var(--ink);\n  font-family: system-ui, -apple-system, \"Segoe UI\", sans-serif;\n  container-type: inline-size;\n}\n\n@media (prefers-color-scheme: dark) {\n  .card {\n    --surface: #1a1a19;\n    --ink: #ffffff;\n    --ink-2: #c3c2b7;\n    --border: rgba(255, 255, 255, 0.1);\n    --field: #232321;\n    --accent: #3987e5;\n    --add-bg: rgba(18, 183, 106, 0.12);\n    --add-mark: rgba(18, 183, 106, 0.42);\n    --add-ink: #47cd89;\n    --del-bg: rgba(240, 68, 56, 0.12);\n    --del-mark: rgba(240, 68, 56, 0.45);\n    --del-ink: #f97066;\n    --mod: #fdb022;\n    box-shadow: 0 12px 32px -12px rgba(0, 0, 0, 0.6);\n  }\n}\n\n.head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 14px; }\n.title { margin: 0; font-size: 17px; font-weight: 650; }\n.subtitle { margin: 2px 0 0; color: var(--ink-2); font-size: 13px; }\n\n/* Inputs */\n.inputs { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }\n@container (max-width: 620px) {\n  .inputs { grid-template-columns: 1fr; }\n}\n.input { display: flex; flex-direction: column; gap: 6px; min-width: 0; }\n.inputHead { display: flex; justify-content: space-between; align-items: baseline; font-size: 13px; font-weight: 600; }\n.inputTools { display: flex; gap: 10px; }\n.link {\n  position: relative;\n  padding: 0;\n  border: 0;\n  background: none;\n  color: var(--accent);\n  font: inherit;\n  font-size: 12px;\n  font-weight: 500;\n  cursor: pointer;\n}\n.link input { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }\n.link:focus-within,\n.link:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 3px; }\n.input textarea {\n  width: 100%;\n  min-height: 150px;\n  padding: 10px 12px;\n  border: 1px solid var(--border);\n  border-radius: 12px;\n  outline: none;\n  background: var(--field);\n  color: var(--ink);\n  font: 12.5px/1.55 ui-monospace, \"Cascadia Code\", Menlo, monospace;\n  resize: vertical;\n}\n.input textarea:focus { border-color: var(--accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 18%, transparent); }\n\n/* Toolbar */\n.toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; margin: 16px 0 10px; }\n.segmented { display: inline-flex; gap: 2px; padding: 3px; border-radius: 10px; background: var(--field); }\n.segmented button {\n  padding: 5px 12px;\n  border: 0;\n  border-radius: 8px;\n  background: none;\n  color: var(--ink-2);\n  font: inherit;\n  font-size: 12.5px;\n  cursor: pointer;\n}\n.segmented button[aria-checked=\"true\"] { background: var(--surface); box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15); color: var(--ink); font-weight: 600; }\n.segmented button:disabled { opacity: 0.45; cursor: not-allowed; }\n.toggle { display: flex; align-items: center; gap: 6px; color: var(--ink-2); font-size: 13px; cursor: pointer; }\n.toggle input { width: 15px; height: 15px; accent-color: var(--accent); }\n\n.summary { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 10px; font-size: 12.5px; }\n.stat { padding: 2px 9px; border-radius: 99px; font-weight: 600; font-variant-numeric: tabular-nums; }\n.stat[data-tone=\"add\"] { background: var(--add-bg); color: var(--add-ink); }\n.stat[data-tone=\"del\"] { background: var(--del-bg); color: var(--del-ink); }\n.stat[data-tone=\"mod\"] { background: color-mix(in srgb, var(--mod) 14%, transparent); color: var(--mod); }\n.similarity { color: var(--muted); }\n.spacer { flex: 1; }\n.nav { display: inline-flex; align-items: center; gap: 6px; color: var(--ink-2); font-variant-numeric: tabular-nums; }\n.nav button {\n  width: 26px;\n  height: 26px;\n  border: 1px solid var(--border);\n  border-radius: 8px;\n  background: none;\n  color: var(--ink);\n  font: inherit;\n  font-size: 16px;\n  line-height: 1;\n  cursor: pointer;\n}\n.nav button:hover,\n.chip:hover { background: var(--field); }\n.chip {\n  padding: 5px 11px;\n  border: 1px solid var(--border);\n  border-radius: 99px;\n  background: none;\n  color: var(--ink-2);\n  font: inherit;\n  font-size: 12.5px;\n  white-space: nowrap;\n  cursor: pointer;\n}\n.nav button:focus-visible,\n.chip:focus-visible,\n.segmented button:focus-visible,\n.fold:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }\n\n/* Result */\n.result {\n  position: relative;\n  max-height: 480px;\n  overflow: auto;\n  border: 1px solid var(--border);\n  border-radius: 12px;\n  font: 12.5px/1.6 ui-monospace, \"Cascadia Code\", Menlo, monospace;\n}\n.notice { margin: 0; padding: 28px 16px; color: var(--ink-2); font-family: system-ui, sans-serif; font-size: 13px; text-align: center; }\n\n.num {\n  padding: 1px 8px 1px 0;\n  color: var(--muted);\n  font-size: 11px;\n  text-align: right;\n  user-select: none;\n  font-variant-numeric: tabular-nums;\n}\n.cell { padding: 1px 10px; white-space: pre-wrap; overflow-wrap: anywhere; }\n.mark { border-radius: 3px; color: inherit; }\n\n.splitRow { display: grid; grid-template-columns: 40px minmax(0, 1fr) 40px minmax(0, 1fr); }\n.splitRow .num:nth-of-type(3) { border-left: 1px solid var(--border); }\n.splitRow[data-kind=\"delete\"] .cell[data-side=\"left\"],\n.splitRow[data-kind=\"modify\"] .cell[data-side=\"left\"] { background: var(--del-bg); }\n.splitRow[data-kind=\"insert\"] .cell[data-side=\"right\"],\n.splitRow[data-kind=\"modify\"] .cell[data-side=\"right\"] { background: var(--add-bg); }\n.splitRow .cell[data-side=\"left\"] .mark { background: var(--del-mark); }\n.splitRow .cell[data-side=\"right\"] .mark { background: var(--add-mark); }\n.cell[data-empty=\"true\"] { background: repeating-linear-gradient(-45deg, transparent 0 6px, color-mix(in srgb, var(--ink) 5%, transparent) 6px 7px); }\n\n.unifiedRow { display: grid; grid-template-columns: 36px 36px 18px minmax(0, 1fr); }\n.unifiedRow[data-tone=\"add\"] { background: var(--add-bg); }\n.unifiedRow[data-tone=\"del\"] { background: var(--del-bg); }\n.unifiedRow[data-tone=\"add\"] .mark { background: var(--add-mark); }\n.unifiedRow[data-tone=\"del\"] .mark { background: var(--del-mark); }\n.sign { color: var(--muted); text-align: center; user-select: none; }\n.unifiedRow[data-tone=\"add\"] .sign { color: var(--add-ink); font-weight: 700; }\n.unifiedRow[data-tone=\"del\"] .sign { color: var(--del-ink); font-weight: 700; }\n\n/* Current change gets a marker in the gutter. */\n.splitRow[data-active=\"true\"],\n.unifiedGroup[data-active=\"true\"] { box-shadow: inset 3px 0 0 var(--accent); }\n\n.fold {\n  display: block;\n  width: 100%;\n  padding: 4px 12px;\n  border: 0;\n  border-top: 1px dashed var(--border);\n  border-bottom: 1px dashed var(--border);\n  background: var(--field);\n  color: var(--ink-2);\n  font: 12px system-ui, sans-serif;\n  text-align: left;\n  cursor: pointer;\n}\n.fold:hover { color: var(--ink); }\n"])</script><script>self.__next_f.push([1,"5:[\"$\",\"main\",null,{\"className\":\"container\",\"children\":[[\"$\",\"$L2\",null,{\"href\":\"/\",\"className\":\"back\",\"children\":\"← All components\"}],[\"$\",\"header\",null,{\"className\":\"detail-head\",\"children\":[[\"$\",\"span\",null,{\"className\":\"tag\",\"children\":[\"Week \",5,\" · \",\"2026-10-08\"]}],[\"$\",\"h1\",null,{\"children\":\"Text Diff Checker\"}],[\"$\",\"p\",null,{\"children\":\"Compare two versions of a contract, policy or document with the Myers diff algorithm: line and word-level highlights, split or unified view, and jump between changes.\"}]]}],[\"$\",\"section\",null,{\"className\":\"stage\",\"aria-label\":\"Live demo\",\"children\":[\"$\",\"$L10\",null,{\"slug\":\"text-diff\"}]}],[\"$\",\"section\",null,{\"className\":\"source\",\"children\":[[\"$\",\"h2\",null,{\"children\":\"Source\"}],[[\"$\",\"div\",\"Demo.tsx\",{\"className\":\"file\",\"children\":[[\"$\",\"div\",null,{\"className\":\"file-head\",\"children\":[[\"$\",\"span\",null,{\"children\":\"Demo.tsx\"}],[\"$\",\"$L11\",null,{\"text\":\"import DiffChecker from \\\"./DiffChecker\\\";\\n\\nexport default function Demo() {\\n  return \u003cDiffChecker /\u003e;\\n}\\n\"}]]}],[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"children\":\"import DiffChecker from \\\"./DiffChecker\\\";\\n\\nexport default function Demo() {\\n  return \u003cDiffChecker /\u003e;\\n}\\n\"}]}]]}],[\"$\",\"div\",\"DiffChecker.module.css\",{\"className\":\"file\",\"children\":[[\"$\",\"div\",null,{\"className\":\"file-head\",\"children\":[[\"$\",\"span\",null,{\"children\":\"DiffChecker.module.css\"}],[\"$\",\"$L11\",null,{\"text\":\"$12\"}]]}],\"$L13\"]}],\"$L14\",\"$L15\",\"$L16\"]]}],\"$L17\"]}]\n"])</script><script>self.__next_f.push([1,"18:T1bef,"])</script><script>self.__next_f.push([1,".card {\n  --surface: #fcfcfb;\n  --ink: #0b0b0b;\n  --ink-2: #52514e;\n  --muted: #898781;\n  --border: rgba(11, 11, 11, 0.1);\n  --field: #f4f3f0;\n  --accent: #2a78d6;\n  --add-bg: #e7f6ec;\n  --add-mark: #a6e3b8;\n  --add-ink: #067647;\n  --del-bg: #fdecec;\n  --del-mark: #f7b4ae;\n  --del-ink: #b42318;\n  --mod: #b54708;\n\n  width: 100%;\n  max-width: 980px;\n  padding: 22px;\n  border: 1px solid var(--border);\n  border-radius: 20px;\n  background: var(--surface);\n  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 12px 32px -12px rgba(0, 0, 0, 0.18);\n  color: var(--ink);\n  font-family: system-ui, -apple-system, \"Segoe UI\", sans-serif;\n  container-type: inline-size;\n}\n\n@media (prefers-color-scheme: dark) {\n  .card {\n    --surface: #1a1a19;\n    --ink: #ffffff;\n    --ink-2: #c3c2b7;\n    --border: rgba(255, 255, 255, 0.1);\n    --field: #232321;\n    --accent: #3987e5;\n    --add-bg: rgba(18, 183, 106, 0.12);\n    --add-mark: rgba(18, 183, 106, 0.42);\n    --add-ink: #47cd89;\n    --del-bg: rgba(240, 68, 56, 0.12);\n    --del-mark: rgba(240, 68, 56, 0.45);\n    --del-ink: #f97066;\n    --mod: #fdb022;\n    box-shadow: 0 12px 32px -12px rgba(0, 0, 0, 0.6);\n  }\n}\n\n.head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 14px; }\n.title { margin: 0; font-size: 17px; font-weight: 650; }\n.subtitle { margin: 2px 0 0; color: var(--ink-2); font-size: 13px; }\n\n/* Inputs */\n.inputs { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }\n@container (max-width: 620px) {\n  .inputs { grid-template-columns: 1fr; }\n}\n.input { display: flex; flex-direction: column; gap: 6px; min-width: 0; }\n.inputHead { display: flex; justify-content: space-between; align-items: baseline; font-size: 13px; font-weight: 600; }\n.inputTools { display: flex; gap: 10px; }\n.link {\n  position: relative;\n  padding: 0;\n  border: 0;\n  background: none;\n  color: var(--accent);\n  font: inherit;\n  font-size: 12px;\n  font-weight: 500;\n  cursor: pointer;\n}\n.link input { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }\n.link:focus-within,\n.link:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 3px; }\n.input textarea {\n  width: 100%;\n  min-height: 150px;\n  padding: 10px 12px;\n  border: 1px solid var(--border);\n  border-radius: 12px;\n  outline: none;\n  background: var(--field);\n  color: var(--ink);\n  font: 12.5px/1.55 ui-monospace, \"Cascadia Code\", Menlo, monospace;\n  resize: vertical;\n}\n.input textarea:focus { border-color: var(--accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 18%, transparent); }\n\n/* Toolbar */\n.toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; margin: 16px 0 10px; }\n.segmented { display: inline-flex; gap: 2px; padding: 3px; border-radius: 10px; background: var(--field); }\n.segmented button {\n  padding: 5px 12px;\n  border: 0;\n  border-radius: 8px;\n  background: none;\n  color: var(--ink-2);\n  font: inherit;\n  font-size: 12.5px;\n  cursor: pointer;\n}\n.segmented button[aria-checked=\"true\"] { background: var(--surface); box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15); color: var(--ink); font-weight: 600; }\n.segmented button:disabled { opacity: 0.45; cursor: not-allowed; }\n.toggle { display: flex; align-items: center; gap: 6px; color: var(--ink-2); font-size: 13px; cursor: pointer; }\n.toggle input { width: 15px; height: 15px; accent-color: var(--accent); }\n\n.summary { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 10px; font-size: 12.5px; }\n.stat { padding: 2px 9px; border-radius: 99px; font-weight: 600; font-variant-numeric: tabular-nums; }\n.stat[data-tone=\"add\"] { background: var(--add-bg); color: var(--add-ink); }\n.stat[data-tone=\"del\"] { background: var(--del-bg); color: var(--del-ink); }\n.stat[data-tone=\"mod\"] { background: color-mix(in srgb, var(--mod) 14%, transparent); color: var(--mod); }\n.similarity { color: var(--muted); }\n.spacer { flex: 1; }\n.nav { display: inline-flex; align-items: center; gap: 6px; color: var(--ink-2); font-variant-numeric: tabular-nums; }\n.nav button {\n  width: 26px;\n  height: 26px;\n  border: 1px solid var(--border);\n  border-radius: 8px;\n  background: none;\n  color: var(--ink);\n  font: inherit;\n  font-size: 16px;\n  line-height: 1;\n  cursor: pointer;\n}\n.nav button:hover,\n.chip:hover { background: var(--field); }\n.chip {\n  padding: 5px 11px;\n  border: 1px solid var(--border);\n  border-radius: 99px;\n  background: none;\n  color: var(--ink-2);\n  font: inherit;\n  font-size: 12.5px;\n  white-space: nowrap;\n  cursor: pointer;\n}\n.nav button:focus-visible,\n.chip:focus-visible,\n.segmented button:focus-visible,\n.fold:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }\n\n/* Result */\n.result {\n  position: relative;\n  max-height: 480px;\n  overflow: auto;\n  border: 1px solid var(--border);\n  border-radius: 12px;\n  font: 12.5px/1.6 ui-monospace, \"Cascadia Code\", Menlo, monospace;\n}\n.notice { margin: 0; padding: 28px 16px; color: var(--ink-2); font-family: system-ui, sans-serif; font-size: 13px; text-align: center; }\n\n.num {\n  padding: 1px 8px 1px 0;\n  color: var(--muted);\n  font-size: 11px;\n  text-align: right;\n  user-select: none;\n  font-variant-numeric: tabular-nums;\n}\n.cell { padding: 1px 10px; white-space: pre-wrap; overflow-wrap: anywhere; }\n.mark { border-radius: 3px; color: inherit; }\n\n.splitRow { display: grid; grid-template-columns: 40px minmax(0, 1fr) 40px minmax(0, 1fr); }\n.splitRow .num:nth-of-type(3) { border-left: 1px solid var(--border); }\n.splitRow[data-kind=\"delete\"] .cell[data-side=\"left\"],\n.splitRow[data-kind=\"modify\"] .cell[data-side=\"left\"] { background: var(--del-bg); }\n.splitRow[data-kind=\"insert\"] .cell[data-side=\"right\"],\n.splitRow[data-kind=\"modify\"] .cell[data-side=\"right\"] { background: var(--add-bg); }\n.splitRow .cell[data-side=\"left\"] .mark { background: var(--del-mark); }\n.splitRow .cell[data-side=\"right\"] .mark { background: var(--add-mark); }\n.cell[data-empty=\"true\"] { background: repeating-linear-gradient(-45deg, transparent 0 6px, color-mix(in srgb, var(--ink) 5%, transparent) 6px 7px); }\n\n.unifiedRow { display: grid; grid-template-columns: 36px 36px 18px minmax(0, 1fr); }\n.unifiedRow[data-tone=\"add\"] { background: var(--add-bg); }\n.unifiedRow[data-tone=\"del\"] { background: var(--del-bg); }\n.unifiedRow[data-tone=\"add\"] .mark { background: var(--add-mark); }\n.unifiedRow[data-tone=\"del\"] .mark { background: var(--del-mark); }\n.sign { color: var(--muted); text-align: center; user-select: none; }\n.unifiedRow[data-tone=\"add\"] .sign { color: var(--add-ink); font-weight: 700; }\n.unifiedRow[data-tone=\"del\"] .sign { color: var(--del-ink); font-weight: 700; }\n\n/* Current change gets a marker in the gutter. */\n.splitRow[data-active=\"true\"],\n.unifiedGroup[data-active=\"true\"] { box-shadow: inset 3px 0 0 var(--accent); }\n\n.fold {\n  display: block;\n  width: 100%;\n  padding: 4px 12px;\n  border: 0;\n  border-top: 1px dashed var(--border);\n  border-bottom: 1px dashed var(--border);\n  background: var(--field);\n  color: var(--ink-2);\n  font: 12px system-ui, sans-serif;\n  text-align: left;\n  cursor: pointer;\n}\n.fold:hover { color: var(--ink); }\n"])</script><script>self.__next_f.push([1,"13:[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"children\":\"$18\"}]}]\n19:T2f04,"])</script><script>self.__next_f.push([1,"\"use client\";\n\nimport { useDeferredValue, useEffect, useMemo, useRef, useState, type ChangeEvent, type DragEvent } from \"react\";\nimport { compare, type Part, type Row, type Side } from \"./diff\";\nimport { CHANGED, ORIGINAL } from \"./samples\";\nimport styles from \"./DiffChecker.module.css\";\n\ntype View = \"split\" | \"unified\";\ntype Item = { type: \"row\"; row: Row; index: number } | { type: \"fold\"; id: number; count: number };\n\nconst CONTEXT = 2; // unchanged lines kept around each change when folding\nconst MAX_LINES = 5000;\n\nfunction Text({ side }: { side: Side }) {\n  if (!side.parts) return \u003c\u003e{side.text || \" \"}\u003c/\u003e;\n  return (\n    \u003c\u003e\n      {side.parts.map((p: Part, i) =\u003e\n        p.changed ? (\n          \u003cmark key={i} className={styles.mark}\u003e\n            {p.text}\n          \u003c/mark\u003e\n        ) : (\n          \u003cspan key={i}\u003e{p.text}\u003c/span\u003e\n        ),\n      )}\n    \u003c/\u003e\n  );\n}\n\nexport default function DiffChecker() {\n  const [original, setOriginal] = useState(ORIGINAL);\n  const [changed, setChanged] = useState(CHANGED);\n  const [view, setView] = useState\u003cView\u003e(\"split\");\n  const [onlyChanges, setOnlyChanges] = useState(true);\n  const [ignoreCase, setIgnoreCase] = useState(false);\n  const [ignoreWhitespace, setIgnoreWhitespace] = useState(false);\n  const [expanded, setExpanded] = useState\u003cSet\u003cnumber\u003e\u003e(new Set());\n  const [current, setCurrent] = useState(0);\n  const [narrow, setNarrow] = useState(false);\n  const [copied, setCopied] = useState(false);\n\n  const card = useRef\u003cHTMLDivElement\u003e(null);\n  const panel = useRef\u003cHTMLDivElement\u003e(null);\n\n  // Split view needs room; fall back to unified on narrow containers.\n  useEffect(() =\u003e {\n    const el = card.current;\n    if (!el) return;\n    setNarrow(el.getBoundingClientRect().width \u003c 620);\n    const observer = new ResizeObserver(([entry]) =\u003e setNarrow(entry.contentRect.width \u003c 620));\n    observer.observe(el);\n    return () =\u003e observer.disconnect();\n  }, []);\n  const mode: View = narrow ? \"unified\" : view;\n\n  const a = useDeferredValue(original);\n  const b = useDeferredValue(changed);\n  const tooLong = a.split(\"\\n\").length \u003e MAX_LINES || b.split(\"\\n\").length \u003e MAX_LINES;\n  const result = useMemo(\n    () =\u003e (tooLong ? null : compare(a, b, { ignoreCase, ignoreWhitespace })),\n    [a, b, ignoreCase, ignoreWhitespace, tooLong],\n  );\n\n  useEffect(() =\u003e {\n    setExpanded(new Set());\n    setCurrent(0);\n  }, [result]);\n\n  // Collapse long runs of unchanged lines into clickable folds.\n  const items = useMemo\u003cItem[]\u003e(() =\u003e {\n    if (!result) return [];\n    const { rows } = result;\n    const keep = rows.map(() =\u003e !onlyChanges);\n    if (onlyChanges) {\n      rows.forEach((r, i) =\u003e {\n        if (r.kind === \"equal\") return;\n        for (let j = Math.max(0, i - CONTEXT); j \u003c= Math.min(rows.length - 1, i + CONTEXT); j++) keep[j] = true;\n      });\n    }\n    const out: Item[] = [];\n    let i = 0;\n    while (i \u003c rows.length) {\n      if (keep[i]) {\n        out.push({ type: \"row\", row: rows[i], index: i });\n        i++;\n        continue;\n      }\n      const start = i;\n      while (i \u003c rows.length \u0026\u0026 !keep[i]) i++;\n      if (expanded.has(start)) for (let j = start; j \u003c i; j++) out.push({ type: \"row\", row: rows[j], index: j });\n      else out.push({ type: \"fold\", id: start, count: i - start });\n    }\n    return out;\n  }, [result, onlyChanges, expanded]);\n\n  function goTo(n: number) {\n    if (!result || !result.changes) return;\n    const next = (n + result.changes) % result.changes;\n    setCurrent(next);\n    const target = panel.current?.querySelector\u003cHTMLElement\u003e(`[data-change=\"${next}\"]`);\n    if (target \u0026\u0026 panel.current) {\n      panel.current.scrollTo({ top: target.offsetTop - panel.current.clientHeight / 3, behavior: \"smooth\" });\n    }\n  }\n\n  function loadFile(e: ChangeEvent\u003cHTMLInputElement\u003e, set: (v: string) =\u003e void) {\n    e.target.files?.[0]?.text().then(set);\n    e.target.value = \"\";\n  }\n  function dropFile(e: DragEvent, set: (v: string) =\u003e void) {\n    const file = e.dataTransfer.files[0];\n    if (!file) return;\n    e.preventDefault();\n    file.text().then(set);\n  }\n\n  async function copyDiff() {\n    if (!result) return;\n    const lines: string[] = [];\n    for (const r of result.rows) {\n      if (r.kind === \"equal\") lines.push(`  ${r.left!.text}`);\n      if (r.left \u0026\u0026 r.kind !== \"equal\") lines.push(`- ${r.left.text}`);\n      if (r.right \u0026\u0026 r.kind !== \"equal\") lines.push(`+ ${r.right.text}`);\n    }\n    await navigator.clipboard.writeText(lines.join(\"\\n\"));\n    setCopied(true);\n    setTimeout(() =\u003e setCopied(false), 1500);\n  }\n\n  const identical = result \u0026\u0026 result.changes === 0;\n  const firstOfChange = (item: Item, idx: number) =\u003e\n    item.type === \"row\" \u0026\u0026\n    item.row.change !== undefined \u0026\u0026\n    !items.slice(0, idx).some((it) =\u003e it.type === \"row\" \u0026\u0026 it.row.change === item.row.change);\n\n  const inputs = [\n    { label: \"Original\", value: original, set: setOriginal },\n    { label: \"Changed\", value: changed, set: setChanged },\n  ];\n\n  return (\n    \u003cdiv ref={card} className={styles.card}\u003e\n      \u003cheader className={styles.head}\u003e\n        \u003cdiv\u003e\n          \u003ch3 className={styles.title}\u003eText diff checker\u003c/h3\u003e\n          \u003cp className={styles.subtitle}\u003eSee exactly what changed between two versions of a contract, policy or document.\u003c/p\u003e\n        \u003c/div\u003e\n        \u003cbutton\n          type=\"button\"\n          className={styles.chip}\n          onClick={() =\u003e {\n            setOriginal(changed);\n            setChanged(original);\n          }}\n        \u003e\n          ⇄ Swap\n        \u003c/button\u003e\n      \u003c/header\u003e\n\n      \u003cdiv className={styles.inputs}\u003e\n        {inputs.map((input) =\u003e (\n          \u003cdiv key={input.label} className={styles.input}\u003e\n            \u003cdiv className={styles.inputHead}\u003e\n              \u003cspan\u003e{input.label}\u003c/span\u003e\n              \u003cspan className={styles.inputTools}\u003e\n                \u003clabel className={styles.link}\u003e\n                  Open file\n                  \u003cinput type=\"file\" accept=\".txt,.md,.csv,.json,.html,.xml,text/*\" onChange={(e) =\u003e loadFile(e, input.set)} /\u003e\n                \u003c/label\u003e\n                \u003cbutton type=\"button\" className={styles.link} onClick={() =\u003e input.set(\"\")}\u003e\n                  Clear\n                \u003c/button\u003e\n              \u003c/span\u003e\n            \u003c/div\u003e\n            \u003ctextarea\n              value={input.value}\n              spellCheck={false}\n              rows={8}\n              placeholder={`Paste the ${input.label.toLowerCase()} text, or drop a file here`}\n              onChange={(e) =\u003e input.set(e.target.value)}\n              onDrop={(e) =\u003e dropFile(e, input.set)}\n              aria-label={`${input.label} text`}\n            /\u003e\n          \u003c/div\u003e\n        ))}\n      \u003c/div\u003e\n\n      \u003cdiv className={styles.toolbar}\u003e\n        \u003cdiv className={styles.segmented} role=\"radiogroup\" aria-label=\"View\"\u003e\n          {([\"split\", \"unified\"] as const).map((v) =\u003e (\n            \u003cbutton\n              key={v}\n              type=\"button\"\n              role=\"radio\"\n              aria-checked={mode === v}\n              disabled={v === \"split\" \u0026\u0026 narrow}\n              title={v === \"split\" \u0026\u0026 narrow ? \"Split view needs a wider screen\" : undefined}\n              onClick={() =\u003e setView(v)}\n            \u003e\n              {v === \"split\" ? \"Split\" : \"Unified\"}\n            \u003c/button\u003e\n          ))}\n        \u003c/div\u003e\n        \u003clabel className={styles.toggle}\u003e\n          \u003cinput type=\"checkbox\" checked={onlyChanges} onChange={(e) =\u003e setOnlyChanges(e.target.checked)} /\u003e\n          Only changes\n        \u003c/label\u003e\n        \u003clabel className={styles.toggle}\u003e\n          \u003cinput type=\"checkbox\" checked={ignoreCase} onChange={(e) =\u003e setIgnoreCase(e.target.checked)} /\u003e\n          Ignore case\n        \u003c/label\u003e\n        \u003clabel className={styles.toggle}\u003e\n          \u003cinput type=\"checkbox\" checked={ignoreWhitespace} onChange={(e) =\u003e setIgnoreWhitespace(e.target.checked)} /\u003e\n          Ignore spaces\n        \u003c/label\u003e\n      \u003c/div\u003e\n\n      {result \u0026\u0026 (\n        \u003cdiv className={styles.summary}\u003e\n          \u003cspan className={styles.stat} data-tone=\"add\"\u003e+{result.stats.added} added\u003c/span\u003e\n          \u003cspan className={styles.stat} data-tone=\"del\"\u003e−{result.stats.removed} removed\u003c/span\u003e\n          \u003cspan className={styles.stat} data-tone=\"mod\"\u003e~{result.stats.modified} changed\u003c/span\u003e\n          \u003cspan className={styles.similarity}\u003e{Math.round(result.stats.similarity * 100)}% of lines unchanged\u003c/span\u003e\n          \u003cspan className={styles.spacer} /\u003e\n          {result.changes \u003e 0 \u0026\u0026 (\n            \u003cspan className={styles.nav}\u003e\n              \u003cbutton type=\"button\" onClick={() =\u003e goTo(current - 1)} aria-label=\"Previous change\"\u003e\n                ‹\n              \u003c/button\u003e\n              \u003cspan aria-live=\"polite\"\u003e\n                Change {current + 1} of {result.changes}\n              \u003c/span\u003e\n              \u003cbutton type=\"button\" onClick={() =\u003e goTo(current + 1)} aria-label=\"Next change\"\u003e\n                ›\n              \u003c/button\u003e\n            \u003c/span\u003e\n          )}\n          \u003cbutton type=\"button\" className={styles.chip} onClick={copyDiff}\u003e\n            {copied ? \"Copied ✓\" : \"Copy diff\"}\n          \u003c/button\u003e\n        \u003c/div\u003e\n      )}\n\n      \u003cdiv ref={panel} className={styles.result} data-view={mode}\u003e\n        {tooLong \u0026\u0026 \u003cp className={styles.notice}\u003eTexts over {MAX_LINES.toLocaleString()} lines aren\u0026apos;t compared here.\u003c/p\u003e}\n        {!tooLong \u0026\u0026 !original \u0026\u0026 !changed \u0026\u0026 \u003cp className={styles.notice}\u003ePaste two versions above to compare them.\u003c/p\u003e}\n        {identical \u0026\u0026 (original || changed) \u0026\u0026 \u003cp className={styles.notice}\u003eNo differences: the texts are identical.\u003c/p\u003e}\n        {!identical \u0026\u0026\n          items.map((item, idx) =\u003e {\n            if (item.type === \"fold\") {\n              return (\n                \u003cbutton\n                  key={`fold-${item.id}`}\n                  type=\"button\"\n                  className={styles.fold}\n                  onClick={() =\u003e setExpanded((s) =\u003e new Set(s).add(item.id))}\n                \u003e\n                  ⋯ Show {item.count} unchanged line{item.count === 1 ? \"\" : \"s\"}\n                \u003c/button\u003e\n              );\n            }\n            const { row } = item;\n            const anchor = firstOfChange(item, idx) ? { \"data-change\": row.change } : {};\n            const active = row.change === current \u0026\u0026 row.kind !== \"equal\";\n\n            if (mode === \"split\") {\n              return (\n                \u003cdiv key={item.index} className={styles.splitRow} data-kind={row.kind} data-active={active} {...anchor}\u003e\n                  \u003cspan className={styles.num}\u003e{row.left?.num ?? \"\"}\u003c/span\u003e\n                  \u003cspan className={styles.cell} data-side=\"left\" data-empty={!row.left}\u003e\n                    {row.left \u0026\u0026 \u003cText side={row.left} /\u003e}\n                  \u003c/span\u003e\n                  \u003cspan className={styles.num}\u003e{row.right?.num ?? \"\"}\u003c/span\u003e\n                  \u003cspan className={styles.cell} data-side=\"right\" data-empty={!row.right}\u003e\n                    {row.right \u0026\u0026 \u003cText side={row.right} /\u003e}\n                  \u003c/span\u003e\n                \u003c/div\u003e\n              );\n            }\n\n            const lines: { sign: string; side: Side; tone: string; a?: number; b?: number }[] = [];\n            if (row.kind === \"equal\") lines.push({ sign: \" \", side: row.left!, tone: \"equal\", a: row.left!.num, b: row.right!.num });\n            else {\n              if (row.left) lines.push({ sign: \"−\", side: row.left, tone: \"del\", a: row.left.num });\n              if (row.right) lines.push({ sign: \"+\", side: row.right, tone: \"add\", b: row.right.num });\n            }\n            return (\n              \u003cdiv key={item.index} className={styles.unifiedGroup} data-active={active} {...anchor}\u003e\n                {lines.map((l, k) =\u003e (\n                  \u003cdiv key={k} className={styles.unifiedRow} data-tone={l.tone}\u003e\n                    \u003cspan className={styles.num}\u003e{l.a ?? \"\"}\u003c/span\u003e\n                    \u003cspan className={styles.num}\u003e{l.b ?? \"\"}\u003c/span\u003e\n                    \u003cspan className={styles.sign}\u003e{l.sign}\u003c/span\u003e\n                    \u003cspan className={styles.cell}\u003e\n                      \u003cText side={l.side} /\u003e\n                    \u003c/span\u003e\n                  \u003c/div\u003e\n                ))}\n              \u003c/div\u003e\n            );\n          })}\n      \u003c/div\u003e\n    \u003c/div\u003e\n  );\n}\n"])</script><script>self.__next_f.push([1,"14:[\"$\",\"div\",\"DiffChecker.tsx\",{\"className\":\"file\",\"children\":[[\"$\",\"div\",null,{\"className\":\"file-head\",\"children\":[[\"$\",\"span\",null,{\"children\":\"DiffChecker.tsx\"}],[\"$\",\"$L11\",null,{\"text\":\"$19\"}]]}],\"$L1a\"]}]\n1b:T1d3b,"])</script><script>self.__next_f.push([1,"export type Op = \"equal\" | \"insert\" | \"delete\";\nexport type Edit = { op: Op; ai: number; bi: number };\n\n/**\n * Myers' O((N+M)·D) shortest-edit-script diff (the algorithm behind `git diff`).\n * Inputs are compared with ===, so callers map lines or words to keys first.\n * Common prefix and suffix are trimmed before the search to keep it fast.\n */\nexport function myers\u003cK\u003e(a: K[], b: K[]): Edit[] {\n  let start = 0;\n  while (start \u003c a.length \u0026\u0026 start \u003c b.length \u0026\u0026 a[start] === b[start]) start++;\n  let endA = a.length;\n  let endB = b.length;\n  while (endA \u003e start \u0026\u0026 endB \u003e start \u0026\u0026 a[endA - 1] === b[endB - 1]) {\n    endA--;\n    endB--;\n  }\n\n  const out: Edit[] = [];\n  for (let i = 0; i \u003c start; i++) out.push({ op: \"equal\", ai: i, bi: i });\n  for (const e of core(a.slice(start, endA), b.slice(start, endB))) {\n    out.push({ op: e.op, ai: e.ai \u003c 0 ? -1 : e.ai + start, bi: e.bi \u003c 0 ? -1 : e.bi + start });\n  }\n  for (let j = 0; endA + j \u003c a.length; j++) out.push({ op: \"equal\", ai: endA + j, bi: endB + j });\n  return out;\n}\n\nfunction core\u003cK\u003e(a: K[], b: K[]): Edit[] {\n  const n = a.length;\n  const m = b.length;\n  const max = n + m;\n  if (max === 0) return [];\n\n  // v[k] = furthest x reached on diagonal k; snapshots (k in -d..d) are kept for backtracking.\n  const off = max + 1;\n  const v = new Int32Array(2 * max + 3);\n  const trace: Int32Array[] = [];\n  let D = 0;\n  search: for (let d = 0; d \u003c= max; d++) {\n    trace.push(v.slice(off - d, off + d + 1));\n    for (let k = -d; k \u003c= d; k += 2) {\n      let x = k === -d || (k !== d \u0026\u0026 v[off + k - 1] \u003c v[off + k + 1]) ? v[off + k + 1] : v[off + k - 1] + 1;\n      let y = x - k;\n      while (x \u003c n \u0026\u0026 y \u003c m \u0026\u0026 a[x] === b[y]) {\n        x++;\n        y++;\n      }\n      v[off + k] = x;\n      if (x \u003e= n \u0026\u0026 y \u003e= m) {\n        D = d;\n        break search;\n      }\n    }\n  }\n\n  const edits: Edit[] = [];\n  let x = n;\n  let y = m;\n  for (let d = D; d \u003e 0; d--) {\n    const snap = trace[d];\n    const at = (k: number) =\u003e snap[k + d];\n    const k = x - y;\n    const prevK = k === -d || (k !== d \u0026\u0026 at(k - 1) \u003c at(k + 1)) ? k + 1 : k - 1;\n    const prevX = at(prevK);\n    const prevY = prevX - prevK;\n    while (x \u003e prevX \u0026\u0026 y \u003e prevY) edits.push({ op: \"equal\", ai: --x, bi: --y });\n    if (x === prevX) edits.push({ op: \"insert\", ai: -1, bi: --y });\n    else edits.push({ op: \"delete\", ai: --x, bi: -1 });\n  }\n  while (x \u003e 0 \u0026\u0026 y \u003e 0) edits.push({ op: \"equal\", ai: --x, bi: --y });\n  return edits.reverse();\n}\n\nexport type Options = { ignoreCase: boolean; ignoreWhitespace: boolean };\nexport type Part = { text: string; changed: boolean };\nexport type Side = { num: number; text: string; parts?: Part[] };\nexport type Row = { kind: \"equal\" | \"delete\" | \"insert\" | \"modify\"; left?: Side; right?: Side; change?: number };\nexport type Result = {\n  rows: Row[];\n  changes: number;\n  stats: { added: number; removed: number; modified: number; similarity: number };\n};\n\n// Words (letters incl. Bangla combining marks, digits), runs of whitespace, or single symbols.\nconst TOKEN = /\\s+|[\\p{L}\\p{M}\\p{N}_]+|[^\\s\\p{L}\\p{M}\\p{N}_]/gu;\n\nfunction normalise(s: string, o: Options) {\n  let t = o.ignoreWhitespace ? s.trim().replace(/\\s+/g, \" \") : s;\n  if (o.ignoreCase) t = t.toLowerCase();\n  return t;\n}\n\nfunction merge(parts: Part[]) {\n  const out: Part[] = [];\n  for (const p of parts) {\n    const last = out[out.length - 1];\n    if (last \u0026\u0026 last.changed === p.changed) last.text += p.text;\n    else out.push({ ...p });\n  }\n  return out;\n}\n\n/** Word-level diff of two lines, plus how similar they are (0–1, by characters kept). */\nfunction wordDiff(a: string, b: string, o: Options) {\n  const ta = a.match(TOKEN) ?? [];\n  const tb = b.match(TOKEN) ?? [];\n  const key = (t: string) =\u003e (o.ignoreWhitespace \u0026\u0026 /^\\s+$/.test(t) ? \" \" : o.ignoreCase ? t.toLowerCase() : t);\n  const left: Part[] = [];\n  const right: Part[] = [];\n  let same = 0;\n  for (const e of myers(ta.map(key), tb.map(key))) {\n    if (e.op === \"equal\") {\n      left.push({ text: ta[e.ai], changed: false });\n      right.push({ text: tb[e.bi], changed: false });\n      if (!/^\\s+$/.test(ta[e.ai])) same += ta[e.ai].length;\n    } else if (e.op === \"delete\") left.push({ text: ta[e.ai], changed: true });\n    else right.push({ text: tb[e.bi], changed: true });\n  }\n  // A lone space between two changes reads better highlighted with them.\n  for (const parts of [left, right]) {\n    for (let i = 1; i \u003c parts.length - 1; i++) {\n      if (!parts[i].changed \u0026\u0026 /^\\s+$/.test(parts[i].text) \u0026\u0026 parts[i - 1].changed \u0026\u0026 parts[i + 1].changed) parts[i].changed = true;\n    }\n  }\n  const chars = a.replace(/\\s/g, \"\").length + b.replace(/\\s/g, \"\").length;\n  return { left: merge(left), right: merge(right), similarity: chars ? (2 * same) / chars : 1 };\n}\n\nexport function compare(original: string, changed: string, o: Options): Result {\n  const A = original.split(/\\r?\\n/);\n  const B = changed.split(/\\r?\\n/);\n  const ids = new Map\u003cstring, number\u003e();\n  const id = (s: string) =\u003e {\n    const k = normalise(s, o);\n    let v = ids.get(k);\n    if (v === undefined) ids.set(k, (v = ids.size));\n    return v;\n  };\n\n  const rows: Row[] = [];\n  let removed: number[] = [];\n  let added: number[] = [];\n  let modified = 0;\n\n  const insertRow = (i: number) =\u003e rows.push({ kind: \"insert\", right: { num: i + 1, text: B[i] } });\n\n  // Within a block of removed + added lines, pair each removed line with the most similar added\n  // line still ahead of it (so \"6. Confidentiality\" pairs with \"7. Confidentiality\", not with a new\n  // clause heading). Paired lines become \"modified\" rows with word-level highlights.\n  const flush = () =\u003e {\n    let next = 0;\n    for (const r of removed) {\n      let best = -1;\n      let bestDiff: ReturnType\u003ctypeof wordDiff\u003e | null = null;\n      for (let k = next; k \u003c Math.min(added.length, next + 20); k++) {\n        const w = wordDiff(A[r], B[added[k]], o);\n        if (w.similarity \u003e= 0.5 \u0026\u0026 (!bestDiff || w.similarity \u003e bestDiff.similarity)) {\n          best = k;\n          bestDiff = w;\n        }\n      }\n      if (best \u003c 0 || !bestDiff) {\n        rows.push({ kind: \"delete\", left: { num: r + 1, text: A[r] } });\n        continue;\n      }\n      for (; next \u003c best; next++) insertRow(added[next]);\n      rows.push({\n        kind: \"modify\",\n        left: { num: r + 1, text: A[r], parts: bestDiff.left },\n        right: { num: added[best] + 1, text: B[added[best]], parts: bestDiff.right },\n      });\n      modified++;\n      next = best + 1;\n    }\n    for (; next \u003c added.length; next++) insertRow(added[next]);\n    removed = [];\n    added = [];\n  };\n\n  for (const e of myers(A.map(id), B.map(id))) {\n    if (e.op === \"equal\") {\n      flush();\n      rows.push({ kind: \"equal\", left: { num: e.ai + 1, text: A[e.ai] }, right: { num: e.bi + 1, text: B[e.bi] } });\n    } else if (e.op === \"delete\") removed.push(e.ai);\n    else added.push(e.bi);\n  }\n  flush();\n\n  // Number each block of consecutive changed rows for navigation.\n  let changes = 0;\n  for (let i = 0; i \u003c rows.length; i++) {\n    if (rows[i].kind === \"equal\") continue;\n    if (i === 0 || rows[i - 1].kind === \"equal\") changes++;\n    rows[i].change = changes - 1;\n  }\n\n  const equal = rows.filter((r) =\u003e r.kind === \"equal\").length;\n  return {\n    rows,\n    changes,\n    stats: {\n      added: rows.filter((r) =\u003e r.kind === \"insert\").length,\n      removed: rows.filter((r) =\u003e r.kind === \"delete\").length,\n      modified,\n      similarity: A.length + B.length ? (2 * equal) / (A.length + B.length) : 1,\n    },\n  };\n}\n"])</script><script>self.__next_f.push([1,"15:[\"$\",\"div\",\"diff.ts\",{\"className\":\"file\",\"children\":[[\"$\",\"div\",null,{\"className\":\"file-head\",\"children\":[[\"$\",\"span\",null,{\"children\":\"diff.ts\"}],[\"$\",\"$L11\",null,{\"text\":\"$1b\"}]]}],\"$L1c\"]}]\n1d:T6df,"])</script><script>self.__next_f.push([1,"export const ORIGINAL = `EMPLOYMENT AGREEMENT\n\nThis Agreement is made on 1 March 2026 between Acme Ltd. (\"the Company\") and Nusrat Jahan (\"the Employee\").\n\n1. Position\nThe Employee is appointed as HR Executive, reporting to the Head of People.\n\n2. Salary\nThe Employee will receive a gross monthly salary of BDT 45,000, paid on the last working day of each month.\n\n3. Working Hours\nNormal working hours are 9:00 am to 6:00 pm, Sunday to Thursday.\n\n4. Leave\nThe Employee is entitled to 14 days of annual leave and 10 days of sick leave per year.\n\n5. Probation\nThe first 6 months of employment are a probation period.\n\n6. Confidentiality\nThe Employee must not share confidential company information during or after employment.\n\n7. Notice Period\nEither party may end this agreement by giving 30 days' written notice.`;\n\nexport const CHANGED = `EMPLOYMENT AGREEMENT\n\nThis Agreement is made on 15 March 2026 between Acme Ltd. (\"the Company\") and Nusrat Jahan (\"the Employee\").\n\n1. Position\nThe Employee is appointed as Senior HR Executive, reporting to the Head of People.\n\n2. Salary\nThe Employee will receive a gross monthly salary of BDT 52,000, paid on the last working day of each month.\n\n3. Working Hours\nNormal working hours are 9:30 am to 6:30 pm, Sunday to Thursday, with a one-hour lunch break.\n\n4. Leave\nThe Employee is entitled to 18 days of annual leave and 10 days of sick leave per year.\n\n5. Probation\nThe first 3 months of employment are a probation period.\n\n6. Remote Work\nThe Employee may work remotely up to 2 days per week with manager approval.\n\n7. Confidentiality\nThe Employee must not share confidential company information during or after employment.\n\n8. Notice Period\nEither party may end this agreement by giving 60 days' written notice.`;\n"])</script><script>self.__next_f.push([1,"1e:T6df,"])</script><script>self.__next_f.push([1,"export const ORIGINAL = `EMPLOYMENT AGREEMENT\n\nThis Agreement is made on 1 March 2026 between Acme Ltd. (\"the Company\") and Nusrat Jahan (\"the Employee\").\n\n1. Position\nThe Employee is appointed as HR Executive, reporting to the Head of People.\n\n2. Salary\nThe Employee will receive a gross monthly salary of BDT 45,000, paid on the last working day of each month.\n\n3. Working Hours\nNormal working hours are 9:00 am to 6:00 pm, Sunday to Thursday.\n\n4. Leave\nThe Employee is entitled to 14 days of annual leave and 10 days of sick leave per year.\n\n5. Probation\nThe first 6 months of employment are a probation period.\n\n6. Confidentiality\nThe Employee must not share confidential company information during or after employment.\n\n7. Notice Period\nEither party may end this agreement by giving 30 days' written notice.`;\n\nexport const CHANGED = `EMPLOYMENT AGREEMENT\n\nThis Agreement is made on 15 March 2026 between Acme Ltd. (\"the Company\") and Nusrat Jahan (\"the Employee\").\n\n1. Position\nThe Employee is appointed as Senior HR Executive, reporting to the Head of People.\n\n2. Salary\nThe Employee will receive a gross monthly salary of BDT 52,000, paid on the last working day of each month.\n\n3. Working Hours\nNormal working hours are 9:30 am to 6:30 pm, Sunday to Thursday, with a one-hour lunch break.\n\n4. Leave\nThe Employee is entitled to 18 days of annual leave and 10 days of sick leave per year.\n\n5. Probation\nThe first 3 months of employment are a probation period.\n\n6. Remote Work\nThe Employee may work remotely up to 2 days per week with manager approval.\n\n7. Confidentiality\nThe Employee must not share confidential company information during or after employment.\n\n8. Notice Period\nEither party may end this agreement by giving 60 days' written notice.`;\n"])</script><script>self.__next_f.push([1,"16:[\"$\",\"div\",\"samples.ts\",{\"className\":\"file\",\"children\":[[\"$\",\"div\",null,{\"className\":\"file-head\",\"children\":[[\"$\",\"span\",null,{\"children\":\"samples.ts\"}],[\"$\",\"$L11\",null,{\"text\":\"$1d\"}]]}],[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"children\":\"$1e\"}]}]]}]\n17:[\"$\",\"nav\",null,{\"className\":\"pager\",\"children\":[[\"$\",\"$L2\",null,{\"href\":\"/components/document-scanner\",\"children\":[\"← \",\"Document Scanner\"]}],[\"$\",\"$L2\",null,{\"href\":\"/components/collaborative-whiteboard\",\"children\":[\"Collaborative Whiteboard\",\" →\"]}]]}]\n"])</script><script>self.__next_f.push([1,"1f:T2f04,"])</script><script>self.__next_f.push([1,"\"use client\";\n\nimport { useDeferredValue, useEffect, useMemo, useRef, useState, type ChangeEvent, type DragEvent } from \"react\";\nimport { compare, type Part, type Row, type Side } from \"./diff\";\nimport { CHANGED, ORIGINAL } from \"./samples\";\nimport styles from \"./DiffChecker.module.css\";\n\ntype View = \"split\" | \"unified\";\ntype Item = { type: \"row\"; row: Row; index: number } | { type: \"fold\"; id: number; count: number };\n\nconst CONTEXT = 2; // unchanged lines kept around each change when folding\nconst MAX_LINES = 5000;\n\nfunction Text({ side }: { side: Side }) {\n  if (!side.parts) return \u003c\u003e{side.text || \" \"}\u003c/\u003e;\n  return (\n    \u003c\u003e\n      {side.parts.map((p: Part, i) =\u003e\n        p.changed ? (\n          \u003cmark key={i} className={styles.mark}\u003e\n            {p.text}\n          \u003c/mark\u003e\n        ) : (\n          \u003cspan key={i}\u003e{p.text}\u003c/span\u003e\n        ),\n      )}\n    \u003c/\u003e\n  );\n}\n\nexport default function DiffChecker() {\n  const [original, setOriginal] = useState(ORIGINAL);\n  const [changed, setChanged] = useState(CHANGED);\n  const [view, setView] = useState\u003cView\u003e(\"split\");\n  const [onlyChanges, setOnlyChanges] = useState(true);\n  const [ignoreCase, setIgnoreCase] = useState(false);\n  const [ignoreWhitespace, setIgnoreWhitespace] = useState(false);\n  const [expanded, setExpanded] = useState\u003cSet\u003cnumber\u003e\u003e(new Set());\n  const [current, setCurrent] = useState(0);\n  const [narrow, setNarrow] = useState(false);\n  const [copied, setCopied] = useState(false);\n\n  const card = useRef\u003cHTMLDivElement\u003e(null);\n  const panel = useRef\u003cHTMLDivElement\u003e(null);\n\n  // Split view needs room; fall back to unified on narrow containers.\n  useEffect(() =\u003e {\n    const el = card.current;\n    if (!el) return;\n    setNarrow(el.getBoundingClientRect().width \u003c 620);\n    const observer = new ResizeObserver(([entry]) =\u003e setNarrow(entry.contentRect.width \u003c 620));\n    observer.observe(el);\n    return () =\u003e observer.disconnect();\n  }, []);\n  const mode: View = narrow ? \"unified\" : view;\n\n  const a = useDeferredValue(original);\n  const b = useDeferredValue(changed);\n  const tooLong = a.split(\"\\n\").length \u003e MAX_LINES || b.split(\"\\n\").length \u003e MAX_LINES;\n  const result = useMemo(\n    () =\u003e (tooLong ? null : compare(a, b, { ignoreCase, ignoreWhitespace })),\n    [a, b, ignoreCase, ignoreWhitespace, tooLong],\n  );\n\n  useEffect(() =\u003e {\n    setExpanded(new Set());\n    setCurrent(0);\n  }, [result]);\n\n  // Collapse long runs of unchanged lines into clickable folds.\n  const items = useMemo\u003cItem[]\u003e(() =\u003e {\n    if (!result) return [];\n    const { rows } = result;\n    const keep = rows.map(() =\u003e !onlyChanges);\n    if (onlyChanges) {\n      rows.forEach((r, i) =\u003e {\n        if (r.kind === \"equal\") return;\n        for (let j = Math.max(0, i - CONTEXT); j \u003c= Math.min(rows.length - 1, i + CONTEXT); j++) keep[j] = true;\n      });\n    }\n    const out: Item[] = [];\n    let i = 0;\n    while (i \u003c rows.length) {\n      if (keep[i]) {\n        out.push({ type: \"row\", row: rows[i], index: i });\n        i++;\n        continue;\n      }\n      const start = i;\n      while (i \u003c rows.length \u0026\u0026 !keep[i]) i++;\n      if (expanded.has(start)) for (let j = start; j \u003c i; j++) out.push({ type: \"row\", row: rows[j], index: j });\n      else out.push({ type: \"fold\", id: start, count: i - start });\n    }\n    return out;\n  }, [result, onlyChanges, expanded]);\n\n  function goTo(n: number) {\n    if (!result || !result.changes) return;\n    const next = (n + result.changes) % result.changes;\n    setCurrent(next);\n    const target = panel.current?.querySelector\u003cHTMLElement\u003e(`[data-change=\"${next}\"]`);\n    if (target \u0026\u0026 panel.current) {\n      panel.current.scrollTo({ top: target.offsetTop - panel.current.clientHeight / 3, behavior: \"smooth\" });\n    }\n  }\n\n  function loadFile(e: ChangeEvent\u003cHTMLInputElement\u003e, set: (v: string) =\u003e void) {\n    e.target.files?.[0]?.text().then(set);\n    e.target.value = \"\";\n  }\n  function dropFile(e: DragEvent, set: (v: string) =\u003e void) {\n    const file = e.dataTransfer.files[0];\n    if (!file) return;\n    e.preventDefault();\n    file.text().then(set);\n  }\n\n  async function copyDiff() {\n    if (!result) return;\n    const lines: string[] = [];\n    for (const r of result.rows) {\n      if (r.kind === \"equal\") lines.push(`  ${r.left!.text}`);\n      if (r.left \u0026\u0026 r.kind !== \"equal\") lines.push(`- ${r.left.text}`);\n      if (r.right \u0026\u0026 r.kind !== \"equal\") lines.push(`+ ${r.right.text}`);\n    }\n    await navigator.clipboard.writeText(lines.join(\"\\n\"));\n    setCopied(true);\n    setTimeout(() =\u003e setCopied(false), 1500);\n  }\n\n  const identical = result \u0026\u0026 result.changes === 0;\n  const firstOfChange = (item: Item, idx: number) =\u003e\n    item.type === \"row\" \u0026\u0026\n    item.row.change !== undefined \u0026\u0026\n    !items.slice(0, idx).some((it) =\u003e it.type === \"row\" \u0026\u0026 it.row.change === item.row.change);\n\n  const inputs = [\n    { label: \"Original\", value: original, set: setOriginal },\n    { label: \"Changed\", value: changed, set: setChanged },\n  ];\n\n  return (\n    \u003cdiv ref={card} className={styles.card}\u003e\n      \u003cheader className={styles.head}\u003e\n        \u003cdiv\u003e\n          \u003ch3 className={styles.title}\u003eText diff checker\u003c/h3\u003e\n          \u003cp className={styles.subtitle}\u003eSee exactly what changed between two versions of a contract, policy or document.\u003c/p\u003e\n        \u003c/div\u003e\n        \u003cbutton\n          type=\"button\"\n          className={styles.chip}\n          onClick={() =\u003e {\n            setOriginal(changed);\n            setChanged(original);\n          }}\n        \u003e\n          ⇄ Swap\n        \u003c/button\u003e\n      \u003c/header\u003e\n\n      \u003cdiv className={styles.inputs}\u003e\n        {inputs.map((input) =\u003e (\n          \u003cdiv key={input.label} className={styles.input}\u003e\n            \u003cdiv className={styles.inputHead}\u003e\n              \u003cspan\u003e{input.label}\u003c/span\u003e\n              \u003cspan className={styles.inputTools}\u003e\n                \u003clabel className={styles.link}\u003e\n                  Open file\n                  \u003cinput type=\"file\" accept=\".txt,.md,.csv,.json,.html,.xml,text/*\" onChange={(e) =\u003e loadFile(e, input.set)} /\u003e\n                \u003c/label\u003e\n                \u003cbutton type=\"button\" className={styles.link} onClick={() =\u003e input.set(\"\")}\u003e\n                  Clear\n                \u003c/button\u003e\n              \u003c/span\u003e\n            \u003c/div\u003e\n            \u003ctextarea\n              value={input.value}\n              spellCheck={false}\n              rows={8}\n              placeholder={`Paste the ${input.label.toLowerCase()} text, or drop a file here`}\n              onChange={(e) =\u003e input.set(e.target.value)}\n              onDrop={(e) =\u003e dropFile(e, input.set)}\n              aria-label={`${input.label} text`}\n            /\u003e\n          \u003c/div\u003e\n        ))}\n      \u003c/div\u003e\n\n      \u003cdiv className={styles.toolbar}\u003e\n        \u003cdiv className={styles.segmented} role=\"radiogroup\" aria-label=\"View\"\u003e\n          {([\"split\", \"unified\"] as const).map((v) =\u003e (\n            \u003cbutton\n              key={v}\n              type=\"button\"\n              role=\"radio\"\n              aria-checked={mode === v}\n              disabled={v === \"split\" \u0026\u0026 narrow}\n              title={v === \"split\" \u0026\u0026 narrow ? \"Split view needs a wider screen\" : undefined}\n              onClick={() =\u003e setView(v)}\n            \u003e\n              {v === \"split\" ? \"Split\" : \"Unified\"}\n            \u003c/button\u003e\n          ))}\n        \u003c/div\u003e\n        \u003clabel className={styles.toggle}\u003e\n          \u003cinput type=\"checkbox\" checked={onlyChanges} onChange={(e) =\u003e setOnlyChanges(e.target.checked)} /\u003e\n          Only changes\n        \u003c/label\u003e\n        \u003clabel className={styles.toggle}\u003e\n          \u003cinput type=\"checkbox\" checked={ignoreCase} onChange={(e) =\u003e setIgnoreCase(e.target.checked)} /\u003e\n          Ignore case\n        \u003c/label\u003e\n        \u003clabel className={styles.toggle}\u003e\n          \u003cinput type=\"checkbox\" checked={ignoreWhitespace} onChange={(e) =\u003e setIgnoreWhitespace(e.target.checked)} /\u003e\n          Ignore spaces\n        \u003c/label\u003e\n      \u003c/div\u003e\n\n      {result \u0026\u0026 (\n        \u003cdiv className={styles.summary}\u003e\n          \u003cspan className={styles.stat} data-tone=\"add\"\u003e+{result.stats.added} added\u003c/span\u003e\n          \u003cspan className={styles.stat} data-tone=\"del\"\u003e−{result.stats.removed} removed\u003c/span\u003e\n          \u003cspan className={styles.stat} data-tone=\"mod\"\u003e~{result.stats.modified} changed\u003c/span\u003e\n          \u003cspan className={styles.similarity}\u003e{Math.round(result.stats.similarity * 100)}% of lines unchanged\u003c/span\u003e\n          \u003cspan className={styles.spacer} /\u003e\n          {result.changes \u003e 0 \u0026\u0026 (\n            \u003cspan className={styles.nav}\u003e\n              \u003cbutton type=\"button\" onClick={() =\u003e goTo(current - 1)} aria-label=\"Previous change\"\u003e\n                ‹\n              \u003c/button\u003e\n              \u003cspan aria-live=\"polite\"\u003e\n                Change {current + 1} of {result.changes}\n              \u003c/span\u003e\n              \u003cbutton type=\"button\" onClick={() =\u003e goTo(current + 1)} aria-label=\"Next change\"\u003e\n                ›\n              \u003c/button\u003e\n            \u003c/span\u003e\n          )}\n          \u003cbutton type=\"button\" className={styles.chip} onClick={copyDiff}\u003e\n            {copied ? \"Copied ✓\" : \"Copy diff\"}\n          \u003c/button\u003e\n        \u003c/div\u003e\n      )}\n\n      \u003cdiv ref={panel} className={styles.result} data-view={mode}\u003e\n        {tooLong \u0026\u0026 \u003cp className={styles.notice}\u003eTexts over {MAX_LINES.toLocaleString()} lines aren\u0026apos;t compared here.\u003c/p\u003e}\n        {!tooLong \u0026\u0026 !original \u0026\u0026 !changed \u0026\u0026 \u003cp className={styles.notice}\u003ePaste two versions above to compare them.\u003c/p\u003e}\n        {identical \u0026\u0026 (original || changed) \u0026\u0026 \u003cp className={styles.notice}\u003eNo differences: the texts are identical.\u003c/p\u003e}\n        {!identical \u0026\u0026\n          items.map((item, idx) =\u003e {\n            if (item.type === \"fold\") {\n              return (\n                \u003cbutton\n                  key={`fold-${item.id}`}\n                  type=\"button\"\n                  className={styles.fold}\n                  onClick={() =\u003e setExpanded((s) =\u003e new Set(s).add(item.id))}\n                \u003e\n                  ⋯ Show {item.count} unchanged line{item.count === 1 ? \"\" : \"s\"}\n                \u003c/button\u003e\n              );\n            }\n            const { row } = item;\n            const anchor = firstOfChange(item, idx) ? { \"data-change\": row.change } : {};\n            const active = row.change === current \u0026\u0026 row.kind !== \"equal\";\n\n            if (mode === \"split\") {\n              return (\n                \u003cdiv key={item.index} className={styles.splitRow} data-kind={row.kind} data-active={active} {...anchor}\u003e\n                  \u003cspan className={styles.num}\u003e{row.left?.num ?? \"\"}\u003c/span\u003e\n                  \u003cspan className={styles.cell} data-side=\"left\" data-empty={!row.left}\u003e\n                    {row.left \u0026\u0026 \u003cText side={row.left} /\u003e}\n                  \u003c/span\u003e\n                  \u003cspan className={styles.num}\u003e{row.right?.num ?? \"\"}\u003c/span\u003e\n                  \u003cspan className={styles.cell} data-side=\"right\" data-empty={!row.right}\u003e\n                    {row.right \u0026\u0026 \u003cText side={row.right} /\u003e}\n                  \u003c/span\u003e\n                \u003c/div\u003e\n              );\n            }\n\n            const lines: { sign: string; side: Side; tone: string; a?: number; b?: number }[] = [];\n            if (row.kind === \"equal\") lines.push({ sign: \" \", side: row.left!, tone: \"equal\", a: row.left!.num, b: row.right!.num });\n            else {\n              if (row.left) lines.push({ sign: \"−\", side: row.left, tone: \"del\", a: row.left.num });\n              if (row.right) lines.push({ sign: \"+\", side: row.right, tone: \"add\", b: row.right.num });\n            }\n            return (\n              \u003cdiv key={item.index} className={styles.unifiedGroup} data-active={active} {...anchor}\u003e\n                {lines.map((l, k) =\u003e (\n                  \u003cdiv key={k} className={styles.unifiedRow} data-tone={l.tone}\u003e\n                    \u003cspan className={styles.num}\u003e{l.a ?? \"\"}\u003c/span\u003e\n                    \u003cspan className={styles.num}\u003e{l.b ?? \"\"}\u003c/span\u003e\n                    \u003cspan className={styles.sign}\u003e{l.sign}\u003c/span\u003e\n                    \u003cspan className={styles.cell}\u003e\n                      \u003cText side={l.side} /\u003e\n                    \u003c/span\u003e\n                  \u003c/div\u003e\n                ))}\n              \u003c/div\u003e\n            );\n          })}\n      \u003c/div\u003e\n    \u003c/div\u003e\n  );\n}\n"])</script><script>self.__next_f.push([1,"1a:[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"children\":\"$1f\"}]}]\n20:T1d3b,"])</script><script>self.__next_f.push([1,"export type Op = \"equal\" | \"insert\" | \"delete\";\nexport type Edit = { op: Op; ai: number; bi: number };\n\n/**\n * Myers' O((N+M)·D) shortest-edit-script diff (the algorithm behind `git diff`).\n * Inputs are compared with ===, so callers map lines or words to keys first.\n * Common prefix and suffix are trimmed before the search to keep it fast.\n */\nexport function myers\u003cK\u003e(a: K[], b: K[]): Edit[] {\n  let start = 0;\n  while (start \u003c a.length \u0026\u0026 start \u003c b.length \u0026\u0026 a[start] === b[start]) start++;\n  let endA = a.length;\n  let endB = b.length;\n  while (endA \u003e start \u0026\u0026 endB \u003e start \u0026\u0026 a[endA - 1] === b[endB - 1]) {\n    endA--;\n    endB--;\n  }\n\n  const out: Edit[] = [];\n  for (let i = 0; i \u003c start; i++) out.push({ op: \"equal\", ai: i, bi: i });\n  for (const e of core(a.slice(start, endA), b.slice(start, endB))) {\n    out.push({ op: e.op, ai: e.ai \u003c 0 ? -1 : e.ai + start, bi: e.bi \u003c 0 ? -1 : e.bi + start });\n  }\n  for (let j = 0; endA + j \u003c a.length; j++) out.push({ op: \"equal\", ai: endA + j, bi: endB + j });\n  return out;\n}\n\nfunction core\u003cK\u003e(a: K[], b: K[]): Edit[] {\n  const n = a.length;\n  const m = b.length;\n  const max = n + m;\n  if (max === 0) return [];\n\n  // v[k] = furthest x reached on diagonal k; snapshots (k in -d..d) are kept for backtracking.\n  const off = max + 1;\n  const v = new Int32Array(2 * max + 3);\n  const trace: Int32Array[] = [];\n  let D = 0;\n  search: for (let d = 0; d \u003c= max; d++) {\n    trace.push(v.slice(off - d, off + d + 1));\n    for (let k = -d; k \u003c= d; k += 2) {\n      let x = k === -d || (k !== d \u0026\u0026 v[off + k - 1] \u003c v[off + k + 1]) ? v[off + k + 1] : v[off + k - 1] + 1;\n      let y = x - k;\n      while (x \u003c n \u0026\u0026 y \u003c m \u0026\u0026 a[x] === b[y]) {\n        x++;\n        y++;\n      }\n      v[off + k] = x;\n      if (x \u003e= n \u0026\u0026 y \u003e= m) {\n        D = d;\n        break search;\n      }\n    }\n  }\n\n  const edits: Edit[] = [];\n  let x = n;\n  let y = m;\n  for (let d = D; d \u003e 0; d--) {\n    const snap = trace[d];\n    const at = (k: number) =\u003e snap[k + d];\n    const k = x - y;\n    const prevK = k === -d || (k !== d \u0026\u0026 at(k - 1) \u003c at(k + 1)) ? k + 1 : k - 1;\n    const prevX = at(prevK);\n    const prevY = prevX - prevK;\n    while (x \u003e prevX \u0026\u0026 y \u003e prevY) edits.push({ op: \"equal\", ai: --x, bi: --y });\n    if (x === prevX) edits.push({ op: \"insert\", ai: -1, bi: --y });\n    else edits.push({ op: \"delete\", ai: --x, bi: -1 });\n  }\n  while (x \u003e 0 \u0026\u0026 y \u003e 0) edits.push({ op: \"equal\", ai: --x, bi: --y });\n  return edits.reverse();\n}\n\nexport type Options = { ignoreCase: boolean; ignoreWhitespace: boolean };\nexport type Part = { text: string; changed: boolean };\nexport type Side = { num: number; text: string; parts?: Part[] };\nexport type Row = { kind: \"equal\" | \"delete\" | \"insert\" | \"modify\"; left?: Side; right?: Side; change?: number };\nexport type Result = {\n  rows: Row[];\n  changes: number;\n  stats: { added: number; removed: number; modified: number; similarity: number };\n};\n\n// Words (letters incl. Bangla combining marks, digits), runs of whitespace, or single symbols.\nconst TOKEN = /\\s+|[\\p{L}\\p{M}\\p{N}_]+|[^\\s\\p{L}\\p{M}\\p{N}_]/gu;\n\nfunction normalise(s: string, o: Options) {\n  let t = o.ignoreWhitespace ? s.trim().replace(/\\s+/g, \" \") : s;\n  if (o.ignoreCase) t = t.toLowerCase();\n  return t;\n}\n\nfunction merge(parts: Part[]) {\n  const out: Part[] = [];\n  for (const p of parts) {\n    const last = out[out.length - 1];\n    if (last \u0026\u0026 last.changed === p.changed) last.text += p.text;\n    else out.push({ ...p });\n  }\n  return out;\n}\n\n/** Word-level diff of two lines, plus how similar they are (0–1, by characters kept). */\nfunction wordDiff(a: string, b: string, o: Options) {\n  const ta = a.match(TOKEN) ?? [];\n  const tb = b.match(TOKEN) ?? [];\n  const key = (t: string) =\u003e (o.ignoreWhitespace \u0026\u0026 /^\\s+$/.test(t) ? \" \" : o.ignoreCase ? t.toLowerCase() : t);\n  const left: Part[] = [];\n  const right: Part[] = [];\n  let same = 0;\n  for (const e of myers(ta.map(key), tb.map(key))) {\n    if (e.op === \"equal\") {\n      left.push({ text: ta[e.ai], changed: false });\n      right.push({ text: tb[e.bi], changed: false });\n      if (!/^\\s+$/.test(ta[e.ai])) same += ta[e.ai].length;\n    } else if (e.op === \"delete\") left.push({ text: ta[e.ai], changed: true });\n    else right.push({ text: tb[e.bi], changed: true });\n  }\n  // A lone space between two changes reads better highlighted with them.\n  for (const parts of [left, right]) {\n    for (let i = 1; i \u003c parts.length - 1; i++) {\n      if (!parts[i].changed \u0026\u0026 /^\\s+$/.test(parts[i].text) \u0026\u0026 parts[i - 1].changed \u0026\u0026 parts[i + 1].changed) parts[i].changed = true;\n    }\n  }\n  const chars = a.replace(/\\s/g, \"\").length + b.replace(/\\s/g, \"\").length;\n  return { left: merge(left), right: merge(right), similarity: chars ? (2 * same) / chars : 1 };\n}\n\nexport function compare(original: string, changed: string, o: Options): Result {\n  const A = original.split(/\\r?\\n/);\n  const B = changed.split(/\\r?\\n/);\n  const ids = new Map\u003cstring, number\u003e();\n  const id = (s: string) =\u003e {\n    const k = normalise(s, o);\n    let v = ids.get(k);\n    if (v === undefined) ids.set(k, (v = ids.size));\n    return v;\n  };\n\n  const rows: Row[] = [];\n  let removed: number[] = [];\n  let added: number[] = [];\n  let modified = 0;\n\n  const insertRow = (i: number) =\u003e rows.push({ kind: \"insert\", right: { num: i + 1, text: B[i] } });\n\n  // Within a block of removed + added lines, pair each removed line with the most similar added\n  // line still ahead of it (so \"6. Confidentiality\" pairs with \"7. Confidentiality\", not with a new\n  // clause heading). Paired lines become \"modified\" rows with word-level highlights.\n  const flush = () =\u003e {\n    let next = 0;\n    for (const r of removed) {\n      let best = -1;\n      let bestDiff: ReturnType\u003ctypeof wordDiff\u003e | null = null;\n      for (let k = next; k \u003c Math.min(added.length, next + 20); k++) {\n        const w = wordDiff(A[r], B[added[k]], o);\n        if (w.similarity \u003e= 0.5 \u0026\u0026 (!bestDiff || w.similarity \u003e bestDiff.similarity)) {\n          best = k;\n          bestDiff = w;\n        }\n      }\n      if (best \u003c 0 || !bestDiff) {\n        rows.push({ kind: \"delete\", left: { num: r + 1, text: A[r] } });\n        continue;\n      }\n      for (; next \u003c best; next++) insertRow(added[next]);\n      rows.push({\n        kind: \"modify\",\n        left: { num: r + 1, text: A[r], parts: bestDiff.left },\n        right: { num: added[best] + 1, text: B[added[best]], parts: bestDiff.right },\n      });\n      modified++;\n      next = best + 1;\n    }\n    for (; next \u003c added.length; next++) insertRow(added[next]);\n    removed = [];\n    added = [];\n  };\n\n  for (const e of myers(A.map(id), B.map(id))) {\n    if (e.op === \"equal\") {\n      flush();\n      rows.push({ kind: \"equal\", left: { num: e.ai + 1, text: A[e.ai] }, right: { num: e.bi + 1, text: B[e.bi] } });\n    } else if (e.op === \"delete\") removed.push(e.ai);\n    else added.push(e.bi);\n  }\n  flush();\n\n  // Number each block of consecutive changed rows for navigation.\n  let changes = 0;\n  for (let i = 0; i \u003c rows.length; i++) {\n    if (rows[i].kind === \"equal\") continue;\n    if (i === 0 || rows[i - 1].kind === \"equal\") changes++;\n    rows[i].change = changes - 1;\n  }\n\n  const equal = rows.filter((r) =\u003e r.kind === \"equal\").length;\n  return {\n    rows,\n    changes,\n    stats: {\n      added: rows.filter((r) =\u003e r.kind === \"insert\").length,\n      removed: rows.filter((r) =\u003e r.kind === \"delete\").length,\n      modified,\n      similarity: A.length + B.length ? (2 * equal) / (A.length + B.length) : 1,\n    },\n  };\n}\n"])</script><script>self.__next_f.push([1,"1c:[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"children\":\"$20\"}]}]\n"])</script></body></html>

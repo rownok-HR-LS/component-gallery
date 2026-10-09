@@ -1,0 +1,1302 @@
+1:"$Sreact.fragment"
+2:I[2619,["619","static/chunks/619-ba102abea3e3d0e4.js","449","static/chunks/app/components/%5Bslug%5D/page-7b18c14fa5ee9ace.js"],""]
+3:I[9766,[],""]
+4:I[8924,[],""]
+6:I[4431,[],"OutletBoundary"]
+8:I[5278,[],"AsyncMetadataOutlet"]
+a:I[4431,[],"ViewportBoundary"]
+c:I[4431,[],"MetadataBoundary"]
+d:"$Sreact.suspense"
+f:I[7150,[],""]
+:HL["/component-gallery/_next/static/css/68cce7808a08b910.css","style"]
+0:{"P":null,"b":"6jA2vIGrO3aOlnYlKgPnQ","p":"/component-gallery","c":["","components","photo-resizer",""],"i":false,"f":[[["",{"children":["components",{"children":[["slug","photo-resizer","d"],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/component-gallery/_next/static/css/68cce7808a08b910.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","children":["$","body",null,{"children":[["$","header",null,{"className":"site-header","children":["$","div",null,{"className":"container","children":[["$","$L2",null,{"href":"/","className":"brand","children":"Component Gallery"}],["$","nav",null,{"children":["$","a",null,{"href":"https://github.com/rownok-HR-LS/component-gallery","children":"GitHub"}]}]]}]}],["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","main",null,{"className":"container","children":["$","header",null,{"className":"hero","children":[["$","h1",null,{"children":"Not found"}],["$","p",null,{"className":"lede","children":"That component doesn't exist (yet)."}],["$","$L2",null,{"href":"/","children":"← Back to the gallery"}]]}]}],[]],"forbidden":"$undefined","unauthorized":"$undefined"}],["$","footer",null,{"className":"site-footer","children":["$","div",null,{"className":"container","children":[["$","span",null,{"children":["Built by ","rownok-HR-LS"," · LofiStack 90-day challenge"]}],["$","a",null,{"href":"https://github.com/rownok-HR-LS/component-gallery","children":"Source on GitHub"}]]}]}]]}]}]]}],{"children":["components",["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["slug","photo-resizer","d"],["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L5",null,["$","$L6",null,{"children":["$L7",["$","$L8",null,{"promise":"$@9"}]]}]]}],{},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,[["$","$La",null,{"children":"$Lb"}],null],["$","$Lc",null,{"children":["$","div",null,{"hidden":true,"children":["$","$d",null,{"fallback":null,"children":"$Le"}]}]}]]}],false]],"m":"$undefined","G":["$f",[]],"s":false,"S":true}
+b:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+7:null
+9:{"metadata":[["$","title","0",{"children":"Photo Resizer for Official Forms · Component Gallery"}],["$","meta","1",{"name":"description","content":"Crop, resize and compress a photo to the exact pixel size and KB limit a job, passport or visa form asks for, without it ever leaving your device."}]],"error":null,"digest":"$undefined"}
+e:"$9:metadata"
+10:I[2325,["619","static/chunks/619-ba102abea3e3d0e4.js","449","static/chunks/app/components/%5Bslug%5D/page-7b18c14fa5ee9ace.js"],"Demo"]
+11:I[7333,["619","static/chunks/619-ba102abea3e3d0e4.js","449","static/chunks/app/components/%5Bslug%5D/page-7b18c14fa5ee9ace.js"],"CopyButton"]
+12:T1ca3,.card {
+  --surface: #fcfcfb;
+  --ink: #0b0b0b;
+  --ink-2: #52514e;
+  --muted: #898781;
+  --border: rgba(11, 11, 11, 0.1);
+  --field: #f4f3f0;
+  --accent: #2a78d6;
+  --good: #0ca30c;
+  --serious: #ec835a;
+  --checker: #e8e7e2;
+
+  width: 100%;
+  max-width: 580px;
+  padding: 22px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: var(--surface);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 12px 32px -12px rgba(0, 0, 0, 0.18);
+  color: var(--ink);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  container-type: inline-size;
+}
+
+@media (prefers-color-scheme: dark) {
+  .card {
+    --surface: #1a1a19;
+    --ink: #ffffff;
+    --ink-2: #c3c2b7;
+    --border: rgba(255, 255, 255, 0.1);
+    --field: #232321;
+    --accent: #3987e5;
+    --checker: #2c2c2a;
+    box-shadow: 0 12px 32px -12px rgba(0, 0, 0, 0.6);
+  }
+}
+
+.head { margin-bottom: 14px; }
+.title { margin: 0; font-size: 17px; font-weight: 650; }
+.subtitle { margin: 2px 0 0; color: var(--ink-2); font-size: 13px; }
+
+/* Presets */
+.presets { display: grid; grid-template-columns: repeat(auto-fill, minmax(122px, 1fr)); gap: 6px; }
+.preset {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1px;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: none;
+  color: var(--ink);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.preset:hover { background: var(--field); }
+.preset[aria-checked="true"] {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+  box-shadow: inset 0 0 0 1px var(--accent);
+}
+.preset:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.presetName { font-size: 13px; font-weight: 600; }
+.presetDetail { color: var(--ink-2); font-size: 11px; font-variant-numeric: tabular-nums; }
+
+.custom { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 10px; }
+.customField { display: flex; flex-direction: column; gap: 4px; color: var(--ink-2); font-size: 11.5px; }
+.customField input {
+  height: 34px;
+  min-width: 0;
+  padding: 0 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  outline: none;
+  background: var(--field);
+  color: var(--ink);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+}
+.customField input:focus { border-color: var(--accent); }
+
+.disclaimer { margin: 8px 0 14px; color: var(--muted); font-size: 11.5px; }
+
+/* Empty state */
+.dropzone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 32px 16px;
+  border: 1.5px dashed color-mix(in srgb, var(--ink) 22%, transparent);
+  border-radius: 14px;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.dropzone:hover,
+.dropzone[data-over="true"] { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 6%, transparent); }
+.dropzone:focus-within { outline: 2px solid var(--accent); outline-offset: 2px; }
+.fileInput { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+.dropIcon { fill: none; stroke: var(--accent); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.dropTitle { font-size: 14px; font-weight: 600; }
+.dropNote { color: var(--muted); font-size: 12px; }
+.sampleLink {
+  margin-top: 6px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--accent);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+/* Editor + result */
+.body { display: grid; grid-template-columns: auto 1fr; align-items: start; gap: 22px; }
+@container (max-width: 500px) {
+  .body { grid-template-columns: 1fr; justify-items: center; }
+  .output { width: 100%; }
+}
+
+.editor { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: 6px;
+  background: repeating-conic-gradient(var(--checker) 0 25%, transparent 0 50%) 0 0 / 16px 16px;
+  box-shadow: 0 0 0 1px var(--border), 0 6px 20px -8px rgba(0, 0, 0, 0.3);
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+}
+.frame:active { cursor: grabbing; }
+.frame:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.photo { position: absolute; top: 50%; left: 50%; max-width: none; pointer-events: none; }
+.thirds {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to right, transparent calc(33.33% - 0.5px), rgba(255, 255, 255, 0.45) 0 calc(33.33% + 0.5px), transparent 0 calc(66.66% - 0.5px), rgba(255, 255, 255, 0.45) 0 calc(66.66% + 0.5px), transparent 0),
+    linear-gradient(to bottom, transparent calc(33.33% - 0.5px), rgba(255, 255, 255, 0.45) 0 calc(33.33% + 0.5px), transparent 0 calc(66.66% - 0.5px), rgba(255, 255, 255, 0.45) 0 calc(66.66% + 0.5px), transparent 0);
+  pointer-events: none;
+}
+.faceGuide {
+  position: absolute;
+  top: 14%;
+  left: 50%;
+  width: 46%;
+  height: 58%;
+  border: 1.5px dashed rgba(255, 255, 255, 0.85);
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15);
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.zoom { display: flex; align-items: center; gap: 10px; width: 100%; max-width: 260px; color: var(--ink-2); font-size: 12px; }
+.zoom input { flex: 1; accent-color: var(--accent); }
+.hint { margin: 0; color: var(--muted); font-size: 11.5px; }
+
+.output { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.outputLabel { color: var(--ink-2); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+.preview {
+  width: 100%;
+  max-width: 140px;
+  max-height: 160px;
+  overflow: hidden;
+  border-radius: 4px;
+  background: var(--field);
+  box-shadow: 0 0 0 1px var(--border);
+}
+.preview img { display: block; width: 100%; height: 100%; object-fit: contain; }
+
+.facts { display: flex; flex-direction: column; gap: 4px; margin: 0; font-size: 13px; }
+.facts div { display: flex; justify-content: space-between; gap: 12px; }
+.facts dt { color: var(--ink-2); }
+.facts dd { margin: 0; font-weight: 600; font-variant-numeric: tabular-nums; text-align: right; }
+.limit { color: var(--muted); font-weight: 400; }
+
+.status { display: flex; align-items: center; gap: 8px; margin: 0; font-size: 13px; font-weight: 600; }
+.status span {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--good);
+  color: #fff;
+  font-size: 11px;
+}
+.status[data-ok="false"] span { background: var(--serious); color: #0b0b0b; }
+
+.download {
+  display: grid;
+  place-items: center;
+  height: 40px;
+  border-radius: 10px;
+  background: var(--ink);
+  color: var(--surface);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: opacity 0.15s ease, transform 0.1s ease;
+}
+.download:hover { opacity: 0.88; }
+.download:active { transform: scale(0.98); }
+.download[aria-disabled="true"] { opacity: 0.4; pointer-events: none; }
+.download:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.replace {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--ink-2);
+  font: inherit;
+  font-size: 12.5px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+5:["$","main",null,{"className":"container","children":[["$","$L2",null,{"href":"/","className":"back","children":"← All components"}],["$","header",null,{"className":"detail-head","children":[["$","span",null,{"className":"tag","children":["Week ",3," · ","2026-10-07"]}],["$","h1",null,{"children":"Photo Resizer for Official Forms"}],["$","p",null,{"children":"Crop, resize and compress a photo to the exact pixel size and KB limit a job, passport or visa form asks for, without it ever leaving your device."}]]}],["$","section",null,{"className":"stage","aria-label":"Live demo","children":["$","$L10",null,{"slug":"photo-resizer"}]}],["$","section",null,{"className":"source","children":[["$","h2",null,{"children":"Source"}],[["$","div","Demo.tsx",{"className":"file","children":[["$","div",null,{"className":"file-head","children":[["$","span",null,{"children":"Demo.tsx"}],["$","$L11",null,{"text":"import PhotoResizer from \"./PhotoResizer\";\n\nexport default function Demo() {\n  return <PhotoResizer />;\n}\n"}]]}],["$","pre",null,{"children":["$","code",null,{"children":"import PhotoResizer from \"./PhotoResizer\";\n\nexport default function Demo() {\n  return <PhotoResizer />;\n}\n"}]}]]}],["$","div","PhotoResizer.module.css",{"className":"file","children":[["$","div",null,{"className":"file-head","children":[["$","span",null,{"children":"PhotoResizer.module.css"}],["$","$L11",null,{"text":"$12"}]]}],"$L13"]}],"$L14","$L15"]]}],"$L16"]}]
+17:T1ca3,.card {
+  --surface: #fcfcfb;
+  --ink: #0b0b0b;
+  --ink-2: #52514e;
+  --muted: #898781;
+  --border: rgba(11, 11, 11, 0.1);
+  --field: #f4f3f0;
+  --accent: #2a78d6;
+  --good: #0ca30c;
+  --serious: #ec835a;
+  --checker: #e8e7e2;
+
+  width: 100%;
+  max-width: 580px;
+  padding: 22px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: var(--surface);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 12px 32px -12px rgba(0, 0, 0, 0.18);
+  color: var(--ink);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  container-type: inline-size;
+}
+
+@media (prefers-color-scheme: dark) {
+  .card {
+    --surface: #1a1a19;
+    --ink: #ffffff;
+    --ink-2: #c3c2b7;
+    --border: rgba(255, 255, 255, 0.1);
+    --field: #232321;
+    --accent: #3987e5;
+    --checker: #2c2c2a;
+    box-shadow: 0 12px 32px -12px rgba(0, 0, 0, 0.6);
+  }
+}
+
+.head { margin-bottom: 14px; }
+.title { margin: 0; font-size: 17px; font-weight: 650; }
+.subtitle { margin: 2px 0 0; color: var(--ink-2); font-size: 13px; }
+
+/* Presets */
+.presets { display: grid; grid-template-columns: repeat(auto-fill, minmax(122px, 1fr)); gap: 6px; }
+.preset {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1px;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: none;
+  color: var(--ink);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.preset:hover { background: var(--field); }
+.preset[aria-checked="true"] {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+  box-shadow: inset 0 0 0 1px var(--accent);
+}
+.preset:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.presetName { font-size: 13px; font-weight: 600; }
+.presetDetail { color: var(--ink-2); font-size: 11px; font-variant-numeric: tabular-nums; }
+
+.custom { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 10px; }
+.customField { display: flex; flex-direction: column; gap: 4px; color: var(--ink-2); font-size: 11.5px; }
+.customField input {
+  height: 34px;
+  min-width: 0;
+  padding: 0 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  outline: none;
+  background: var(--field);
+  color: var(--ink);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+}
+.customField input:focus { border-color: var(--accent); }
+
+.disclaimer { margin: 8px 0 14px; color: var(--muted); font-size: 11.5px; }
+
+/* Empty state */
+.dropzone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 32px 16px;
+  border: 1.5px dashed color-mix(in srgb, var(--ink) 22%, transparent);
+  border-radius: 14px;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.dropzone:hover,
+.dropzone[data-over="true"] { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 6%, transparent); }
+.dropzone:focus-within { outline: 2px solid var(--accent); outline-offset: 2px; }
+.fileInput { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+.dropIcon { fill: none; stroke: var(--accent); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.dropTitle { font-size: 14px; font-weight: 600; }
+.dropNote { color: var(--muted); font-size: 12px; }
+.sampleLink {
+  margin-top: 6px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--accent);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+/* Editor + result */
+.body { display: grid; grid-template-columns: auto 1fr; align-items: start; gap: 22px; }
+@container (max-width: 500px) {
+  .body { grid-template-columns: 1fr; justify-items: center; }
+  .output { width: 100%; }
+}
+
+.editor { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: 6px;
+  background: repeating-conic-gradient(var(--checker) 0 25%, transparent 0 50%) 0 0 / 16px 16px;
+  box-shadow: 0 0 0 1px var(--border), 0 6px 20px -8px rgba(0, 0, 0, 0.3);
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+}
+.frame:active { cursor: grabbing; }
+.frame:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.photo { position: absolute; top: 50%; left: 50%; max-width: none; pointer-events: none; }
+.thirds {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to right, transparent calc(33.33% - 0.5px), rgba(255, 255, 255, 0.45) 0 calc(33.33% + 0.5px), transparent 0 calc(66.66% - 0.5px), rgba(255, 255, 255, 0.45) 0 calc(66.66% + 0.5px), transparent 0),
+    linear-gradient(to bottom, transparent calc(33.33% - 0.5px), rgba(255, 255, 255, 0.45) 0 calc(33.33% + 0.5px), transparent 0 calc(66.66% - 0.5px), rgba(255, 255, 255, 0.45) 0 calc(66.66% + 0.5px), transparent 0);
+  pointer-events: none;
+}
+.faceGuide {
+  position: absolute;
+  top: 14%;
+  left: 50%;
+  width: 46%;
+  height: 58%;
+  border: 1.5px dashed rgba(255, 255, 255, 0.85);
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15);
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.zoom { display: flex; align-items: center; gap: 10px; width: 100%; max-width: 260px; color: var(--ink-2); font-size: 12px; }
+.zoom input { flex: 1; accent-color: var(--accent); }
+.hint { margin: 0; color: var(--muted); font-size: 11.5px; }
+
+.output { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.outputLabel { color: var(--ink-2); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+.preview {
+  width: 100%;
+  max-width: 140px;
+  max-height: 160px;
+  overflow: hidden;
+  border-radius: 4px;
+  background: var(--field);
+  box-shadow: 0 0 0 1px var(--border);
+}
+.preview img { display: block; width: 100%; height: 100%; object-fit: contain; }
+
+.facts { display: flex; flex-direction: column; gap: 4px; margin: 0; font-size: 13px; }
+.facts div { display: flex; justify-content: space-between; gap: 12px; }
+.facts dt { color: var(--ink-2); }
+.facts dd { margin: 0; font-weight: 600; font-variant-numeric: tabular-nums; text-align: right; }
+.limit { color: var(--muted); font-weight: 400; }
+
+.status { display: flex; align-items: center; gap: 8px; margin: 0; font-size: 13px; font-weight: 600; }
+.status span {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--good);
+  color: #fff;
+  font-size: 11px;
+}
+.status[data-ok="false"] span { background: var(--serious); color: #0b0b0b; }
+
+.download {
+  display: grid;
+  place-items: center;
+  height: 40px;
+  border-radius: 10px;
+  background: var(--ink);
+  color: var(--surface);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: opacity 0.15s ease, transform 0.1s ease;
+}
+.download:hover { opacity: 0.88; }
+.download:active { transform: scale(0.98); }
+.download[aria-disabled="true"] { opacity: 0.4; pointer-events: none; }
+.download:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.replace {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--ink-2);
+  font: inherit;
+  font-size: 12.5px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+13:["$","pre",null,{"children":["$","code",null,{"children":"$17"}]}]
+18:T300d,"use client";
+
+import { useEffect, useRef, useState, type DragEvent, type KeyboardEvent, type PointerEvent } from "react";
+import { compressToLimit, drawSamplePortrait } from "./image";
+import styles from "./PhotoResizer.module.css";
+
+type Size = { w: number; h: number; kb: number | null; guide: boolean };
+type Preset = Size & { key: string; label: string };
+type Photo = { img: HTMLImageElement; url: string };
+type Result = { url: string; bytes: number; quality: number; fits: boolean };
+
+const PRESETS: Preset[] = [
+  { key: "job", label: "Job / admission", w: 300, h: 300, kb: 100, guide: true },
+  { key: "signature", label: "Signature", w: 300, h: 80, kb: 60, guide: false },
+  { key: "passport", label: "Passport size", w: 413, h: 531, kb: null, guide: true },
+  { key: "visa", label: "US visa", w: 600, h: 600, kb: 240, guide: true },
+];
+
+// Largest the crop frame is drawn on screen.
+const FRAME = { w: 260, h: 280 };
+const MAX_ZOOM = 4;
+
+const clamp = (v: number, lo: number, hi: number) => Math.max(lo, Math.min(hi, v));
+const kb = (bytes: number) => `${Math.round(bytes / 1024)} KB`;
+
+export default function PhotoResizer() {
+  const [presetKey, setPresetKey] = useState("job");
+  const [custom, setCustom] = useState({ w: "400", h: "400", kb: "150" });
+  const [photo, setPhoto] = useState<Photo | null>(null);
+  const [zoom, setZoom] = useState(1);
+  const [offset, setOffset] = useState({ x: 0, y: 0 });
+  const [result, setResult] = useState<Result | null>(null);
+  const [dragOver, setDragOver] = useState(false);
+  const frameRef = useRef<HTMLDivElement>(null);
+  const drag = useRef<{ px: number; py: number; ox: number; oy: number } | null>(null);
+
+  const preset = PRESETS.find((p) => p.key === presetKey);
+  const size: Size = preset ?? {
+    w: clamp(Math.round(Number(custom.w) || 0), 50, 3000),
+    h: clamp(Math.round(Number(custom.h) || 0), 50, 3000),
+    kb: Number(custom.kb) > 0 ? Number(custom.kb) : null,
+    guide: false,
+  };
+
+  // On-screen crop frame with the target aspect ratio.
+  const frameScale = Math.min(FRAME.w / size.w, FRAME.h / size.h);
+  const frameW = size.w * frameScale;
+  const frameH = size.h * frameScale;
+
+  const nw = photo?.img.naturalWidth ?? 1;
+  const nh = photo?.img.naturalHeight ?? 1;
+  const scale = Math.max(frameW / nw, frameH / nh) * zoom; // screen px per image px
+  const dispW = nw * scale;
+  const dispH = nh * scale;
+  // Keep the photo covering the frame however it is dragged or zoomed.
+  const pos = {
+    x: clamp(offset.x, -(dispW - frameW) / 2, (dispW - frameW) / 2),
+    y: clamp(offset.y, -(dispH - frameH) / 2, (dispH - frameH) / 2),
+  };
+
+  function load(file: Blob) {
+    const url = URL.createObjectURL(file);
+    const img = new Image();
+    img.onload = () => {
+      setPhoto((prev) => {
+        if (prev) URL.revokeObjectURL(prev.url);
+        return { img, url };
+      });
+      setZoom(1);
+      setOffset({ x: 0, y: 0 });
+    };
+    img.src = url;
+  }
+
+  function choosePreset(key: string) {
+    setPresetKey(key);
+    setZoom(1);
+    setOffset({ x: 0, y: 0 });
+  }
+
+  // Re-render the output whenever the crop or target changes.
+  useEffect(() => {
+    if (!photo) return;
+    let cancelled = false;
+    const timer = setTimeout(async () => {
+      const canvas = document.createElement("canvas");
+      canvas.width = size.w;
+      canvas.height = size.h;
+      const ctx = canvas.getContext("2d")!;
+      ctx.fillStyle = "#ffffff";
+      ctx.fillRect(0, 0, size.w, size.h);
+      ctx.imageSmoothingQuality = "high";
+      const srcW = frameW / scale;
+      const srcH = frameH / scale;
+      const cx = nw / 2 - pos.x / scale;
+      const cy = nh / 2 - pos.y / scale;
+      ctx.drawImage(photo.img, cx - srcW / 2, cy - srcH / 2, srcW, srcH, 0, 0, size.w, size.h);
+
+      const { blob, quality } = await compressToLimit(canvas, size.kb);
+      if (cancelled) return;
+      setResult((prev) => {
+        if (prev) URL.revokeObjectURL(prev.url);
+        return { url: URL.createObjectURL(blob), bytes: blob.size, quality, fits: size.kb === null || blob.size <= size.kb * 1024 };
+      });
+    }, 150);
+    return () => {
+      cancelled = true;
+      clearTimeout(timer);
+    };
+  }, [photo, size.w, size.h, size.kb, frameW, frameH, scale, nw, nh, pos.x, pos.y]);
+
+  // Wheel zoom needs a non-passive listener so the page doesn't scroll.
+  useEffect(() => {
+    const el = frameRef.current;
+    if (!el) return;
+    const onWheel = (e: WheelEvent) => {
+      e.preventDefault();
+      setZoom((z) => clamp(z * (e.deltaY < 0 ? 1.1 : 1 / 1.1), 1, MAX_ZOOM));
+    };
+    el.addEventListener("wheel", onWheel, { passive: false });
+    return () => el.removeEventListener("wheel", onWheel);
+  }, [photo]);
+
+  function onPointerDown(e: PointerEvent<HTMLDivElement>) {
+    e.currentTarget.setPointerCapture(e.pointerId);
+    drag.current = { px: e.clientX, py: e.clientY, ox: pos.x, oy: pos.y };
+  }
+  function onPointerMove(e: PointerEvent<HTMLDivElement>) {
+    const d = drag.current;
+    if (d) setOffset({ x: d.ox + e.clientX - d.px, y: d.oy + e.clientY - d.py });
+  }
+  function onKeyDown(e: KeyboardEvent) {
+    const step = e.shiftKey ? 30 : 8;
+    const moves: Record<string, [number, number]> = { ArrowLeft: [step, 0], ArrowRight: [-step, 0], ArrowUp: [0, step], ArrowDown: [0, -step] };
+    if (moves[e.key]) setOffset({ x: pos.x + moves[e.key][0], y: pos.y + moves[e.key][1] });
+    else if (e.key === "+" || e.key === "=") setZoom((z) => clamp(z * 1.1, 1, MAX_ZOOM));
+    else if (e.key === "-") setZoom((z) => clamp(z / 1.1, 1, MAX_ZOOM));
+    else return;
+    e.preventDefault();
+  }
+
+  function onDrop(e: DragEvent) {
+    e.preventDefault();
+    setDragOver(false);
+    const file = e.dataTransfer.files[0];
+    if (file?.type.startsWith("image/")) load(file);
+  }
+
+  async function loadSample() {
+    load(await drawSamplePortrait());
+  }
+
+  return (
+    <div className={styles.card}>
+      <header className={styles.head}>
+        <h3 className={styles.title}>Photo resizer for forms</h3>
+        <p className={styles.subtitle}>Crop, resize and compress to the exact size a form asks for.</p>
+      </header>
+
+      <div className={styles.presets} role="radiogroup" aria-label="Required size">
+        {[...PRESETS, null].map((p) => {
+          const key = p?.key ?? "custom";
+          return (
+            <button
+              key={key}
+              type="button"
+              role="radio"
+              aria-checked={presetKey === key}
+              className={styles.preset}
+              onClick={() => choosePreset(key)}
+            >
+              <span className={styles.presetName}>{p ? p.label : "Custom"}</span>
+              <span className={styles.presetDetail}>
+                {p ? `${p.w}×${p.h}${p.kb ? ` · ≤${p.kb} KB` : ""}` : "Your size"}
+              </span>
+            </button>
+          );
+        })}
+      </div>
+
+      {!preset && (
+        <div className={styles.custom}>
+          {(["w", "h", "kb"] as const).map((k) => (
+            <label key={k} className={styles.customField}>
+              <span>{k === "w" ? "Width (px)" : k === "h" ? "Height (px)" : "Max KB"}</span>
+              <input
+                inputMode="numeric"
+                value={custom[k]}
+                placeholder={k === "kb" ? "No limit" : ""}
+                onChange={(e) => /^\d*$/.test(e.target.value) && setCustom((c) => ({ ...c, [k]: e.target.value }))}
+              />
+            </label>
+          ))}
+        </div>
+      )}
+      <p className={styles.disclaimer}>Common sizes. Always check your form&apos;s own instructions.</p>
+
+      {!photo ? (
+        <label
+          className={styles.dropzone}
+          data-over={dragOver}
+          onDragOver={(e) => {
+            e.preventDefault();
+            setDragOver(true);
+          }}
+          onDragLeave={() => setDragOver(false)}
+          onDrop={onDrop}
+        >
+          <input
+            type="file"
+            accept="image/*"
+            className={styles.fileInput}
+            onChange={(e) => e.target.files?.[0] && load(e.target.files[0])}
+          />
+          <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true" className={styles.dropIcon}>
+            <path d="M12 16V4m0 0-4 4m4-4 4 4M4 16v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" />
+          </svg>
+          <span className={styles.dropTitle}>Drop a photo here, or click to choose</span>
+          <span className={styles.dropNote}>JPG or PNG. It never leaves this device.</span>
+          <button
+            type="button"
+            className={styles.sampleLink}
+            onClick={(e) => {
+              e.preventDefault();
+              loadSample();
+            }}
+          >
+            Try a sample photo
+          </button>
+        </label>
+      ) : (
+        <div className={styles.body}>
+          <div className={styles.editor}>
+            <div
+              ref={frameRef}
+              className={styles.frame}
+              style={{ width: frameW, height: frameH }}
+              tabIndex={0}
+              role="application"
+              aria-label="Crop area. Drag or use arrow keys to move, plus and minus to zoom."
+              onPointerDown={onPointerDown}
+              onPointerMove={onPointerMove}
+              onPointerUp={() => (drag.current = null)}
+              onPointerCancel={() => (drag.current = null)}
+              onKeyDown={onKeyDown}
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={photo.url}
+                alt=""
+                draggable={false}
+                className={styles.photo}
+                style={{ width: dispW, height: dispH, transform: `translate(-50%, -50%) translate(${pos.x}px, ${pos.y}px)` }}
+              />
+              <div className={styles.thirds} aria-hidden="true" />
+              {size.guide && <div className={styles.faceGuide} aria-hidden="true" />}
+            </div>
+            <label className={styles.zoom}>
+              <span>Zoom</span>
+              <input
+                type="range"
+                min={1}
+                max={MAX_ZOOM}
+                step={0.01}
+                value={zoom}
+                onChange={(e) => setZoom(Number(e.target.value))}
+              />
+            </label>
+            <p className={styles.hint}>Drag to move · scroll to zoom</p>
+          </div>
+
+          <div className={styles.output}>
+            <span className={styles.outputLabel}>Result</span>
+            <div className={styles.preview} style={{ aspectRatio: `${size.w} / ${size.h}` }}>
+              {result && (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img src={result.url} alt={`Resized photo, ${size.w} by ${size.h} pixels`} />
+              )}
+            </div>
+            <dl className={styles.facts}>
+              <div>
+                <dt>Size</dt>
+                <dd>
+                  {size.w} × {size.h} px
+                </dd>
+              </div>
+              <div>
+                <dt>File</dt>
+                <dd>
+                  {result ? kb(result.bytes) : "…"}
+                  {size.kb && <span className={styles.limit}> of {size.kb} KB max</span>}
+                </dd>
+              </div>
+              <div>
+                <dt>Quality</dt>
+                <dd>{result ? `${Math.round(result.quality * 100)}%` : "…"}</dd>
+              </div>
+            </dl>
+            {result && (
+              <p className={styles.status} data-ok={result.fits}>
+                <span aria-hidden="true">{result.fits ? "✓" : "!"}</span>
+                {result.fits ? "Ready for upload" : `Still over ${size.kb} KB. Try a smaller size or a plainer background.`}
+              </p>
+            )}
+            <a
+              className={styles.download}
+              href={result?.url}
+              download={`photo-${size.w}x${size.h}.jpg`}
+              aria-disabled={!result}
+            >
+              Download JPG
+            </a>
+            <button
+              type="button"
+              className={styles.replace}
+              onClick={() => {
+                setPhoto(null);
+                setResult(null);
+              }}
+            >
+              Use a different photo
+            </button>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+14:["$","div","PhotoResizer.tsx",{"className":"file","children":[["$","div",null,{"className":"file-head","children":[["$","span",null,{"children":"PhotoResizer.tsx"}],["$","$L11",null,{"text":"$18"}]]}],"$L19"]}]
+1a:T9ab,function toJpeg(canvas: HTMLCanvasElement, quality: number) {
+  return new Promise<Blob>((resolve, reject) =>
+    canvas.toBlob((blob) => (blob ? resolve(blob) : reject(new Error("Could not encode image"))), "image/jpeg", quality),
+  );
+}
+
+/** Highest JPEG quality that fits under `maxKB` (binary search), or 0.92 when there is no limit. */
+export async function compressToLimit(canvas: HTMLCanvasElement, maxKB: number | null) {
+  const best = await toJpeg(canvas, 0.92);
+  if (maxKB === null || best.size <= maxKB * 1024) return { blob: best, quality: 0.92 };
+
+  let lo = 0.05;
+  let hi = 0.92;
+  let found: { blob: Blob; quality: number } | null = null;
+  for (let i = 0; i < 7; i++) {
+    const quality = (lo + hi) / 2;
+    const blob = await toJpeg(canvas, quality);
+    if (blob.size <= maxKB * 1024) {
+      found = { blob, quality };
+      lo = quality;
+    } else {
+      hi = quality;
+    }
+  }
+  return found ?? { blob: await toJpeg(canvas, 0.05), quality: 0.05 };
+}
+
+/** A simple illustrated portrait so the demo works without uploading anything. */
+export function drawSamplePortrait() {
+  const canvas = document.createElement("canvas");
+  canvas.width = 900;
+  canvas.height = 1100;
+  const ctx = canvas.getContext("2d")!;
+
+  const bg = ctx.createLinearGradient(0, 0, 900, 1100);
+  bg.addColorStop(0, "#9ec5f4");
+  bg.addColorStop(1, "#cde2fb");
+  ctx.fillStyle = bg;
+  ctx.fillRect(0, 0, 900, 1100);
+
+  // Shoulders and collar
+  ctx.fillStyle = "#1c3557";
+  ctx.beginPath();
+  ctx.ellipse(450, 1100, 380, 300, 0, Math.PI, 0);
+  ctx.fill();
+  ctx.fillStyle = "#ffffff";
+  ctx.beginPath();
+  ctx.moveTo(380, 820);
+  ctx.lineTo(450, 930);
+  ctx.lineTo(520, 820);
+  ctx.closePath();
+  ctx.fill();
+
+  // Neck and face
+  ctx.fillStyle = "#c98d63";
+  ctx.fillRect(400, 640, 100, 200);
+  ctx.fillStyle = "#d9a07a";
+  ctx.beginPath();
+  ctx.ellipse(450, 520, 170, 210, 0, 0, Math.PI * 2);
+  ctx.fill();
+
+  // Hair
+  ctx.fillStyle = "#231a14";
+  ctx.beginPath();
+  ctx.ellipse(450, 400, 185, 130, 0, Math.PI, 0);
+  ctx.fill();
+
+  // Eyes and smile
+  ctx.fillStyle = "#231a14";
+  for (const x of [385, 515]) {
+    ctx.beginPath();
+    ctx.ellipse(x, 520, 14, 18, 0, 0, Math.PI * 2);
+    ctx.fill();
+  }
+  ctx.strokeStyle = "#8a4b33";
+  ctx.lineWidth = 10;
+  ctx.lineCap = "round";
+  ctx.beginPath();
+  ctx.arc(450, 600, 60, 0.2 * Math.PI, 0.8 * Math.PI);
+  ctx.stroke();
+
+  return new Promise<Blob>((resolve) => canvas.toBlob((b) => resolve(b!), "image/jpeg", 0.95));
+}
+1b:T9ab,function toJpeg(canvas: HTMLCanvasElement, quality: number) {
+  return new Promise<Blob>((resolve, reject) =>
+    canvas.toBlob((blob) => (blob ? resolve(blob) : reject(new Error("Could not encode image"))), "image/jpeg", quality),
+  );
+}
+
+/** Highest JPEG quality that fits under `maxKB` (binary search), or 0.92 when there is no limit. */
+export async function compressToLimit(canvas: HTMLCanvasElement, maxKB: number | null) {
+  const best = await toJpeg(canvas, 0.92);
+  if (maxKB === null || best.size <= maxKB * 1024) return { blob: best, quality: 0.92 };
+
+  let lo = 0.05;
+  let hi = 0.92;
+  let found: { blob: Blob; quality: number } | null = null;
+  for (let i = 0; i < 7; i++) {
+    const quality = (lo + hi) / 2;
+    const blob = await toJpeg(canvas, quality);
+    if (blob.size <= maxKB * 1024) {
+      found = { blob, quality };
+      lo = quality;
+    } else {
+      hi = quality;
+    }
+  }
+  return found ?? { blob: await toJpeg(canvas, 0.05), quality: 0.05 };
+}
+
+/** A simple illustrated portrait so the demo works without uploading anything. */
+export function drawSamplePortrait() {
+  const canvas = document.createElement("canvas");
+  canvas.width = 900;
+  canvas.height = 1100;
+  const ctx = canvas.getContext("2d")!;
+
+  const bg = ctx.createLinearGradient(0, 0, 900, 1100);
+  bg.addColorStop(0, "#9ec5f4");
+  bg.addColorStop(1, "#cde2fb");
+  ctx.fillStyle = bg;
+  ctx.fillRect(0, 0, 900, 1100);
+
+  // Shoulders and collar
+  ctx.fillStyle = "#1c3557";
+  ctx.beginPath();
+  ctx.ellipse(450, 1100, 380, 300, 0, Math.PI, 0);
+  ctx.fill();
+  ctx.fillStyle = "#ffffff";
+  ctx.beginPath();
+  ctx.moveTo(380, 820);
+  ctx.lineTo(450, 930);
+  ctx.lineTo(520, 820);
+  ctx.closePath();
+  ctx.fill();
+
+  // Neck and face
+  ctx.fillStyle = "#c98d63";
+  ctx.fillRect(400, 640, 100, 200);
+  ctx.fillStyle = "#d9a07a";
+  ctx.beginPath();
+  ctx.ellipse(450, 520, 170, 210, 0, 0, Math.PI * 2);
+  ctx.fill();
+
+  // Hair
+  ctx.fillStyle = "#231a14";
+  ctx.beginPath();
+  ctx.ellipse(450, 400, 185, 130, 0, Math.PI, 0);
+  ctx.fill();
+
+  // Eyes and smile
+  ctx.fillStyle = "#231a14";
+  for (const x of [385, 515]) {
+    ctx.beginPath();
+    ctx.ellipse(x, 520, 14, 18, 0, 0, Math.PI * 2);
+    ctx.fill();
+  }
+  ctx.strokeStyle = "#8a4b33";
+  ctx.lineWidth = 10;
+  ctx.lineCap = "round";
+  ctx.beginPath();
+  ctx.arc(450, 600, 60, 0.2 * Math.PI, 0.8 * Math.PI);
+  ctx.stroke();
+
+  return new Promise<Blob>((resolve) => canvas.toBlob((b) => resolve(b!), "image/jpeg", 0.95));
+}
+15:["$","div","image.ts",{"className":"file","children":[["$","div",null,{"className":"file-head","children":[["$","span",null,{"children":"image.ts"}],["$","$L11",null,{"text":"$1a"}]]}],["$","pre",null,{"children":["$","code",null,{"children":"$1b"}]}]]}]
+16:["$","nav",null,{"className":"pager","children":[["$","$L2",null,{"href":"/components/customer-lifetime-value","children":["← ","Customer Lifetime Value Calculator"]}],["$","$L2",null,{"href":"/components/morphing-submit-button","children":["Morphing Submit Button"," →"]}]]}]
+1c:T300d,"use client";
+
+import { useEffect, useRef, useState, type DragEvent, type KeyboardEvent, type PointerEvent } from "react";
+import { compressToLimit, drawSamplePortrait } from "./image";
+import styles from "./PhotoResizer.module.css";
+
+type Size = { w: number; h: number; kb: number | null; guide: boolean };
+type Preset = Size & { key: string; label: string };
+type Photo = { img: HTMLImageElement; url: string };
+type Result = { url: string; bytes: number; quality: number; fits: boolean };
+
+const PRESETS: Preset[] = [
+  { key: "job", label: "Job / admission", w: 300, h: 300, kb: 100, guide: true },
+  { key: "signature", label: "Signature", w: 300, h: 80, kb: 60, guide: false },
+  { key: "passport", label: "Passport size", w: 413, h: 531, kb: null, guide: true },
+  { key: "visa", label: "US visa", w: 600, h: 600, kb: 240, guide: true },
+];
+
+// Largest the crop frame is drawn on screen.
+const FRAME = { w: 260, h: 280 };
+const MAX_ZOOM = 4;
+
+const clamp = (v: number, lo: number, hi: number) => Math.max(lo, Math.min(hi, v));
+const kb = (bytes: number) => `${Math.round(bytes / 1024)} KB`;
+
+export default function PhotoResizer() {
+  const [presetKey, setPresetKey] = useState("job");
+  const [custom, setCustom] = useState({ w: "400", h: "400", kb: "150" });
+  const [photo, setPhoto] = useState<Photo | null>(null);
+  const [zoom, setZoom] = useState(1);
+  const [offset, setOffset] = useState({ x: 0, y: 0 });
+  const [result, setResult] = useState<Result | null>(null);
+  const [dragOver, setDragOver] = useState(false);
+  const frameRef = useRef<HTMLDivElement>(null);
+  const drag = useRef<{ px: number; py: number; ox: number; oy: number } | null>(null);
+
+  const preset = PRESETS.find((p) => p.key === presetKey);
+  const size: Size = preset ?? {
+    w: clamp(Math.round(Number(custom.w) || 0), 50, 3000),
+    h: clamp(Math.round(Number(custom.h) || 0), 50, 3000),
+    kb: Number(custom.kb) > 0 ? Number(custom.kb) : null,
+    guide: false,
+  };
+
+  // On-screen crop frame with the target aspect ratio.
+  const frameScale = Math.min(FRAME.w / size.w, FRAME.h / size.h);
+  const frameW = size.w * frameScale;
+  const frameH = size.h * frameScale;
+
+  const nw = photo?.img.naturalWidth ?? 1;
+  const nh = photo?.img.naturalHeight ?? 1;
+  const scale = Math.max(frameW / nw, frameH / nh) * zoom; // screen px per image px
+  const dispW = nw * scale;
+  const dispH = nh * scale;
+  // Keep the photo covering the frame however it is dragged or zoomed.
+  const pos = {
+    x: clamp(offset.x, -(dispW - frameW) / 2, (dispW - frameW) / 2),
+    y: clamp(offset.y, -(dispH - frameH) / 2, (dispH - frameH) / 2),
+  };
+
+  function load(file: Blob) {
+    const url = URL.createObjectURL(file);
+    const img = new Image();
+    img.onload = () => {
+      setPhoto((prev) => {
+        if (prev) URL.revokeObjectURL(prev.url);
+        return { img, url };
+      });
+      setZoom(1);
+      setOffset({ x: 0, y: 0 });
+    };
+    img.src = url;
+  }
+
+  function choosePreset(key: string) {
+    setPresetKey(key);
+    setZoom(1);
+    setOffset({ x: 0, y: 0 });
+  }
+
+  // Re-render the output whenever the crop or target changes.
+  useEffect(() => {
+    if (!photo) return;
+    let cancelled = false;
+    const timer = setTimeout(async () => {
+      const canvas = document.createElement("canvas");
+      canvas.width = size.w;
+      canvas.height = size.h;
+      const ctx = canvas.getContext("2d")!;
+      ctx.fillStyle = "#ffffff";
+      ctx.fillRect(0, 0, size.w, size.h);
+      ctx.imageSmoothingQuality = "high";
+      const srcW = frameW / scale;
+      const srcH = frameH / scale;
+      const cx = nw / 2 - pos.x / scale;
+      const cy = nh / 2 - pos.y / scale;
+      ctx.drawImage(photo.img, cx - srcW / 2, cy - srcH / 2, srcW, srcH, 0, 0, size.w, size.h);
+
+      const { blob, quality } = await compressToLimit(canvas, size.kb);
+      if (cancelled) return;
+      setResult((prev) => {
+        if (prev) URL.revokeObjectURL(prev.url);
+        return { url: URL.createObjectURL(blob), bytes: blob.size, quality, fits: size.kb === null || blob.size <= size.kb * 1024 };
+      });
+    }, 150);
+    return () => {
+      cancelled = true;
+      clearTimeout(timer);
+    };
+  }, [photo, size.w, size.h, size.kb, frameW, frameH, scale, nw, nh, pos.x, pos.y]);
+
+  // Wheel zoom needs a non-passive listener so the page doesn't scroll.
+  useEffect(() => {
+    const el = frameRef.current;
+    if (!el) return;
+    const onWheel = (e: WheelEvent) => {
+      e.preventDefault();
+      setZoom((z) => clamp(z * (e.deltaY < 0 ? 1.1 : 1 / 1.1), 1, MAX_ZOOM));
+    };
+    el.addEventListener("wheel", onWheel, { passive: false });
+    return () => el.removeEventListener("wheel", onWheel);
+  }, [photo]);
+
+  function onPointerDown(e: PointerEvent<HTMLDivElement>) {
+    e.currentTarget.setPointerCapture(e.pointerId);
+    drag.current = { px: e.clientX, py: e.clientY, ox: pos.x, oy: pos.y };
+  }
+  function onPointerMove(e: PointerEvent<HTMLDivElement>) {
+    const d = drag.current;
+    if (d) setOffset({ x: d.ox + e.clientX - d.px, y: d.oy + e.clientY - d.py });
+  }
+  function onKeyDown(e: KeyboardEvent) {
+    const step = e.shiftKey ? 30 : 8;
+    const moves: Record<string, [number, number]> = { ArrowLeft: [step, 0], ArrowRight: [-step, 0], ArrowUp: [0, step], ArrowDown: [0, -step] };
+    if (moves[e.key]) setOffset({ x: pos.x + moves[e.key][0], y: pos.y + moves[e.key][1] });
+    else if (e.key === "+" || e.key === "=") setZoom((z) => clamp(z * 1.1, 1, MAX_ZOOM));
+    else if (e.key === "-") setZoom((z) => clamp(z / 1.1, 1, MAX_ZOOM));
+    else return;
+    e.preventDefault();
+  }
+
+  function onDrop(e: DragEvent) {
+    e.preventDefault();
+    setDragOver(false);
+    const file = e.dataTransfer.files[0];
+    if (file?.type.startsWith("image/")) load(file);
+  }
+
+  async function loadSample() {
+    load(await drawSamplePortrait());
+  }
+
+  return (
+    <div className={styles.card}>
+      <header className={styles.head}>
+        <h3 className={styles.title}>Photo resizer for forms</h3>
+        <p className={styles.subtitle}>Crop, resize and compress to the exact size a form asks for.</p>
+      </header>
+
+      <div className={styles.presets} role="radiogroup" aria-label="Required size">
+        {[...PRESETS, null].map((p) => {
+          const key = p?.key ?? "custom";
+          return (
+            <button
+              key={key}
+              type="button"
+              role="radio"
+              aria-checked={presetKey === key}
+              className={styles.preset}
+              onClick={() => choosePreset(key)}
+            >
+              <span className={styles.presetName}>{p ? p.label : "Custom"}</span>
+              <span className={styles.presetDetail}>
+                {p ? `${p.w}×${p.h}${p.kb ? ` · ≤${p.kb} KB` : ""}` : "Your size"}
+              </span>
+            </button>
+          );
+        })}
+      </div>
+
+      {!preset && (
+        <div className={styles.custom}>
+          {(["w", "h", "kb"] as const).map((k) => (
+            <label key={k} className={styles.customField}>
+              <span>{k === "w" ? "Width (px)" : k === "h" ? "Height (px)" : "Max KB"}</span>
+              <input
+                inputMode="numeric"
+                value={custom[k]}
+                placeholder={k === "kb" ? "No limit" : ""}
+                onChange={(e) => /^\d*$/.test(e.target.value) && setCustom((c) => ({ ...c, [k]: e.target.value }))}
+              />
+            </label>
+          ))}
+        </div>
+      )}
+      <p className={styles.disclaimer}>Common sizes. Always check your form&apos;s own instructions.</p>
+
+      {!photo ? (
+        <label
+          className={styles.dropzone}
+          data-over={dragOver}
+          onDragOver={(e) => {
+            e.preventDefault();
+            setDragOver(true);
+          }}
+          onDragLeave={() => setDragOver(false)}
+          onDrop={onDrop}
+        >
+          <input
+            type="file"
+            accept="image/*"
+            className={styles.fileInput}
+            onChange={(e) => e.target.files?.[0] && load(e.target.files[0])}
+          />
+          <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true" className={styles.dropIcon}>
+            <path d="M12 16V4m0 0-4 4m4-4 4 4M4 16v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" />
+          </svg>
+          <span className={styles.dropTitle}>Drop a photo here, or click to choose</span>
+          <span className={styles.dropNote}>JPG or PNG. It never leaves this device.</span>
+          <button
+            type="button"
+            className={styles.sampleLink}
+            onClick={(e) => {
+              e.preventDefault();
+              loadSample();
+            }}
+          >
+            Try a sample photo
+          </button>
+        </label>
+      ) : (
+        <div className={styles.body}>
+          <div className={styles.editor}>
+            <div
+              ref={frameRef}
+              className={styles.frame}
+              style={{ width: frameW, height: frameH }}
+              tabIndex={0}
+              role="application"
+              aria-label="Crop area. Drag or use arrow keys to move, plus and minus to zoom."
+              onPointerDown={onPointerDown}
+              onPointerMove={onPointerMove}
+              onPointerUp={() => (drag.current = null)}
+              onPointerCancel={() => (drag.current = null)}
+              onKeyDown={onKeyDown}
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={photo.url}
+                alt=""
+                draggable={false}
+                className={styles.photo}
+                style={{ width: dispW, height: dispH, transform: `translate(-50%, -50%) translate(${pos.x}px, ${pos.y}px)` }}
+              />
+              <div className={styles.thirds} aria-hidden="true" />
+              {size.guide && <div className={styles.faceGuide} aria-hidden="true" />}
+            </div>
+            <label className={styles.zoom}>
+              <span>Zoom</span>
+              <input
+                type="range"
+                min={1}
+                max={MAX_ZOOM}
+                step={0.01}
+                value={zoom}
+                onChange={(e) => setZoom(Number(e.target.value))}
+              />
+            </label>
+            <p className={styles.hint}>Drag to move · scroll to zoom</p>
+          </div>
+
+          <div className={styles.output}>
+            <span className={styles.outputLabel}>Result</span>
+            <div className={styles.preview} style={{ aspectRatio: `${size.w} / ${size.h}` }}>
+              {result && (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img src={result.url} alt={`Resized photo, ${size.w} by ${size.h} pixels`} />
+              )}
+            </div>
+            <dl className={styles.facts}>
+              <div>
+                <dt>Size</dt>
+                <dd>
+                  {size.w} × {size.h} px
+                </dd>
+              </div>
+              <div>
+                <dt>File</dt>
+                <dd>
+                  {result ? kb(result.bytes) : "…"}
+                  {size.kb && <span className={styles.limit}> of {size.kb} KB max</span>}
+                </dd>
+              </div>
+              <div>
+                <dt>Quality</dt>
+                <dd>{result ? `${Math.round(result.quality * 100)}%` : "…"}</dd>
+              </div>
+            </dl>
+            {result && (
+              <p className={styles.status} data-ok={result.fits}>
+                <span aria-hidden="true">{result.fits ? "✓" : "!"}</span>
+                {result.fits ? "Ready for upload" : `Still over ${size.kb} KB. Try a smaller size or a plainer background.`}
+              </p>
+            )}
+            <a
+              className={styles.download}
+              href={result?.url}
+              download={`photo-${size.w}x${size.h}.jpg`}
+              aria-disabled={!result}
+            >
+              Download JPG
+            </a>
+            <button
+              type="button"
+              className={styles.replace}
+              onClick={() => {
+                setPhoto(null);
+                setResult(null);
+              }}
+            >
+              Use a different photo
+            </button>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+19:["$","pre",null,{"children":["$","code",null,{"children":"$1c"}]}]
