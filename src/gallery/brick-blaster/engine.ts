@@ -4,7 +4,7 @@ import type { Sound } from "./sound";
 // Logical playfield; the canvas scales it to fit.
 export const W = 800;
 export const H = 600;
-const PADDLE_Y = 556;
+export const MAX_H = 1440;
 const PADDLE_H = 14;
 const PADDLE_W = 110;
 const BALL_R = 7;
@@ -96,9 +96,37 @@ export class Game {
   onBest?: (score: number) => void;
   private acc = 0;
   private explosions: { brick: Brick; at: number }[] = [];
-  private stars = Array.from({ length: 130 }, () => ({ x: Math.random() * W, y: Math.random() * H, s: Math.random() * 1.5 + 0.3, t: Math.random() * 6.28 }));
+  /** Playfield height in logical units; taller than 600 on portrait phones. */
+  h = H;
+  /** Touch device: changes the on-canvas hint text. */
+  touch = false;
+  /** On-screen CSS pixels per logical unit; small screens get a bigger ball and text. */
+  viewScale = 1;
+  private stars = Array.from({ length: 260 }, () => ({ x: Math.random() * W, y: Math.random() * MAX_H, s: Math.random() * 1.5 + 0.3, t: Math.random() * 6.28 }));
 
   private sound: Sound;
+
+  get paddleY() {
+    return this.h - 44;
+  }
+
+  /** Visual boost for text and pickups when the canvas is drawn small (phones). */
+  private get boost() {
+    return clamp(0.72 / this.viewScale, 1, 1.9);
+  }
+
+  /** Resize the playfield height (e.g. phone rotated); keeps balls in play. */
+  setHeight(h: number) {
+    if (h === this.h) return;
+    this.h = h;
+    for (const b of this.balls) {
+      if (b.stuck) b.y = this.paddleY - BALL_R - 1;
+      else if (b.y > this.paddleY - 30) {
+        b.y = this.paddleY - 30;
+        b.vy = -Math.abs(b.vy);
+      }
+    }
+  }
 
   constructor(sound: Sound) {
     this.sound = sound;
@@ -152,7 +180,7 @@ export class Game {
     this.drops = [];
     this.bolts = [];
     this.explosions = [];
-    this.balls = [{ x: this.paddle.x, y: PADDLE_Y - BALL_R - 1, vx: 0, vy: 0, stuck: true, offset: 0, trail: [] }];
+    this.balls = [{ x: this.paddle.x, y: this.paddleY - BALL_R - 1, vx: 0, vy: 0, stuck: true, offset: 0, trail: [] }];
     this.phase = "ready";
   }
 
@@ -174,10 +202,15 @@ export class Game {
       return;
     }
     if (this.timers.laser && this.laserCooldown <= 0) {
-      this.bolts.push({ x: this.paddle.x - this.paddle.w / 2 + 8, y: PADDLE_Y - 4 }, { x: this.paddle.x + this.paddle.w / 2 - 8, y: PADDLE_Y - 4 });
+      this.bolts.push({ x: this.paddle.x - this.paddle.w / 2 + 8, y: this.paddleY - 4 }, { x: this.paddle.x + this.paddle.w / 2 - 8, y: this.paddleY - 4 });
       this.laserCooldown = 0.2;
       this.sound.laser();
     }
+  }
+
+  /** Fire the laser only (touch hold auto-fire); never launches a ball. */
+  fire() {
+    if (this.phase === "playing" && this.timers.laser && this.laserCooldown <= 0 && !this.balls.some((b) => b.stuck)) this.action();
   }
 
   togglePause() {
@@ -188,7 +221,9 @@ export class Game {
   private speed() {
     const base = 360 + this.level * 14 + this.loop * 60;
     const ramp = 1 + Math.min(this.levelTime / 100, 0.3);
-    return base * ramp * (this.timers.slow ? 0.7 : 1) * (this.timers.fast ? 1.35 : 1);
+    // A taller (portrait) field means a longer trip, so the ball moves a little faster to keep the pace.
+    const tall = (this.h / H) ** 0.6;
+    return base * ramp * tall * (this.timers.slow ? 0.7 : 1) * (this.timers.fast ? 1.35 : 1);
   }
 
   private release(b: Ball) {
@@ -253,7 +288,7 @@ export class Game {
     for (const ball of this.balls) {
       if (ball.stuck) {
         ball.x = p.x + ball.offset;
-        ball.y = PADDLE_Y - BALL_R - 1;
+        ball.y = this.paddleY - BALL_R - 1;
         continue;
       }
       // Ease each ball towards the current target speed.
@@ -267,7 +302,7 @@ export class Game {
       ball.trail.push({ x: ball.x, y: ball.y });
       if (ball.trail.length > 10) ball.trail.shift();
     }
-    this.balls = this.balls.filter((b) => b.y - BALL_R < H + 20);
+    this.balls = this.balls.filter((b) => b.y - BALL_R < this.h + 20);
     if (!this.balls.length) {
       this.loseLife();
       return;
@@ -278,9 +313,9 @@ export class Game {
       d.spin += h * 4;
     }
     this.drops = this.drops.filter((d) => {
-      const caught = d.y + 10 >= PADDLE_Y && d.y - 10 <= PADDLE_Y + PADDLE_H && Math.abs(d.x - p.x) < p.w / 2 + 16;
+      const caught = d.y + 10 >= this.paddleY && d.y - 10 <= this.paddleY + PADDLE_H && Math.abs(d.x - p.x) < p.w / 2 + 16;
       if (caught) this.applyPower(d.kind, d.x);
-      return !caught && d.y < H + 20;
+      return !caught && d.y < this.h + 20;
     });
 
     for (const bolt of this.bolts) bolt.y -= 900 * h;
@@ -299,7 +334,7 @@ export class Game {
     if (!this.bricks.some((b) => b.alive && b.type !== "metal")) {
       const bonus = 1000 + this.lives * 250;
       this.score += bonus;
-      this.popups.push({ x: W / 2, y: H / 2 + 40, text: `Level clear +${bonus}`, life: 2, color: "#e8c43b" });
+      this.popups.push({ x: W / 2, y: this.h / 2 + 40, text: `Level clear +${bonus}`, life: 2, color: "#e8c43b" });
       this.sound.level();
       this.phase = "levelClear";
       this.clearTimer = 2;
@@ -333,13 +368,13 @@ export class Game {
       }
 
       // Paddle: the further from the centre, the sharper the angle (up to ~60°).
-      if (ball.vy > 0 && ball.y + BALL_R >= PADDLE_Y && ball.y - BALL_R <= PADDLE_Y + PADDLE_H && Math.abs(ball.x - p.x) <= p.w / 2 + BALL_R) {
+      if (ball.vy > 0 && ball.y + BALL_R >= this.paddleY && ball.y - BALL_R <= this.paddleY + PADDLE_H && Math.abs(ball.x - p.x) <= p.w / 2 + BALL_R) {
         const offset = clamp((ball.x - p.x) / (p.w / 2), -1, 1);
         const angle = offset * 1.05;
         const sp = Math.hypot(ball.vx, ball.vy);
         ball.vx = sp * Math.sin(angle);
         ball.vy = -sp * Math.cos(angle);
-        ball.y = PADDLE_Y - BALL_R;
+        ball.y = this.paddleY - BALL_R;
         this.sound.paddle();
         if (this.timers.catch) {
           ball.stuck = true;
@@ -348,10 +383,10 @@ export class Game {
         }
       }
 
-      if (this.shield && ball.vy > 0 && ball.y + BALL_R >= H - 6) {
+      if (this.shield && ball.vy > 0 && ball.y + BALL_R >= this.h - 6) {
         ball.vy = -Math.abs(ball.vy);
         this.shield = false;
-        for (let k = 0; k < 20; k++) this.spark(Math.random() * W, H - 6, "#6da7ec", 1);
+        for (let k = 0; k < 20; k++) this.spark(Math.random() * W, this.h - 6, "#6da7ec", 1);
         this.sound.metal();
       }
 
@@ -431,7 +466,7 @@ export class Game {
   private applyPower(kind: PowerKind, x: number) {
     const info = POWERS[kind];
     this.sound.powerUp(info.good);
-    this.popups.push({ x, y: PADDLE_Y - 24, text: info.label, life: 1.1, color: info.good ? info.color : "#ff7b7b" });
+    this.popups.push({ x, y: this.paddleY - 24, text: info.label, life: 1.1, color: info.good ? info.color : "#ff7b7b" });
     this.score += 25;
     switch (kind) {
       case "expand":
@@ -535,12 +570,12 @@ export class Game {
   // ── Rendering ─────────────────────────────────────────────────────────────────────
   render(ctx: CanvasRenderingContext2D, scale: number) {
     ctx.setTransform(scale, 0, 0, scale, 0, 0);
-    const bg = ctx.createLinearGradient(0, 0, 0, H);
+    const bg = ctx.createLinearGradient(0, 0, 0, this.h);
     bg.addColorStop(0, "#0b1030");
     bg.addColorStop(0.6, "#1a0f3a");
     bg.addColorStop(1, "#2a0f2e");
     ctx.fillStyle = bg;
-    ctx.fillRect(0, 0, W, H);
+    ctx.fillRect(0, 0, W, this.h);
     for (const s of this.stars) {
       ctx.globalAlpha = 0.35 + 0.35 * Math.sin(s.t * (this.reduced ? 0 : 1.2) + s.x);
       ctx.fillStyle = "#cfd8ff";
@@ -555,9 +590,9 @@ export class Game {
 
     if (this.shield) {
       ctx.fillStyle = "rgba(109,167,236,0.35)";
-      ctx.fillRect(0, H - 8, W, 4);
+      ctx.fillRect(0, this.h - 8, W, 4);
       ctx.fillStyle = "#9cc6f5";
-      ctx.fillRect(0, H - 7, W, 1.5);
+      ctx.fillRect(0, this.h - 7, W, 1.5);
     }
 
     for (const d of this.drops) this.drawDrop(ctx, d);
@@ -598,7 +633,7 @@ export class Game {
     ctx.textAlign = "center";
     for (const t of this.popups) {
       ctx.globalAlpha = Math.min(1, t.life * 2);
-      ctx.font = "700 15px system-ui, sans-serif";
+      ctx.font = `700 ${15 * this.boost}px system-ui, sans-serif`;
       ctx.fillStyle = t.color;
       ctx.fillText(t.text, t.x, t.y);
     }
@@ -606,21 +641,21 @@ export class Game {
 
     if (this.banner > 0 && this.phase !== "title") {
       ctx.globalAlpha = Math.min(1, this.banner);
-      ctx.font = "800 44px system-ui, sans-serif";
+      ctx.font = `800 ${44 * Math.min(this.boost, 1.5)}px system-ui, sans-serif`;
       ctx.fillStyle = "#ffffff";
       ctx.shadowColor = "#8b5cf6";
       ctx.shadowBlur = 20;
-      ctx.fillText(`LEVEL ${this.level + 1}`, W / 2, H / 2 + 20);
+      ctx.fillText(`LEVEL ${this.level + 1}`, W / 2, this.h / 2 + 20);
       ctx.shadowBlur = 0;
-      ctx.font = "600 18px system-ui, sans-serif";
+      ctx.font = `600 ${18 * this.boost}px system-ui, sans-serif`;
       ctx.fillStyle = "#c9c2ff";
-      ctx.fillText(LEVELS[this.level].name, W / 2, H / 2 + 50);
+      ctx.fillText(LEVELS[this.level].name, W / 2, this.h / 2 + 20 + 30 * this.boost);
       ctx.globalAlpha = 1;
     }
     if (this.phase === "ready" && this.banner <= 0.6) {
-      ctx.font = "600 15px system-ui, sans-serif";
+      ctx.font = `600 ${15 * this.boost}px system-ui, sans-serif`;
       ctx.fillStyle = `rgba(255,255,255,${0.55 + 0.35 * Math.sin(this.time * 4)})`;
-      ctx.fillText("Click or press Space to launch", W / 2, PADDLE_Y - 40);
+      ctx.fillText(this.touch ? "Tap to launch" : "Click or press Space to launch", W / 2, this.paddleY - 40);
     }
   }
 
@@ -702,8 +737,8 @@ export class Game {
 
   private drawDrop(ctx: CanvasRenderingContext2D, d: Drop) {
     const info = POWERS[d.kind];
-    const w = 38;
-    const h = 16;
+    const w = 38 * this.boost;
+    const h = 16 * this.boost;
     const g = ctx.createLinearGradient(0, d.y - h / 2, 0, d.y + h / 2);
     g.addColorStop(0, mix(info.color, 255, 0.5));
     g.addColorStop(0.5, info.color);
@@ -716,7 +751,7 @@ export class Game {
     ctx.fill();
     ctx.shadowBlur = 0;
     ctx.fillStyle = "#ffffff";
-    ctx.font = "800 11px system-ui, sans-serif";
+    ctx.font = `800 ${11 * this.boost}px system-ui, sans-serif`;
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
     ctx.fillText(info.letter, d.x, d.y + 1);
@@ -726,7 +761,7 @@ export class Game {
   private drawPaddle(ctx: CanvasRenderingContext2D) {
     const p = this.paddle;
     const x = p.x - p.w / 2;
-    const g = ctx.createLinearGradient(0, PADDLE_Y, 0, PADDLE_Y + PADDLE_H);
+    const g = ctx.createLinearGradient(0, this.paddleY, 0, this.paddleY + PADDLE_H);
     g.addColorStop(0, "#f5f7ff");
     g.addColorStop(0.45, "#a8b1cc");
     g.addColorStop(1, "#4b5470");
@@ -734,42 +769,44 @@ export class Game {
     ctx.shadowBlur = 18;
     ctx.fillStyle = g;
     ctx.beginPath();
-    ctx.roundRect(x, PADDLE_Y, p.w, PADDLE_H, PADDLE_H / 2);
+    ctx.roundRect(x, this.paddleY, p.w, PADDLE_H, PADDLE_H / 2);
     ctx.fill();
     ctx.shadowBlur = 0;
     // Coloured end caps, like the classic.
     const cap = this.timers.laser ? "#ff4fb3" : this.timers.catch ? "#46b35e" : "#e5484d";
     ctx.fillStyle = cap;
     ctx.beginPath();
-    ctx.roundRect(x, PADDLE_Y, 16, PADDLE_H, [PADDLE_H / 2, 0, 0, PADDLE_H / 2]);
-    ctx.roundRect(x + p.w - 16, PADDLE_Y, 16, PADDLE_H, [0, PADDLE_H / 2, PADDLE_H / 2, 0]);
+    ctx.roundRect(x, this.paddleY, 16, PADDLE_H, [PADDLE_H / 2, 0, 0, PADDLE_H / 2]);
+    ctx.roundRect(x + p.w - 16, this.paddleY, 16, PADDLE_H, [0, PADDLE_H / 2, PADDLE_H / 2, 0]);
     ctx.fill();
     if (this.timers.laser) {
       ctx.fillStyle = "#ffd1ec";
-      ctx.fillRect(x + 6, PADDLE_Y - 6, 4, 6);
-      ctx.fillRect(x + p.w - 10, PADDLE_Y - 6, 4, 6);
+      ctx.fillRect(x + 6, this.paddleY - 6, 4, 6);
+      ctx.fillRect(x + p.w - 10, this.paddleY - 6, 4, 6);
     }
   }
 
   private drawBall(ctx: CanvasRenderingContext2D, ball: Ball) {
     const fire = Boolean(this.timers.fire);
+    // Drawn a little larger on small screens so it stays easy to track.
+    const r = BALL_R * Math.min(this.boost, 1.45);
     ball.trail.forEach((t, i) => {
       const a = (i + 1) / ball.trail.length;
       ctx.globalAlpha = a * 0.35;
       ctx.fillStyle = fire ? "#ff8a3d" : "#9fb6ff";
       ctx.beginPath();
-      ctx.arc(t.x, t.y, BALL_R * a * (fire ? 1.3 : 0.9), 0, Math.PI * 2);
+      ctx.arc(t.x, t.y, r * a * (fire ? 1.3 : 0.9), 0, Math.PI * 2);
       ctx.fill();
     });
     ctx.globalAlpha = 1;
-    const g = ctx.createRadialGradient(ball.x - 2, ball.y - 2, 1, ball.x, ball.y, BALL_R);
+    const g = ctx.createRadialGradient(ball.x - r * 0.3, ball.y - r * 0.3, 1, ball.x, ball.y, r);
     g.addColorStop(0, "#ffffff");
     g.addColorStop(1, fire ? "#ff6a1a" : "#b9c8ff");
     ctx.shadowColor = fire ? "#ff6a1a" : "#ffffff";
     ctx.shadowBlur = fire ? 20 : 12;
     ctx.fillStyle = g;
     ctx.beginPath();
-    ctx.arc(ball.x, ball.y, BALL_R, 0, Math.PI * 2);
+    ctx.arc(ball.x, ball.y, r, 0, Math.PI * 2);
     ctx.fill();
     ctx.shadowBlur = 0;
   }
