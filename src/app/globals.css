@@ -91,24 +91,3 @@ a { color: inherit; }
 .pager a { color: var(--muted); font-size: 14px; text-decoration: none; }
 .pager a:hover { color: var(--text); }
 
-/* Games: a separate section from the weekly components. */
-.site-header nav { display: flex; gap: 18px; }
-.games { padding-top: 8px; border-top: 1px solid var(--border); }
-.games > h2 { margin: 32px 0 4px; font-size: 24px; }
-.section-note { margin: 0 0 20px; color: var(--muted); font-size: 14px; }
-.poster { display: flex; flex-direction: column; justify-content: center; gap: 6px; text-align: center; }
-.poster-title { font-size: 34px; font-weight: 900; font-style: italic; letter-spacing: 0.04em; text-transform: uppercase; }
-.poster-tagline { font-size: 13px; }
-.poster-brick-blaster {
-  background:
-    radial-gradient(circle at 78% 58%, rgba(255, 60, 30, 0.55) 0 34px, rgba(255, 40, 20, 0.18) 35px, transparent 90px),
-    linear-gradient(180deg, #050206, #2a0709 55%, #8a2a0e);
-}
-.poster-brick-blaster .poster-title {
-  background: linear-gradient(180deg, #ffd36a, #ff5a1f 55%, #c4120a);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  filter: drop-shadow(0 3px 12px rgba(255, 60, 20, 0.6));
-}
-.poster-brick-blaster .poster-tagline { color: #e8b8a8; }

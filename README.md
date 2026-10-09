@@ -46,11 +46,3 @@ Builds the site into `.next-deploy/` (separate from the dev server's `.next/`) a
 | 11 | Dec 10 – Dec 16 | |
 | 12 | Dec 17 – Dec 23 | |
 | 13 | Dec 24 – Dec 29 | |
-
-## Games
-
-Side projects, kept separate from the weekly components (they don't count toward the 30). Code lives in `src/games/<slug>/`, pages at `/component-gallery/games/<slug>/`.
-
-| Game | Added |
-|------|-------|
-| [Brick Blaster](https://rownok-hr-ls.github.io/component-gallery/games/brick-blaster/) | 2026-10-09 |

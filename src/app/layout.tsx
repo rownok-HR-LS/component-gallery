@@ -18,7 +18,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
               {site.title}
             </Link>
             <nav>
-              <Link href="/#games">Games</Link>
               <a href={site.repoUrl}>GitHub</a>
             </nav>
           </div>

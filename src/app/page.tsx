@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { Demo } from "@/gallery/demos";
 import { gallery } from "@/gallery/registry";
-import { games } from "@/games/registry";
 
 const GOAL = 30;
 
@@ -48,30 +47,6 @@ export default function Home() {
             </li>
           ))}
         </ul>
-      )}
-
-      {games.length > 0 && (
-        <section id="games" className="games">
-          <h2>Games</h2>
-          <p className="section-note">Side projects, separate from the weekly component challenge.</p>
-          <ul className="grid">
-            {games.map((game) => (
-              <li key={game.slug} className="card">
-                <div className={`card-preview poster poster-${game.slug}`} aria-hidden="true">
-                  <span className="poster-title">{game.name}</span>
-                  <span className="poster-tagline">{game.tagline}</span>
-                </div>
-                <div className="card-body">
-                  <span className="tag">Game</span>
-                  <h2>
-                    <Link href={`/games/${game.slug}`}>{game.name}</Link>
-                  </h2>
-                  <p>{game.description}</p>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </section>
       )}
     </main>
   );
