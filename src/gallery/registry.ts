@@ -124,6 +124,14 @@ export const gallery: GalleryEntry[] = [
     week: 7,
     addedOn: "2026-10-09",
   },
+  {
+    slug: "brick-blaster",
+    name: "Brick Blaster (DX-Ball tribute)",
+    description:
+      "A polished DX-Ball-style brick breaker: 10 levels, strong, metal, explosive and mystery bricks, 10 power-ups including multi-ball, fireball and laser, particles and synth sound.",
+    week: 8,
+    addedOn: "2026-10-09",
+  },
 ];
 
 export function getEntry(slug: string) {
